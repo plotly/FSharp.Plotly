@@ -337,7 +337,7 @@ module ChartPolar =
                         Mode    = changeMode StyleParam.Mode.Markers
                     ) 
                     >> TraceStyle.TraceInfo(?Name=Name,?ShowLegend=ShowLegend,?Opacity=Opacity)
-                    >> TraceStyle.Marker(?Color=Color,?Symbol=MarkerSymbol,MultiSizes=sizes)
+                    >> TraceStyle.Marker(?Color=Color,?Symbol=MarkerSymbol,MultiSize=sizes)
                     >> TraceStyle.TextLabel(?Text=Labels,?Textposition=TextPosition,?Textfont=TextFont)
 
                 let useWebGL = defaultArg UseWebGL false

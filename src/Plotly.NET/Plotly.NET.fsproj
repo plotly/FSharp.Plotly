@@ -34,6 +34,7 @@
   <ItemGroup>
     <None Include="..\..\docs\img\logo.png" Pack="true" PackagePath="\" />
     <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="InternalUtils.fs" />
     <Compile Include="CommonAbstractions\StyleParams.fs" />
     <Compile Include="CommonAbstractions\ColorKeyword.fs" />
     <Compile Include="CommonAbstractions\Colors.fs" />
@@ -75,6 +76,8 @@
     <Compile Include="Layout\ObjectAbstractions\Polar\RadialAxis.fs" />
     <Compile Include="Layout\ObjectAbstractions\Polar\Polar.fs" />
     <Compile Include="Layout\Layout.fs" />
+    <Compile Include="Traces\ObjectAbstractions\Pattern.fs" />
+    <Compile Include="Traces\ObjectAbstractions\Gradient.fs" />
     <Compile Include="Traces\ObjectAbstractions\Marker.fs" />
     <Compile Include="Traces\ObjectAbstractions\Projection.fs" />
     <Compile Include="Traces\ObjectAbstractions\Surface.fs" />
@@ -126,8 +129,8 @@
     <None Include="Playground.fsx" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DynamicObj" Version="0.0.3" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="DynamicObj" Version="0.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DisplayOptions\ObjectAbstractions\" />

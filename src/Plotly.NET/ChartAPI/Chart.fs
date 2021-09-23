@@ -121,16 +121,65 @@ type Chart =
     [<CompiledName("WithMarkerStyle")>]
     static member withMarkerStyle
         (
-            [<Optional;DefaultParameterValue(null)>] ?Size,
-            [<Optional;DefaultParameterValue(null)>] ?Color,
-            [<Optional;DefaultParameterValue(null)>] ?Symbol,
-            [<Optional;DefaultParameterValue(null)>] ?Opacity
+            [<Optional;DefaultParameterValue(null)>] ?AutoColorScale    : bool,
+            [<Optional;DefaultParameterValue(null)>] ?CAuto             : bool,
+            [<Optional;DefaultParameterValue(null)>] ?CMax              : float,
+            [<Optional;DefaultParameterValue(null)>] ?CMid              : float,
+            [<Optional;DefaultParameterValue(null)>] ?CMin              : float,
+            [<Optional;DefaultParameterValue(null)>] ?Color             : Color,
+            [<Optional;DefaultParameterValue(null)>] ?Colors            : seq<Color>,
+            [<Optional;DefaultParameterValue(null)>] ?ColorAxis         : StyleParam.SubPlotId,
+            [<Optional;DefaultParameterValue(null)>] ?ColorBar          : ColorBar,
+            [<Optional;DefaultParameterValue(null)>] ?Colorscale        : StyleParam.Colorscale,
+            [<Optional;DefaultParameterValue(null)>] ?Gradient          : Gradient,
+            [<Optional;DefaultParameterValue(null)>] ?Outline           : Line,
+            [<Optional;DefaultParameterValue(null)>] ?Size              : int,
+            [<Optional;DefaultParameterValue(null)>] ?MultiSize         : seq<int>,
+            [<Optional;DefaultParameterValue(null)>] ?Opacity           : float,
+            [<Optional;DefaultParameterValue(null)>] ?MultiOpacity      : seq<float>,
+            [<Optional;DefaultParameterValue(null)>] ?Pattern           : Pattern,
+            [<Optional;DefaultParameterValue(null)>] ?Symbol            : StyleParam.MarkerSymbol,
+            [<Optional;DefaultParameterValue(null)>] ?MultiSymbols      : seq<StyleParam.MarkerSymbol>,
+            [<Optional;DefaultParameterValue(null)>] ?OutlierColor      : Color,
+            [<Optional;DefaultParameterValue(null)>] ?Maxdisplayed      : int,
+            [<Optional;DefaultParameterValue(null)>] ?ReverseScale      : bool,
+            [<Optional;DefaultParameterValue(null)>] ?ShowScale         : bool,
+            [<Optional;DefaultParameterValue(null)>] ?SizeMin           : int,
+            [<Optional;DefaultParameterValue(null)>] ?SizeMode          : StyleParam.MarkerSizeMode,
+            [<Optional;DefaultParameterValue(null)>] ?SizeRef           : int
         ) =
-            let marker = 
-                Marker.init ( 
-                    ?Size=Size,?Color=Color,?Symbol=Symbol,?Opacity=Opacity
+            fun (ch:GenericChart) ->
+                ch 
+                |> mapTrace (
+                    TraceStyle.Marker(
+                       ?AutoColorScale    = AutoColorScale,
+                       ?CAuto             = CAuto         ,
+                       ?CMax              = CMax          ,
+                       ?CMid              = CMid          ,
+                       ?CMin              = CMin          ,
+                       ?Color             = Color         ,
+                       ?Colors            = Colors        ,
+                       ?ColorAxis         = ColorAxis     ,
+                       ?ColorBar          = ColorBar      ,
+                       ?Colorscale        = Colorscale    ,
+                       ?Gradient          = Gradient      ,
+                       ?Outline           = Outline       ,
+                       ?Size              = Size          ,
+                       ?MultiSize       = MultiSize    ,
+                       ?Opacity           = Opacity       ,
+                       ?MultiOpacity    = MultiOpacity,
+                       ?Pattern           = Pattern,
+                       ?Symbol            = Symbol        ,
+                       ?MultiSymbols      = MultiSymbols  ,
+                       ?OutlierColor      = OutlierColor  ,
+                       ?Maxdisplayed      = Maxdisplayed  ,
+                       ?ReverseScale      = ReverseScale  ,
+                       ?ShowScale         = ShowScale     ,
+                       ?SizeMin           = SizeMin       ,
+                       ?SizeMode          = SizeMode      ,
+                       ?SizeRef           = SizeRef
                     )
-            Chart.withMarker(marker)
+                )
 
     /// Apply styling to the Line(s) of the chart as Object.
     [<CompiledName("WithLine")>]
@@ -148,12 +197,21 @@ type Chart =
             [<Optional;DefaultParameterValue(null)>] ?Shape,
             [<Optional;DefaultParameterValue(null)>] ?Dash,
             [<Optional;DefaultParameterValue(null)>] ?Smoothing,
-            [<Optional;DefaultParameterValue(null)>] ?Colorscale
+            [<Optional;DefaultParameterValue(null)>] ?Colorscale,
+            [<Optional;DefaultParameterValue(null)>] ?OutlierColor,
+            [<Optional;DefaultParameterValue(null)>] ?OutlierWidth
         ) =
             let line =
                 Line.init (
-                    ?Width=Width,?Color=Color,?Shape=Shape,?Dash=Dash,?Smoothing=Smoothing,?Colorscale=Colorscale)
-
+                    ?Width          = Width,
+                    ?Color          = Color,
+                    ?Shape          = Shape,
+                    ?Dash           = Dash,
+                    ?Smoothing      = Smoothing,
+                    ?Colorscale     = Colorscale,
+                    ?OutlierColor   = OutlierColor,
+                    ?OutlierWidth   = OutlierWidth
+                )
             Chart.withLine(line)
 
     /// Apply styling to the xError(s) of the chart as Object

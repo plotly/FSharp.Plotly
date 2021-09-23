@@ -234,7 +234,7 @@ module ChartDomain =
                 )
             )
             |> TraceStyle.TraceInfo(?Name=Name,?ShowLegend=ShowLegend,?Opacity=Opacity)
-            |> TraceStyle.Marker(?Color=Color,?Line=Line)
+            |> TraceStyle.Marker(?Color=Color,?Outline=Line)
             |> TraceStyle.Domain(?X=X,?Y=Y,?Row=Row,?Column=Column)
             |> TraceStyle.TextLabel(?Text=Text,?Textposition=TextPosition)
             |> GenericChart.ofTraceObject

@@ -521,7 +521,7 @@ module Chart2D =
                     ?Orientation= Orientation, 
                     ?GroupNorm  = GroupNorm)                  
                 >> TraceStyle.TraceInfo(?Name=Name,?ShowLegend=ShowLegend,?Opacity=Opacity)
-                >> TraceStyle.Marker(?Color=Color,?Symbol=MarkerSymbol, MultiSizes=sizes)
+                >> TraceStyle.Marker(?Color=Color,?Symbol=MarkerSymbol, MultiSize=sizes)
                 >> TraceStyle.TextLabel(?Text=Labels,?Textposition=TextPosition,?Textfont=TextFont)
 
             let useWebGL = defaultArg UseWebGL false
@@ -880,7 +880,7 @@ module Chart2D =
                     )
                 )
                 |> TraceStyle.TraceInfo(?Name=Name,?ShowLegend=ShowLegend,?Opacity=Opacity)
-                |> TraceStyle.Marker(?Color=Color,?Line=Line)
+                |> TraceStyle.Marker(?Color=Color,?Outline=Line)
                 |> TraceStyle.TextLabel(?Text=Labels,?Textposition=TextPosition,?Textfont=TextFont)
                 |> GenericChart.ofTraceObject
 
@@ -982,156 +982,418 @@ module Chart2D =
                 )
                 |> GenericChart.ofTraceObject
 
+        /// Illustrates comparisons among individual items
+        [<Extension>]
+        static member Bar
+            (
+                values: seq<#IConvertible>,
+                [<Optional;DefaultParameterValue(null)>] ?Keys              : seq<#IConvertible>, 
+                [<Optional;DefaultParameterValue(null)>] ?Name              : string         ,
+                [<Optional;DefaultParameterValue(null)>] ?ShowLegend        : bool,
+                [<Optional;DefaultParameterValue(null)>] ?Color             : Color             ,
+                [<Optional;DefaultParameterValue(null)>] ?PatternShape      : StyleParam.PatternShape,
+                [<Optional;DefaultParameterValue(null)>] ?MultiPatternShape : seq<StyleParam.PatternShape>,
+                [<Optional;DefaultParameterValue(null)>] ?Pattern           : Pattern,
+                [<Optional;DefaultParameterValue(null)>] ?Base              : #IConvertible,
+                [<Optional;DefaultParameterValue(null)>] ?Width             : #IConvertible,
+                [<Optional;DefaultParameterValue(null)>] ?MultiWidth        : seq<#IConvertible>,
+                [<Optional;DefaultParameterValue(null)>] ?Opacity           : float,
+                [<Optional;DefaultParameterValue(null)>] ?MultiOpacity      : seq<float>,
+                [<Optional;DefaultParameterValue(null)>] ?Text              : #IConvertible,
+                [<Optional;DefaultParameterValue(null)>] ?MultiText         : seq<#IConvertible>,
+                [<Optional;DefaultParameterValue(null)>] ?TextPosition      : StyleParam.TextPosition,
+                [<Optional;DefaultParameterValue(null)>] ?MultiTextPosition : seq<StyleParam.TextPosition>,
+                [<Optional;DefaultParameterValue(null)>] ?TextFont          : Font,
+                [<Optional;DefaultParameterValue(null)>] ?Marker            : Marker
+            ) = 
+
+                let pattern = 
+                    Pattern
+                    |> Option.defaultValue (TraceObjects.Pattern.init())
+                    |> TraceObjects.Pattern.style(
+                        ?Shape = PatternShape,
+                        ?MultiShape = MultiPatternShape
+                    )
+                let marker =
+                    Marker 
+                    |> Option.defaultValue (TraceObjects.Marker.init())
+                    |> TraceObjects.Marker.style(
+                        ?Color          = Color,
+                        Pattern        = pattern,
+                        ?MultiOpacity = MultiOpacity
+                    )
+
+
+                Trace2D.initBar (
+                    Trace2DStyle.Bar(
+                        X                   = values,
+                        ?Y                  = Keys,
+                        Orientation         = StyleParam.Orientation.Horizontal,
+                        ?Name               = Name              ,
+                        ?ShowLegend         = ShowLegend        ,
+                        ?Base               = Base              ,
+                        ?Width              = Width             ,
+                        ?MultiWidth         = MultiWidth        ,
+                        ?Opacity            = Opacity           ,
+                        ?Text               = Text              ,
+                        ?MultiText          = MultiText         ,
+                        ?TextPosition       = TextPosition      ,
+                        ?MultiTextPosition  = MultiTextPosition ,
+                        ?TextFont           = TextFont          ,
+                        Marker              = marker            
+                    )
+                )
+                |> GenericChart.ofTraceObject  
 
         /// Illustrates comparisons among individual items
         [<Extension>]
-        static member Column(keys, values,
-                [<Optional;DefaultParameterValue(null)>] ?Name,
-                [<Optional;DefaultParameterValue(null)>] ?ShowLegend,
-                [<Optional;DefaultParameterValue(null)>] ?Color,
-                [<Optional;DefaultParameterValue(null)>] ?Opacity,
-                [<Optional;DefaultParameterValue(null)>] ?Labels,
-                [<Optional;DefaultParameterValue(null)>] ?TextPosition,
-                [<Optional;DefaultParameterValue(null)>] ?TextFont,
-                [<Optional;DefaultParameterValue(null)>] ?Marker: Marker) = 
+        static member Bar
+            (
+                keysValues: seq<#IConvertible * #IConvertible>,
+                [<Optional;DefaultParameterValue(null)>] ?Name              : string         ,
+                [<Optional;DefaultParameterValue(null)>] ?ShowLegend        : bool,
+                [<Optional;DefaultParameterValue(null)>] ?Color             : Color             ,
+                [<Optional;DefaultParameterValue(null)>] ?PatternShape      : StyleParam.PatternShape,
+                [<Optional;DefaultParameterValue(null)>] ?MultiPatternShape : seq<StyleParam.PatternShape>,
+                [<Optional;DefaultParameterValue(null)>] ?Pattern           : Pattern,
+                [<Optional;DefaultParameterValue(null)>] ?Base              : #IConvertible,
+                [<Optional;DefaultParameterValue(null)>] ?Width             : #IConvertible,
+                [<Optional;DefaultParameterValue(null)>] ?MultiWidth        : seq<#IConvertible>,
+                [<Optional;DefaultParameterValue(null)>] ?Opacity           : float,
+                [<Optional;DefaultParameterValue(null)>] ?MultiOpacity      : seq<float>,
+                [<Optional;DefaultParameterValue(null)>] ?Text              : #IConvertible,
+                [<Optional;DefaultParameterValue(null)>] ?MultiText         : seq<#IConvertible>,
+                [<Optional;DefaultParameterValue(null)>] ?TextPosition      : StyleParam.TextPosition,
+                [<Optional;DefaultParameterValue(null)>] ?MultiTextPosition : seq<StyleParam.TextPosition>,
+                [<Optional;DefaultParameterValue(null)>] ?TextFont          : Font,
+                [<Optional;DefaultParameterValue(null)>] ?Marker            : Marker
+            ) = 
+                let keys,values = Seq.unzip keysValues
+                Chart.Bar(
+                    values,
+                    keys,
+                    ?Name               = Name             ,
+                    ?ShowLegend         = ShowLegend       ,
+                    ?Color              = Color            ,
+                    ?PatternShape       = PatternShape     ,
+                    ?MultiPatternShape  = MultiPatternShape,
+                    ?Pattern            = Pattern          ,
+                    ?Base               = Base             ,
+                    ?Width              = Width            ,
+                    ?MultiWidth         = MultiWidth       ,
+                    ?Opacity            = Opacity          ,
+                    ?MultiOpacity       = MultiOpacity     ,
+                    ?Text               = Text             ,
+                    ?MultiText          = MultiText        ,
+                    ?TextPosition       = TextPosition     ,
+                    ?MultiTextPosition  = MultiTextPosition,
+                    ?TextFont           = TextFont         ,
+                    ?Marker             = Marker           
+                )
 
-            let marker =
-                match Marker with 
-                | Some marker -> marker |> TraceObjects.Marker.style(?Color=Color)
-                | Option.None        -> TraceObjects.Marker.init (?Color=Color)
+
+        /// Displays series of tcolumn chart type as stacked bars.
+        [<Extension>]
+        static member StackedBar
+            (
+                values: seq<#IConvertible>, 
+                [<Optional;DefaultParameterValue(null)>] ?Keys              : seq<#IConvertible>, 
+                [<Optional;DefaultParameterValue(null)>] ?Name              : string         ,
+                [<Optional;DefaultParameterValue(null)>] ?ShowLegend        : bool,
+                [<Optional;DefaultParameterValue(null)>] ?Color             : Color             ,
+                [<Optional;DefaultParameterValue(null)>] ?PatternShape      : StyleParam.PatternShape,
+                [<Optional;DefaultParameterValue(null)>] ?MultiPatternShape : seq<StyleParam.PatternShape>,
+                [<Optional;DefaultParameterValue(null)>] ?Pattern           : Pattern,
+                [<Optional;DefaultParameterValue(null)>] ?Base              : #IConvertible,
+                [<Optional;DefaultParameterValue(null)>] ?Width             : #IConvertible,
+                [<Optional;DefaultParameterValue(null)>] ?MultiWidth        : seq<#IConvertible>,
+                [<Optional;DefaultParameterValue(null)>] ?Opacity           : float,
+                [<Optional;DefaultParameterValue(null)>] ?MultiOpacity      : seq<float>,
+                [<Optional;DefaultParameterValue(null)>] ?Text              : #IConvertible,
+                [<Optional;DefaultParameterValue(null)>] ?MultiText         : seq<#IConvertible>,
+                [<Optional;DefaultParameterValue(null)>] ?TextPosition      : StyleParam.TextPosition,
+                [<Optional;DefaultParameterValue(null)>] ?MultiTextPosition : seq<StyleParam.TextPosition>,
+                [<Optional;DefaultParameterValue(null)>] ?TextFont          : Font,
+                [<Optional;DefaultParameterValue(null)>] ?Marker            : Marker
+
+            ) =
+
+                Chart.Bar(
+                    values,
+                    ?Keys               = Keys,
+                    ?Name               = Name             ,
+                    ?ShowLegend         = ShowLegend       ,
+                    ?Color              = Color            ,
+                    ?PatternShape       = PatternShape     ,
+                    ?MultiPatternShape  = MultiPatternShape,
+                    ?Pattern            = Pattern          ,
+                    ?Base               = Base             ,
+                    ?Width              = Width            ,
+                    ?MultiWidth         = MultiWidth       ,
+                    ?Opacity            = Opacity          ,
+                    ?MultiOpacity       = MultiOpacity     ,
+                    ?Text               = Text             ,
+                    ?MultiText          = MultiText        ,
+                    ?TextPosition       = TextPosition     ,
+                    ?MultiTextPosition  = MultiTextPosition,
+                    ?TextFont           = TextFont         ,
+                    ?Marker             = Marker           
+                )
+                |> GenericChart.mapLayout (Layout.style (BarMode=StyleParam.BarMode.Stack))
+
+
+        /// Displays series of tcolumn chart type as stacked bars.
+        [<Extension>]
+        static member StackedBar
+            (
+                keysValues: seq<#IConvertible * #IConvertible>,
+                [<Optional;DefaultParameterValue(null)>] ?Name              : string         ,
+                [<Optional;DefaultParameterValue(null)>] ?ShowLegend        : bool,
+                [<Optional;DefaultParameterValue(null)>] ?Color             : Color             ,
+                [<Optional;DefaultParameterValue(null)>] ?PatternShape      : StyleParam.PatternShape,
+                [<Optional;DefaultParameterValue(null)>] ?MultiPatternShape : seq<StyleParam.PatternShape>,
+                [<Optional;DefaultParameterValue(null)>] ?Pattern           : Pattern,
+                [<Optional;DefaultParameterValue(null)>] ?Base              : #IConvertible,
+                [<Optional;DefaultParameterValue(null)>] ?Width             : #IConvertible,
+                [<Optional;DefaultParameterValue(null)>] ?MultiWidth        : seq<#IConvertible>,
+                [<Optional;DefaultParameterValue(null)>] ?Opacity           : float,
+                [<Optional;DefaultParameterValue(null)>] ?MultiOpacity      : seq<float>,
+                [<Optional;DefaultParameterValue(null)>] ?Text              : #IConvertible,
+                [<Optional;DefaultParameterValue(null)>] ?MultiText         : seq<#IConvertible>,
+                [<Optional;DefaultParameterValue(null)>] ?TextPosition      : StyleParam.TextPosition,
+                [<Optional;DefaultParameterValue(null)>] ?MultiTextPosition : seq<StyleParam.TextPosition>,
+                [<Optional;DefaultParameterValue(null)>] ?TextFont          : Font,
+                [<Optional;DefaultParameterValue(null)>] ?Marker            : Marker
+            ) = 
                 
-            Trace2D.initBar (Trace2DStyle.Bar(X = keys,Y = values,Marker=marker))
-            |> TraceStyle.TraceInfo(?Name=Name,?ShowLegend=ShowLegend,?Opacity=Opacity)        
-            |> TraceStyle.TextLabel(?Text=Labels,?Textposition=TextPosition,?Textfont=TextFont)
-            |> GenericChart.ofTraceObject  
-        
+                let keys,values = Seq.unzip keysValues
+                Chart.StackedBar(
+                    values,
+                    keys,
+                    ?Name               = Name             ,
+                    ?ShowLegend         = ShowLegend       ,
+                    ?Color              = Color            ,
+                    ?Pattern            = Pattern          ,
+                    ?PatternShape       = PatternShape     ,
+                    ?MultiPatternShape  = MultiPatternShape,
+                    ?Base               = Base             ,
+                    ?Width              = Width            ,
+                    ?MultiWidth         = MultiWidth       ,
+                    ?Opacity            = Opacity          ,
+                    ?MultiOpacity       = MultiOpacity     ,
+                    ?Text               = Text             ,
+                    ?MultiText          = MultiText        ,
+                    ?TextPosition       = TextPosition     ,
+                    ?MultiTextPosition  = MultiTextPosition,
+                    ?TextFont           = TextFont         ,
+                    ?Marker             = Marker           
+                )
+                
+        /// Illustrates comparisons among individual items
+        [<Extension>]
+        static member Column
+            (
+                values: seq<#IConvertible>,
+                [<Optional;DefaultParameterValue(null)>] ?Keys              : seq<#IConvertible>, 
+                [<Optional;DefaultParameterValue(null)>] ?Name              : string         ,
+                [<Optional;DefaultParameterValue(null)>] ?ShowLegend        : bool,
+                [<Optional;DefaultParameterValue(null)>] ?Color             : Color             ,
+                [<Optional;DefaultParameterValue(null)>] ?Pattern           : Pattern,
+                [<Optional;DefaultParameterValue(null)>] ?PatternShape      : StyleParam.PatternShape,
+                [<Optional;DefaultParameterValue(null)>] ?MultiPatternShape : seq<StyleParam.PatternShape>,
+                [<Optional;DefaultParameterValue(null)>] ?Base              : #IConvertible,
+                [<Optional;DefaultParameterValue(null)>] ?Width             : #IConvertible,
+                [<Optional;DefaultParameterValue(null)>] ?MultiWidth        : seq<#IConvertible>,
+                [<Optional;DefaultParameterValue(null)>] ?Opacity           : float,
+                [<Optional;DefaultParameterValue(null)>] ?MultiOpacity      : seq<float>,
+                [<Optional;DefaultParameterValue(null)>] ?Text              : #IConvertible,
+                [<Optional;DefaultParameterValue(null)>] ?MultiText         : seq<#IConvertible>,
+                [<Optional;DefaultParameterValue(null)>] ?TextPosition      : StyleParam.TextPosition,
+                [<Optional;DefaultParameterValue(null)>] ?MultiTextPosition : seq<StyleParam.TextPosition>,
+                [<Optional;DefaultParameterValue(null)>] ?TextFont          : Font,
+                [<Optional;DefaultParameterValue(null)>] ?Marker            : Marker
+            ) = 
+
+                let pattern = 
+                    Pattern
+                    |> Option.defaultValue (TraceObjects.Pattern.init())
+                    |> TraceObjects.Pattern.style(
+                        ?Shape = PatternShape,
+                        ?MultiShape = MultiPatternShape
+                    )
+                let marker =
+                    Marker 
+                    |> Option.defaultValue (TraceObjects.Marker.init())
+                    |> TraceObjects.Marker.style(
+                        ?Color          = Color,
+                        Pattern        = pattern,
+                        ?MultiOpacity = MultiOpacity
+                    )
+
+                Trace2D.initBar (
+                    Trace2DStyle.Bar(
+                        Y                   = values,
+                        ?X                  = Keys,
+                        Orientation         = StyleParam.Orientation.Vertical,
+                        ?Name               = Name              ,
+                        ?ShowLegend         = ShowLegend        ,
+                        ?Base               = Base              ,
+                        ?Width              = Width             ,
+                        ?MultiWidth         = MultiWidth        ,
+                        ?Opacity            = Opacity           ,
+                        ?Text               = Text              ,
+                        ?MultiText          = MultiText         ,
+                        ?TextPosition       = TextPosition      ,
+                        ?MultiTextPosition  = MultiTextPosition ,
+                        ?TextFont           = TextFont          ,
+                        Marker              = marker            
+                    )
+                )
+                |> GenericChart.ofTraceObject  
 
         /// Illustrates comparisons among individual items
         [<Extension>]
-        static member Column(keysvalues,
-                [<Optional;DefaultParameterValue(null)>] ?Name,
-                [<Optional;DefaultParameterValue(null)>] ?ShowLegend,
-                [<Optional;DefaultParameterValue(null)>] ?Color,
-                [<Optional;DefaultParameterValue(null)>] ?Opacity,
-                [<Optional;DefaultParameterValue(null)>] ?Labels,
-                [<Optional;DefaultParameterValue(null)>] ?TextPosition,
-                [<Optional;DefaultParameterValue(null)>] ?TextFont,
-                [<Optional;DefaultParameterValue(null)>] ?Marker) = 
-            let keys,values = Seq.unzip keysvalues
-            Chart.Column(keys, values, ?Name=Name,?ShowLegend=ShowLegend,?Color=Color,?Opacity=Opacity,?Labels=Labels,?TextPosition=TextPosition,?TextFont=TextFont,?Marker=Marker) 
-
-
-        /// Displays series of column chart type as stacked columns.
-        [<Extension>]
-        static member StackedColumn(keys, values,
-                [<Optional;DefaultParameterValue(null)>] ?Name,
-                [<Optional;DefaultParameterValue(null)>] ?ShowLegend,
-                [<Optional;DefaultParameterValue(null)>] ?Color,
-                [<Optional;DefaultParameterValue(null)>] ?Opacity,
-                [<Optional;DefaultParameterValue(null)>] ?Labels,
-                [<Optional;DefaultParameterValue(null)>] ?TextPosition,
-                [<Optional;DefaultParameterValue(null)>] ?TextFont,
-                [<Optional;DefaultParameterValue(null)>] ?Marker) =            
-            let marker =
-                match Marker with 
-                | Some marker -> marker |> TraceObjects.Marker.style(?Color=Color)
-                | Option.None        -> TraceObjects.Marker.init (?Color=Color)
-
-            Trace2D.initBar (Trace2DStyle.Bar(X = keys,Y = values,Marker=marker))
-            |> TraceStyle.TraceInfo(?Name=Name,?ShowLegend=ShowLegend,?Opacity=Opacity)        
-            |> TraceStyle.TextLabel(?Text=Labels,?Textposition=TextPosition,?Textfont=TextFont)
-            |> GenericChart.ofTraceObject  
-            //|> GenericChart.setLayout (Layout.init (Layout.style(Barmode=StyleParam.Barmode.Stack)))
-            |> GenericChart.setLayout (Layout.init (BarMode=StyleParam.BarMode.Stack))
-
-
-        /// Displays series of column chart type as stacked columns.
-        [<Extension>]
-        static member StackedColumn(keysvalues,
-                [<Optional;DefaultParameterValue(null)>] ?Name,
-                [<Optional;DefaultParameterValue(null)>] ?ShowLegend,
-                [<Optional;DefaultParameterValue(null)>] ?Color,
-                [<Optional;DefaultParameterValue(null)>] ?Opacity,
-                [<Optional;DefaultParameterValue(null)>] ?Labels,
-                [<Optional;DefaultParameterValue(null)>] ?TextPosition,
-                [<Optional;DefaultParameterValue(null)>] ?TextFont,
-                [<Optional;DefaultParameterValue(null)>] ?Marker) =  
-            let keys,values = Seq.unzip keysvalues
-            Chart.StackedColumn(keys, values,?Name=Name,?ShowLegend=ShowLegend,?Color=Color,?Opacity=Opacity,?Labels=Labels,?TextPosition=TextPosition,?TextFont=TextFont,?Marker=Marker) 
-
-
-        /// Illustrates comparisons among individual items
-        [<Extension>]
-        static member Bar(keys, values,
-                [<Optional;DefaultParameterValue(null)>] ?Name,
-                [<Optional;DefaultParameterValue(null)>] ?ShowLegend,
-                [<Optional;DefaultParameterValue(null)>] ?Color,
-                [<Optional;DefaultParameterValue(null)>] ?Opacity,
-                [<Optional;DefaultParameterValue(null)>] ?Labels,
-                [<Optional;DefaultParameterValue(null)>] ?TextPosition,
-                [<Optional;DefaultParameterValue(null)>] ?TextFont,
-                [<Optional;DefaultParameterValue(null)>] ?Marker) = 
-            let marker =
-                match Marker with 
-                | Some marker -> marker |> TraceObjects.Marker.style(?Color=Color)
-                | Option.None        -> TraceObjects.Marker.init (?Color=Color)
-            Trace2D.initBar (Trace2DStyle.Bar(X = values,Y = keys,Marker=marker,Orientation = StyleParam.Orientation.Horizontal))
-            |> TraceStyle.TraceInfo(?Name=Name,?ShowLegend=ShowLegend,?Opacity=Opacity)        
-            |> TraceStyle.TextLabel(?Text=Labels,?Textposition=TextPosition,?Textfont=TextFont)
-            |> GenericChart.ofTraceObject  
-
-
-        /// Illustrates comparisons among individual items
-        [<Extension>]
-        static member Bar(keysvalues,
-                [<Optional;DefaultParameterValue(null)>] ?Name,
-                [<Optional;DefaultParameterValue(null)>] ?ShowLegend,
-                [<Optional;DefaultParameterValue(null)>] ?Color,
-                [<Optional;DefaultParameterValue(null)>] ?Opacity,
-                [<Optional;DefaultParameterValue(null)>] ?Labels,
-                [<Optional;DefaultParameterValue(null)>] ?TextPosition,
-                [<Optional;DefaultParameterValue(null)>] ?TextFont,
-                [<Optional;DefaultParameterValue(null)>] ?Marker) = 
-            let keys,values = Seq.unzip keysvalues
-            Chart.Bar(keys, values, ?Name=Name,?ShowLegend=ShowLegend,?Color=Color,?Opacity=Opacity,?Labels=Labels,?TextPosition=TextPosition,?TextFont=TextFont,?Marker=Marker) 
+        static member Column
+            (
+                keysValues: seq<#IConvertible * #IConvertible>,
+                [<Optional;DefaultParameterValue(null)>] ?Name              : string         ,
+                [<Optional;DefaultParameterValue(null)>] ?ShowLegend        : bool,
+                [<Optional;DefaultParameterValue(null)>] ?Color             : Color             ,
+                [<Optional;DefaultParameterValue(null)>] ?PatternShape      : StyleParam.PatternShape,
+                [<Optional;DefaultParameterValue(null)>] ?MultiPatternShape : seq<StyleParam.PatternShape>,
+                [<Optional;DefaultParameterValue(null)>] ?Pattern           : Pattern,
+                [<Optional;DefaultParameterValue(null)>] ?Base              : #IConvertible,
+                [<Optional;DefaultParameterValue(null)>] ?Width             : #IConvertible,
+                [<Optional;DefaultParameterValue(null)>] ?MultiWidth        : seq<#IConvertible>,
+                [<Optional;DefaultParameterValue(null)>] ?Opacity           : float,
+                [<Optional;DefaultParameterValue(null)>] ?MultiOpacity      : seq<float>,
+                [<Optional;DefaultParameterValue(null)>] ?Text              : #IConvertible,
+                [<Optional;DefaultParameterValue(null)>] ?MultiText         : seq<#IConvertible>,
+                [<Optional;DefaultParameterValue(null)>] ?TextPosition      : StyleParam.TextPosition,
+                [<Optional;DefaultParameterValue(null)>] ?MultiTextPosition : seq<StyleParam.TextPosition>,
+                [<Optional;DefaultParameterValue(null)>] ?TextFont          : Font,
+                [<Optional;DefaultParameterValue(null)>] ?Marker            : Marker
+            ) = 
+                let keys,values = Seq.unzip keysValues
+                Chart.Column(
+                    values,
+                    keys,
+                    ?Name               = Name             ,
+                    ?ShowLegend         = ShowLegend       ,
+                    ?Color              = Color            ,
+                    ?Pattern            = Pattern          ,
+                    ?PatternShape       = PatternShape     ,
+                    ?MultiPatternShape  = MultiPatternShape,
+                    ?Base               = Base             ,
+                    ?Width              = Width            ,
+                    ?MultiWidth         = MultiWidth       ,
+                    ?Opacity            = Opacity          ,
+                    ?MultiOpacity       = MultiOpacity     ,
+                    ?Text               = Text             ,
+                    ?MultiText          = MultiText        ,
+                    ?TextPosition       = TextPosition     ,
+                    ?MultiTextPosition  = MultiTextPosition,
+                    ?TextFont           = TextFont         ,
+                    ?Marker             = Marker           
+                )
 
 
         /// Displays series of tcolumn chart type as stacked bars.
         [<Extension>]
-        static member StackedBar(keys, values,
-                [<Optional;DefaultParameterValue(null)>] ?Name,
-                [<Optional;DefaultParameterValue(null)>] ?ShowLegend,
-                [<Optional;DefaultParameterValue(null)>] ?Color,
-                [<Optional;DefaultParameterValue(null)>] ?Opacity,
-                [<Optional;DefaultParameterValue(null)>] ?Labels,
-                [<Optional;DefaultParameterValue(null)>] ?TextPosition,
-                [<Optional;DefaultParameterValue(null)>] ?TextFont,
-                [<Optional;DefaultParameterValue(null)>] ?Marker) = 
-            let marker =
-                match Marker with 
-                | Some marker -> marker |> TraceObjects.Marker.style(?Color=Color)
-                | Option.None        -> TraceObjects.Marker.init (?Color=Color)
-            Trace2D.initBar (Trace2DStyle.Bar(X = values,Y = keys,Marker=marker,Orientation = StyleParam.Orientation.Horizontal))
-            |> TraceStyle.TraceInfo(?Name=Name,?ShowLegend=ShowLegend,?Opacity=Opacity)        
-            |> TraceStyle.TextLabel(?Text=Labels,?Textposition=TextPosition,?Textfont=TextFont)
-            |> GenericChart.ofTraceObject  
-            //|> GenericChart.setLayout (Layout.init (Layout.style(Barmode=StyleParam.Barmode.Stack)))
-            |> GenericChart.setLayout (Layout.init (BarMode=StyleParam.BarMode.Stack))
+        static member StackedColumn
+            (
+                values: seq<#IConvertible>, 
+                [<Optional;DefaultParameterValue(null)>] ?Keys              : seq<#IConvertible>, 
+                [<Optional;DefaultParameterValue(null)>] ?Name              : string         ,
+                [<Optional;DefaultParameterValue(null)>] ?ShowLegend        : bool,
+                [<Optional;DefaultParameterValue(null)>] ?Color             : Color             ,
+                [<Optional;DefaultParameterValue(null)>] ?PatternShape      : StyleParam.PatternShape,
+                [<Optional;DefaultParameterValue(null)>] ?MultiPatternShape : seq<StyleParam.PatternShape>,
+                [<Optional;DefaultParameterValue(null)>] ?Pattern           : Pattern,
+                [<Optional;DefaultParameterValue(null)>] ?Base              : #IConvertible,
+                [<Optional;DefaultParameterValue(null)>] ?Width             : #IConvertible,
+                [<Optional;DefaultParameterValue(null)>] ?MultiWidth        : seq<#IConvertible>,
+                [<Optional;DefaultParameterValue(null)>] ?Opacity           : float,
+                [<Optional;DefaultParameterValue(null)>] ?MultiOpacity      : seq<float>,
+                [<Optional;DefaultParameterValue(null)>] ?Text              : #IConvertible,
+                [<Optional;DefaultParameterValue(null)>] ?MultiText         : seq<#IConvertible>,
+                [<Optional;DefaultParameterValue(null)>] ?TextPosition      : StyleParam.TextPosition,
+                [<Optional;DefaultParameterValue(null)>] ?MultiTextPosition : seq<StyleParam.TextPosition>,
+                [<Optional;DefaultParameterValue(null)>] ?TextFont          : Font,
+                [<Optional;DefaultParameterValue(null)>] ?Marker            : Marker
+
+            ) =
+
+                Chart.Column(
+                    values,
+                    ?Keys               = Keys,
+                    ?Name               = Name             ,
+                    ?ShowLegend         = ShowLegend       ,
+                    ?Color              = Color            ,
+                    ?PatternShape       = PatternShape     ,
+                    ?MultiPatternShape  = MultiPatternShape,
+                    ?Pattern            = Pattern          ,
+                    ?Base               = Base             ,
+                    ?Width              = Width            ,
+                    ?MultiWidth         = MultiWidth       ,
+                    ?Opacity            = Opacity          ,
+                    ?MultiOpacity       = MultiOpacity     ,
+                    ?Text               = Text             ,
+                    ?MultiText          = MultiText        ,
+                    ?TextPosition       = TextPosition     ,
+                    ?MultiTextPosition  = MultiTextPosition,
+                    ?TextFont           = TextFont         ,
+                    ?Marker             = Marker           
+                )
+                |> GenericChart.mapLayout (Layout.style (BarMode=StyleParam.BarMode.Stack))
 
 
         /// Displays series of tcolumn chart type as stacked bars.
         [<Extension>]
-        static member StackedBar(keysvalues,
-                [<Optional;DefaultParameterValue(null)>] ?Name,
-                [<Optional;DefaultParameterValue(null)>] ?ShowLegend,
-                [<Optional;DefaultParameterValue(null)>] ?Color,
-                [<Optional;DefaultParameterValue(null)>] ?Opacity,
-                [<Optional;DefaultParameterValue(null)>] ?Labels,
-                [<Optional;DefaultParameterValue(null)>] ?TextPosition,
-                [<Optional;DefaultParameterValue(null)>] ?TextFont,
-                [<Optional;DefaultParameterValue(null)>] ?Marker) = 
-            let keys,values = Seq.unzip keysvalues
-            Chart.StackedBar(keys, values, ?Name=Name,?ShowLegend=ShowLegend,?Color=Color,?Opacity=Opacity,?Labels=Labels,?TextPosition=TextPosition,?TextFont=TextFont,?Marker=Marker) 
+        static member StackedColumn
+            (
+                keysValues: seq<#IConvertible * #IConvertible>,
+                [<Optional;DefaultParameterValue(null)>] ?Name              : string         ,
+                [<Optional;DefaultParameterValue(null)>] ?ShowLegend        : bool,
+                [<Optional;DefaultParameterValue(null)>] ?Color             : Color             ,
+                [<Optional;DefaultParameterValue(null)>] ?Pattern           : Pattern,
+                [<Optional;DefaultParameterValue(null)>] ?PatternShape      : StyleParam.PatternShape,
+                [<Optional;DefaultParameterValue(null)>] ?MultiPatternShape : seq<StyleParam.PatternShape>,
+                [<Optional;DefaultParameterValue(null)>] ?Base              : #IConvertible,
+                [<Optional;DefaultParameterValue(null)>] ?Width             : #IConvertible,
+                [<Optional;DefaultParameterValue(null)>] ?MultiWidth        : seq<#IConvertible>,
+                [<Optional;DefaultParameterValue(null)>] ?Opacity           : float,
+                [<Optional;DefaultParameterValue(null)>] ?MultiOpacity      : seq<float>,
+                [<Optional;DefaultParameterValue(null)>] ?Text              : #IConvertible,
+                [<Optional;DefaultParameterValue(null)>] ?MultiText         : seq<#IConvertible>,
+                [<Optional;DefaultParameterValue(null)>] ?TextPosition      : StyleParam.TextPosition,
+                [<Optional;DefaultParameterValue(null)>] ?MultiTextPosition : seq<StyleParam.TextPosition>,
+                [<Optional;DefaultParameterValue(null)>] ?TextFont          : Font,
+                [<Optional;DefaultParameterValue(null)>] ?Marker            : Marker
+            ) = 
+                
+                let keys,values = Seq.unzip keysValues
+                Chart.StackedColumn(
+                    values,
+                    keys,
+                    ?Name               = Name             ,
+                    ?ShowLegend         = ShowLegend       ,
+                    ?Color              = Color            ,
+                    ?PatternShape       = PatternShape     ,
+                    ?MultiPatternShape  = MultiPatternShape,
+                    ?Pattern            = Pattern          ,
+                    ?Base               = Base             ,
+                    ?Width              = Width            ,
+                    ?MultiWidth         = MultiWidth       ,
+                    ?Opacity            = Opacity          ,
+                    ?MultiOpacity       = MultiOpacity     ,
+                    ?Text               = Text             ,
+                    ?MultiText          = MultiText        ,
+                    ?TextPosition       = TextPosition     ,
+                    ?MultiTextPosition  = MultiTextPosition,
+                    ?TextFont           = TextFont         ,
+                    ?Marker             = Marker           
+                )
 
         /// Computes a histogram with auto-determined the bin size.
         [<Extension>]

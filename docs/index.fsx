@@ -219,17 +219,28 @@ One of the main design points of Plotly.NET it is to provide support for multipl
 ### Fluent interface style in C#:
 
 ```
-static void Main(string[] args)
+using System;
+using Plotly.NET;
+using Microsoft.FSharp.Core; // use this for less verbose and more helpful intellisense
+
+namespace Plotly.NET.Tests.CSharp
 {
-    double[] x = new double[] { 1, 2 };
-    double[] y = new double[] { 5, 10 };
-    GenericChart.GenericChart chart = Chart.Point(x: x, y: y);
-    chart
-        .WithTraceName("Hello from C#", true)
-        .withXAxisStyle(title: "xAxis", Showgrid: false, Showline: true)
-        .withYAxisStyle(title: "yAxis", Showgrid: false, Showline: true)
-        .Show();
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double[] x = new double[] { 1, 2 };
+            double[] y = new double[] { 5, 10 };
+            GenericChart.GenericChart chart = Chart2D.Chart.Point<double, double, string>(x: x, y: y);
+            chart
+                .WithTraceName("Hello from C#", true)
+                .WithXAxisStyle(title: Title.init("xAxis"), ShowGrid: false, ShowLine: true)
+                .WithYAxisStyle(title: Title.init("yAxis"), ShowGrid: false, ShowLine: true)
+                .Show();
+        }
+    }
 }
+
 ```
 
 ### Declarative style in F# using the underlying `DynamicObj`:
@@ -273,36 +284,47 @@ GenericChart.ofTraceObject(trace)
 ### Declarative style in C# using the underlying `DynamicObj`:
 
 ```
-static void Main(string[] args)
+using System;
+using Plotly.NET;
+using Microsoft.FSharp.Core; // use this for less verbose and more helpful intellisense
+using Plotly.NET.LayoutObjects;
+
+namespace Plotly.NET.Tests.CSharp
 {
-    double[] x = new double[] { 1, 2 };
-    double[] y = new double[] { 5, 10 };
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double[] x = new double[] { 1, 2 };
+            double[] y = new double[] { 5, 10 };
 
-    Axis.LinearAxis xAxis = new Axis.LinearAxis();
-    xAxis.SetValue("title", "xAxis");
-    xAxis.SetValue("showgrid", false);
-    xAxis.SetValue("showline", true);
+            LinearAxis xAxis = new LinearAxis();
+            xAxis.SetValue("title", "xAxis");
+            xAxis.SetValue("showgrid", false);
+            xAxis.SetValue("showline", true);
 
-    Axis.LinearAxis yAxis = new Axis.LinearAxis();
-    yAxis.SetValue("title", "yAxis");
-    yAxis.SetValue("showgrid", false);
-    yAxis.SetValue("showline", true);
+            LinearAxis yAxis = new LinearAxis();
+            yAxis.SetValue("title", "yAxis");
+            yAxis.SetValue("showgrid", false);
+            yAxis.SetValue("showline", true);
 
-    Layout layout = new Layout();
-    layout.SetValue("xaxis", xAxis);
-    layout.SetValue("yaxis", yAxis);
-    layout.SetValue("showlegend", true);
+            Layout layout = new Layout();
+            layout.SetValue("xaxis", xAxis);
+            layout.SetValue("yaxis", yAxis);
+            layout.SetValue("showlegend", true);
 
-    Trace trace = new Trace("scatter");
-    trace.SetValue("x", x);
-    trace.SetValue("y", y);
-    trace.SetValue("mode", "markers");
-    trace.SetValue("name", "Hello from C#");
+            Trace trace = new Trace("scatter");
+            trace.SetValue("x", x);
+            trace.SetValue("y", y);
+            trace.SetValue("mode", "markers");
+            trace.SetValue("name", "Hello from C#");
 
-    GenericChart
-        .ofTraceObject(trace)
-        .WithLayout(layout)
-        .Show();
+            GenericChart
+                .ofTraceObject(trace)
+                .WithLayout(layout)
+                .Show();
+        }
+    }
 }
 ```
 

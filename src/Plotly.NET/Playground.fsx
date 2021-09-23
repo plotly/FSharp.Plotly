@@ -4,6 +4,8 @@
 #r "nuget: DynamicObj"
 #r "nuget: Newtonsoft.Json, 13.0.1"
 
+#load "InternalUtils.fs"
+
 #I "CommonAbstractions"
 
 #load "StyleParams.fs"
@@ -66,6 +68,8 @@
 
 #I "Traces/ObjectAbstractions"
 
+#load "Gradient.fs"
+#load "Pattern.fs"
 #load "Marker.fs"
 #load "Projection.fs"
 #load "Surface.fs"
@@ -154,6 +158,63 @@ open FSharpAux
 open System
 open System.IO
 
+let crazyMarker =
+    Marker.init(
+        MultiSymbols = [
+            StyleParam.MarkerSymbol.ArrowBarDown
+            StyleParam.MarkerSymbol.Modified(StyleParam.MarkerSymbol.DiamondCross, StyleParam.SymbolStyle.OpenDot)
+            StyleParam.MarkerSymbol.Modified(StyleParam.MarkerSymbol.Square, StyleParam.SymbolStyle.Open)
+            StyleParam.MarkerSymbol.Modified(StyleParam.MarkerSymbol.Hexagon2, StyleParam.SymbolStyle.Dot)
+        ],
+        MultiSize = [50;60;100;70],
+        MultiOpacity = [0.3; 0.6; 0.9; 1.],
+        Color = Color.fromColorScaleValues [0.; 0.5; 1.; 0.8],
+        Colorscale = StyleParam.Colorscale.Viridis,
+        ShowScale = true
+    )
+
+Chart.Point [1,1; 2,2; 3,3; 4,4]
+|> Chart.withMarker crazyMarker
+|> Chart.show
+
+
+let labels, values = 
+    [
+        "A", 1
+        "B", 3
+        "C", 2
+        "D", 4
+        "E", 6
+        "F", 5
+        "G", 7
+        "H", 8
+    ]
+    |> List.unzip
+
+Chart.Bar(
+    values,
+    Color = Color.fromColorScaleValues values
+)
+|> Chart.withMarkerStyle(
+    Colorscale = StyleParam.Colorscale.Viridis,
+    ShowScale = true,
+    Pattern = Pattern.init(
+        MultiShapes = [
+            StyleParam.PatternShape.None 
+            StyleParam.PatternShape.DiagonalDescending
+            StyleParam.PatternShape.DiagonalAscending
+            StyleParam.PatternShape.DiagonalChecked
+            StyleParam.PatternShape.HorizontalLines
+            StyleParam.PatternShape.VerticalLines
+            StyleParam.PatternShape.Checked
+            StyleParam.PatternShape.Dots
+        ]
+    )
+)
+|> Chart.show
+
+
+
 Chart.Line([0.; 0.5; 1.; 2.; 2.2], y=[1.23; 2.5; 0.42; 3.; 1.])
 |> Chart.withLayoutImage(
     LayoutImage.init(
@@ -210,7 +271,7 @@ Chart.ScatterTernary(
     TextPosition = StyleParam.TextPosition.BottomCenter
 )
 |> Chart.withLineStyle(Shape=StyleParam.Shape.Spline)
-|> Chart.withMarkerStyle(Symbol = StyleParam.Symbol.Cross)
+|> Chart.withMarkerStyle(Symbol = StyleParam.MarkerSymbol.Cross)
 |> Chart.show
 
 Chart.LineTernary(

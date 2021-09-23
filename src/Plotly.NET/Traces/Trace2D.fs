@@ -147,11 +147,16 @@ type Trace2DStyle() =
     /// <param name="Y0">Alternate to `y`. Builds a linear space of y coordinates. Use with `dy` where `y0` is the starting coordinate and `dy` the step.</param>
     /// <param name="DY">Sets the y coordinate step. See `y0` for more info.</param>
     /// <param name="Text">Sets text elements associated with each (x,y) pair. If a single string, the same string appears over all the data points. If an array of string, the items are mapped in order to the this trace's (x,y) coordinates. If trace `hoverinfo` contains a "text" flag and "hovertext" is not set, these elements will be seen in the hover labels.</param>
+    /// <param name="MultiText">Sets text elements associated with each (x,y) pair. If a single string, the same string appears over all the data points. If an array of string, the items are mapped in order to the this trace's (x,y) coordinates. If trace `hoverinfo` contains a "text" flag and "hovertext" is not set, these elements will be seen in the hover labels.</param>
     /// <param name="TextPosition">Sets the positions of the `text` elements with respects to the (x,y) coordinates.</param>
+    /// <param name="MultiTextPosition">Sets the positions of the `text` elements with respects to the (x,y) coordinates.</param>
     /// <param name="TextTemplate">Template string used for rendering the information text that appear on points. Note that this will override `textinfo`. Variables are inserted using %{variable}, for example "y: %{y}". Numbers are formatted using d3-format's syntax %{variable:d3-format}, for example "Price: %{y:$.2f}". https://github.com/d3/d3-format/tree/v1.4.5#d3-format for details on the formatting syntax. Dates are formatted using d3-time-format's syntax %{variable|d3-time-format}, for example "Day: %{2019-01-01|%A}". https://github.com/d3/d3-time-format/tree/v2.2.3#locale_format for details on the date formatting syntax. Every attributes that can be specified per-point (the ones that are `arrayOk: true`) are available.</param>
+    /// <param name="MultiTextTemplate">Template string used for rendering the information text that appear on points. Note that this will override `textinfo`. Variables are inserted using %{variable}, for example "y: %{y}". Numbers are formatted using d3-format's syntax %{variable:d3-format}, for example "Price: %{y:$.2f}". https://github.com/d3/d3-format/tree/v1.4.5#d3-format for details on the formatting syntax. Dates are formatted using d3-time-format's syntax %{variable|d3-time-format}, for example "Day: %{2019-01-01|%A}". https://github.com/d3/d3-time-format/tree/v2.2.3#locale_format for details on the date formatting syntax. Every attributes that can be specified per-point (the ones that are `arrayOk: true`) are available.</param>
     /// <param name="HoverText">Sets hover text elements associated with each (x,y) pair. If a single string, the same string appears over all the data points. If an array of string, the items are mapped in order to the this trace's (x,y) coordinates. To be seen, trace `hoverinfo` must contain a "text" flag.</param>
+    /// <param name="MultiHoverText">Sets hover text elements associated with each (x,y) pair. If a single string, the same string appears over all the data points. If an array of string, the items are mapped in order to the this trace's (x,y) coordinates. To be seen, trace `hoverinfo` must contain a "text" flag.</param>
     /// <param name="HoverInfo">Determines which trace information appear on hover. If `none` or `skip` are set, no information is displayed upon hovering. But, if `none` is set, click and hover events are still fired.</param>
     /// <param name="HoverTemplate">Template string used for rendering the information that appear on hover box. Note that this will override `hoverinfo`. Variables are inserted using %{variable}, for example "y: %{y}" as well as %{xother}, {%_xother}, {%_xother_}, {%xother_}. When showing info for several points, "xother" will be added to those with different x positions from the first point. An underscore before or after "(x|y)other" will add a space on that side, only when this field is shown. Numbers are formatted using d3-format's syntax %{variable:d3-format}, for example "Price: %{y:$.2f}". https://github.com/d3/d3-format/tree/v1.4.5#d3-format for details on the formatting syntax. Dates are formatted using d3-time-format's syntax %{variable|d3-time-format}, for example "Day: %{2019-01-01|%A}". https://github.com/d3/d3-time-format/tree/v2.2.3#locale_format for details on the date formatting syntax. The variables available in `hovertemplate` are the ones emitted as event data described at this link https://plotly.com/javascript/plotlyjs-events/#event-data. Additionally, every attributes that can be specified per-point (the ones that are `arrayOk: true`) are available. variable `norm` Anything contained in tag `&lt;extra&gt;` is displayed in the secondary box, for example "&lt;extra&gt;{fullData.name}&lt;/extra&gt;". To hide the secondary box completely, use an empty tag `&lt;extra&gt;&lt;/extra&gt;`.</param>
+    /// <param name="MultiHoverTemplate">Template string used for rendering the information that appear on hover box. Note that this will override `hoverinfo`. Variables are inserted using %{variable}, for example "y: %{y}" as well as %{xother}, {%_xother}, {%_xother_}, {%xother_}. When showing info for several points, "xother" will be added to those with different x positions from the first point. An underscore before or after "(x|y)other" will add a space on that side, only when this field is shown. Numbers are formatted using d3-format's syntax %{variable:d3-format}, for example "Price: %{y:$.2f}". https://github.com/d3/d3-format/tree/v1.4.5#d3-format for details on the formatting syntax. Dates are formatted using d3-time-format's syntax %{variable|d3-time-format}, for example "Day: %{2019-01-01|%A}". https://github.com/d3/d3-time-format/tree/v2.2.3#locale_format for details on the date formatting syntax. The variables available in `hovertemplate` are the ones emitted as event data described at this link https://plotly.com/javascript/plotlyjs-events/#event-data. Additionally, every attributes that can be specified per-point (the ones that are `arrayOk: true`) are available. variable `norm` Anything contained in tag `&lt;extra&gt;` is displayed in the secondary box, for example "&lt;extra&gt;{fullData.name}&lt;/extra&gt;". To hide the secondary box completely, use an empty tag `&lt;extra&gt;&lt;/extra&gt;`.</param>
     /// <param name="XHoverFormat">Sets the hover text formatting rulefor `x` using d3 formatting mini-languages which are very similar to those in Python. For numbers, see: https://github.com/d3/d3-format/tree/v1.4.5#d3-format. And for dates see: https://github.com/d3/d3-time-format/tree/v2.2.3#locale_format. We add two items to d3's date formatter: "%h" for half of the year as a decimal number as well as "%{n}f" for fractional seconds with n digits. For example, "2016-10-13 09:15:23.456" with tickformat "%H~%M~%S.%2f" would display "09~15~23.46"By default the values are formatted using `xaxis.hoverformat`.</param>
     /// <param name="YHoverFormat">Sets the hover text formatting rulefor `y` using d3 formatting mini-languages which are very similar to those in Python. For numbers, see: https://github.com/d3/d3-format/tree/v1.4.5#d3-format. And for dates see: https://github.com/d3/d3-time-format/tree/v2.2.3#locale_format. We add two items to d3's date formatter: "%h" for half of the year as a decimal number as well as "%{n}f" for fractional seconds with n digits. For example, "2016-10-13 09:15:23.456" with tickformat "%H~%M~%S.%2f" would display "09~15~23.46"By default the values are formatted using `xaxis.hoverformat`.</param>
     /// <param name="Meta">Assigns extra meta information associated with this trace that can be used in various text attributes. Attributes such as trace `name`, graph, axis and colorbar `title.text`, annotation `text` `rangeselector`, `updatemenues` and `sliders` `label` text all support `meta`. To access the trace `meta` values in an attribute in the same trace, simply use `%{meta[i]}` where `i` is the index or key of the `meta` item in question. To access trace `meta` in layout attributes, use `%{data[n[.meta[i]}` where `i` is the index or key of the `meta` and `n` is the trace index.</param>
@@ -185,7 +190,7 @@ type Trace2DStyle() =
     /// <param name="XCalendar">Sets the calendar system to use with `x` date data.</param>
     /// <param name="YCalendar">Sets the calendar system to use with `y` date data.</param>
     /// <param name="UIRevision">Controls persistence of some user-driven changes to the trace: `constraintrange` in `parcoords` traces, as well as some `editable: true` modifications such as `name` and `colorbar.title`. Defaults to `layout.uirevision`. Note that other user-driven trace attribute changes are controlled by `layout` attributes: `trace.visible` is controlled by `layout.legend.uirevision`, `selectedpoints` is controlled by `layout.selectionrevision`, and `colorbar.(x|y)` (accessible with `config: {editable: true}`) is controlled by `layout.editrevision`. Trace changes are tracked by `uid`, which only falls back on trace index if no `uid` is provided. So if your app can add/remove traces before the end of the `data` array, such that the same trace has a different index, you can still preserve user-driven changes if you give each trace a `uid` that stays with it as it moves.</param>
-    static member inline Scatter
+    static member Scatter
         (   
             [<Optional;DefaultParameterValue(null)>] ?Name               : string,
             [<Optional;DefaultParameterValue(null)>] ?Visible            : StyleParam.Visible,
@@ -202,12 +207,17 @@ type Trace2DStyle() =
             [<Optional;DefaultParameterValue(null)>] ?Y                  : seq<#IConvertible>,
             [<Optional;DefaultParameterValue(null)>] ?Y0                 : #IConvertible,
             [<Optional;DefaultParameterValue(null)>] ?DY                 : #IConvertible,
-            [<Optional;DefaultParameterValue(null)>] ?Text               : seq<#IConvertible>,
+            [<Optional;DefaultParameterValue(null)>] ?Text               : #IConvertible,
+            [<Optional;DefaultParameterValue(null)>] ?MultiText          : seq<#IConvertible>,
             [<Optional;DefaultParameterValue(null)>] ?TextPosition       : StyleParam.TextPosition,
+            [<Optional;DefaultParameterValue(null)>] ?MultiTextPosition  : seq<StyleParam.TextPosition>,
             [<Optional;DefaultParameterValue(null)>] ?TextTemplate       : string,
+            [<Optional;DefaultParameterValue(null)>] ?MultiTextTemplate  : seq<string>,
             [<Optional;DefaultParameterValue(null)>] ?HoverText          : string,
+            [<Optional;DefaultParameterValue(null)>] ?MultiHoverText     : seq<string>,
             [<Optional;DefaultParameterValue(null)>] ?HoverInfo          : StyleParam.HoverInfo,
             [<Optional;DefaultParameterValue(null)>] ?HoverTemplate      : string,
+            [<Optional;DefaultParameterValue(null)>] ?MultiHoverTemplate : seq<string>,
             [<Optional;DefaultParameterValue(null)>] ?XHoverFormat       : string,
             [<Optional;DefaultParameterValue(null)>] ?YHoverFormat       : string,
             [<Optional;DefaultParameterValue(null)>] ?Meta               : string,
@@ -244,60 +254,60 @@ type Trace2DStyle() =
         ) =
             (fun (trace:('T :> Trace)) ->    
                 
-                Name               |> DynObj.setValueOpt trace "name"
-                Visible            |> DynObj.setValueOptBy trace "visible" StyleParam.Visible.convert
-                ShowLegend         |> DynObj.setValueOpt trace "showlegend"
-                LegendRank         |> DynObj.setValueOpt trace "legendrank"
-                LegendGroup        |> DynObj.setValueOpt trace "legendgroup"
-                LegendGroupTitle   |> DynObj.setValueOpt trace "legendgrouptitle"
-                Opacity            |> DynObj.setValueOpt trace "opacity"
-                Mode               |> DynObj.setValueOptBy trace "mode" StyleParam.Mode.convert
-                Ids                |> DynObj.setValueOpt trace "ids"
-                X                  |> DynObj.setValueOpt trace "x"
-                X0                 |> DynObj.setValueOpt trace "x0"
-                DX                 |> DynObj.setValueOpt trace "dx"
-                Y                  |> DynObj.setValueOpt trace "y"
-                Y0                 |> DynObj.setValueOpt trace "y0"
-                DY                 |> DynObj.setValueOpt trace "dy"
-                Text               |> DynObj.setValueOpt trace "text"
-                TextPosition       |> DynObj.setValueOptBy trace "textposition" StyleParam.TextPosition.convert
-                TextTemplate       |> DynObj.setValueOpt trace "texttemplate"
-                HoverText          |> DynObj.setValueOpt trace "hovertext"
-                HoverInfo          |> DynObj.setValueOptBy trace "hoverinfo" StyleParam.HoverInfo.convert
-                HoverTemplate      |> DynObj.setValueOpt trace "hovertemplate"
-                XHoverFormat       |> DynObj.setValueOpt trace "xhoverformat"
-                YHoverFormat       |> DynObj.setValueOpt trace "yhoverformat"
-                Meta               |> DynObj.setValueOpt trace "meta"
-                CustomData         |> DynObj.setValueOpt trace "customdata"
-                XAxis              |> DynObj.setValueOptBy trace "xaxis" StyleParam.LinearAxisId.convert
-                YAxis              |> DynObj.setValueOptBy trace "yaxis" StyleParam.LinearAxisId.convert
-                Orientation        |> DynObj.setValueOptBy trace "orientation" StyleParam.Orientation.convert
-                GroupNorm          |> DynObj.setValueOptBy trace "groupnorm" StyleParam.GroupNorm.convert
-                StackGroup         |> DynObj.setValueOpt trace "stackgroup"
-                XPeriod            |> DynObj.setValueOpt trace "xperiod"
-                XPeriodAlignment   |> DynObj.setValueOptBy trace "xperiodalignment" StyleParam.PeriodAlignment.convert
-                XPeriod0           |> DynObj.setValueOpt trace "xperiod0"
-                YPeriod            |> DynObj.setValueOpt trace "yperiod"
-                YPeriodAlignment   |> DynObj.setValueOptBy trace "yperiodalignment" StyleParam.PeriodAlignment.convert
-                YPeriod0           |> DynObj.setValueOpt trace "yperiod0"
-                Marker             |> DynObj.setValueOpt trace "marker"
-                Line               |> DynObj.setValueOpt trace "line"
-                TextFont           |> DynObj.setValueOpt trace "textfont"
-                ErrorX             |> DynObj.setValueOpt trace "error_x"
-                ErrorY             |> DynObj.setValueOpt trace "error_y"
-                SelectedPoints     |> DynObj.setValueOpt trace "selectedpoints"
-                Selected           |> DynObj.setValueOpt trace "selected"
-                Unselected         |> DynObj.setValueOpt trace "unselected"
-                ClipOnAxis         |> DynObj.setValueOpt trace "cliponaxis"
-                ConnectGaps        |> DynObj.setValueOpt trace "connectgaps"
-                Fill               |> DynObj.setValueOptBy trace "fill" StyleParam.Fill.convert
-                FillColor          |> DynObj.setValueOpt trace "fillcolor"
-                HoverLabel         |> DynObj.setValueOpt trace "hoverlabel"
-                HoverOn            |> DynObj.setValueOptBy trace "hoveron" StyleParam.HoverOn.convert
-                StackGaps          |> DynObj.setValueOptBy trace "stackgaps" StyleParam.StackGaps.convert
-                XCalendar          |> DynObj.setValueOptBy trace "xcalendar" StyleParam.Calendar.convert
-                YCalendar          |> DynObj.setValueOptBy trace "ycalendar" StyleParam.Calendar.convert
-                UIRevision         |> DynObj.setValueOpt trace "uirevision"
+                Name                                |> DynObj.setValueOpt trace "name"
+                Visible                             |> DynObj.setValueOptBy trace "visible" StyleParam.Visible.convert
+                ShowLegend                          |> DynObj.setValueOpt trace "showlegend"
+                LegendRank                          |> DynObj.setValueOpt trace "legendrank"
+                LegendGroup                         |> DynObj.setValueOpt trace "legendgroup"
+                LegendGroupTitle                    |> DynObj.setValueOpt trace "legendgrouptitle"
+                Opacity                             |> DynObj.setValueOpt trace "opacity"
+                Mode                                |> DynObj.setValueOptBy trace "mode" StyleParam.Mode.convert
+                Ids                                 |> DynObj.setValueOpt trace "ids"
+                X                                   |> DynObj.setValueOpt trace "x"
+                X0                                  |> DynObj.setValueOpt trace "x0"
+                DX                                  |> DynObj.setValueOpt trace "dx"
+                Y                                   |> DynObj.setValueOpt trace "y"
+                Y0                                  |> DynObj.setValueOpt trace "y0"
+                DY                                  |> DynObj.setValueOpt trace "dy"
+                (Text, MultiText)                   |> DynObj.setSingleOrMultiOpt trace "text"
+                (TextPosition, MultiTextPosition)   |> DynObj.setSingleOrMultiOptBy trace "textposition" StyleParam.TextPosition.convert
+                (TextTemplate, MultiTextTemplate)   |> DynObj.setSingleOrMultiOpt trace "texttemplate"
+                (HoverText, MultiHoverText)         |> DynObj.setSingleOrMultiOpt trace "hovertext"
+                HoverInfo                           |> DynObj.setValueOptBy trace "hoverinfo" StyleParam.HoverInfo.convert
+                (HoverTemplate, MultiHoverTemplate) |> DynObj.setSingleOrMultiOpt trace "hovertemplate"
+                XHoverFormat                        |> DynObj.setValueOpt trace "xhoverformat"
+                YHoverFormat                        |> DynObj.setValueOpt trace "yhoverformat"
+                Meta                                |> DynObj.setValueOpt trace "meta"
+                CustomData                          |> DynObj.setValueOpt trace "customdata"
+                XAxis                               |> DynObj.setValueOptBy trace "xaxis" StyleParam.LinearAxisId.convert
+                YAxis                               |> DynObj.setValueOptBy trace "yaxis" StyleParam.LinearAxisId.convert
+                Orientation                         |> DynObj.setValueOptBy trace "orientation" StyleParam.Orientation.convert
+                GroupNorm                           |> DynObj.setValueOptBy trace "groupnorm" StyleParam.GroupNorm.convert
+                StackGroup                          |> DynObj.setValueOpt trace "stackgroup"
+                XPeriod                             |> DynObj.setValueOpt trace "xperiod"
+                XPeriodAlignment                    |> DynObj.setValueOptBy trace "xperiodalignment" StyleParam.PeriodAlignment.convert
+                XPeriod0                            |> DynObj.setValueOpt trace "xperiod0"
+                YPeriod                             |> DynObj.setValueOpt trace "yperiod"
+                YPeriodAlignment                    |> DynObj.setValueOptBy trace "yperiodalignment" StyleParam.PeriodAlignment.convert
+                YPeriod0                            |> DynObj.setValueOpt trace "yperiod0"
+                Marker                              |> DynObj.setValueOpt trace "marker"
+                Line                                |> DynObj.setValueOpt trace "line"
+                TextFont                            |> DynObj.setValueOpt trace "textfont"
+                ErrorX                              |> DynObj.setValueOpt trace "error_x"
+                ErrorY                              |> DynObj.setValueOpt trace "error_y"
+                SelectedPoints                      |> DynObj.setValueOpt trace "selectedpoints"
+                Selected                            |> DynObj.setValueOpt trace "selected"
+                Unselected                          |> DynObj.setValueOpt trace "unselected"
+                ClipOnAxis                          |> DynObj.setValueOpt trace "cliponaxis"
+                ConnectGaps                         |> DynObj.setValueOpt trace "connectgaps"
+                Fill                                |> DynObj.setValueOptBy trace "fill" StyleParam.Fill.convert
+                FillColor                           |> DynObj.setValueOpt trace "fillcolor"
+                HoverLabel                          |> DynObj.setValueOpt trace "hoverlabel"
+                HoverOn                             |> DynObj.setValueOptBy trace "hoveron" StyleParam.HoverOn.convert
+                StackGaps                           |> DynObj.setValueOptBy trace "stackgaps" StyleParam.StackGaps.convert
+                XCalendar                           |> DynObj.setValueOptBy trace "xcalendar" StyleParam.Calendar.convert
+                YCalendar                           |> DynObj.setValueOptBy trace "ycalendar" StyleParam.Calendar.convert
+                UIRevision                          |> DynObj.setValueOpt trace "uirevision"
 
                 trace
             ) 
@@ -320,12 +330,21 @@ type Trace2DStyle() =
             [<Optional;DefaultParameterValue(null)>] ?Y0                : #IConvertible,
             [<Optional;DefaultParameterValue(null)>] ?DY                : #IConvertible,
             [<Optional;DefaultParameterValue(null)>] ?Base              : #IConvertible,
-            [<Optional;DefaultParameterValue(null)>] ?Text              : seq<#IConvertible>,
+            [<Optional;DefaultParameterValue(null)>] ?Width             : #IConvertible,
+            [<Optional;DefaultParameterValue(null)>] ?MultiWidth        : seq<#IConvertible>,
+            [<Optional;DefaultParameterValue(null)>] ?Offset            : #IConvertible,
+            [<Optional;DefaultParameterValue(null)>] ?MultiOffset       : seq<#IConvertible>,
+            [<Optional;DefaultParameterValue(null)>] ?Text              : #IConvertible,
+            [<Optional;DefaultParameterValue(null)>] ?MultiText         : seq<#IConvertible>,
             [<Optional;DefaultParameterValue(null)>] ?TextPosition      : StyleParam.TextPosition,
+            [<Optional;DefaultParameterValue(null)>] ?MultiTextPosition : seq<StyleParam.TextPosition>,
             [<Optional;DefaultParameterValue(null)>] ?TextTemplate      : string,
+            [<Optional;DefaultParameterValue(null)>] ?MultiTextTemplate : seq<string>,
             [<Optional;DefaultParameterValue(null)>] ?HoverText         : string,
+            [<Optional;DefaultParameterValue(null)>] ?MultiHoverText    : seq<string>,
             [<Optional;DefaultParameterValue(null)>] ?HoverInfo         : StyleParam.HoverInfo,
             [<Optional;DefaultParameterValue(null)>] ?HoverTemplate     : string,
+            [<Optional;DefaultParameterValue(null)>] ?MultiHoverTemplate: seq<string>,
             [<Optional;DefaultParameterValue(null)>] ?XHoverFormat      : string,
             [<Optional;DefaultParameterValue(null)>] ?YHoverFormat      : string,
             [<Optional;DefaultParameterValue(null)>] ?Meta              : string,
@@ -362,59 +381,61 @@ type Trace2DStyle() =
         ) =
             (fun (bar:('T :> Trace)) ->    
                
-                Name              |> DynObj.setValueOpt bar "name"
-                Visible           |> DynObj.setValueOptBy bar "visible" StyleParam.Visible.convert
-                ShowLegend        |> DynObj.setValueOpt bar "showlegend"
-                LegendRank        |> DynObj.setValueOpt bar "legendrank"
-                LegendGroup       |> DynObj.setValueOpt bar "legendgroup"
-                LegendGroupTitle  |> DynObj.setValueOpt bar "legendgrouptitle"
-                Opacity           |> DynObj.setValueOpt bar "opacity"
-                Ids               |> DynObj.setValueOpt bar "ids"
-                X                 |> DynObj.setValueOpt bar "x"
-                X0                |> DynObj.setValueOpt bar "x0"
-                DX                |> DynObj.setValueOpt bar "dx"
-                Y                 |> DynObj.setValueOpt bar "y"
-                Y0                |> DynObj.setValueOpt bar "y0"
-                DY                |> DynObj.setValueOpt bar "dy"
-                Base              |> DynObj.setValueOpt bar "base"
-                Text              |> DynObj.setValueOpt bar "text"
-                TextPosition      |> DynObj.setValueOptBy bar "textposition" StyleParam.TextPosition.convert
-                TextTemplate      |> DynObj.setValueOpt bar "texttemplate"
-                HoverText         |> DynObj.setValueOpt bar "hovertext"
-                HoverInfo         |> DynObj.setValueOptBy bar "hoverinfo"  StyleParam.HoverInfo.convert
-                HoverTemplate     |> DynObj.setValueOpt bar "hovertemplate"
-                XHoverFormat      |> DynObj.setValueOpt bar "xhoverformat"
-                YHoverFormat      |> DynObj.setValueOpt bar "yhoverformat"
-                Meta              |> DynObj.setValueOpt bar "meta"
-                CustomData        |> DynObj.setValueOpt bar "customdata"
-                XAxis             |> DynObj.setValueOptBy bar "xaxis" StyleParam.LinearAxisId.convert
-                YAxis             |> DynObj.setValueOptBy bar "yaxis"  StyleParam.LinearAxisId.convert
-                Orientation       |> DynObj.setValueOptBy bar "orientation" StyleParam.Orientation.convert
-                AlignmentGroup    |> DynObj.setValueOpt bar "alignmentgroup"
-                OffsetGroup       |> DynObj.setValueOpt bar "offsetgroup"
-                XPeriod           |> DynObj.setValueOpt bar "xperiod"
-                XPeriodAlignment  |> DynObj.setValueOptBy bar "xperiodalignment" StyleParam.PeriodAlignment.convert
-                XPeriod0          |> DynObj.setValueOpt bar "xperiod0"
-                YPeriod           |> DynObj.setValueOpt bar "yperiod"
-                YPeriodAlignment  |> DynObj.setValueOptBy bar "yperiodalignment" StyleParam.PeriodAlignment.convert
-                YPeriod0          |> DynObj.setValueOpt bar "yperiod0"
-                Marker            |> DynObj.setValueOpt bar "marker"
-                TextAngle         |> DynObj.setValueOpt bar "textangle"
-                TextFont          |> DynObj.setValueOpt bar "textfont"
-                ErrorX            |> DynObj.setValueOpt bar "errorx"
-                ErrorY            |> DynObj.setValueOpt bar "errory"
-                SelectedPoints    |> DynObj.setValueOpt bar "selectedpoints"
-                Selected          |> DynObj.setValueOpt bar "selected"
-                Unselected        |> DynObj.setValueOpt bar "unselected"
-                ClipOnAxis        |> DynObj.setValueOpt bar "cliponaxis"
-                Constraintext     |> DynObj.setValueOptBy bar "constraintext" StyleParam.ConstrainText.convert
-                HoverLabel        |> DynObj.setValueOpt bar "hoverlabel"
-                InsideTextAnchor  |> DynObj.setValueOptBy bar "insidetextanchor" StyleParam.InsideTextAnchor.convert
-                InsideTextFont    |> DynObj.setValueOpt bar "insidetextfont"
-                OutsideTextFont   |> DynObj.setValueOpt bar "outsidetextfont"
-                XCalendar         |> DynObj.setValueOptBy bar "xcalendar" StyleParam.Calendar.convert
-                YCalendar         |> DynObj.setValueOptBy bar "ycalendar" StyleParam.Calendar.convert
-                UIRevision        |> DynObj.setValueOpt bar "uirevision"
+                Name                                |> DynObj.setValueOpt bar "name"
+                Visible                             |> DynObj.setValueOptBy bar "visible" StyleParam.Visible.convert
+                ShowLegend                          |> DynObj.setValueOpt bar "showlegend"
+                LegendRank                          |> DynObj.setValueOpt bar "legendrank"
+                LegendGroup                         |> DynObj.setValueOpt bar "legendgroup"
+                LegendGroupTitle                    |> DynObj.setValueOpt bar "legendgrouptitle"
+                Opacity                             |> DynObj.setValueOpt bar "opacity"
+                Ids                                 |> DynObj.setValueOpt bar "ids"
+                X                                   |> DynObj.setValueOpt bar "x"
+                X0                                  |> DynObj.setValueOpt bar "x0"
+                DX                                  |> DynObj.setValueOpt bar "dx"
+                Y                                   |> DynObj.setValueOpt bar "y"
+                Y0                                  |> DynObj.setValueOpt bar "y0"
+                DY                                  |> DynObj.setValueOpt bar "dy"
+                Base                                |> DynObj.setValueOpt bar "base"
+                (Width, MultiWidth)                 |> DynObj.setSingleOrMultiOpt bar "width"
+                (Offset, MultiOffset)               |> DynObj.setSingleOrMultiOpt bar "offset"
+                (Text, MultiText)                   |> DynObj.setSingleOrMultiOpt bar "text"
+                (TextPosition, MultiTextPosition)   |> DynObj.setSingleOrMultiOptBy bar "textposition" StyleParam.TextPosition.convert
+                (TextTemplate, MultiTextTemplate)   |> DynObj.setSingleOrMultiOpt bar "texttemplate"
+                (HoverText, MultiHoverText)         |> DynObj.setSingleOrMultiOpt bar "hovertext"
+                HoverInfo                           |> DynObj.setValueOptBy bar "hoverinfo"  StyleParam.HoverInfo.convert
+                (HoverTemplate, MultiHoverTemplate) |> DynObj.setSingleOrMultiOpt bar "hovertemplate"
+                XHoverFormat                        |> DynObj.setValueOpt bar "xhoverformat"
+                YHoverFormat                        |> DynObj.setValueOpt bar "yhoverformat"
+                Meta                                |> DynObj.setValueOpt bar "meta"
+                CustomData                          |> DynObj.setValueOpt bar "customdata"
+                XAxis                               |> DynObj.setValueOptBy bar "xaxis" StyleParam.LinearAxisId.convert
+                YAxis                               |> DynObj.setValueOptBy bar "yaxis"  StyleParam.LinearAxisId.convert
+                Orientation                         |> DynObj.setValueOptBy bar "orientation" StyleParam.Orientation.convert
+                AlignmentGroup                      |> DynObj.setValueOpt bar "alignmentgroup"
+                OffsetGroup                         |> DynObj.setValueOpt bar "offsetgroup"
+                XPeriod                             |> DynObj.setValueOpt bar "xperiod"
+                XPeriodAlignment                    |> DynObj.setValueOptBy bar "xperiodalignment" StyleParam.PeriodAlignment.convert
+                XPeriod0                            |> DynObj.setValueOpt bar "xperiod0"
+                YPeriod                             |> DynObj.setValueOpt bar "yperiod"
+                YPeriodAlignment                    |> DynObj.setValueOptBy bar "yperiodalignment" StyleParam.PeriodAlignment.convert
+                YPeriod0                            |> DynObj.setValueOpt bar "yperiod0"
+                Marker                              |> DynObj.setValueOpt bar "marker"
+                TextAngle                           |> DynObj.setValueOpt bar "textangle"
+                TextFont                            |> DynObj.setValueOpt bar "textfont"
+                ErrorX                              |> DynObj.setValueOpt bar "errorx"
+                ErrorY                              |> DynObj.setValueOpt bar "errory"
+                SelectedPoints                      |> DynObj.setValueOpt bar "selectedpoints"
+                Selected                            |> DynObj.setValueOpt bar "selected"
+                Unselected                          |> DynObj.setValueOpt bar "unselected"
+                ClipOnAxis                          |> DynObj.setValueOpt bar "cliponaxis"
+                Constraintext                       |> DynObj.setValueOptBy bar "constraintext" StyleParam.ConstrainText.convert
+                HoverLabel                          |> DynObj.setValueOpt bar "hoverlabel"
+                InsideTextAnchor                    |> DynObj.setValueOptBy bar "insidetextanchor" StyleParam.InsideTextAnchor.convert
+                InsideTextFont                      |> DynObj.setValueOpt bar "insidetextfont"
+                OutsideTextFont                     |> DynObj.setValueOpt bar "outsidetextfont"
+                XCalendar                           |> DynObj.setValueOptBy bar "xcalendar" StyleParam.Calendar.convert
+                YCalendar                           |> DynObj.setValueOptBy bar "ycalendar" StyleParam.Calendar.convert
+                UIRevision                          |> DynObj.setValueOpt bar "uirevision"
 
                 bar
 

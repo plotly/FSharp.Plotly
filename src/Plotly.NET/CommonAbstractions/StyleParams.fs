@@ -715,6 +715,22 @@ module StyleParam =
 // #E#
 //--------------------------
 
+    [<RequireQualifiedAccess>]
+    type ErrorType =
+        | Percent | Constant| Sqrt | Data    
+    
+        static member toString = function
+            | Percent   -> "percent" 
+            | Constant  -> "constant" 
+            | Sqrt      -> "sqrt" 
+            | Data      -> "data" 
+
+    
+        static member convert = ErrorType.toString >> box
+        override this.ToString() = this |> ErrorType.toString
+        member this.Convert() = this |> ErrorType.convert
+
+
     /// Determines a formatting rule for the tick exponents. For example, consider the number 1,000,000,000. If "none", it appears as 1,000,000,000. If "e", 1e+9. If "E", 1E+9. 
     /// If "power", 1x10^9 (with 9 in a super script). If "SI", 1G. If "B", 1B.
     [<RequireQualifiedAccess>]
@@ -812,6 +828,21 @@ module StyleParam =
 //--------------------------
 // #G#
 //--------------------------
+
+    [<RequireQualifiedAccess>]
+    type GradientType =
+           | Radial | Horizontal | Vertical | None
+       
+           static member toString = function
+               | Radial     -> "radial"
+               | Horizontal -> "horizontal"
+               | Vertical   -> "vertical"
+               | None       -> "none"
+
+           static member convert = GradientType.toString >> box
+           override this.ToString() = this |> GradientType.toString
+           member this.Convert() = this |> GradientType.convert
+           
 
     [<RequireQualifiedAccess>]
     type GroupNorm =
@@ -1587,6 +1618,46 @@ module StyleParam =
 // #P#
 //--------------------------
 
+    
+    [<RequireQualifiedAccess>]
+    type PatternFillMode =
+        | Replace | Overlay 
+    
+        static member toString = function
+            | Replace   -> "replace"
+            | Overlay   -> "overlay"
+
+        static member convert = PatternFillMode.toString >> box    
+        override this.ToString() = this |> PatternFillMode.toString
+        member this.Convert() = this |> PatternFillMode.convert
+        
+    
+    [<RequireQualifiedAccess>]
+    type PatternShape =
+        | None 
+        | DiagonalDescending 
+        | DiagonalAscending
+        | DiagonalChecked
+        | HorizontalLines
+        | VerticalLines
+        | Checked
+        | Dots
+    
+        static member toString = function
+            | None                  -> "" 
+            | DiagonalDescending    -> "/" 
+            | DiagonalAscending     -> """\"""
+            | DiagonalChecked       -> "x" 
+            | HorizontalLines       -> "-" 
+            | VerticalLines         -> "|" 
+            | Checked               -> "+" 
+            | Dots                  -> "."
+
+        static member convert = PatternShape.toString >> box    
+        override this.ToString() = this |> PatternShape.toString
+        member this.Convert() = this |> PatternShape.convert
+        
+
     [<RequireQualifiedAccess>]
     type PeriodAlignment =
         | Start | Middle | End
@@ -1736,63 +1807,137 @@ module StyleParam =
         | Open
         | Dot
         | OpenDot
+
         static member toString = function
-            | Open    -> "Open"             
-            | Dot     -> "Dot"            
-            | OpenDot -> "OpenDot"     
+            | Open    -> "open"             
+            | Dot     -> "dot"            
+            | OpenDot -> "open-dot"     
+
+        static member toModifier = function
+            | Open    -> 100
+            | Dot     -> 200
+            | OpenDot -> 300
 
         static member convert = SymbolStyle.toString >> box
         override this.ToString() = this |> SymbolStyle.toString
         member this.Convert() = this |> SymbolStyle.convert
 
     [<RequireQualifiedAccess>]
-    type Symbol =
-        | Circle            = 0
-        | Square            = 1
-        | Diamond           = 2
-        | Cross             = 3
-        | X                 = 4  
-        | TriangleUp        = 5
-        | TriangleDown      = 6
-        | TriangleLeft      = 7
-        | TriangleRight     = 8
-        | TriangleNE        = 9
-        | TriangleSE        = 10
-        | TriangleSW        = 11
-        | TriangleNW        = 12
-        | Pentagon          = 13
-        | Hexagon           = 14
-        | Hexagon2          = 15
-        | Octagon           = 16
-        | Star              = 17
-        | Hexagram          = 18
-        | StarTriangleUp    = 19
-        | StarTriangleDown  = 20
-        | StarSquare        = 21
-        | StarDiamond       = 22
-        | DiamondTall       = 23
-        | DiamondWide       = 24
-        | Hourglass         = 25
-        | Bowtie            = 26
-        | CircleCross       = 27
-        | CircleX           = 28
-        | SquareCross       = 29
-        | SquareX           = 30
-        | DiamondCross      = 31
-        | DiamondX          = 32
-        | CrossThin         = 33
-        | XThin             = 34
-        | Asterisk          = 35
-        | Hash              = 36
-        | YUp               = 37
-        | YDown             = 38
-        | YLeft             = 39
-        | YRight            = 40
-        | LineEW            = 41
-        | LineNS            = 42
-        | LineNE            = 43
-        | LineNW            = 44
+    type MarkerSymbol =
+        | Modified of MarkerSymbol * SymbolStyle
+        | Circle           
+        | Square           
+        | Diamond          
+        | Cross            
+        | X                
+        | TriangleUp       
+        | TriangleDown     
+        | TriangleLeft     
+        | TriangleRight    
+        | TriangleNE       
+        | TriangleSE       
+        | TriangleSW       
+        | TriangleNW       
+        | Pentagon         
+        | Hexagon          
+        | Hexagon2         
+        | Octagon          
+        | Star             
+        | Hexagram         
+        | StarTriangleUp   
+        | StarTriangleDown 
+        | StarSquare       
+        | StarDiamond      
+        | DiamondTall      
+        | DiamondWide      
+        | Hourglass        
+        | Bowtie           
+        | CircleCross      
+        | CircleX          
+        | SquareCross      
+        | SquareX          
+        | DiamondCross     
+        | DiamondX         
+        | CrossThin        
+        | XThin            
+        | Asterisk         
+        | Hash             
+        | YUp              
+        | YDown            
+        | YLeft            
+        | YRight           
+        | LineEW           
+        | LineNS           
+        | LineNE           
+        | LineNW           
+        | ArrowUp          
+        | ArrowDown        
+        | ArrowLeft        
+        | ArrowRight       
+        | ArrowBarUp       
+        | ArrowBarDown     
+        | ArrowBarLeft     
+        | ArrowBarRight    
+        
+        static member toInteger = function
+            | Modified (symbol, modifier)   -> (symbol |> MarkerSymbol.toInteger) + SymbolStyle.toModifier modifier
+            | Circle                        -> 0
+            | Square                        -> 1
+            | Diamond                       -> 2
+            | Cross                         -> 3
+            | X                             -> 4 
+            | TriangleUp                    -> 5
+            | TriangleDown                  -> 6
+            | TriangleLeft                  -> 7
+            | TriangleRight                 -> 8
+            | TriangleNE                    -> 9
+            | TriangleSE                    -> 10
+            | TriangleSW                    -> 11
+            | TriangleNW                    -> 12
+            | Pentagon                      -> 13
+            | Hexagon                       -> 14
+            | Hexagon2                      -> 15
+            | Octagon                       -> 16
+            | Star                          -> 17
+            | Hexagram                      -> 18
+            | StarTriangleUp                -> 19
+            | StarTriangleDown              -> 20
+            | StarSquare                    -> 21
+            | StarDiamond                   -> 22
+            | DiamondTall                   -> 23
+            | DiamondWide                   -> 24
+            | Hourglass                     -> 25
+            | Bowtie                        -> 26
+            | CircleCross                   -> 27
+            | CircleX                       -> 28
+            | SquareCross                   -> 29
+            | SquareX                       -> 30
+            | DiamondCross                  -> 31
+            | DiamondX                      -> 32
+            | CrossThin                     -> 33
+            | XThin                         -> 34
+            | Asterisk                      -> 35
+            | Hash                          -> 36
+            | YUp                           -> 37
+            | YDown                         -> 38
+            | YLeft                         -> 39
+            | YRight                        -> 40
+            | LineEW                        -> 41
+            | LineNS                        -> 42
+            | LineNE                        -> 43
+            | LineNW                        -> 44
+            | ArrowUp                       -> 45
+            | ArrowDown                     -> 46
+            | ArrowLeft                     -> 47
+            | ArrowRight                    -> 48
+            | ArrowBarUp                    -> 49
+            | ArrowBarDown                  -> 50
+            | ArrowBarLeft                  -> 51
+            | ArrowBarRight                 -> 52
 
+        static member convert = MarkerSymbol.toInteger >> string >> box
+        override this.ToString() = this |> MarkerSymbol.toInteger |> string
+        member this.Convert() = this |> MarkerSymbol.toInteger |> string |> box
 
     /// Determines the line shape. With "spline" the lines are drawn using spline interpolation. The other available values correspond to step-wise line shapes.
     [<RequireQualifiedAccess>]

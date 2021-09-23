@@ -78,8 +78,8 @@ type ColorAxis() =
                 CMid            |> DynObj.setValueOpt ca "cmid"
                 CMax            |> DynObj.setValueOpt ca "cmax"
                 ColorBar        |> DynObj.setValueOpt ca "colorbar"
-                ColorScale      |> DynObj.setValueOpt ca "colorscale"
-                ShowScale       |> DynObj.setValueOpt ca "showscale"
+                ColorScale      |> DynObj.setValueOptBy ca "colorscale" StyleParam.Colorscale.convert
+                ShowScale       |> DynObj.setValueOpt ca "showscale" 
                 ReverseScale    |> DynObj.setValueOpt ca "reversescale"
 
                 ca
