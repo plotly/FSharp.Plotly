@@ -37,7 +37,6 @@ type Contour() =
     inherit DynamicObj()
 
     /// Initialized a Contour object
-    //[<CompiledName("init")>]
     static member init
         (
             ?Color: Color,
@@ -69,7 +68,6 @@ type Contour() =
 
 
     // Applies the styles to Contours()
-    //[<CompiledName("style")>]
     static member style
         (
             ?Color: Color,
@@ -135,7 +133,6 @@ type Contours() =
 
 
     /// Initialized Contours object
-    //[<CompiledName("init")>]
     static member initSurface
         (
             ?X: Contour,
@@ -145,7 +142,6 @@ type Contours() =
         Contours() |> Contours.style (?X = X, ?Y = Y, ?Z = Z)
 
     // Applies the styles to Contours()
-    //[<CompiledName("style")>]
     static member style
         (
             ?X: Contour,
@@ -182,8 +178,6 @@ type Contours() =
             |> DynObj.withOptionalPropertyBy "type" Type StyleParam.ContourType.convert
             |> DynObj.withOptionalProperty "value" Value
 
-
-
     // Initialized x-y-z-Contours with the same properties
     static member initXyz
         (
@@ -215,7 +209,6 @@ type Contours() =
         )
 
     // Applies the styles to Contours()
-    //[<CompiledName("styleXyz")>]
     static member styleXyz
         (
             ?Color: Color,

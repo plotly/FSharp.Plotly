@@ -23,7 +23,6 @@ type Chart =
     /// </summary>
     /// <param name="path">The path to save the chart html at.</param>
     /// <param name="OpenInBrowser">Whether or not to open the generated file in the browser (default: false)</param>
-    [<CompiledName("SaveHtml")>]
     static member saveHtml(path: string, ?OpenInBrowser: bool) =
         fun (ch: GenericChart) ->
             let show = defaultArg OpenInBrowser false
@@ -45,7 +44,6 @@ type Chart =
     /// Saves the given chart as a temporary html file and opens it in the browser.
     /// </summary>
     /// <param name="ch">The chart to show in the browser</param>
-    [<CompiledName("Show")>]
     static member show(ch: GenericChart) =
         let guid = Guid.NewGuid().ToString()
         let tempPath = Path.GetTempPath()
@@ -55,7 +53,6 @@ type Chart =
 
     // #######################
     /// Create a combined chart with the given charts merged
-    [<CompiledName("Combine")>]
     static member combine(gCharts: seq<GenericChart>) = GenericChart.combine gCharts
 
     //==============================================================================================================
@@ -89,7 +86,6 @@ type Chart =
     /// <param name="LegendRank">Sets the legend rank for the chart's trace(s). Items and groups with smaller ranks are presented on top/left side while with `"reversed" `legend.traceorder` they are on bottom/right side. The default legendrank is 1000, so that you can use ranks less than 1000 to place certain items before all unranked items, and ranks greater than 1000 to go after all unranked items.</param>
     /// <param name="LegendGroup">Sets the legend group for the chart's trace(s). Traces part of the same legend group hide/show at the same time when toggling legend items.</param>
     /// <param name="LegendGroupTitle">Sets the title for the chart's trace legend group </param>
-    [<CompiledName("WithTraceInfo")>]
     static member withTraceInfo
         (
             ?Name: string,
@@ -123,7 +119,6 @@ type Chart =
     /// </summary>
     /// <param name="X">The new x axis anchor id for the chart's cartesian and/or carpet trace(s)</param>
     /// <param name="Y">The new x axis anchor id for the chart's cartesian and/or carpet trace(s)</param>
-    [<CompiledName("WithAxisAnchor")>]
     static member withAxisAnchor
         (
             ?X,
@@ -150,7 +145,6 @@ type Chart =
     /// Sets the color axis id for the chart's trace(s).
     /// </summary>
     /// <param name="id">The new color axis id for the chart's trace(s)</param>
-    [<CompiledName("WithColorAxisAnchor")>]
     static member withColorAxisAnchor(id: int) =
         fun (ch: GenericChart) -> ch |> GenericChart.mapTrace (Trace.setColorAxisAnchor id)
 
@@ -158,7 +152,6 @@ type Chart =
     /// Sets the legend id for the chart's trace(s).
     /// </summary>
     /// <param name="id">The new Legend id for the chart's trace(s)</param>
-    [<CompiledName("WithLegendAnchor")>]
     static member withLegendAnchor(id: int) =
         fun (ch: GenericChart) -> ch |> GenericChart.mapTrace (Trace.setLegendAnchor id)
 
@@ -167,7 +160,6 @@ type Chart =
     /// </summary>
     /// <param name="marker">The new marker for the chart's trace(s)</param>
     /// <param name="Combine">Whether or not to combine the objects if there is already a marker (default is false)</param>
-    [<CompiledName("SetMarker")>]
     static member setMarker(marker: Marker, ?Combine: bool) =
         let combine = defaultArg Combine false
 
@@ -183,7 +175,6 @@ type Chart =
     /// If there is already a marker set, the objects are combined.
     /// </summary>
     /// <param name="marker">The new marker for the chart's trace(s)</param>
-    [<CompiledName("WithMarker")>]
     static member withMarker(marker: Marker) =
         (fun (ch: GenericChart) -> ch |> Chart.setMarker (marker, true))
 
@@ -224,7 +215,6 @@ type Chart =
     /// <param name="MultiSymbol3D">Sets the individual marker symbols for 3d traces.</param>
     /// <param name="OutlierColor">Sets the color of the outlier sample points.</param>
     /// <param name="OutlierWidth">Sets the width of the outlier sample points.</param>
-    [<CompiledName("WithMarkerStyle")>]
     static member withMarkerStyle
         (
             ?Angle: float,
@@ -308,7 +298,6 @@ type Chart =
     /// </summary>
     /// <param name="line">The new Line for the chart's trace(s)</param>
     /// <param name="Combine">Whether or not to combine the objects if there is already a Line (default is false)</param>
-    [<CompiledName("SetLine")>]
     static member setLine(line: Line, ?Combine: bool) =
         let combine = defaultArg Combine false
 
@@ -324,7 +313,6 @@ type Chart =
     /// If there is already a Line set, the objects are combined.
     /// </summary>
     /// <param name="line">The new line for the chart's trace(s)</param>
-    [<CompiledName("WithLine")>]
     static member withLine(line: Line) =
         (fun (ch: GenericChart) -> ch |> Chart.setLine (line, true))
 
@@ -351,7 +339,6 @@ type Chart =
     /// <param name="MultiWidth">Sets the individual line width (in px).</param>
     /// <param name="OutlierColor">Sets the color of the outline of outliers</param>
     /// <param name="OutlierWidth">Sets the width of the outline of outliers</param>
-    [<CompiledName("WithLineStyle")>]
     static member withLineStyle
         (
             ?BackOff: StyleParam.BackOff,
@@ -407,7 +394,6 @@ type Chart =
     /// </summary>
     /// <param name="xError">The new Error in the x dimension for the chart's trace(s)</param>
     /// <param name="Combine">Whether or not to combine the objects if there is already an Error object set (default is false)</param>
-    [<CompiledName("SetXError")>]
     static member setXError(xError: Error, ?Combine: bool) =
         let combine = defaultArg Combine false
 
@@ -423,7 +409,6 @@ type Chart =
     /// If there is already an error set, the objects are combined.
     /// </summary>
     /// <param name="xError">The new error for the chart's trace(s)</param>
-    [<CompiledName("WithXError")>]
     static member withXError(xError: Error) =
         (fun (ch: GenericChart) -> ch |> Chart.setXError (xError, true))
 
@@ -443,7 +428,6 @@ type Chart =
     /// <param name ="Color">Sets the stoke color of the error bars.</param>
     /// <param name ="Thickness">Sets the thickness (in px) of the error bars.</param>
     /// <param name ="Width">Sets the width (in px) of the cross-bar at both ends of the error bars.</param>
-    [<CompiledName("WithXErrorStyle")>]
     static member withXErrorStyle
         (
             ?Visible: bool,
@@ -485,7 +469,6 @@ type Chart =
     /// </summary>
     /// <param name="yError">The new Error in the x dimension for the chart's trace(s)</param>
     /// <param name="Combine">Whether or not to combine the objects if there is already an Error object set (default is false)</param>
-    [<CompiledName("SetYError")>]
     static member setYError(yError: Error, ?Combine: bool) =
         let combine = defaultArg Combine false
 
@@ -501,7 +484,6 @@ type Chart =
     /// If there is already an error set, the objects are combined.
     /// </summary>
     /// <param name="yError">The new error for the chart's trace(s)</param>
-    [<CompiledName("WithYError")>]
     static member withYError(yError: Error) =
         (fun (ch: GenericChart) -> ch |> Chart.setYError (yError, true))
 
@@ -521,7 +503,6 @@ type Chart =
     /// <param name ="Color">Sets the stoke color of the error bars.</param>
     /// <param name ="Thickness">Sets the thickness (in px) of the error bars.</param>
     /// <param name ="Width">Sets the width (in px) of the cross-bar at both ends of the error bars.</param>
-    [<CompiledName("WithYErrorStyle")>]
     static member withYErrorStyle
         (
             ?Visible: bool,
@@ -563,7 +544,6 @@ type Chart =
     /// </summary>
     /// <param name="zError">The new Error in the x dimension for the chart's trace(s)</param>
     /// <param name="Combine">Whether or not to combine the objects if there is already an Error object set (default is false)</param>
-    [<CompiledName("SetZError")>]
     static member setZError(zError: Error, ?Combine: bool) =
         let combine = defaultArg Combine false
 
@@ -579,7 +559,6 @@ type Chart =
     /// If there is already an error set, the objects are combined.
     /// </summary>
     /// <param name="zError">The new error for the chart's trace(s)</param>
-    [<CompiledName("WithZError")>]
     static member withZError(zError: Error) =
         (fun (ch: GenericChart) -> ch |> Chart.setZError (zError, true))
 
@@ -599,7 +578,6 @@ type Chart =
     /// <param name ="Color">Sets the stoke color of the error bars.</param>
     /// <param name ="Thickness">Sets the thickness (in px) of the error bars.</param>
     /// <param name ="Width">Sets the width (in px) of the cross-bar at both ends of the error bars.</param>
-    [<CompiledName("WithZErrorStyle")>]
     static member withZErrorStyle
         (
             ?Visible: bool,
@@ -641,7 +619,6 @@ type Chart =
     /// </summary>
     /// <param name="colorBar">The new ColorBar for the chart's trace(s)</param>
     /// <param name="Combine">Whether or not to combine the objects if there is already a ColorBar object set (default is false)</param>
-    [<CompiledName("SetColorBar")>]
     static member setColorBar(colorBar: ColorBar, ?Combine: bool) =
         let combine = defaultArg Combine false
 
@@ -657,7 +634,6 @@ type Chart =
     /// If there is already a ColorBar set, the objects are combined.
     /// </summary>
     /// <param name="colorbar">The new ColorBar for the chart's trace(s)</param>
-    [<CompiledName("WithColorBar")>]
     static member withColorBar(colorbar: ColorBar) =
         (fun (ch: GenericChart) -> ch |> Chart.setColorBar (colorbar, true))
 
@@ -712,7 +688,6 @@ type Chart =
     /// <param name="YAnchor">Sets this color bar's vertical position anchor This anchor binds the `y` position to the "top", "middle" or "bottom" of the color bar.</param>
     /// <param name="YPad">Sets the amount of padding (in px) along the y direction.</param>
     /// <param name="YRef">Sets the container `y` refers to. "container" spans the entire `height` of the plot. "paper" refers to the height of the plotting area only.</param>
-    [<CompiledName("WithColorbarStyle")>]
     static member withColorBarStyle
         (
             ?TitleText: string,
@@ -832,7 +807,6 @@ type Chart =
     ///
     /// If there is already an layout set, the object is replaced.
     /// </summary>
-    [<CompiledName("SetLayout")>]
     static member setLayout(layout: Layout) =
         (fun (ch: GenericChart) -> GenericChart.setLayout layout ch)
 
@@ -841,7 +815,6 @@ type Chart =
     ///
     /// If there is already an layout set, the objects are combined.
     /// </summary>
-    [<CompiledName("WithLayout")>]
     static member withLayout(layout: Layout) =
         (fun (ch: GenericChart) -> GenericChart.addLayout layout ch)
 
@@ -922,7 +895,6 @@ type Chart =
     /// <param name="Images">A collection containing all Images of this layout. </param>
     /// <param name="Sliders">A collection containing all Sliders of this layout. </param>
     /// <param name="UpdateMenus">A collection containing all UpdateMenus of this layout. </param>
-    [<CompiledName("WithLayoutStyle")>]
     static member withLayoutStyle
         (
             ?Title: Title,
@@ -1089,7 +1061,6 @@ type Chart =
     /// <param name="id">The target axis id with which the axis should be set.</param>
     /// <param name="SceneAxis">If set on a scene, define whether it is the x, y or z axis. default is x.</param>
     /// <param name="Combine">Whether or not to combine the objects if there is already an axis set (default is false)</param>
-    [<CompiledName("SetAxis")>]
     static member setAxis
         (
             axis: LinearAxis,
@@ -1169,7 +1140,6 @@ type Chart =
     /// </summary>
     /// <param name="xAxis">The x axis to set on the chart's layout</param>
     /// <param name="Id">The target axis id with which the axis should be set. Default is 1.</param>
-    [<CompiledName("WithXAxis")>]
     static member withXAxis(xAxis: LinearAxis, ?Id: StyleParam.SubPlotId) =
         let id =
             defaultArg Id (StyleParam.SubPlotId.XAxis 1)
@@ -1212,7 +1182,6 @@ type Chart =
     /// <param name="BackgroundColor">Sets the background color of this axis' wall. (Only has an effect on 3D scenes)</param>
     /// <param name="ShowBackground">Sets whether or not this axis' wall has a background color. (Only has an effect on 3D scenes)</param>
     /// <param name="Id">The target axis id on which the styles should be applied. Default is 1.</param>
-    [<CompiledName("WithXAxisStyle")>]
     static member withXAxisStyle
         (
             ?TitleText: string,
@@ -1291,7 +1260,6 @@ type Chart =
         Chart.withXAxis (xaxis, ?Id = Id)
 
     /// Sets the range slider for the xAxis
-    [<CompiledName("WithXAxisRangeSlider")>]
     static member withXAxisRangeSlider(rangeSlider: RangeSlider, ?Id) =
         let xaxis =
             LinearAxis.init (RangeSlider = rangeSlider)
@@ -1305,7 +1273,6 @@ type Chart =
     /// </summary>
     /// <param name="yAxis">The y axis to set on the chart's layout</param>
     /// <param name="Id">The target axis id with which the axis should be set. Default is 1.</param>
-    [<CompiledName("WithYAxis")>]
     static member withYAxis(yAxis: LinearAxis, ?Id: StyleParam.SubPlotId) =
         let id =
             defaultArg Id (StyleParam.SubPlotId.YAxis 1)
@@ -1350,7 +1317,6 @@ type Chart =
     /// <param name="BackgroundColor">Sets the background color of this axis' wall. (Only has an effect on 3D scenes)</param>
     /// <param name="ShowBackground">Sets whether or not this axis' wall has a background color. (Only has an effect on 3D scenes)</param>
     /// <param name="Id">The target axis id on which the styles should be applied. Default is 1.</param>
-    [<CompiledName("WithYAxisStyle")>]
     static member withYAxisStyle
         (
             ?TitleText: string,
@@ -1439,7 +1405,6 @@ type Chart =
     /// </summary>
     /// <param name="zAxis">The z axis to set on the chart's layout</param>
     /// <param name="Id">The target scene id on which the axis should be set. Default is 1.</param>
-    [<CompiledName("WithZAxis")>]
     static member withZAxis(zAxis: LinearAxis, ?Id: int) =
         let id =
             Id |> Option.defaultValue 1 |> StyleParam.SubPlotId.Scene
@@ -1481,7 +1446,6 @@ type Chart =
     /// <param name="BackgroundColor">Sets the background color of this axis' wall. (Only has an effect on 3D scenes)</param>
     /// <param name="ShowBackground">Sets whether or not this axis' wall has a background color. (Only has an effect on 3D scenes)</param>
     /// <param name="Id">The target scene id on which the axis styles should be applied. Default is 1.</param>
-    [<CompiledName("WithZAxisStyle")>]
     static member withZAxisStyle
         (
             ?TitleText: string,
@@ -1563,7 +1527,6 @@ type Chart =
     /// <param name="scene">The Scene object to set on the chart's layout</param>
     /// <param name="id">The target scene id with which the Scene object should be set.</param>
     /// <param name="Combine">Whether or not to combine the objects if there is already an Scene set (default is false)</param>
-    [<CompiledName("SetScene")>]
     static member setScene
         (
             scene: Scene,
@@ -1586,7 +1549,6 @@ type Chart =
     /// </summary>
     /// <param name="scene">The Scene to set on the chart's layout</param>
     /// <param name="Id">The target scene id on which the scene should be set. Default is 1.</param>
-    [<CompiledName("WithScene")>]
     static member withScene(scene: Scene, ?Id: int) =
         let id =
             Id |> Option.defaultValue 1 |> StyleParam.SubPlotId.Scene
@@ -1611,7 +1573,6 @@ type Chart =
     /// <param name="YAxis">Sets this scene's yaxis</param>
     /// <param name="ZAxis">Sets this scene's zaxis</param>
     /// <param name="Id">The target scene id</param>
-    [<CompiledName("WithSceneStyle")>]
     static member withSceneStyle
         (
             ?Annotations: seq<Annotation>,
@@ -1653,7 +1614,6 @@ type Chart =
     /// <param name="polar">The Polar object to set on the chart's layout</param>
     /// <param name="id">The target polar id with which the Polar object should be set.</param>
     /// <param name="Combine">Whether or not to combine the objects if there is already an Polar set (default is false)</param>
-    [<CompiledName("SetPolar")>]
     static member setPolar
         (
             polar: Polar,
@@ -1676,7 +1636,6 @@ type Chart =
     /// </summary>
     /// <param name="polar">The new Polar for the chart's layout</param>
     /// <param name="Id">The target polar id on which the polar object should be set. Default is 1.</param>
-    [<CompiledName("WithPolar")>]
     static member withPolar(polar: Polar, ?Id: int) =
         let id =
             Id |> Option.defaultValue 1 |> StyleParam.SubPlotId.Polar
@@ -1697,7 +1656,6 @@ type Chart =
     /// <param name="GridShape">Determines if the radial axis grid lines and angular axis line are drawn as "circular" sectors or as "linear" (polygon) sectors. Has an effect only when the angular axis has `type` "category". Note that `radialaxis.angle` is snapped to the angle of the closest vertex when `gridshape` is "circular" (so that radial axis scale is the same as the data scale).</param>
     /// <param name="UIRevision">Controls persistence of user-driven changes in axis attributes, if not overridden in the individual axes. Defaults to `layout.uirevision`.</param>
     /// <param name="Id">The target polar id</param>
-    [<CompiledName("WithPolarStyle")>]
     static member withPolarStyle
         (
             ?Domain: Domain,
@@ -1731,7 +1689,6 @@ type Chart =
     /// <param name="angularAxis">The AngularAxis to set on the target polar object on the chart's layout</param>
     /// <param name="id">The target polar id with which the AngularAxis should be set.(default is 1)</param>
     /// <param name="Combine">Whether or not to combine the objects if there is already an axis set (default is false)</param>
-    [<CompiledName("SetAngularAxis")>]
     static member setAngularAxis
         (
             angularAxis: AngularAxis,
@@ -1776,7 +1733,6 @@ type Chart =
     /// </summary>
     /// <param name="angularAxis">The new AngularAxis for the chart layout's polar object</param>
     /// <param name="Id">The target polar id on which the AngularAxis should be set. Default is 1.</param>
-    [<CompiledName("WithAngularAxis")>]
     static member withAngularAxis(angularAxis: AngularAxis, ?Id: int) =
         let id =
             Id |> Option.defaultValue 1 |> StyleParam.SubPlotId.Polar
@@ -1789,7 +1745,6 @@ type Chart =
     /// <param name="radialAxis">The RadialAxis to set on the target polar object on the chart's layout</param>
     /// <param name="id">The target polar id with which the RadialAxis should be set.(default is 1)</param>
     /// <param name="Combine">Whether or not to combine the objects if there is already an axis set (default is false)</param>
-    [<CompiledName("SetRadialAxis")>]
     static member setRadialAxis
         (
             radialAxis: RadialAxis,
@@ -1835,7 +1790,6 @@ type Chart =
     /// </summary>
     /// <param name="radialAxis">The new RadialAxis for the chart layout's polar object</param>
     /// <param name="Id">The target polar id on which the RadialAxis should be set. Default is 1.</param>
-    [<CompiledName("WithRadialAxis")>]
     static member withRadialAxis(radialAxis: RadialAxis, ?Id: int) =
         let id =
             Id |> Option.defaultValue 1 |> StyleParam.SubPlotId.Polar
@@ -1848,7 +1802,6 @@ type Chart =
     /// <param name="smith">The Smith object to set on the chart's layout</param>
     /// <param name="id">The target smith id with which the Smith object should be set.</param>
     /// <param name="Combine">Whether or not to combine the objects if there is already an Smith set (default is false)</param>
-    [<CompiledName("SetSmith")>]
     static member setSmith
         (
             smith: Smith,
@@ -1871,7 +1824,6 @@ type Chart =
     /// </summary>
     /// <param name="smith">The new Smith for the chart's layout</param>
     /// <param name="Id">The target smith id on which the smith object should be set. Default is 1.</param>
-    [<CompiledName("WithSmith")>]
     static member withSmith(smith: Smith, ?Id: int) =
         let id =
             Id |> Option.defaultValue 1 |> StyleParam.SubPlotId.Smith
@@ -1883,8 +1835,6 @@ type Chart =
     ///
     /// If there is already a Smith set, the styles are applied to it. If there is no Smith present, a new Smith object with the given styles will be set.
     /// </summary>
-
-    [<CompiledName("WithSmithStyle")>]
     static member withSmithStyle
         (
             ?BGColor: Color,
@@ -1905,7 +1855,6 @@ type Chart =
     /// <param name="imaginaryAxis">The ImaginaryAxis to set on the target polar object on the chart's layout</param>
     /// <param name="id">The target polar id with which the ImaginaryAxis should be set.(default is 1)</param>
     /// <param name="Combine">Whether or not to combine the objects if there is already an axis set (default is false)</param>
-    [<CompiledName("SetImaginaryAxis")>]
     static member setImaginaryAxis
         (
             imaginaryAxis: ImaginaryAxis,
@@ -1950,7 +1899,6 @@ type Chart =
     /// </summary>
     /// <param name="imaginaryAxis">The new ImaginaryAxis for the chart layout's smith object</param>
     /// <param name="Id">The target smith id on which the ImaginaryAxis should be set. Default is 1.</param>
-    [<CompiledName("WithImaginaryAxis")>]
     static member withImaginaryAxis(imaginaryAxis: ImaginaryAxis, ?Id: int) =
         let id =
             Id |> Option.defaultValue 1 |> StyleParam.SubPlotId.Smith
@@ -1963,7 +1911,6 @@ type Chart =
     /// <param name="realAxis">The RealAxis to set on the target smith object on the chart's layout</param>
     /// <param name="id">The target smith id with which the RealAxis should be set.(default is 1)</param>
     /// <param name="Combine">Whether or not to combine the objects if there is already an axis set (default is false)</param>
-    [<CompiledName("SetRealAxis")>]
     static member setRealAxis
         (
             realAxis: RealAxis,
@@ -2007,7 +1954,6 @@ type Chart =
     /// </summary>
     /// <param name="realAxis">The new RealAxis for the chart layout's smith object</param>
     /// <param name="Id">The target smith id on which the RealAxis should be set. Default is 1.</param>
-    [<CompiledName("WithRealAxis")>]
     static member withRealAxis(realAxis: RealAxis, ?Id: int) =
         let id =
             Id |> Option.defaultValue 1 |> StyleParam.SubPlotId.Smith
@@ -2020,7 +1966,6 @@ type Chart =
     /// <param name="geo">The Geo object to set on the chart's layout</param>
     /// <param name="id">The target Geo id with which the Geo object should be set.</param>
     /// <param name="Combine">Whether or not to combine the objects if there is already an Geo set (default is false)</param>
-    [<CompiledName("SetGeo")>]
     static member setGeo(geo: Geo, id: StyleParam.SubPlotId, ?Combine: bool) =
 
         let combine = defaultArg Combine false
@@ -2038,7 +1983,6 @@ type Chart =
     /// </summary>
     /// <param name="geo">The new Geo for the chart's layout</param>
     /// <param name="Id">The target geo id on which the Geo should be set. Default is 1.</param>
-    [<CompiledName("WithGeo")>]
     static member withGeo(geo: Geo, ?Id: int) =
         let id =
             Id |> Option.defaultValue 1 |> StyleParam.SubPlotId.Geo
@@ -2082,7 +2026,6 @@ type Chart =
     /// <param name="LatAxis">Sets the latitudinal axis for this geo trace</param>
     /// <param name="LonAxis">Sets the longitudinal axis for this geo trace</param>
     /// <param name="Id">the target geo id</param>
-    [<CompiledName("WithGeoStyle")>]
     static member withGeoStyle
         (
             ?FitBounds: StyleParam.GeoFitBounds,
@@ -2166,7 +2109,6 @@ type Chart =
     /// <param name="Parallels">For conic projection types only. Sets the parallels (tangent, secant) where the cone intersects the sphere.</param>
     /// <param name="Scale">Zooms in or out on the map view. A scale of "1" corresponds to the largest zoom level that fits the map's lon and lat ranges.</param>
     /// <param name="Id">the target geo id</param>
-    [<CompiledName("WithGeoProjection")>]
     static member withGeoProjection
         (
             projectionType: StyleParam.GeoProjectionType,
@@ -2195,7 +2137,6 @@ type Chart =
     /// <param name="mapbox">The Mapbox object to set on the chart's layout</param>
     /// <param name="id">The target Mapbox id with which the Mapbox object should be set.</param>
     /// <param name="Combine">Whether or not to combine the objects if there is already an Mapbox set (default is false)</param>
-    [<CompiledName("SetMapbox")>]
     static member setMapbox
         (
             mapbox: Mapbox,
@@ -2218,7 +2159,6 @@ type Chart =
     /// </summary>
     /// <param name="mapbox">The Mapbox to set on the chart's layout</param>
     /// <param name="Id">The target mapbox id on which the Mapbox should be set. Default is 1.</param>
-    [<CompiledName("WithMapbox")>]
     static member withMapbox(mapbox: Mapbox, ?Id: int) =
         let id =
             Id |> Option.defaultValue 1 |> StyleParam.SubPlotId.Mapbox
@@ -2272,7 +2212,6 @@ type Chart =
     /// <param name="ternary">The Ternary object to set on the chart's layout</param>
     /// <param name="id">The target Ternary id with which the Ternary object should be set.</param>
     /// <param name="Combine">Whether or not to combine the objects if there is already an Ternary set (default is false)</param>
-    [<CompiledName("SetTernary")>]
     static member setTernary
         (
             ternary: Ternary,
@@ -2295,7 +2234,6 @@ type Chart =
     /// </summary>
     /// <param name="ternary">The Ternary to set on the chart's layout</param>
     /// <param name="Id">The target ternary id on which the Ternary should be set. Default is 1.</param>
-    [<CompiledName("WithTernary")>]
     static member withTernary(ternary: Ternary, ?Id: int) =
         let id =
             Id |> Option.defaultValue 1 |> StyleParam.SubPlotId.Ternary
@@ -2343,7 +2281,6 @@ type Chart =
     /// <param name="aAxis">The a Axis to set on the target ternary object on the chart's layout</param>
     /// <param name="id">The target ternary id with which the a Axis should be set.(default is 1)</param>
     /// <param name="Combine">Whether or not to combine the objects if there is already an axis set (default is false)</param>
-    [<CompiledName("SetAAxis")>]
     static member setAAxis
         (
             aAxis: LinearAxis,
@@ -2389,7 +2326,6 @@ type Chart =
     /// </summary>
     /// <param name="aAxis">The new a axis for the chart layout's ternary object</param>
     /// <param name="Id">The target ternary id on which the a axis should be set. Default is 1.</param>
-    [<CompiledName("WithAAxis")>]
     static member withAAxis(aAxis: LinearAxis, ?Id: int) =
         let id =
             Id |> Option.defaultValue 1 |> StyleParam.SubPlotId.Ternary
@@ -2402,7 +2338,6 @@ type Chart =
     /// <param name="bAxis">The b Axis to set on the target ternary object on the chart's layout</param>
     /// <param name="id">The target ternary id with which the b Axis should be set.(default is 1)</param>
     /// <param name="Combine">Whether or not to combine the objects if there is already an axis set (default is false)</param>
-    [<CompiledName("SetBAxis")>]
     static member setBAxis
         (
             bAxis: LinearAxis,
@@ -2448,7 +2383,6 @@ type Chart =
     /// </summary>
     /// <param name="bAxis">The new b axis for the chart layout's ternary object</param>
     /// <param name="Id">The target ternary id on which the b axis should be set. Default is 1.</param>
-    [<CompiledName("WithBAxis")>]
     static member withBAxis(bAxis: LinearAxis, ?Id: int) =
         let id =
             Id |> Option.defaultValue 1 |> StyleParam.SubPlotId.Ternary
@@ -2461,7 +2395,6 @@ type Chart =
     /// <param name="cAxis">The c Axis to set on the target ternary object on the chart's layout</param>
     /// <param name="id">The target ternary id with which the c Axis should be set.(default is 1)</param>
     /// <param name="Combine">Whether or not to combine the objects if there is already an axis set (default is false)</param>
-    [<CompiledName("SetCAxis")>]
     static member setCAxis
         (
             cAxis: LinearAxis,
@@ -2507,7 +2440,6 @@ type Chart =
     /// </summary>
     /// <param name="cAxis">The new c axis for the chart layout's ternary object</param>
     /// <param name="Id">The target ternary id on which the c axis should be set. Default is 1.</param>
-    [<CompiledName("WithCAxis")>]
     static member withCAxis(cAxis: LinearAxis, ?Id: int) =
         let id =
             Id |> Option.defaultValue 1 |> StyleParam.SubPlotId.Ternary
@@ -2519,7 +2451,6 @@ type Chart =
     /// </summary>
     /// <param name="layoutGrid">The new LayoutGrid for the chart's layout</param>
     /// <param name="Combine">Whether or not to combine the objects if there is already a ColorBar object set (default is false)</param>
-    [<CompiledName("SetLayoutGrid")>]
     static member setLayoutGrid(layoutGrid: LayoutGrid, ?Combine: bool) =
         let combine = defaultArg Combine false
 
@@ -2535,7 +2466,6 @@ type Chart =
     /// If there is already a LayoutGrid set, the objects are combined.
     /// </summary>
     /// <param name="layoutGrid">The new LayoutGrid for the chart's layout</param>
-    [<CompiledName("WithLayoutGrid")>]
     static member withLayoutGrid(layoutGrid: LayoutGrid) =
         (fun (ch: GenericChart) -> ch |> Chart.setLayoutGrid (layoutGrid, true))
 
@@ -2556,7 +2486,6 @@ type Chart =
     /// <param name ="Domain">Sets the domains of this grid subplot (in plot fraction). The first and last cells end exactly at the domain edges, with no grout around the edges.</param>
     /// <param name ="XSide">Sets where the x axis labels and titles go. "bottom" means the very bottom of the grid. "bottom plot" is the lowest plot that each x axis is used in. "top" and "top plot" are similar.</param>
     /// <param name ="YSide">Sets where the y axis labels and titles go. "left" means the very left edge of the grid. "left plot" is the leftmost plot that each y axis is used in. "right" and "right plot" are similar.</param>
-    [<CompiledName("WithLayoutGridStyle")>]
     static member withLayoutGridStyle
         (
             ?SubPlots: (StyleParam.LinearAxisId * StyleParam.LinearAxisId)[][],
@@ -2598,7 +2527,6 @@ type Chart =
     /// <param name="legend">The Legend to set on the chart's layout</param>
     /// <param name="id">The target Legend id with which the Legend should be set.</param>
     /// <param name="Combine">Whether or not to combine the objects if there is already an Legend set (default is false)</param>
-    [<CompiledName("SetLegend")>]
     static member setLegend
         (
             legend: Legend,
@@ -2621,7 +2549,6 @@ type Chart =
     /// </summary>
     /// <param name="legend">The Legend to set on the chart's layout</param>
     /// <param name="Id">The target Legend id with which the Legend should be set. Default is 1.</param>
-    [<CompiledName("WithLegend")>]
     static member withLegend(legend: Legend, ?Id: int) =
         let id =
             Id |> Option.defaultValue 1 |> StyleParam.SubPlotId.Legend
@@ -2660,7 +2587,6 @@ type Chart =
     /// <param name="YAnchor">Sets the legend's vertical position anchor This anchor binds the `y` position to the "top", "middle" or "bottom" of the legend. Value "auto" anchors legends at their bottom for `y` values less than or equal to 1/3, anchors legends to at their top for `y` values greater than or equal to 2/3 and anchors legends with respect to their middle otherwise.</param>
     /// <param name="YRef">Sets the container `y` refers to. "container" spans the entire `height` of the plot. "paper" refers to the height of the plotting area only.</param>
     /// <param name="Id">The target Legend id. Default is 1.</param>
-    [<CompiledName("WithLegendStyle")>]
     static member withLegendStyle
         (
             ?BGColor: Color,
@@ -2723,11 +2649,10 @@ type Chart =
             ch |> Chart.withLegend(legend, ?Id = Id))
 
     /// <summary>
-    ///
+    /// Sets the given annotations on the input chart's layout. Use the 'Append' argument to decide what should happen if there are already annotations set.
     /// </summary>
     /// <param name="annotations">The annotations to add to the input charts layout</param>
     /// <param name="Append">If true, the input annotations will be appended to existing annotations, otherwise existing annotations will be removed (default: true)</param>
-    [<CompiledName("WithAnnotations")>]
     static member withAnnotations
         (
             annotations: seq<Annotation>,
@@ -2752,12 +2677,15 @@ type Chart =
 
             ch |> GenericChart.mapLayout (Layout.style (Annotations = annotations'))
 
-    [<CompiledName("WithAnnotation")>]
+    /// <summary>
+    /// Sets the given annotation on the input chart's layout. Use the 'Append' argument to decide what should happen if there are already annotations set.
+    /// </summary>
+    /// <param name="annotation">The annotations to add to the input charts layout</param>
+    /// <param name="Append">If true, the input annotation will be appended to existing annotations, otherwise existing annotations will be removed (default: true)</param>
     static member withAnnotation(annotation: Annotation, ?Append: bool) =
         Chart.withAnnotations ([ annotation ], ?Append = Append)
 
     // Set the title of a Chart
-    [<CompiledName("WithTitle")>]
     static member withTitle(title, ?TitleFont) =
         (fun (ch: GenericChart) ->
             let layout =
@@ -2766,7 +2694,6 @@ type Chart =
             GenericChart.addLayout layout ch)
 
     // Set the title of a Chart
-    [<CompiledName("WithTitle")>]
     static member withTitle(title) =
         (fun (ch: GenericChart) ->
             let layout =
@@ -2775,7 +2702,6 @@ type Chart =
             GenericChart.addLayout layout ch)
 
     /// Sets the size of a Chart (in pixels)
-    [<CompiledName("WithSize")>]
     static member withSize
         (
             ?Width: int,
@@ -2791,12 +2717,10 @@ type Chart =
 
 
     // Set the size of a Chart
-    [<CompiledName("WithSize")>]
     static member withSize(width: float, height: float) =
         Chart.withSize (Width = int width, Height = int height)
 
     // Set the margin of a Chart
-    [<CompiledName("WithMargin")>]
     static member withMargin(margin: Margin) =
         (fun (ch: GenericChart) ->
             let layout =
@@ -2805,7 +2729,6 @@ type Chart =
             GenericChart.setLayout layout ch)
 
     // Set the margin of a Chart
-    [<CompiledName("WithMarginSize")>]
     static member withMarginSize
         (
             ?Left,
@@ -2827,22 +2750,14 @@ type Chart =
 
         Chart.withMargin (margin)
 
-    [<CompiledName("WithTemplate")>]
     static member withTemplate(template: Template) =
         (fun (ch: GenericChart) -> ch |> GenericChart.mapLayout (Layout.style (Template = (template :> DynamicObj))))
 
-    // TODO: Include withLegend & withLegendStyle
-
-    //Specifies the shape type to be drawn. If "line", a line is drawn from (`x0`,`y0`) to (`x1`,`y1`) If "circle", a circle is drawn from
-    //((`x0`+`x1`)/2, (`y0`+`y1`)/2)) with radius (|(`x0`+`x1`)/2 - `x0`|, |(`y0`+`y1`)/2 -`y0`)|) If "rect", a rectangle is drawn linking
-    //(`x0`,`y0`), (`x1`,`y0`), (`x1`,`y1`), (`x0`,`y1`), (`x0`,`y0`)
-
     /// <summary>
-    ///
+    /// Sets the given shapes on the input chart's layout. Use the 'Append' argument to decide what should happen if there are already shapes set.
     /// </summary>
     /// <param name="shapes">The shapes to add to the input charts layout</param>
-    /// <param name="Append">If true, the input annotations will be appended to existing annotations, otherwise existing annotations will be removed (default: true)</param>
-    [<CompiledName("WithShapes")>]
+    /// <param name="Append">If true, the input shapes will be appended to existing shapes, otherwise existing shapes will be removed (default: true)</param>
     static member withShapes(shapes: seq<Shape>, ?Append: bool) =
         let append = defaultArg Append true
 
@@ -2861,16 +2776,19 @@ type Chart =
 
             ch |> GenericChart.mapLayout (Layout.style (Shapes = shapes'))
 
-    [<CompiledName("WithShape")>]
+    /// <summary>
+    /// Sets the given shape on the input chart's layout. Use the 'Append' argument to decide what should happen if there are already shapes set.
+    /// </summary>
+    /// <param name="shape">The shapes to add to the input charts layout</param>
+    /// <param name="Append">If true, the input shape will be appended to existing shapes, otherwise existing annotations will be shapes (default: true)</param>
     static member withShape(shape: Shape, ?Append: bool) =
         Chart.withShapes ([ shape ], ?Append = Append)
 
     /// <summary>
-    ///
+    /// Sets the given selections on the input chart's layout. Use the 'Append' argument to decide what should happen if there are already selections set.
     /// </summary>
     /// <param name="selections">The selections to add to the input charts layout</param>
-    /// <param name="Append">If true, the input selections will be appended to existing annotations, otherwise existing annotations will be removed (default: true)</param>
-    [<CompiledName("WithSelections")>]
+    /// <param name="Append">If true, the input selections will be appended to existing selections, otherwise existing selections will be removed (default: true)</param>
     static member withSelections(selections: seq<Selection>, ?Append: bool) =
         let append = defaultArg Append true
 
@@ -2891,7 +2809,11 @@ type Chart =
 
             ch |> GenericChart.mapLayout (Layout.style (Selections = selections'))
 
-    [<CompiledName("WithSelection")>]
+    /// <summary>
+    /// Sets the given selection on the input chart's layout. Use the 'Append' argument to decide what should happen if there are already selections set.
+    /// </summary>
+    /// <param name="selection">The selections to add to the input charts layout</param>
+    /// <param name="Append">If true, the input selection will be appended to existing selections, otherwise existing selections will be removed (default: true)</param>
     static member withSelection(selection: Selection, ?Append: bool) =
         Chart.withSelections ([ selection ], ?Append = Append)
 
@@ -2904,7 +2826,6 @@ type Chart =
     ///
     /// If there is already a config set, the object is replaced.
     /// </summary>
-    [<CompiledName("SetConfig")>]
     static member setConfig(config: Config) =
         (fun (ch: GenericChart) -> GenericChart.setConfig config ch)
 
@@ -2913,7 +2834,6 @@ type Chart =
     ///
     /// If there is already a config set, the objects are combined.
     /// </summary>
-    [<CompiledName("WithConfig")>]
     static member withConfig(config: Config) =
         (fun (ch: GenericChart) -> GenericChart.addConfig config ch)
 
@@ -2979,7 +2899,6 @@ type Chart =
     /// instead of MM/DD/YYYY). Currently `grouping` and `currency` are ignored
     /// for our automatic number formatting, but can be used in custom formats.
     /// </param>
-    [<CompiledName("WithConfigStyle")>]
     static member withConfigStyle
         (
             ?StaticPlot: bool,
@@ -3105,7 +3024,6 @@ type Chart =
     /// <param name ="Domain">Sets the domains of this grid subplot (in plot fraction). The first and last cells end exactly at the domain edges, with no grout around the edges.</param>
     /// <param name ="XSide">Sets where the x axis labels and titles go. "bottom" means the very bottom of the grid. "bottom plot" is the lowest plot that each x axis is used in. "top" and "top plot" are similar.</param>
     /// <param name ="YSide">Sets where the y axis labels and titles go. "left" means the very left edge of the grid. "left plot" is the leftmost plot that each y axis is used in. "right" and "right plot" are similar.</param>
-    [<CompiledName("Grid")>]
     static member Grid
         (
             nRows: int,
@@ -3426,7 +3344,6 @@ type Chart =
     /// <param name ="Domain">Sets the domains of this grid subplot (in plot fraction). The first and last cells end exactly at the domain edges, with no grout around the edges.</param>
     /// <param name ="XSide">Sets where the x axis labels and titles go. "bottom" means the very bottom of the grid. "bottom plot" is the lowest plot that each x axis is used in. "top" and "top plot" are similar.</param>
     /// <param name ="YSide">Sets where the y axis labels and titles go. "left" means the very left edge of the grid. "left plot" is the leftmost plot that each y axis is used in. "right" and "right plot" are similar.</param>
-    [<CompiledName("Grid")>]
     static member Grid
         (
             ?SubPlotTitles: #seq<string>,
@@ -3543,7 +3460,6 @@ type Chart =
     /// <param name ="Domain">Sets the domains of this grid subplot (in plot fraction). The first and last cells end exactly at the domain edges, with no grout around the edges.</param>
     /// <param name ="XSide">Sets where the x axis labels and titles go. "bottom" means the very bottom of the grid. "bottom plot" is the lowest plot that each x axis is used in. "top" and "top plot" are similar.</param>
     /// <param name ="YSide">Sets where the y axis labels and titles go. "left" means the very left edge of the grid. "left plot" is the leftmost plot that each y axis is used in. "right" and "right plot" are similar.</param>
-    [<CompiledName("SingleStack")>]
     static member SingleStack
         (
             ?SubPlotTitles: #seq<string>,
@@ -3584,7 +3500,6 @@ type Chart =
 
 
     /// Sets the color axis with the given id on the chart layout
-    [<CompiledName("WithColorAxis")>]
     static member withColorAxis(colorAxis: ColorAxis, ?Id) =
         (fun (ch: GenericChart) ->
             let layout =
@@ -3596,11 +3511,10 @@ type Chart =
             GenericChart.setLayout layout ch)
 
     /// <summary>
-    ///
+    /// Sets the given images on the input chart's layout. Use the 'Append' argument to decide what should happen if there are already images set.
     /// </summary>
     /// <param name="images">The images to add to the input charts layout</param>
-    /// <param name="Append">If true, the input images will be appended to existing annotations, otherwise existing annotations will be removed (default: true)</param>
-    [<CompiledName("WithLayoutImages")>]
+    /// <param name="Append">If true, the input images will be appended to existing images, otherwise existing images will be removed (default: true)</param>
     static member withLayoutImages(images: seq<LayoutImage>, ?Append: bool) =
         let append = defaultArg Append true
 
@@ -3621,17 +3535,20 @@ type Chart =
 
             ch |> GenericChart.mapLayout (Layout.style (Images = images'))
 
-    [<CompiledName("WithLayoutImage")>]
+    /// <summary>
+    /// Sets the given image on the input chart's layout. Use the 'Append' argument to decide what should happen if there are already images set.
+    /// </summary>
+    /// <param name="image">The images to add to the input charts layout</param>
+    /// <param name="Append">If true, the input image will be appended to existing images, otherwise existing images will be removed (default: true)</param>
     static member withLayoutImage(image: LayoutImage, ?Append: bool) =
 
         Chart.withLayoutImages ([ image ], ?Append = Append)
 
     /// <summary>
-    ///
+    /// Sets the given update menus on the input chart's layout. Use the 'Append' argument to decide what should happen if there are already update menus set.
     /// </summary>
     /// <param name="updateMenus">The updatmenus to add to the input charts layout</param>
-    /// <param name="Append">If true, the input images will be appended to existing annotations, otherwise existing annotations will be removed (default: true)</param>
-    [<CompiledName("WithUpdateMenus")>]
+    /// <param name="Append">If true, the update menus will be appended to existing update menus, otherwise existing update menus will be removed (default: true)</param>
     static member withUpdateMenus
         (
             updateMenus: seq<UpdateMenu>,
@@ -3656,17 +3573,49 @@ type Chart =
 
             ch |> GenericChart.mapLayout (Layout.style (UpdateMenus = updateMenus'))
 
-    [<CompiledName("WithUpdateMenu")>]
+    /// <summary>
+    /// Sets the given update menu on the input chart's layout. Use the 'Append' argument to decide what should happen if there are already update menus set.
+    /// </summary>
+    /// <param name="updateMenu">The updatmenus to add to the input charts layout</param>
+    /// <param name="Append">If true, the update menu will be appended to existing update menus, otherwise existing update menus will be removed (default: true)</param>
     static member withUpdateMenu(updateMenu: UpdateMenu, ?Append: bool) =
 
         Chart.withUpdateMenus ([ updateMenu ], ?Append = Append)
 
-    [<CompiledName("WithSliders")>]
-    static member withSliders(sliders: seq<Slider>) =
-        fun (ch: GenericChart) -> ch |> GenericChart.mapLayout (Layout.style (Sliders = sliders))
+    /// <summary>
+    /// Sets the given sliders on the input chart's layout. Use the 'Append' argument to decide what should happen if there are already update menus set.
+    /// </summary>
+    /// <param name="sliders">The sliders to add to the input charts layout</param>
+    /// <param name="Append">If true, the sliders will be appended to existing sliders, otherwise existing sliders will be removed (default: true)</param>
+    static member withSliders(
+        sliders: seq<Slider>,
+        ?Append: bool
+    ) =
+        let append = defaultArg Append true
 
-    [<CompiledName("WithSlider")>]
-    static member withSlider(slider: Slider) = Chart.withSliders ([ slider ])
+        fun (ch: GenericChart) ->
+
+            let sliders' =
+
+                if append then
+
+                    let layout = GenericChart.getLayout ch
+
+                    layout.TryGetTypedPropertyValue<seq<Slider>>("sliders")
+                    |> Option.defaultValue Seq.empty
+                    |> Seq.append sliders
+
+                else
+                    sliders
+
+            ch |> GenericChart.mapLayout (Layout.style (Sliders = sliders'))
+
+    /// <summary>
+    /// Sets the given slider on the input chart's layout. Use the 'Append' argument to decide what should happen if there are already update menus set.
+    /// </summary>
+    /// <param name="slider">The slider to add to the input charts layout</param>
+    /// <param name="Append">If true, the slider will be appended to existing sliders, otherwise existing sliders will be removed (default: true)</param>
+    static member withSlider(slider: Slider, ?Append: bool) = Chart.withSliders ([ slider ], ?Append = Append)
 
 
     // ############################################################
@@ -3677,7 +3626,6 @@ type Chart =
     ///
     /// If there is already an DisplayOptions set, the object is replaced.
     /// </summary>
-    [<CompiledName("SetDisplayOptions")>]
     static member setDisplayOptions(displayOpts: DisplayOptions) =
         (fun (ch: GenericChart) -> GenericChart.setDisplayOptions displayOpts ch)
 
@@ -3686,7 +3634,6 @@ type Chart =
     ///
     /// If there is already an DisplayOptions set, the objects are combined.
     /// </summary>
-    [<CompiledName("WithDisplayOptions")>]
     static member withDisplayOptions(displayOpts: DisplayOptions) =
         (fun (ch: GenericChart) -> GenericChart.addDisplayOptions displayOpts ch)
 
@@ -3700,7 +3647,6 @@ type Chart =
     /// <param name="AdditionalHeadTags">Additional tags that will be included in the document's head </param>
     /// <param name="ChartDescription">HTML tags that appear below the chart in HTML docs</param>
     /// <param name="PlotlyJSReference">Sets how plotly is referenced in the head of html docs. When CDN, a script tag that references the plotly.js CDN is included in the output. When Full, a script tag containing the plotly.js source code (~3MB) is included in the output. HTML files generated with this option are fully self-contained and can be used offline</param>
-    [<CompiledName("WithDisplayOptionsStyle")>]
     static member withDisplayOptionsStyle
         (
             ?DocumentTitle: string,
@@ -3732,23 +3678,19 @@ type Chart =
     /// </summary>
     /// <param name="chartDescription">The chart description to add to the given chart's DisplayOptions object</param>
     /// <param name="ch">The chart to add a description to</param>
-    [<CompiledName("WithDescription")>]
     static member withDescription (chartDescription: XmlNode list) (ch: GenericChart) =
         ch |> GenericChart.mapDisplayOptions (DisplayOptions.addChartDescription chartDescription)
 
     /// Adds the given additional html tags on the chart's DisplayOptions. They will be included in the document's head
-    [<CompiledName("WithAdditionalHeadTags")>]
     static member withAdditionalHeadTags (additionalHeadTags: XmlNode list) (ch: GenericChart) =
         ch |> GenericChart.mapDisplayOptions (DisplayOptions.addAdditionalHeadTags additionalHeadTags)
 
     /// Sets the given additional head tags on the chart's DisplayOptions. They will be included in the document's head
-    [<CompiledName("WithHeadTags")>]
     static member withHeadTags (additionalHeadTags: XmlNode list) (ch: GenericChart) =
         ch |> GenericChart.mapDisplayOptions (DisplayOptions.setAdditionalHeadTags additionalHeadTags)
 
 
     /// Adds the necessary script tags to render tex strings to the chart's DisplayOptions
-    [<CompiledName("WithMathTex")>]
     static member withMathTex
         (
             ?AppendTags: bool,

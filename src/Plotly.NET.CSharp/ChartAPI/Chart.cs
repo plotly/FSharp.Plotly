@@ -20,7 +20,7 @@ namespace Plotly.NET.CSharp
         /// </summary>
         /// <param name="gCharts">the charts to combine</param>
         /// <returns></returns>
-        public static GenericChart Combine(IEnumerable<GenericChart> gCharts) => Plotly.NET.Chart.Combine(gCharts);
+        public static GenericChart Combine(IEnumerable<GenericChart> gCharts) => Plotly.NET.Chart.combine(gCharts);
 
         /// <summary>
         /// Creates a chart that is completely invisible when rendered. The Chart object however is NOT empty! Combining this chart with other charts will have unforseen consequences (it has for example invisible axes that can override other axes if used in Chart.Combine)

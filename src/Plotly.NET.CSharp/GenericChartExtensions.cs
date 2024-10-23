@@ -35,7 +35,7 @@ namespace Plotly.NET.CSharp
             string path,
             Optional<bool> OpenInBrowser = default
         ) =>
-            Plotly.NET.Chart.SaveHtml(
+            Plotly.NET.Chart.saveHtml(
                 path: path,
                 OpenInBrowser: OpenInBrowser.ToOption()
             ).Invoke(gChart);
@@ -44,7 +44,7 @@ namespace Plotly.NET.CSharp
         /// Saves the given chart as a temporary html file and opens it in the browser.
         /// </summary>
         /// <param name="gChart">The chart to show in the browser</param>
-        public static void Show(this GenericChart gChart) => Plotly.NET.Chart.Show(gChart);
+        public static void Show(this GenericChart gChart) => Plotly.NET.Chart.show(gChart);
 
         /// <summary>
         /// Sets trace information on the given chart.
@@ -65,7 +65,7 @@ namespace Plotly.NET.CSharp
             Optional<string> LegendGroup = default,
             Optional<Title> LegendGroupTitle = default
         ) =>
-            Plotly.NET.Chart.WithTraceInfo(
+            Plotly.NET.Chart.withTraceInfo(
                 Name: Name.ToOption(),
                 Visible: Visible.ToOption(),
                 ShowLegend: ShowLegend.ToOption(),
@@ -80,7 +80,7 @@ namespace Plotly.NET.CSharp
             Optional<int> Width = default,
             Optional<int> Height = default
         ) =>
-            Plotly.NET.Chart.WithSize(Width: Width.ToOption(), Height: Height.ToOption()).Invoke(gChart);
+            Plotly.NET.Chart.withSize(Width: Width.ToOption(), Height: Height.ToOption()).Invoke(gChart);
 
         /// <summary>
         /// Sets the given x axis styles on the input chart's layout.
@@ -155,7 +155,7 @@ namespace Plotly.NET.CSharp
             where MaxType : IConvertible
             where CategoryArrayType : IConvertible
             =>
-                Plotly.NET.Chart.WithXAxisStyle<MinType, MaxType, CategoryArrayType>(
+                Plotly.NET.Chart.withXAxisStyle<MinType, MaxType, CategoryArrayType>(
                     TitleText: TitleText.ToOption(),
                     TitleFont: TitleFont.ToOption(),
                     TitleStandoff: TitleStandoff.ToOption(),
@@ -266,7 +266,7 @@ namespace Plotly.NET.CSharp
             where MaxType : IConvertible
             where CategoryArrayType : IConvertible
             =>
-                Plotly.NET.Chart.WithYAxisStyle<MinType, MaxType, CategoryArrayType>(
+                Plotly.NET.Chart.withYAxisStyle<MinType, MaxType, CategoryArrayType>(
                     TitleText: TitleText.ToOption(),
                     TitleFont: TitleFont.ToOption(),
                     TitleStandoff: TitleStandoff.ToOption(),
@@ -316,7 +316,7 @@ namespace Plotly.NET.CSharp
             Optional<int> Id = default
         )
             =>
-                Plotly.NET.Chart.WithMapbox(
+                Plotly.NET.Chart.withMapbox(
                     mapbox: mapbox,
                     Id: Id.ToOption()
                 ).Invoke(gChart);
@@ -374,7 +374,7 @@ namespace Plotly.NET.CSharp
             Optional<StyleParam.SubPlotId> Id = default
         )
             =>
-                Plotly.NET.Chart.WithXAxisRangeSlider(
+                Plotly.NET.Chart.withXAxisRangeSlider(
                     rangeSlider: rangeSlider,
                     Id: Id.ToOption()
                 ).Invoke(gChart);
@@ -393,7 +393,7 @@ namespace Plotly.NET.CSharp
             Optional<int> Id
         )
             =>
-                Plotly.NET.Chart.WithLegend(
+                Plotly.NET.Chart.withLegend(
                     legend: legend,
                     Id: Id.ToOption()
                 ).Invoke(gChart);
@@ -460,7 +460,7 @@ namespace Plotly.NET.CSharp
             Optional<int> Id = default
        )
             =>
-                Plotly.NET.Chart.WithLegendStyle(
+                Plotly.NET.Chart.withLegendStyle(
                     BGColor: BGColor.ToOption(),
                     BorderColor: BorderColor.ToOption(),
                     BorderWidth: BorderWidth.ToOption(),
