@@ -2533,8 +2533,8 @@ module StyleParam =
         static member toString =
             function
             | None -> ""
-            | DiagonalDescending -> "/"
-            | DiagonalAscending -> """\"""
+            | DiagonalDescending -> """\"""
+            | DiagonalAscending ->  "/"
             | DiagonalChecked -> "x"
             | HorizontalLines -> "-"
             | VerticalLines -> "|"
