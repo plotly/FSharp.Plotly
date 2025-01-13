@@ -5,6 +5,9 @@ open System
 open Newtonsoft.Json
 open System.Runtime.CompilerServices
 open Giraffe.ViewEngine
+open System
+open System.IO
+open System.Collections.Generic
 
 /// Figure is a domain transfer object that can be used to serialize a Chart to JSON. It is used internally and for most use cases should not be used directly.
 ///
@@ -55,6 +58,7 @@ type ChartDTO =
 /// - `Config` is an object that configures high level properties of the chart like making all chart elements editable or the tool bar on top
 ///
 /// - `DisplayOptions` is an object that contains meta information about how the html document that contains the chart.
+[<TypeFormatterSourceAttribute(typeof<GenericChartFormatterSource>)>]
 type GenericChart =
     | Chart of data: Trace * layout: Layout * config: Config * displayOpts: DisplayOptions
     | MultiChart of data: Trace list * layout: Layout * config: Config * displayOpts: DisplayOptions
@@ -584,3 +588,22 @@ type GenericChart =
         match gChart with
         | Chart(trace, _, _, _) -> [ TraceID.ofTrace trace ]
         | MultiChart(traces, _, _, _) -> traces |> List.map TraceID.ofTrace
+
+and GenericChartFormatter() =
+        let mutable mimeType = "text/html"
+        member this.MimeType
+            with get() = mimeType
+            and set(v) = mimeType <- v
+        member this.Format(instance:obj, writer:TextWriter) = 
+            match instance with
+            | :? GenericChart as c -> 
+                writer.Write("LOL!")
+                true
+            | _ -> false
+
+and GenericChartFormatterSource =
+        member this.CreateTypeFormatters() : seq<obj> =
+            seq {
+                yield GenericChartFormatter()
+            }
+

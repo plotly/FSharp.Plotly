@@ -5,6 +5,7 @@ open DynamicObj
 open System.Runtime.InteropServices
 open System.IO
 open System.Reflection
+open System
 
 let combineOptSeqs (first: seq<'A> option) (second: seq<'A> option) =
     match first, second with
@@ -129,3 +130,13 @@ module internal ChartIO =
             System.Diagnostics.Process.Start("open", path) |> ignore
         else
             invalidOp "Not supported OS platform"
+
+[<AttributeUsage(AttributeTargets.Class)>]
+type internal TypeFormatterSourceAttribute(formatterSourceType: Type) =
+    inherit Attribute()
+    let mutable preferredMimeTypes : string[] = [||] 
+    member this.TypeFormatterSourceType = formatterSourceType
+    member this.PreferredMimeTypes
+        with get() = preferredMimeTypes 
+        and set(v) = preferredMimeTypes <- v
+            
