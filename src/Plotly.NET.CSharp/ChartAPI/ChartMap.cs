@@ -7,6 +7,7 @@ using Plotly.NET;
 using Plotly.NET.LayoutObjects;
 using Plotly.NET.TraceObjects;
 using System.Runtime.InteropServices;
+using static Plotly.NET.StyleParam;
 
 namespace Plotly.NET.CSharp
 {
@@ -416,6 +417,7 @@ namespace Plotly.NET.CSharp
         /// <param name="longitudes">Sets the longitude coordinates (in degrees East).</param>
         /// <param name="latitudes">Sets the latitude coordinates (in degrees North).</param>
         /// <param name="mode">Determines the drawing mode for this scatter trace.</param>
+        /// <param name="MapboxStyle">Sets the base mapbox layer. Default is `OpenStreetMap`. Note that you will need an access token for some Mapbox presets.</param>
         /// <param name="Name">Sets the trace name. The trace name appear as the legend item and on hover</param>
         /// <param name="ShowLegend">Determines whether or not an item corresponding to this trace is shown in the legend.</param>
         /// <param name="Opacity">Sets the opactity of the trace</param>
@@ -443,6 +445,7 @@ namespace Plotly.NET.CSharp
             IEnumerable<LongitudesType> longitudes,
             IEnumerable<LatitudesType> latitudes,
             StyleParam.Mode mode,
+            Optional<StyleParam.MapboxStyle> MapboxStyle = default,
             Optional<string> Name = default,
             Optional<bool> ShowLegend = default,
             Optional<double> Opacity = default,
@@ -475,6 +478,7 @@ namespace Plotly.NET.CSharp
                     longitudes: longitudes,
                     latitudes: latitudes,
                     mode: mode,
+                    MapboxStyle: MapboxStyle.ToOption(),
                     Name: Name.ToOption(),
                     ShowLegend: ShowLegend.ToOption(),
                     Opacity: Opacity.ToOption(),
@@ -510,6 +514,7 @@ namespace Plotly.NET.CSharp
         /// <param name="longitudes">Sets the longitude coordinates (in degrees East).</param>
         /// <param name="latitudes">Sets the latitude coordinates (in degrees North).</param>
         /// <param name="Name">Sets the trace name. The trace name appear as the legend item and on hover</param>
+        /// <param name="MapboxStyle">Sets the base mapbox layer. Default is `OpenStreetMap`. Note that you will need an access token for some Mapbox presets.</param>
         /// <param name="ShowLegend">Determines whether or not an item corresponding to this trace is shown in the legend.</param>
         /// <param name="Opacity">Sets the opactity of the trace</param>
         /// <param name="MultiOpacity">Sets the opactity of individual datum markers</param>
@@ -531,6 +536,7 @@ namespace Plotly.NET.CSharp
             IEnumerable<LongitudesType> longitudes,
             IEnumerable<LatitudesType> latitudes,
             Optional<string> Name = default,
+            Optional<StyleParam.MapboxStyle> MapboxStyle = default,
             Optional<bool> ShowLegend = default,
             Optional<double> Opacity = default,
             Optional<IEnumerable<double>> MultiOpacity = default,
@@ -557,6 +563,7 @@ namespace Plotly.NET.CSharp
                     longitudes: longitudes,
                     latitudes: latitudes,
                     Name: Name.ToOption(),
+                    MapboxStyle: MapboxStyle.ToOption(),
                     ShowLegend: ShowLegend.ToOption(),
                     Opacity: Opacity.ToOption(),
                     MultiOpacity: MultiOpacity.ToOption(),
@@ -587,6 +594,7 @@ namespace Plotly.NET.CSharp
         /// <param name="latitudes">Sets the latitude coordinates (in degrees North).</param>
         /// <param name="ShowMarkers"></param>
         /// <param name="Name">Sets the trace name. The trace name appear as the legend item and on hover</param>
+        /// <param name="MapboxStyle">Sets the base mapbox layer. Default is `OpenStreetMap`. Note that you will need an access token for some Mapbox presets.</param>
         /// <param name="ShowLegend">Determines whether or not an item corresponding to this trace is shown in the legend.</param>
         /// <param name="Opacity">Sets the opactity of the trace</param>
         /// <param name="MultiOpacity">Sets the opactity of individual datum markers</param>
@@ -612,6 +620,7 @@ namespace Plotly.NET.CSharp
             IEnumerable<LatitudesType> latitudes,
             Optional<bool> ShowMarkers = default,
             Optional<string> Name = default,
+            Optional<StyleParam.MapboxStyle> MapboxStyle = default,
             Optional<bool> ShowLegend = default,
             Optional<double> Opacity = default,
             Optional<IEnumerable<double>> MultiOpacity = default,
@@ -642,6 +651,7 @@ namespace Plotly.NET.CSharp
                     latitudes: latitudes,
                     ShowMarkers: ShowMarkers.ToOption(),
                     Name: Name.ToOption(),
+                    MapboxStyle: MapboxStyle.ToOption(),
                     ShowLegend: ShowLegend.ToOption(),
                     Opacity: Opacity.ToOption(),
                     MultiOpacity: MultiOpacity.ToOption(),
@@ -675,6 +685,7 @@ namespace Plotly.NET.CSharp
         /// <param name="latitudes">Sets the latitude coordinates (in degrees North).</param>
         /// <param name="sizes">Sets the size of the points.</param>
         /// <param name="Name">Sets the trace name. The trace name appear as the legend item and on hover</param>
+        /// <param name="MapboxStyle">Sets the base mapbox layer. Default is `OpenStreetMap`. Note that you will need an access token for some Mapbox presets.</param>
         /// <param name="ShowLegend">Determines whether or not an item corresponding to this trace is shown in the legend.</param>
         /// <param name="Opacity">Sets the opactity of the trace</param>
         /// <param name="MultiOpacity">Sets the opactity of individual datum markers</param>
@@ -695,6 +706,7 @@ namespace Plotly.NET.CSharp
             IEnumerable<LatitudesType> latitudes,
             IEnumerable<int> sizes,
             Optional<string> Name = default,
+            Optional<StyleParam.MapboxStyle> MapboxStyle = default,
             Optional<bool> ShowLegend = default,
             Optional<double> Opacity = default,
             Optional<IEnumerable<double>> MultiOpacity = default,
@@ -720,6 +732,7 @@ namespace Plotly.NET.CSharp
                     latitudes: latitudes,
                     sizes: sizes,
                     Name: Name.ToOption(),
+                    MapboxStyle: MapboxStyle.ToOption(),
                     ShowLegend: ShowLegend.ToOption(),
                     Opacity: Opacity.ToOption(),
                     MultiOpacity: MultiOpacity.ToOption(),
@@ -752,6 +765,7 @@ namespace Plotly.NET.CSharp
         /// <param name="z">The color values for each location</param>
         /// <param name="geoJson">Sets the GeoJSON data associated with this trace. It can be set as a valid GeoJSON object or as a URL string. Note that we only accept GeoJSONs of type "FeatureCollection" or "Feature" with geometries of type "Polygon" or "MultiPolygon".</param>
         /// <param name="Name">Sets the trace name. The trace name appear as the legend item and on hover.</param>
+        /// <param name="MapboxStyle">Sets the base mapbox layer. Default is `OpenStreetMap`. Note that you will need an access token for some Mapbox presets.</param>
         /// <param name="ShowLegend">Determines whether or not an item corresponding to this trace is shown in the legend.</param>
         /// <param name="FeatureIdKey">Sets the key in GeoJSON features which is used as id to match the items included in the `locations` array. Support nested property, for example "properties.name".</param>
         /// <param name="Text">Sets a text associated with each datum</param>
@@ -767,6 +781,7 @@ namespace Plotly.NET.CSharp
             IEnumerable<ZType> z,
             object geoJson,
             Optional<string> Name = default,
+            Optional<StyleParam.MapboxStyle> MapboxStyle = default,
             Optional<bool> ShowLegend = default,
             Optional<string> FeatureIdKey = default,
             Optional<TextType> Text = default,
@@ -785,6 +800,7 @@ namespace Plotly.NET.CSharp
                     locations: locations,
                     z: z,
                     Name: Name.ToOption(),
+                    MapboxStyle: MapboxStyle.ToOption(),
                     ShowLegend: ShowLegend.ToOption(),
                     geoJson: geoJson,
                     FeatureIdKey: FeatureIdKey.ToOption(),
@@ -808,6 +824,7 @@ namespace Plotly.NET.CSharp
         /// <param name="longitudes">Sets the longitude coordinates (in degrees East).</param>
         /// <param name="latitudes">Sets the latitude coordinates (in degrees North).</param>
         /// <param name="Name">Sets the trace name. The trace name appear as the legend item and on hover.</param>
+        /// <param name="MapboxStyle">Sets the base mapbox layer. Default is `OpenStreetMap`. Note that you will need an access token for some Mapbox presets.</param>
         /// <param name="ShowLegend">Determines whether or not an item corresponding to this trace is shown in the legend.</param>
         /// <param name="Opacity">Sets the opacity of the trace</param>
         /// <param name="Z">Sets the points' weight. For example, a value of 10 would be equivalent to having 10 points of weight 1 in the same spot</param>
@@ -824,6 +841,7 @@ namespace Plotly.NET.CSharp
             IEnumerable<LongitudesType> longitudes,
             IEnumerable<LatitudesType> latitudes,
             Optional<string> Name = default,
+            Optional<StyleParam.MapboxStyle> MapboxStyle = default,
             Optional<bool> ShowLegend = default,
             Optional<double> Opacity = default,
             Optional<IEnumerable<ZType>> Z = default,
@@ -846,6 +864,7 @@ namespace Plotly.NET.CSharp
                     longitudes: longitudes,
                     latitudes: latitudes,
                     Name: Name.ToOption(),
+                    MapboxStyle: MapboxStyle.ToOption(),
                     ShowLegend: ShowLegend.ToOption(),
                     Opacity: Opacity.ToOption(),
                     Z: Z.ToOption(),

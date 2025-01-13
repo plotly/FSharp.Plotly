@@ -10,11 +10,11 @@ open System.Runtime.InteropServices
 type TreemapRoot() =
     inherit DynamicObj()
 
-    static member init([<Optional; DefaultParameterValue(null)>] ?Color: Color) =
+    static member init(?Color: Color) =
 
         TreemapRoot() |> TreemapRoot.style (?Color = Color)
 
-    static member style([<Optional; DefaultParameterValue(null)>] ?Color: Color) =
+    static member style(?Color: Color) =
         fun (root: TreemapRoot) ->
             root
             |> DynObj.withProperty "color" Color
@@ -22,11 +22,11 @@ type TreemapRoot() =
 type TreemapLeaf() =
     inherit DynamicObj()
 
-    static member init([<Optional; DefaultParameterValue(null)>] ?Opacity: float) =
+    static member init(?Opacity: float) =
 
         TreemapLeaf() |> TreemapLeaf.style (?Opacity = Opacity)
 
-    static member style([<Optional; DefaultParameterValue(null)>] ?Opacity: float) =
+    static member style(?Opacity: float) =
         fun (leaf: TreemapLeaf) ->
 
             leaf
@@ -38,10 +38,10 @@ type TreemapTiling() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Packing: StyleParam.TreemapTilingPacking,
-            [<Optional; DefaultParameterValue(null)>] ?SquarifyRatio: float,
-            [<Optional; DefaultParameterValue(null)>] ?Flip: StyleParam.TilingFlip,
-            [<Optional; DefaultParameterValue(null)>] ?Pad: float
+            ?Packing: StyleParam.TreemapTilingPacking,
+            ?SquarifyRatio: float,
+            ?Flip: StyleParam.TilingFlip,
+            ?Pad: float
         ) =
 
         TreemapTiling()
@@ -49,10 +49,10 @@ type TreemapTiling() =
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Packing: StyleParam.TreemapTilingPacking,
-            [<Optional; DefaultParameterValue(null)>] ?SquarifyRatio: float,
-            [<Optional; DefaultParameterValue(null)>] ?Flip: StyleParam.TilingFlip,
-            [<Optional; DefaultParameterValue(null)>] ?Pad: float
+            ?Packing: StyleParam.TreemapTilingPacking,
+            ?SquarifyRatio: float,
+            ?Flip: StyleParam.TilingFlip,
+            ?Pad: float
         ) =
         fun (tiling: TreemapTiling) ->
 

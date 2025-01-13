@@ -11,21 +11,21 @@ type LayoutImage() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Layer: StyleParam.Layer,
-            [<Optional; DefaultParameterValue(null)>] ?Name: string,
-            [<Optional; DefaultParameterValue(null)>] ?Opacity: float,
-            [<Optional; DefaultParameterValue(null)>] ?SizeX: int,
-            [<Optional; DefaultParameterValue(null)>] ?SizeY: int,
-            [<Optional; DefaultParameterValue(null)>] ?Sizing: StyleParam.LayoutImageSizing,
-            [<Optional; DefaultParameterValue(null)>] ?Source: string,
-            [<Optional; DefaultParameterValue(null)>] ?TemplateItemname: string,
-            [<Optional; DefaultParameterValue(null)>] ?Visible: bool,
-            [<Optional; DefaultParameterValue(null)>] ?X: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?XAnchor: StyleParam.XAnchorPosition,
-            [<Optional; DefaultParameterValue(null)>] ?XRef: string,
-            [<Optional; DefaultParameterValue(null)>] ?Y: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?YAnchor: StyleParam.YAnchorPosition,
-            [<Optional; DefaultParameterValue(null)>] ?YRef: string
+            ?Layer: StyleParam.Layer,
+            ?Name: string,
+            ?Opacity: float,
+            ?SizeX: int,
+            ?SizeY: int,
+            ?Sizing: StyleParam.LayoutImageSizing,
+            ?Source: string,
+            ?TemplateItemname: string,
+            ?Visible: bool,
+            ?X: #IConvertible,
+            ?XAnchor: StyleParam.XAnchorPosition,
+            ?XRef: string,
+            ?Y: #IConvertible,
+            ?YAnchor: StyleParam.YAnchorPosition,
+            ?YRef: string
         ) =
         LayoutImage()
         |> LayoutImage.style (
@@ -48,21 +48,21 @@ type LayoutImage() =
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Layer: StyleParam.Layer,
-            [<Optional; DefaultParameterValue(null)>] ?Name: string,
-            [<Optional; DefaultParameterValue(null)>] ?Opacity: float,
-            [<Optional; DefaultParameterValue(null)>] ?SizeX: int,
-            [<Optional; DefaultParameterValue(null)>] ?SizeY: int,
-            [<Optional; DefaultParameterValue(null)>] ?Sizing: StyleParam.LayoutImageSizing,
-            [<Optional; DefaultParameterValue(null)>] ?Source: string,
-            [<Optional; DefaultParameterValue(null)>] ?TemplateItemname: string,
-            [<Optional; DefaultParameterValue(null)>] ?Visible: bool,
-            [<Optional; DefaultParameterValue(null)>] ?X: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?XAnchor: StyleParam.XAnchorPosition,
-            [<Optional; DefaultParameterValue(null)>] ?XRef: string,
-            [<Optional; DefaultParameterValue(null)>] ?Y: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?YAnchor: StyleParam.YAnchorPosition,
-            [<Optional; DefaultParameterValue(null)>] ?YRef: string
+            ?Layer: StyleParam.Layer,
+            ?Name: string,
+            ?Opacity: float,
+            ?SizeX: int,
+            ?SizeY: int,
+            ?Sizing: StyleParam.LayoutImageSizing,
+            ?Source: string,
+            ?TemplateItemname: string,
+            ?Visible: bool,
+            ?X: #IConvertible,
+            ?XAnchor: StyleParam.XAnchorPosition,
+            ?XRef: string,
+            ?Y: #IConvertible,
+            ?YAnchor: StyleParam.YAnchorPosition,
+            ?YRef: string
         ) =
         (fun (layoutImage: LayoutImage) ->
             layoutImage

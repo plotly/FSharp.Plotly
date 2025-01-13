@@ -28,19 +28,19 @@ type Error() =
     /// <param name ="Width">Sets the width (in px) of the cross-bar at both ends of the error bars.</param>
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Visible: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Type: StyleParam.ErrorType,
-            [<Optional; DefaultParameterValue(null)>] ?Symmetric: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Array: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Arrayminus: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Value: float,
-            [<Optional; DefaultParameterValue(null)>] ?Valueminus: float,
-            [<Optional; DefaultParameterValue(null)>] ?Traceref: int,
-            [<Optional; DefaultParameterValue(null)>] ?Tracerefminus: int,
-            [<Optional; DefaultParameterValue(null)>] ?Copy_ystyle: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Color: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Thickness: float,
-            [<Optional; DefaultParameterValue(null)>] ?Width: float
+            ?Visible: bool,
+            ?Type: StyleParam.ErrorType,
+            ?Symmetric: bool,
+            ?Array: seq<#IConvertible>,
+            ?Arrayminus: seq<#IConvertible>,
+            ?Value: float,
+            ?Valueminus: float,
+            ?Traceref: int,
+            ?Tracerefminus: int,
+            ?Copy_ystyle: bool,
+            ?Color: Color,
+            ?Thickness: float,
+            ?Width: float
         ) =
         Error()
         |> Error.style (
@@ -77,19 +77,19 @@ type Error() =
     /// <param name ="Width">Sets the width (in px) of the cross-bar at both ends of the error bars.</param>
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Visible: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Type: StyleParam.ErrorType,
-            [<Optional; DefaultParameterValue(null)>] ?Symmetric: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Array: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Arrayminus: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Value: float,
-            [<Optional; DefaultParameterValue(null)>] ?Valueminus: float,
-            [<Optional; DefaultParameterValue(null)>] ?Traceref: int,
-            [<Optional; DefaultParameterValue(null)>] ?Tracerefminus: int,
-            [<Optional; DefaultParameterValue(null)>] ?Copy_ystyle: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Color: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Thickness: float,
-            [<Optional; DefaultParameterValue(null)>] ?Width: float
+            ?Visible: bool,
+            ?Type: StyleParam.ErrorType,
+            ?Symmetric: bool,
+            ?Array: seq<#IConvertible>,
+            ?Arrayminus: seq<#IConvertible>,
+            ?Value: float,
+            ?Valueminus: float,
+            ?Traceref: int,
+            ?Tracerefminus: int,
+            ?Copy_ystyle: bool,
+            ?Color: Color,
+            ?Thickness: float,
+            ?Width: float
         ) =
         fun (error: Error) ->
 

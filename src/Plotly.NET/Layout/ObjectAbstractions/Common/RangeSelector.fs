@@ -12,17 +12,17 @@ type RangeSelector() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Visible: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Buttons: seq<Button>,
-            [<Optional; DefaultParameterValue(null)>] ?X: float,
-            [<Optional; DefaultParameterValue(null)>] ?XAnchor: StyleParam.XAnchorPosition,
-            [<Optional; DefaultParameterValue(null)>] ?Y: float,
-            [<Optional; DefaultParameterValue(null)>] ?YAnchor: StyleParam.YAnchorPosition,
-            [<Optional; DefaultParameterValue(null)>] ?Font: Font,
-            [<Optional; DefaultParameterValue(null)>] ?BGColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?ActiveColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?BorderColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?BorderWidth: int
+            ?Visible: bool,
+            ?Buttons: seq<Button>,
+            ?X: float,
+            ?XAnchor: StyleParam.XAnchorPosition,
+            ?Y: float,
+            ?YAnchor: StyleParam.YAnchorPosition,
+            ?Font: Font,
+            ?BGColor: Color,
+            ?ActiveColor: Color,
+            ?BorderColor: Color,
+            ?BorderWidth: int
         ) =
         RangeSelector()
         |> RangeSelector.style (
@@ -41,17 +41,17 @@ type RangeSelector() =
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Visible: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Buttons: seq<Button>,
-            [<Optional; DefaultParameterValue(null)>] ?X: float,
-            [<Optional; DefaultParameterValue(null)>] ?XAnchor: StyleParam.XAnchorPosition,
-            [<Optional; DefaultParameterValue(null)>] ?Y: float,
-            [<Optional; DefaultParameterValue(null)>] ?YAnchor: StyleParam.YAnchorPosition,
-            [<Optional; DefaultParameterValue(null)>] ?Font: Font,
-            [<Optional; DefaultParameterValue(null)>] ?BGColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?ActiveColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?BorderColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?BorderWidth: int
+            ?Visible: bool,
+            ?Buttons: seq<Button>,
+            ?X: float,
+            ?XAnchor: StyleParam.XAnchorPosition,
+            ?Y: float,
+            ?YAnchor: StyleParam.YAnchorPosition,
+            ?Font: Font,
+            ?BGColor: Color,
+            ?ActiveColor: Color,
+            ?BorderColor: Color,
+            ?BorderWidth: int
         ) =
         (fun (rangeSelector: RangeSelector) ->
 

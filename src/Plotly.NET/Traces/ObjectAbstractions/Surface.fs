@@ -11,19 +11,19 @@ type Surface() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Count: int,
-            [<Optional; DefaultParameterValue(null)>] ?Fill: float,
-            [<Optional; DefaultParameterValue(null)>] ?Pattern: StyleParam.SurfacePattern,
-            [<Optional; DefaultParameterValue(null)>] ?Show: bool
+            ?Count: int,
+            ?Fill: float,
+            ?Pattern: StyleParam.SurfacePattern,
+            ?Show: bool
         ) =
         Surface() |> Surface.style (?Count = Count, ?Fill = Fill, ?Pattern = Pattern, ?Show = Show)
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Count: int,
-            [<Optional; DefaultParameterValue(null)>] ?Fill: float,
-            [<Optional; DefaultParameterValue(null)>] ?Pattern: StyleParam.SurfacePattern,
-            [<Optional; DefaultParameterValue(null)>] ?Show: bool
+            ?Count: int,
+            ?Fill: float,
+            ?Pattern: StyleParam.SurfacePattern,
+            ?Show: bool
         ) =
 
         fun (surface: Surface) ->

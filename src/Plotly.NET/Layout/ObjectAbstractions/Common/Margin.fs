@@ -10,12 +10,12 @@ type Margin() =
     /// Init Margin type
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Left,
-            [<Optional; DefaultParameterValue(null)>] ?Right,
-            [<Optional; DefaultParameterValue(null)>] ?Top,
-            [<Optional; DefaultParameterValue(null)>] ?Bottom,
-            [<Optional; DefaultParameterValue(null)>] ?Pad,
-            [<Optional; DefaultParameterValue(null)>] ?Autoexpand
+            ?Left,
+            ?Right,
+            ?Top,
+            ?Bottom,
+            ?Pad,
+            ?Autoexpand
         ) =
         Margin()
         |> Margin.style (
@@ -31,12 +31,12 @@ type Margin() =
     // Applies the styles to Margin()
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Left,
-            [<Optional; DefaultParameterValue(null)>] ?Right,
-            [<Optional; DefaultParameterValue(null)>] ?Top,
-            [<Optional; DefaultParameterValue(null)>] ?Bottom,
-            [<Optional; DefaultParameterValue(null)>] ?Pad,
-            [<Optional; DefaultParameterValue(null)>] ?Autoexpand
+            ?Left,
+            ?Right,
+            ?Top,
+            ?Bottom,
+            ?Pad,
+            ?Autoexpand
         ) =
         (fun (margin: Margin) ->
 

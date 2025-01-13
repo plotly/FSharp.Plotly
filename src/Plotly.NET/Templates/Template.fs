@@ -9,13 +9,13 @@ open System.Runtime.InteropServices
 type Template() =
     inherit DynamicObj()
 
-    static member init(layoutTemplate: Layout, [<Optional; DefaultParameterValue(null)>] ?TraceTemplates: seq<#Trace>) =
+    static member init(layoutTemplate: Layout, ?TraceTemplates: seq<#Trace>) =
         Template() |> Template.style (layoutTemplate, ?TraceTemplates = TraceTemplates)
 
     static member style
         (
             layoutTemplate: Layout,
-            [<Optional; DefaultParameterValue(null)>] ?TraceTemplates: seq<#Trace>
+            ?TraceTemplates: seq<#Trace>
         ) =
         fun (template: Template) ->
 

@@ -25,14 +25,14 @@ type ShapeLabel() =
     /// <param name="YAnchor">Sets the label's vertical position anchor This anchor binds the specified `textposition` to the "top", "middle" or "bottom" of the label text. For example, if `textposition` is set to "top right" and `yanchor` to "top" then the top-most portion of the label text lines up with the top-most edge of the shape.</param>
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Font: Font,
-            [<Optional; DefaultParameterValue(null)>] ?Padding: int,
-            [<Optional; DefaultParameterValue(null)>] ?Text: string,
-            [<Optional; DefaultParameterValue(null)>] ?TextAngle: StyleParam.TextAngle,
-            [<Optional; DefaultParameterValue(null)>] ?TextPosition: StyleParam.TextPosition,
-            [<Optional; DefaultParameterValue(null)>] ?TextTemplate: string,
-            [<Optional; DefaultParameterValue(null)>] ?XAnchor: StyleParam.XAnchorPosition,
-            [<Optional; DefaultParameterValue(null)>] ?YAnchor: StyleParam.YAnchorPosition
+            ?Font: Font,
+            ?Padding: int,
+            ?Text: string,
+            ?TextAngle: StyleParam.TextAngle,
+            ?TextPosition: StyleParam.TextPosition,
+            ?TextTemplate: string,
+            ?XAnchor: StyleParam.XAnchorPosition,
+            ?YAnchor: StyleParam.YAnchorPosition
         ) =
 
         ShapeLabel()
@@ -60,14 +60,14 @@ type ShapeLabel() =
     /// <param name="YAnchor">Sets the label's vertical position anchor This anchor binds the specified `textposition` to the "top", "middle" or "bottom" of the label text. For example, if `textposition` is set to "top right" and `yanchor` to "top" then the top-most portion of the label text lines up with the top-most edge of the shape.</param>
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Font: Font,
-            [<Optional; DefaultParameterValue(null)>] ?Padding: int,
-            [<Optional; DefaultParameterValue(null)>] ?Text: string,
-            [<Optional; DefaultParameterValue(null)>] ?TextAngle: StyleParam.TextAngle,
-            [<Optional; DefaultParameterValue(null)>] ?TextPosition: StyleParam.TextPosition,
-            [<Optional; DefaultParameterValue(null)>] ?TextTemplate: string,
-            [<Optional; DefaultParameterValue(null)>] ?XAnchor: StyleParam.XAnchorPosition,
-            [<Optional; DefaultParameterValue(null)>] ?YAnchor: StyleParam.YAnchorPosition
+            ?Font: Font,
+            ?Padding: int,
+            ?Text: string,
+            ?TextAngle: StyleParam.TextAngle,
+            ?TextPosition: StyleParam.TextPosition,
+            ?TextTemplate: string,
+            ?XAnchor: StyleParam.XAnchorPosition,
+            ?YAnchor: StyleParam.YAnchorPosition
         ) =
 
         (fun (shapeLabel: ShapeLabel) ->

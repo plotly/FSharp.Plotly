@@ -7,6 +7,7 @@ using Plotly.NET;
 using Plotly.NET.LayoutObjects;
 using Plotly.NET.TraceObjects;
 using System.Runtime.InteropServices;
+using static Plotly.NET.StyleParam;
 
 
 namespace Plotly.NET.CSharp
@@ -43,6 +44,8 @@ namespace Plotly.NET.CSharp
         /// <param name="LineWidth">Sets the width of the line</param>
         /// <param name="LineDash">sets the drawing style of the line</param>
         /// <param name="Line">Sets the line (use this for more finegrained control than the other line-associated arguments)</param>
+        /// <param name="CameraProjectionType">Sets the camera projection type of this trace.</param>
+        /// <param name="Camera">Sets the camera of this trace.</param>
         /// <param name="Projection">Sets the projection of this trace.</param>
         /// <param name="UseDefaults">If set to false, ignore the global default settings set in `Defaults`</param>
         public static GenericChart Scatter3D<XType, YType, ZType, TextType>(
@@ -69,6 +72,8 @@ namespace Plotly.NET.CSharp
             Optional<double> LineWidth = default,
             Optional<StyleParam.DrawingStyle> LineDash = default,
             Optional<Line> Line = default,
+            Optional<StyleParam.CameraProjectionType> CameraProjectionType = default ,
+            Optional<Camera> Camera = default,
             Optional<Projection> Projection = default,
             Optional<bool> UseDefaults = default
         )
@@ -102,6 +107,8 @@ namespace Plotly.NET.CSharp
                 LineDash: LineDash.ToOption(),
                 Line: Line.ToOption(),
                 Projection: Projection.ToOption(),
+                CameraProjectionType: CameraProjectionType.ToOption(),
+                Camera: Camera.ToOption(),
                 UseDefaults: UseDefaults.ToOption()
             );
 
@@ -127,6 +134,8 @@ namespace Plotly.NET.CSharp
         /// <param name="MarkerSymbol">Sets the marker symbol for each datum</param>
         /// <param name="MultiMarkerSymbol">Sets the marker symbol for each individual datum</param>
         /// <param name="Marker">Sets the marker (use this for more finegrained control than the other marker-associated arguments)</param>
+        /// <param name="CameraProjectionType">Sets the camera projection type of this trace.</param>
+        /// <param name="Camera">Sets the camera of this trace.</param>
         /// <param name="Projection">Sets the projection of this trace.</param>
         /// <param name="UseDefaults">If set to false, ignore the global default settings set in `Defaults`</param>
         public static GenericChart Point3D<XType, YType, ZType, TextType>(
@@ -147,6 +156,8 @@ namespace Plotly.NET.CSharp
             Optional<StyleParam.MarkerSymbol3D> MarkerSymbol = default,
             Optional<IEnumerable<StyleParam.MarkerSymbol3D>> MultiMarkerSymbol = default,
             Optional<Marker> Marker = default,
+            Optional<StyleParam.CameraProjectionType> CameraProjectionType = default,
+            Optional<Camera> Camera = default,
             Optional<Projection> Projection = default,
             Optional<bool> UseDefaults = default
         )
@@ -173,6 +184,8 @@ namespace Plotly.NET.CSharp
                 MarkerSymbol: MarkerSymbol.ToOption(),
                 MultiMarkerSymbol: MultiMarkerSymbol.ToOption(),
                 Marker: Marker.ToOption(),
+                CameraProjectionType: CameraProjectionType.ToOption(),
+                Camera: Camera.ToOption(),
                 Projection: Projection.ToOption(),
                 UseDefaults: UseDefaults.ToOption()
             );
@@ -205,6 +218,8 @@ namespace Plotly.NET.CSharp
         /// <param name="LineWidth">Sets the width of the line</param>
         /// <param name="LineDash">sets the drawing style of the line</param>
         /// <param name="Line">Sets the line (use this for more finegrained control than the other line-associated arguments)</param>
+        /// <param name="CameraProjectionType">Sets the camera projection type of this trace.</param>
+        /// <param name="Camera">Sets the camera of this trace.</param>
         /// <param name="Projection">Sets the projection of this trace.</param>
         /// <param name="UseDefaults">If set to false, ignore the global default settings set in `Defaults`</param>
         public static GenericChart Line3D<XType, YType, ZType, TextType>(
@@ -231,6 +246,8 @@ namespace Plotly.NET.CSharp
             Optional<double> LineWidth = default,
             Optional<StyleParam.DrawingStyle> LineDash = default,
             Optional<Line> Line = default,
+            Optional<StyleParam.CameraProjectionType> CameraProjectionType = default,
+            Optional<Camera> Camera = default,
             Optional<Projection> Projection = default,
             Optional<bool> UseDefaults = default
         )
@@ -263,6 +280,8 @@ namespace Plotly.NET.CSharp
                 LineWidth: LineWidth.ToOption(),
                 LineDash: LineDash.ToOption(),
                 Line: Line.ToOption(),
+                CameraProjectionType: CameraProjectionType.ToOption(),
+                Camera: Camera.ToOption(),
                 Projection: Projection.ToOption(),
                 UseDefaults: UseDefaults.ToOption()
             );
@@ -290,6 +309,8 @@ namespace Plotly.NET.CSharp
         /// <param name="MarkerSymbol">Sets the marker symbol for each datum</param>
         /// <param name="MultiMarkerSymbol">Sets the marker symbol for each individual datum</param>
         /// <param name="Marker">Sets the marker (use this for more finegrained control than the other marker-associated arguments)</param>
+        /// <param name="CameraProjectionType">Sets the camera projection type of this trace.</param>
+        /// <param name="Camera">Sets the camera of this trace.</param>
         /// <param name="Projection">Sets the projection of this trace.</param>
         /// <param name="UseDefaults">If set to false, ignore the global default settings set in `Defaults`</param>
         public static GenericChart Bubble3D<XType, YType, ZType, TextType>(
@@ -311,6 +332,8 @@ namespace Plotly.NET.CSharp
             Optional<StyleParam.MarkerSymbol3D> MarkerSymbol = default,
             Optional<IEnumerable<StyleParam.MarkerSymbol3D>> MultiMarkerSymbol = default,
             Optional<Marker> Marker = default,
+            Optional<StyleParam.CameraProjectionType> CameraProjectionType = default,
+            Optional<Camera> Camera = default,
             Optional<Projection> Projection = default,
             Optional<bool> UseDefaults = default
         )
@@ -338,6 +361,8 @@ namespace Plotly.NET.CSharp
                 MarkerSymbol: MarkerSymbol.ToOption(),
                 MultiMarkerSymbol: MultiMarkerSymbol.ToOption(),
                 Marker: Marker.ToOption(),
+                CameraProjectionType: CameraProjectionType.ToOption(),
+                Camera: Camera.ToOption(),
                 Projection: Projection.ToOption(),
                 UseDefaults: UseDefaults.ToOption()
             );
@@ -362,6 +387,8 @@ namespace Plotly.NET.CSharp
         /// <param name="Contours">Sets the contours on the surface</param>
         /// <param name="ColorScale">Sets the colorscale of the surface</param>
         /// <param name="ShowScale">Whether or not to show the colorbar/colorscale</param>
+        /// <param name="CameraProjectionType">Sets the camera projection type of this trace.</param>
+        /// <param name="Camera">Sets the camera of this trace.</param>
         /// <param name="UseDefaults">If set to false, ignore the global default settings set in `Defaults`</param>
         public static GenericChart Surface<ZType, XType, YType, TextType>(
             IEnumerable<IEnumerable<ZType>> zData, 
@@ -373,8 +400,11 @@ namespace Plotly.NET.CSharp
             Optional<TextType> Text = default, 
             Optional<IEnumerable<TextType>> MultiText = default, 
             Optional<Contours> Contours = default, 
-            Optional<StyleParam.Colorscale> ColorScale = default, 
+            Optional<StyleParam.Colorscale> ColorScale = default,
+            Optional<StyleParam.CameraProjectionType> CameraProjectionType = default,
+            Optional<Camera> Camera = default,
             Optional<bool> ShowScale = default, 
+
             Optional<bool> UseDefaults = default
         )
             where ZType : IConvertible
@@ -394,6 +424,8 @@ namespace Plotly.NET.CSharp
                     Contours: Contours.ToOption(),
                     ColorScale: ColorScale.ToOption(),
                     ShowScale: ShowScale.ToOption(),
+                    CameraProjectionType: CameraProjectionType.ToOption(),
+                    Camera: Camera.ToOption(),
                     UseDefaults: UseDefaults.ToOption()
                 );
 
@@ -428,6 +460,8 @@ namespace Plotly.NET.CSharp
         /// <param name="ColorBar">Sets the colorbar</param>
         /// <param name="FlatShading">Determines whether or not normal smoothing is applied to the meshes, creating meshes with an angular, low-poly look via flat reflections.</param>
         /// <param name="TriangulationAlgorithm">Determines how the mesh surface triangles are derived from the set of vertices (points) represented by the `x`, `y` and `z` arrays, if the `i`, `j`, `k` arrays are not supplied.</param>
+        /// <param name="CameraProjectionType">Sets the camera projection type of this trace.</param>
+        /// <param name="Camera">Sets the camera of this trace.</param>
         /// <param name="UseDefaults">If set to false, ignore the global default settings set in `Defaults`</param>
         public static GenericChart Mesh3D<XType, YType, ZType, IType, JType, KType, TextType>(
             IEnumerable<XType> x, 
@@ -447,7 +481,9 @@ namespace Plotly.NET.CSharp
             Optional<bool> ShowScale = default, 
             Optional<ColorBar> ColorBar = default, 
             Optional<bool> FlatShading = default,
-            Optional<StyleParam.TriangulationAlgorithm> TriangulationAlgorithm = default, 
+            Optional<StyleParam.TriangulationAlgorithm> TriangulationAlgorithm = default,
+            Optional<StyleParam.CameraProjectionType> CameraProjectionType = default,
+            Optional<Camera> Camera = default,
             Optional<bool> UseDefaults = default
         )
             where XType : IConvertible
@@ -477,6 +513,8 @@ namespace Plotly.NET.CSharp
                     ColorBar: ColorBar.ToOption(),
                     FlatShading: FlatShading.ToOption(),
                     TriangulationAlgorithm: TriangulationAlgorithm.ToOption(),
+                    CameraProjectionType: CameraProjectionType.ToOption(),
+                    Camera: Camera.ToOption(),
                     UseDefaults: UseDefaults.ToOption()
                 );
 
@@ -507,6 +545,8 @@ namespace Plotly.NET.CSharp
         /// <param name="ColorBar">Sets the colorbar</param>
         /// <param name="SizeMode">Determines whether `sizeref` is set as a "scaled" (i.e unitless) scalar (normalized by the max u/v/w norm in the vector field) or as "absolute" value (in the same units as the vector field).</param>
         /// <param name="ConeAnchor">Sets the cones' anchor with respect to their x/y/z positions. Note that "cm" denote the cone's center of mass which corresponds to 1/4 from the tail to tip.</param>
+        /// <param name="CameraProjectionType">Sets the camera projection type of this trace.</param>
+        /// <param name="Camera">Sets the camera of this trace.</param>
         /// <param name="UseDefaults">If set to false, ignore the global default settings set in `Defaults`</param>
         public static GenericChart Cone<XType, YType, ZType, UType, VType, WType, TextType>(
             IEnumerable<XType> x, 
@@ -524,7 +564,9 @@ namespace Plotly.NET.CSharp
             Optional<bool> ShowScale = default, 
             Optional<ColorBar> ColorBar = default, 
             Optional<StyleParam.ConeSizeMode> SizeMode = default, 
-            Optional<StyleParam.ConeAnchor> ConeAnchor = default, 
+            Optional<StyleParam.ConeAnchor> ConeAnchor = default,
+            Optional<StyleParam.CameraProjectionType> CameraProjectionType = default,
+            Optional<Camera> Camera = default,
             Optional<bool> UseDefaults = default
         )
             where XType : IConvertible
@@ -552,6 +594,8 @@ namespace Plotly.NET.CSharp
                     ColorBar: ColorBar.ToOption(),
                     SizeMode: SizeMode.ToOption(),
                     ConeAnchor: ConeAnchor.ToOption(),
+                    CameraProjectionType: CameraProjectionType.ToOption(),
+                    Camera: Camera.ToOption(),
                     UseDefaults: UseDefaults.ToOption()
                 );
 
@@ -584,6 +628,8 @@ namespace Plotly.NET.CSharp
         /// <param name="ColorBar">Sets the colorbar</param>
         /// <param name="MaxDisplayed">The maximum number of displayed segments in a streamtube.</param>
         /// <param name="TubeStarts">Use this object to specify custom tube start positions</param>
+        /// <param name="CameraProjectionType">Sets the camera projection type of this trace.</param>
+        /// <param name="Camera">Sets the camera of this trace.</param>
         /// <param name="UseDefaults">If set to false, ignore the global default settings set in `Defaults`</param>
         public static GenericChart StreamTube<XType, YType, ZType, UType, VType, WType, TextType>(
             IEnumerable<XType> x,
@@ -601,7 +647,9 @@ namespace Plotly.NET.CSharp
             Optional<bool> ShowScale = default,
             Optional<ColorBar> ColorBar = default, 
             Optional<int> MaxDisplayed = default, 
-            Optional<StreamTubeStarts> TubeStarts = default, 
+            Optional<StreamTubeStarts> TubeStarts = default,
+            Optional<StyleParam.CameraProjectionType> CameraProjectionType = default,
+            Optional<Camera> Camera = default,
             Optional<bool> UseDefaults = default
         )
             where XType : IConvertible
@@ -629,6 +677,8 @@ namespace Plotly.NET.CSharp
                     ColorBar: ColorBar.ToOption(),
                     MaxDisplayed: MaxDisplayed.ToOption(),
                     TubeStarts: TubeStarts.ToOption(),
+                    CameraProjectionType: CameraProjectionType.ToOption(),
+                    Camera: Camera.ToOption(),
                     UseDefaults: UseDefaults.ToOption()
                 );
 
@@ -658,6 +708,8 @@ namespace Plotly.NET.CSharp
         /// <param name="Slices">Adds Slices through the volume</param>
         /// <param name="Surface">Sets the surface.</param>
         /// <param name="OpacityScale">Sets the opacityscale. The opacityscale must be an array containing arrays mapping a normalized value to an opacity value. At minimum, a mapping for the lowest (0) and highest (1) values are required. For example, `[[0, 1], [0.5, 0.2], [1, 1]]` means that higher/lower values would have higher opacity values and those in the middle would be more transparent Alternatively, `opacityscale` may be a palette name string of the following list: 'min', 'max', 'extremes' and 'uniform'. The default is 'uniform'.</param>
+        /// <param name="CameraProjectionType">Sets the camera projection type of this trace.</param>
+        /// <param name="Camera">Sets the camera of this trace.</param>
         /// <param name="UseDefaults">If set to false, ignore the global default settings set in `Defaults`</param>
         public static GenericChart Volume<XType, YType, ZType, ValueType, TextType, OpacityScaleType>(
             IEnumerable<XType> x, 
@@ -677,7 +729,9 @@ namespace Plotly.NET.CSharp
             Optional<Caps> Caps = default, 
             Optional<Slices> Slices = default, 
             Optional<Surface> Surface = default, 
-            Optional<IEnumerable<IEnumerable<OpacityScaleType>>> OpacityScale = default, 
+            Optional<IEnumerable<IEnumerable<OpacityScaleType>>> OpacityScale = default,
+            Optional<StyleParam.CameraProjectionType> CameraProjectionType = default,
+            Optional<Camera> Camera = default,
             Optional<bool> UseDefaults = default
         )
             where XType : IConvertible
@@ -706,6 +760,8 @@ namespace Plotly.NET.CSharp
                     Slices: Slices.ToOption(),
                     Surface: Surface.ToOption(),
                     OpacityScale: OpacityScale.ToOption(),
+                    CameraProjectionType: CameraProjectionType.ToOption(),
+                    Camera: Camera.ToOption(),
                     UseDefaults: UseDefaults.ToOption()
                 );
 
@@ -736,6 +792,8 @@ namespace Plotly.NET.CSharp
         /// <param name="Caps">Sets the caps (color-coded surfaces on the sides of the visualization domain)</param>
         /// <param name="Slices">Adds Slices through the volume</param>
         /// <param name="Surface">Sets the surface.</param>
+        /// <param name="CameraProjectionType">Sets the camera projection type of this trace.</param>
+        /// <param name="Camera">Sets the camera of this trace.</param>
         /// <param name="UseDefaults">If set to false, ignore the global default settings set in `Defaults`</param>
         public static GenericChart IsoSurface<XType, YType, ZType, ValueType, TextType>(
             IEnumerable<XType> x,
@@ -755,6 +813,8 @@ namespace Plotly.NET.CSharp
             Optional<Caps> Caps = default,
             Optional<Slices> Slices = default, 
             Optional<Surface> Surface = default,
+            Optional<StyleParam.CameraProjectionType> CameraProjectionType = default,
+            Optional<Camera> Camera = default,
             Optional<bool> UseDefaults = default
         )
             where XType : IConvertible
@@ -781,6 +841,8 @@ namespace Plotly.NET.CSharp
                     Caps: Caps.ToOption(),
                     Slices: Slices.ToOption(),
                     Surface: Surface.ToOption(),
+                    CameraProjectionType: CameraProjectionType.ToOption(),
+                    Camera: Camera.ToOption(),
                     UseDefaults: UseDefaults.ToOption()
                 );
     }

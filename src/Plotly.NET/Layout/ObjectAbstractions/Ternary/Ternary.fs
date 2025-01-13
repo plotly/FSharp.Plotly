@@ -19,12 +19,12 @@ type Ternary() =
     /// <param name="BGColor">Sets the background color of the ternary layout.</param>
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?AAxis: LinearAxis,
-            [<Optional; DefaultParameterValue(null)>] ?BAxis: LinearAxis,
-            [<Optional; DefaultParameterValue(null)>] ?CAxis: LinearAxis,
-            [<Optional; DefaultParameterValue(null)>] ?Domain: Domain,
-            [<Optional; DefaultParameterValue(null)>] ?Sum: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?BGColor: Color
+            ?AAxis: LinearAxis,
+            ?BAxis: LinearAxis,
+            ?CAxis: LinearAxis,
+            ?Domain: Domain,
+            ?Sum: #IConvertible,
+            ?BGColor: Color
         ) =
         Ternary()
         |> Ternary.style (
@@ -47,12 +47,12 @@ type Ternary() =
     /// <param name="BGColor">Sets the background color of the ternary layout.</param>
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?AAxis: LinearAxis,
-            [<Optional; DefaultParameterValue(null)>] ?BAxis: LinearAxis,
-            [<Optional; DefaultParameterValue(null)>] ?CAxis: LinearAxis,
-            [<Optional; DefaultParameterValue(null)>] ?Domain: Domain,
-            [<Optional; DefaultParameterValue(null)>] ?Sum: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?BGColor: Color
+            ?AAxis: LinearAxis,
+            ?BAxis: LinearAxis,
+            ?CAxis: LinearAxis,
+            ?Domain: Domain,
+            ?Sum: #IConvertible,
+            ?BGColor: Color
         ) =
         fun (ternary: Ternary) ->
             ternary

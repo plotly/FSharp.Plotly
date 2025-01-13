@@ -13,11 +13,11 @@ type Box() =
     /// Initialized Line object
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Visible: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Width: float,
-            [<Optional; DefaultParameterValue(null)>] ?FillColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?LineColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?LineWidth: float
+            ?Visible: bool,
+            ?Width: float,
+            ?FillColor: Color,
+            ?LineColor: Color,
+            ?LineWidth: float
         ) =
         Box()
         |> Box.style (
@@ -32,11 +32,11 @@ type Box() =
     // Applies the styles to Line()
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Visible: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Width: float,
-            [<Optional; DefaultParameterValue(null)>] ?FillColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?LineColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?LineWidth: float
+            ?Visible: bool,
+            ?Width: float,
+            ?FillColor: Color,
+            ?LineColor: Color,
+            ?LineWidth: float
         ) =
         fun (box: Box) ->
 

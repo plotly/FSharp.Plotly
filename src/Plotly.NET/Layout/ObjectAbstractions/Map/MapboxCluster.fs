@@ -23,14 +23,14 @@ type MapboxCluster() =
     /// <param name="MultiStep">Sets how many points it takes to create a cluster or advance to the next cluster step. Use this in conjunction with arrays for `size` and / or `color`. If an integer, steps start at multiples of this number. If an array, each step extends from the given value until one less than the next value.</param>
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Color: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Enabled: bool,
-            [<Optional; DefaultParameterValue(null)>] ?MaxZoom: float,
-            [<Optional; DefaultParameterValue(null)>] ?Opacity: float,
-            [<Optional; DefaultParameterValue(null)>] ?Size: int,
-            [<Optional; DefaultParameterValue(null)>] ?MultiSize: seq<int>,
-            [<Optional; DefaultParameterValue(null)>] ?Step: int,
-            [<Optional; DefaultParameterValue(null)>] ?MultiStep: seq<int>
+            ?Color: Color,
+            ?Enabled: bool,
+            ?MaxZoom: float,
+            ?Opacity: float,
+            ?Size: int,
+            ?MultiSize: seq<int>,
+            ?Step: int,
+            ?MultiStep: seq<int>
         ) =
         MapboxCluster()
         |> MapboxCluster.style (
@@ -57,14 +57,14 @@ type MapboxCluster() =
     /// <param name="MultiStep">Sets how many points it takes to create a cluster or advance to the next cluster step. Use this in conjunction with arrays for `size` and / or `color`. If an integer, steps start at multiples of this number. If an array, each step extends from the given value until one less than the next value.</param>
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Color: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Enabled: bool,
-            [<Optional; DefaultParameterValue(null)>] ?MaxZoom: float,
-            [<Optional; DefaultParameterValue(null)>] ?Opacity: float,
-            [<Optional; DefaultParameterValue(null)>] ?Size: int,
-            [<Optional; DefaultParameterValue(null)>] ?MultiSize: seq<int>,
-            [<Optional; DefaultParameterValue(null)>] ?Step: int,
-            [<Optional; DefaultParameterValue(null)>] ?MultiStep: seq<int>
+            ?Color: Color,
+            ?Enabled: bool,
+            ?MaxZoom: float,
+            ?Opacity: float,
+            ?Size: int,
+            ?MultiSize: seq<int>,
+            ?Step: int,
+            ?MultiStep: seq<int>
 
         ) =
         fun (mapboxCluster: MapboxCluster) ->

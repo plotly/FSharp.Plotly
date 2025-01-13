@@ -34,7 +34,10 @@ namespace Plotly.NET.CSharp
         /// <param name="SectionOutlineWidth">Sets the width of the section outline.</param>
         /// <param name="SectionOutlineMultiWidth">Sets the width of each individual section outline.</param>
         /// <param name="SectionOutline">Sets the section outline (use this for more finegrained control than the other section outline-associated arguments).</param>
-        /// <param name="Marker">Sets the marker of this trace.</param>
+        /// <param name="MarkerPatternShape">Sets a pattern shape for all sections</param>
+        /// <param name="MultiMarkerPatternShape">Sets an individual pattern shape for each bar</param>
+        /// <param name="MarkerPattern">Sets the marker pattern (use this for more finegrained control than the other pattern-associated arguments).</param>
+        /// <param name="Marker">Sets the marker for the sections (use this for more finegrained control than the other marker-associated arguments).</param>
         /// <param name="TextInfo">Determines which trace information appear on the graph.</param>
         /// <param name="Direction">Specifies the direction at which succeeding sectors follow one another.</param>
         /// <param name="Hole">Sets the fraction of the radius to cut out of the pie. Use this to make a donut chart.</param>
@@ -59,6 +62,9 @@ namespace Plotly.NET.CSharp
             Optional<double> SectionOutlineWidth = default,
             Optional<IEnumerable<double>> SectionOutlineMultiWidth = default,
             Optional<Line> SectionOutline = default,
+            Optional<StyleParam.PatternShape> MarkerPatternShape = default,
+            Optional<IEnumerable<StyleParam.PatternShape>> MultiMarkerPatternShape = default,
+            Optional<Pattern> MarkerPattern = default,
             Optional<Marker> Marker = default,
             Optional<StyleParam.TextInfo> TextInfo = default,
             Optional<StyleParam.Direction> Direction = default,
@@ -89,6 +95,9 @@ namespace Plotly.NET.CSharp
                     SectionOutlineWidth: SectionOutlineWidth.ToOption(),
                     SectionOutlineMultiWidth: SectionOutlineMultiWidth.ToOption(),
                     SectionOutline: SectionOutline.ToOption(),
+                    MarkerPatternShape: MarkerPatternShape.ToOption(),
+                    MultiMarkerPatternShape: MultiMarkerPatternShape.ToOption(),
+                    MarkerPattern: MarkerPattern.ToOption(),
                     Marker: Marker.ToOption(),
                     TextInfo: TextInfo.ToOption(),
                     Direction: Direction.ToOption(),
@@ -121,7 +130,10 @@ namespace Plotly.NET.CSharp
         /// <param name="SectionOutlineWidth">Sets the width of the section outline.</param>
         /// <param name="SectionOutlineMultiWidth">Sets the width of each individual section outline.</param>
         /// <param name="SectionOutline">Sets the section outline (use this for more finegrained control than the other section outline-associated arguments).</param>
-        /// <param name="Marker">Sets the marker of this trace.</param>
+        /// <param name="MarkerPatternShape">Sets a pattern shape for all sections</param>
+        /// <param name="MultiMarkerPatternShape">Sets an individual pattern shape for each section</param>
+        /// <param name="MarkerPattern">Sets the marker pattern (use this for more finegrained control than the other pattern-associated arguments).</param>
+        /// <param name="Marker">Sets the marker for the sections (use this for more finegrained control than the other marker-associated arguments).</param>
         /// <param name="TextInfo">Determines which trace information appear on the graph.</param>
         /// <param name="Direction">Specifies the direction at which succeeding sectors follow one another.</param>
         /// <param name="Rotation">Instead of the first slice starting at 12 o'clock, rotate to some other angle.</param>
@@ -145,6 +157,9 @@ namespace Plotly.NET.CSharp
             Optional<double> SectionOutlineWidth = default,
             Optional<IEnumerable<double>> SectionOutlineMultiWidth = default,
             Optional<Line> SectionOutline = default,
+            Optional<StyleParam.PatternShape> MarkerPatternShape = default,
+            Optional<IEnumerable<StyleParam.PatternShape>> MultiMarkerPatternShape = default,
+            Optional<Pattern> MarkerPattern = default, 
             Optional<Marker> Marker = default,
             Optional<StyleParam.TextInfo> TextInfo = default,
             Optional<StyleParam.Direction> Direction = default,
@@ -175,6 +190,9 @@ namespace Plotly.NET.CSharp
                     SectionOutlineWidth: SectionOutlineWidth.ToOption(),
                     SectionOutlineMultiWidth: SectionOutlineMultiWidth.ToOption(),
                     SectionOutline: SectionOutline.ToOption(),
+                    MarkerPatternShape: MarkerPatternShape.ToOption(),
+                    MultiMarkerPatternShape: MultiMarkerPatternShape.ToOption(),
+                    MarkerPattern: MarkerPattern.ToOption(),
                     Marker: Marker.ToOption(),
                     TextInfo: TextInfo.ToOption(),
                     Direction: Direction.ToOption(),
@@ -205,7 +223,10 @@ namespace Plotly.NET.CSharp
         /// <param name="SectionOutlineWidth">Sets the width of the section outline.</param>
         /// <param name="SectionOutlineMultiWidth">Sets the width of each individual section outline.</param>
         /// <param name="SectionOutline">Sets the section outline (use this for more finegrained control than the other section outline-associated arguments).</param>
-        /// <param name="Marker">Sets the marker of this trace.</param>
+        /// <param name="MarkerPatternShape">Sets a pattern shape for all sections</param>
+        /// <param name="MultiMarkerPatternShape">Sets an individual pattern shape for each section</param>
+        /// <param name="MarkerPattern">Sets the marker pattern (use this for more finegrained control than the other pattern-associated arguments).</param>
+        /// <param name="Marker">Sets the marker for the sections (use this for more finegrained control than the other marker-associated arguments).</param>
         /// <param name="TextInfo">Determines which trace information appear on the graph.</param>
         /// <param name="AspectRatio"></param>
         /// <param name="BaseRatio"></param>
@@ -225,7 +246,10 @@ namespace Plotly.NET.CSharp
             Optional<Color> SectionOutlineColor = default, 
             Optional<double> SectionOutlineWidth = default, 
             Optional<IEnumerable<double>> SectionOutlineMultiWidth = default, 
-            Optional<Line> SectionOutline = default, 
+            Optional<Line> SectionOutline = default,
+            Optional<StyleParam.PatternShape> MarkerPatternShape = default,
+            Optional<IEnumerable<StyleParam.PatternShape>> MultiMarkerPatternShape = default,
+            Optional<Pattern> MarkerPattern = default, 
             Optional<Marker> Marker = default, 
             Optional<StyleParam.TextInfo> TextInfo = default, 
             Optional<double> AspectRatio = default, 
@@ -252,6 +276,9 @@ namespace Plotly.NET.CSharp
                     SectionOutlineWidth: SectionOutlineWidth.ToOption(),
                     SectionOutlineMultiWidth: SectionOutlineMultiWidth.ToOption(),
                     SectionOutline: SectionOutline.ToOption(),
+                    MarkerPatternShape: MarkerPatternShape.ToOption(),
+                    MultiMarkerPatternShape: MultiMarkerPatternShape.ToOption(),
+                    MarkerPattern: MarkerPattern.ToOption(),
                     Marker: Marker.ToOption(),
                     TextInfo: TextInfo.ToOption(),
                     AspectRatio: AspectRatio.ToOption(),
@@ -282,7 +309,10 @@ namespace Plotly.NET.CSharp
         /// <param name="SectionOutlineWidth">Sets the width of the section outline.</param>
         /// <param name="SectionOutlineMultiWidth">Sets the width of each individual section outline.</param>
         /// <param name="SectionOutline">Sets the section outline (use this for more finegrained control than the other section outline-associated arguments).</param>
-        /// <param name="Marker">Sets the marker of this trace.</param>
+        /// <param name="MarkerPatternShape">Sets a pattern shape for all sections</param>
+        /// <param name="MultiMarkerPatternShape">Sets an individual pattern shape for each section</param>
+        /// <param name="MarkerPattern">Sets the marker pattern (use this for more finegrained control than the other pattern-associated arguments).</param>
+        /// <param name="Marker">Sets the marker for the sections (use this for more finegrained control than the other marker-associated arguments).</param>
         /// <param name="TextInfo">Determines which trace information appear on the graph.</param>
         /// <param name="BranchValues">Determines how the items in `values` are summed. When set to "total", items in `values` are taken to be value of all its descendants. When set to "remainder", items in `values` corresponding to the root and the branches sectors are taken to be the extra part not part of the sum of the values at their leaves.</param>
         /// <param name="Count">Determines default for `values` when it is not provided, by inferring a 1 for each of the "leaves" and/or "branches", otherwise 0.</param>
@@ -312,6 +342,9 @@ namespace Plotly.NET.CSharp
             Optional<double> SectionOutlineWidth = default,
             Optional<IEnumerable<double>> SectionOutlineMultiWidth = default,
             Optional<Line> SectionOutline = default,
+            Optional<StyleParam.PatternShape> MarkerPatternShape = default,
+            Optional<IEnumerable<StyleParam.PatternShape>> MultiMarkerPatternShape = default,
+            Optional<Pattern> MarkerPattern = default, 
             Optional<Marker> Marker = default,
             Optional<StyleParam.TextInfo> TextInfo = default,
             Optional<StyleParam.BranchValues> BranchValues = default,
@@ -349,6 +382,9 @@ namespace Plotly.NET.CSharp
                     SectionOutlineWidth: SectionOutlineWidth.ToOption(),
                     SectionOutlineMultiWidth: SectionOutlineMultiWidth.ToOption(),
                     SectionOutline: SectionOutline.ToOption(),
+                    MarkerPatternShape: MarkerPatternShape.ToOption(),
+                    MultiMarkerPatternShape: MultiMarkerPatternShape.ToOption(),
+                    MarkerPattern: MarkerPattern.ToOption(),
                     Marker: Marker.ToOption(),
                     TextInfo: TextInfo.ToOption(),
                     BranchValues: BranchValues.ToOption(),
@@ -389,7 +425,10 @@ namespace Plotly.NET.CSharp
         /// <param name="SectionOutlineWidth">Sets the width of the section outline.</param>
         /// <param name="SectionOutlineMultiWidth">Sets the width of each individual section outline.</param>
         /// <param name="SectionOutline">Sets the section outline (use this for more finegrained control than the other section outline-associated arguments).</param>
-        /// <param name="Marker">Sets the marker of this trace.</param>
+        /// <param name="MarkerPatternShape">Sets a pattern shape for all sections</param>
+        /// <param name="MultiMarkerPatternShape">Sets an individual pattern shape for each section</param>
+        /// <param name="MarkerPattern">Sets the marker pattern (use this for more finegrained control than the other pattern-associated arguments).</param>
+        /// <param name="Marker">Sets the marker for the sections (use this for more finegrained control than the other marker-associated arguments).</param>
         /// <param name="TextInfo">Determines which trace information appear on the graph.</param>
         /// <param name="BranchValues">Determines how the items in `values` are summed. When set to "total", items in `values` are taken to be value of all its descendants. When set to "remainder", items in `values` corresponding to the root and the branches sectors are taken to be the extra part not part of the sum of the values at their leaves.</param>
         /// <param name="Count">Determines default for `values` when it is not provided, by inferring a 1 for each of the "leaves" and/or "branches", otherwise 0.</param>
@@ -420,6 +459,9 @@ namespace Plotly.NET.CSharp
             Optional<double> SectionOutlineWidth = default,
             Optional<IEnumerable<double>> SectionOutlineMultiWidth = default,
             Optional<Line> SectionOutline = default,
+            Optional<StyleParam.PatternShape> MarkerPatternShape = default,
+            Optional<IEnumerable<StyleParam.PatternShape>> MultiMarkerPatternShape = default,
+            Optional<Pattern> MarkerPattern = default, 
             Optional<Marker> Marker = default,
             Optional<StyleParam.TextInfo> TextInfo = default,
             Optional<StyleParam.BranchValues> BranchValues = default,
@@ -448,6 +490,8 @@ namespace Plotly.NET.CSharp
                     MultiOpacity: MultiOpacity.ToOption(),
                     Text: Text.ToOption(),
                     MultiText: MultiText.ToOption(),
+                    TextPosition: TextPosition.ToOption(),
+                    MultiTextPosition: MultiTextPosition.ToOption(),
                     SectionColors: SectionColors.ToOption(),
                     SectionColorScale: SectionColorScale.ToOption(),
                     ShowSectionColorScale: ShowSectionColorScale.ToOption(),
@@ -456,6 +500,9 @@ namespace Plotly.NET.CSharp
                     SectionOutlineWidth: SectionOutlineWidth.ToOption(),
                     SectionOutlineMultiWidth: SectionOutlineMultiWidth.ToOption(),
                     SectionOutline: SectionOutline.ToOption(),
+                    MarkerPatternShape: MarkerPatternShape.ToOption(),
+                    MultiMarkerPatternShape: MultiMarkerPatternShape.ToOption(),
+                    MarkerPattern: MarkerPattern.ToOption(),
                     Marker: Marker.ToOption(),
                     TextInfo: TextInfo.ToOption(),
                     BranchValues: BranchValues.ToOption(),
@@ -741,7 +788,10 @@ namespace Plotly.NET.CSharp
         /// <param name="SectionOutlineWidth">Sets the width of the section outline.</param>
         /// <param name="SectionOutlineMultiWidth">Sets the width of each individual section outline.</param>
         /// <param name="SectionOutline">Sets the section outline (use this for more finegrained control than the other section outline-associated arguments).</param>
-        /// <param name="Marker">Sets the marker of this trace.</param>
+        /// <param name="MarkerPatternShape">Sets a pattern shape for all sections</param>
+        /// <param name="MultiMarkerPatternShape">Sets an individual pattern shape for each section</param>
+        /// <param name="MarkerPattern">Sets the marker pattern (use this for more finegrained control than the other pattern-associated arguments).</param>
+        /// <param name="Marker">Sets the marker for the sections (use this for more finegrained control than the other marker-associated arguments).</param>
         /// <param name="BranchValues">Determines how the items in `values` are summed. When set to "total", items in `values` are taken to be value of all its descendants. When set to "remainder", items in `values` corresponding to the root and the branches sectors are taken to be the extra part not part of the sum of the values at their leaves.</param>
         /// <param name="Count">Determines default for `values` when it is not provided, by inferring a 1 for each of the "leaves" and/or "branches", otherwise 0.</param>
         /// <param name="TilingOrientation">Sets the orientation of the tiling.</param>
@@ -774,6 +824,9 @@ namespace Plotly.NET.CSharp
             Optional<double> SectionOutlineWidth = default,
             Optional<IEnumerable<double>> SectionOutlineMultiWidth = default,
             Optional<Line> SectionOutline = default,
+            Optional<StyleParam.PatternShape> MarkerPatternShape = default,
+            Optional<IEnumerable<StyleParam.PatternShape>> MultiMarkerPatternShape = default,
+            Optional<Pattern> MarkerPattern = default, 
             Optional<Marker> Marker = default,
             Optional<StyleParam.TextInfo> TextInfo = default,
             Optional<StyleParam.BranchValues> BranchValues = default,
@@ -804,6 +857,8 @@ namespace Plotly.NET.CSharp
                     MultiOpacity: MultiOpacity.ToOption(),
                     Text: Text.ToOption(),
                     MultiText: MultiText.ToOption(),
+                    TextPosition: TextPosition.ToOption(),
+                    MultiTextPosition: MultiTextPosition.ToOption(),
                     SectionColors: SectionColors.ToOption(),
                     SectionColorScale: SectionColorScale.ToOption(),
                     ShowSectionColorScale: ShowSectionColorScale.ToOption(),
@@ -812,6 +867,9 @@ namespace Plotly.NET.CSharp
                     SectionOutlineWidth: SectionOutlineWidth.ToOption(),
                     SectionOutlineMultiWidth: SectionOutlineMultiWidth.ToOption(),
                     SectionOutline: SectionOutline.ToOption(),
+                    MarkerPatternShape: MarkerPatternShape.ToOption(),
+                    MultiMarkerPatternShape: MultiMarkerPatternShape.ToOption(),
+                    MarkerPattern: MarkerPattern.ToOption(),
                     Marker: Marker.ToOption(),
                     TextInfo: TextInfo.ToOption(),
                     BranchValues: BranchValues.ToOption(),

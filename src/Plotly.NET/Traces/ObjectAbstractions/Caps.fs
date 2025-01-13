@@ -11,15 +11,15 @@ type CapFill() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Fill: float,
-            [<Optional; DefaultParameterValue(null)>] ?Show: bool
+            ?Fill: float,
+            ?Show: bool
         ) =
         CapFill() |> CapFill.style (?Fill = Fill, ?Show = Show)
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Fill: float,
-            [<Optional; DefaultParameterValue(null)>] ?Show: bool
+            ?Fill: float,
+            ?Show: bool
         ) =
 
         fun (capFill: CapFill) ->
@@ -34,18 +34,18 @@ type Caps() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?X: CapFill,
-            [<Optional; DefaultParameterValue(null)>] ?Y: CapFill,
-            [<Optional; DefaultParameterValue(null)>] ?Z: CapFill
+            ?X: CapFill,
+            ?Y: CapFill,
+            ?Z: CapFill
         ) =
 
         Caps() |> Caps.style (?X = X, ?Y = Y, ?Z = Z)
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?X: CapFill,
-            [<Optional; DefaultParameterValue(null)>] ?Y: CapFill,
-            [<Optional; DefaultParameterValue(null)>] ?Z: CapFill
+            ?X: CapFill,
+            ?Y: CapFill,
+            ?Z: CapFill
         ) =
         fun (caps: Caps) ->
 

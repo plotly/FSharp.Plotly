@@ -35,7 +35,7 @@ namespace Plotly.NET.CSharp
             string path,
             Optional<bool> OpenInBrowser = default
         ) =>
-            Plotly.NET.Chart.SaveHtml(
+            Plotly.NET.Chart.saveHtml(
                 path: path,
                 OpenInBrowser: OpenInBrowser.ToOption()
             ).Invoke(gChart);
@@ -44,7 +44,7 @@ namespace Plotly.NET.CSharp
         /// Saves the given chart as a temporary html file and opens it in the browser.
         /// </summary>
         /// <param name="gChart">The chart to show in the browser</param>
-        public static void Show(this GenericChart gChart) => Plotly.NET.Chart.Show(gChart);
+        public static void Show(this GenericChart gChart) => Plotly.NET.Chart.show(gChart);
 
         /// <summary>
         /// Sets trace information on the given chart.
@@ -65,7 +65,7 @@ namespace Plotly.NET.CSharp
             Optional<string> LegendGroup = default,
             Optional<Title> LegendGroupTitle = default
         ) =>
-            Plotly.NET.Chart.WithTraceInfo(
+            Plotly.NET.Chart.withTraceInfo(
                 Name: Name.ToOption(),
                 Visible: Visible.ToOption(),
                 ShowLegend: ShowLegend.ToOption(),
@@ -80,7 +80,7 @@ namespace Plotly.NET.CSharp
             Optional<int> Width = default,
             Optional<int> Height = default
         ) =>
-            Plotly.NET.Chart.WithSize(Width: Width.ToOption(), Height: Height.ToOption()).Invoke(gChart);
+            Plotly.NET.Chart.withSize(Width: Width.ToOption(), Height: Height.ToOption()).Invoke(gChart);
 
         /// <summary>
         /// Sets the given x axis styles on the input chart's layout.
@@ -103,6 +103,7 @@ namespace Plotly.NET.CSharp
         /// <param name="LineColor">Sets the axis line color.</param>
         /// <param name="ShowGrid">Determines whether or not grid lines are drawn. If "true", the grid lines are drawn at every tick mark.</param>
         /// <param name="GridColor">Sets the color of the grid lines.</param>
+        /// <param name="GridDash">Sets the dash style of lines. Set to a dash type string ("solid", "dot", "dash", "longdash", "dashdot", or "longdashdot") or a dash length list in px (eg "5px,10px,2px,2px").</param>
         /// <param name="ZeroLine">Determines whether or not a line is drawn at along the 0 value of this axis. If "true", the zero line is drawn on top of the grid lines.</param>
         /// <param name="ZeroLineColor">Sets the line color of the zero line.</param>
         /// <param name="Anchor">If set to an opposite-letter axis id (e.g. `x2`, `y`), this axis is bound to the corresponding opposite-letter axis. If set to "free", this axis' position is determined by `position`.</param>
@@ -134,6 +135,7 @@ namespace Plotly.NET.CSharp
             Optional<Color> LineColor = default,
             Optional<bool> ShowGrid = default,
             Optional<Color> GridColor = default,
+            Optional<StyleParam.DrawingStyle> GridDash = default,
             Optional<bool> ZeroLine = default,
             Optional<Color> ZeroLineColor = default,
             Optional<StyleParam.LinearAxisId> Anchor = default,
@@ -153,7 +155,7 @@ namespace Plotly.NET.CSharp
             where MaxType : IConvertible
             where CategoryArrayType : IConvertible
             =>
-                Plotly.NET.Chart.WithXAxisStyle<MinType, MaxType, CategoryArrayType>(
+                Plotly.NET.Chart.withXAxisStyle<MinType, MaxType, CategoryArrayType>(
                     TitleText: TitleText.ToOption(),
                     TitleFont: TitleFont.ToOption(),
                     TitleStandoff: TitleStandoff.ToOption(),
@@ -169,6 +171,7 @@ namespace Plotly.NET.CSharp
                     LineColor: LineColor.ToOption(),
                     ShowGrid: ShowGrid.ToOption(),
                     GridColor: GridColor.ToOption(),
+                    GridDash: GridDash.ToOption(),
                     ZeroLine: ZeroLine.ToOption(),
                     ZeroLineColor: ZeroLineColor.ToOption(),
                     Anchor: Anchor.ToOption(),
@@ -191,7 +194,7 @@ namespace Plotly.NET.CSharp
         ///
         /// If there is already an axis set at the given id, the styles are applied to it. If there is no axis present, a new LinearAxis object with the given styles will be set.
         /// </summary>
-        /// <param name="gChart">The chart in which to change the Y axis style</param>
+        /// <param name="gChart">The chart in which to change the X axis style</param>
         /// <param name="TitleText">Sets the text of the axis title.</param>
         /// <param name="TitleFont">Sets the font of the axis title.</param>
         /// <param name="TitleStandoff">Sets the standoff distance (in px) between the axis labels and the title text.</param>
@@ -207,11 +210,14 @@ namespace Plotly.NET.CSharp
         /// <param name="LineColor">Sets the axis line color.</param>
         /// <param name="ShowGrid">Determines whether or not grid lines are drawn. If "true", the grid lines are drawn at every tick mark.</param>
         /// <param name="GridColor">Sets the color of the grid lines.</param>
+        /// <param name="GridDash">Sets the dash style of lines. Set to a dash type string ("solid", "dot", "dash", "longdash", "dashdot", or "longdashdot") or a dash length list in px (eg "5px,10px,2px,2px").</param>
         /// <param name="ZeroLine">Determines whether or not a line is drawn at along the 0 value of this axis. If "true", the zero line is drawn on top of the grid lines.</param>
         /// <param name="ZeroLineColor">Sets the line color of the zero line.</param>
         /// <param name="Anchor">If set to an opposite-letter axis id (e.g. `x2`, `y`), this axis is bound to the corresponding opposite-letter axis. If set to "free", this axis' position is determined by `position`.</param>
         /// <param name="Side">Determines whether a x (y) axis is positioned at the "bottom" ("left") or "top" ("right") of the plotting area.</param>
         /// <param name="Overlaying">If set a same-letter axis id, this axis is overlaid on top of the corresponding same-letter axis, with traces and axes visible for both axes. If "false", this axis does not overlay any same-letter axes. In this case, for axes with overlapping domains only the highest-numbered axis will be visible.</param>
+        /// <param name="AutoShift">Automatically reposition the axis to avoid overlap with other axes with the same `overlaying` value. This repositioning will account for any `shift` amount applied to other axes on the same side with `autoshift` is set to true. Only has an effect if `anchor` is set to "free".</param>
+        /// <param name="Shift">Moves the axis a given number of pixels from where it would have been otherwise. Accepts both positive and negative values, which will shift the axis either right or left, respectively. If `autoshift` is set to true, then this defaults to a padding of -3 if `side` is set to "left". and defaults to +3 if `side` is set to "right". Defaults to 0 if `autoshift` is set to false. Only has an effect if `anchor` is set to "free".</param>
         /// <param name="Domain">Tuple of (X*Y fractions). Sets the domain of this axis (in plot fraction).</param>
         /// <param name="Position">Sets the position of this axis in the plotting space (in normalized coordinates). Only has an effect if `anchor` is set to "free".</param>
         /// <param name="CategoryOrder">Specifies the ordering logic for the case of categorical variables. By default, plotly uses "trace", which specifies the order that is present in the data supplied. Set `categoryorder` to "category ascending" or "category descending" if order should be determined by the alphanumerical order of the category names. Set `categoryorder` to "array" to derive the ordering from the attribute `categoryarray`. If a category is not found in the `categoryarray` array, the sorting behavior for that attribute will be identical to the "trace" mode. The unspecified categories will follow the categories in `categoryarray`. Set `categoryorder` to "total ascending" or "total descending" if order should be determined by the numerical order of the values. Similarly, the order can be determined by the min, max, sum, mean or median of all the values.</param>
@@ -238,11 +244,14 @@ namespace Plotly.NET.CSharp
             Optional<Color> LineColor = default,
             Optional<bool> ShowGrid = default,
             Optional<Color> GridColor = default,
+            Optional<StyleParam.DrawingStyle> GridDash = default,
             Optional<bool> ZeroLine = default,
             Optional<Color> ZeroLineColor = default,
             Optional<StyleParam.LinearAxisId> Anchor = default,
             Optional<StyleParam.Side> Side = default,
             Optional<StyleParam.LinearAxisId> Overlaying = default,
+            Optional<bool> AutoShift = default,
+            Optional<int> Shift = default,
             Optional<Tuple<double, double>> Domain = default,
             Optional<double> Position = default,
             Optional<StyleParam.CategoryOrder> CategoryOrder = default,
@@ -257,7 +266,7 @@ namespace Plotly.NET.CSharp
             where MaxType : IConvertible
             where CategoryArrayType : IConvertible
             =>
-                Plotly.NET.Chart.WithYAxisStyle<MinType, MaxType, CategoryArrayType>(
+                Plotly.NET.Chart.withYAxisStyle<MinType, MaxType, CategoryArrayType>(
                     TitleText: TitleText.ToOption(),
                     TitleFont: TitleFont.ToOption(),
                     TitleStandoff: TitleStandoff.ToOption(),
@@ -273,11 +282,14 @@ namespace Plotly.NET.CSharp
                     LineColor: LineColor.ToOption(),
                     ShowGrid: ShowGrid.ToOption(),
                     GridColor: GridColor.ToOption(),
+                    GridDash: GridDash.ToOption(),
                     ZeroLine: ZeroLine.ToOption(),
                     ZeroLineColor: ZeroLineColor.ToOption(),
                     Anchor: Anchor.ToOption(),
                     Side: Side.ToOption(),
                     Overlaying: Overlaying.ToOption(),
+                    AutoShift: AutoShift.ToOption(),
+                    Shift: Shift.ToOption(),
                     Domain: Domain.ToOption(),
                     Position: Position.ToOption(),
                     CategoryOrder: CategoryOrder.ToOption(),
@@ -304,7 +316,7 @@ namespace Plotly.NET.CSharp
             Optional<int> Id = default
         )
             =>
-                Plotly.NET.Chart.WithMapbox(
+                Plotly.NET.Chart.withMapbox(
                     mapbox: mapbox,
                     Id: Id.ToOption()
                 ).Invoke(gChart);
@@ -362,7 +374,7 @@ namespace Plotly.NET.CSharp
             Optional<StyleParam.SubPlotId> Id = default
         )
             =>
-                Plotly.NET.Chart.WithXAxisRangeSlider(
+                Plotly.NET.Chart.withXAxisRangeSlider(
                     rangeSlider: rangeSlider,
                     Id: Id.ToOption()
                 ).Invoke(gChart);
@@ -374,21 +386,24 @@ namespace Plotly.NET.CSharp
         /// </summary>
         /// <param name="gChart">The chart for which to set the legend</param>
         /// <param name="legend">The new Legend for the chart's layout</param>
+        /// <param name="Id">The target Legend id with which the Legend should be set. Default is 1.</param>
         public static GenericChart WithLegend(
             this GenericChart gChart,
-            Legend legend
+            Legend legend,
+            Optional<int> Id
         )
             =>
-                Plotly.NET.Chart.WithLegend(
-                    legend: legend
+                Plotly.NET.Chart.withLegend(
+                    legend: legend,
+                    Id: Id.ToOption()
                 ).Invoke(gChart);
 
         /// <summary>
-        /// Sets the given Legend styles on the input chart's Legend.
+        /// Sets the given Legend styles on the input chart's Legend, optionally passing a target Legend id.
         ///
         /// If there is already a Legend set , the styles are applied to it. If there is no Legend present, a new Legend object with the given styles will be set.
         /// </summary>
-        /// <param name="gChart">The chart for which to set the legend styles</param>
+        /// <param name="gChart">The chart for which to set the legend</param>
         /// <param name="BGColor">Sets the legend background color. Defaults to `layout.paper_bgcolor`.</param>
         /// <param name="BorderColor">Sets the color of the border enclosing the legend.</param>
         /// <param name="BorderWidth">Sets the width (in px) of the border enclosing the legend.</param>
@@ -407,10 +422,14 @@ namespace Plotly.NET.CSharp
         /// <param name="TraceOrder">Determines the order at which the legend items are displayed. If "normal", the items are displayed top-to-bottom in the same order as the input data. If "reversed", the items are displayed in the opposite order as "normal". If "grouped", the items are displayed in groups (when a trace `legendgroup` is provided). if "grouped+reversed", the items are displayed in the opposite order as "grouped".</param>
         /// <param name="UIRevision">Controls persistence of legend-driven changes in trace and pie label visibility. Defaults to `layout.uirevision`.</param>
         /// <param name="VerticalAlign">Sets the vertical alignment of the symbols with respect to their associated text.</param>
+        /// <param name="Visible">Determines whether or not this legend is visible.</param>
         /// <param name="X">Sets the x position (in normalized coordinates) of the legend. Defaults to "1.02" for vertical legends and defaults to "0" for horizontal legends.</param>
         /// <param name="XAnchor">Sets the legend's horizontal position anchor. This anchor binds the `x` position to the "left", "center" or "right" of the legend. Value "auto" anchors legends to the right for `x` values greater than or equal to 2/3, anchors legends to the left for `x` values less than or equal to 1/3 and anchors legends with respect to their center otherwise.</param>
+        /// <param name="XRef">Sets the container `x` refers to. "container" spans the entire `width` of the plot. "paper" refers to the width of the plotting area only.</param>
         /// <param name="Y">Sets the y position (in normalized coordinates) of the legend. Defaults to "1" for vertical legends, defaults to "-0.1" for horizontal legends on graphs w/o range sliders and defaults to "1.1" for horizontal legends on graph with one or multiple range sliders.</param>
         /// <param name="YAnchor">Sets the legend's vertical position anchor This anchor binds the `y` position to the "top", "middle" or "bottom" of the legend. Value "auto" anchors legends at their bottom for `y` values less than or equal to 1/3, anchors legends to at their top for `y` values greater than or equal to 2/3 and anchors legends with respect to their middle otherwise.</param>
+        /// <param name="YRef">Sets the container `y` refers to. "container" spans the entire `height` of the plot. "paper" refers to the height of the plotting area only.</param>
+        /// <param name="Id">The target Legend id. Default is 1.</param>
         public static GenericChart WithLegendStyle(
             this GenericChart gChart,
             Optional<Color> BGColor = default, 
@@ -431,13 +450,17 @@ namespace Plotly.NET.CSharp
             Optional<StyleParam.TraceOrder> TraceOrder = default, 
             Optional<string> UIRevision = default, 
             Optional<StyleParam.VerticalAlign> VerticalAlign = default, 
+            Optional<bool> Visible = default,
             Optional<double> X = default, 
-            Optional<StyleParam.XAnchorPosition> XAnchor = default, 
+            Optional<StyleParam.XAnchorPosition> XAnchor = default,
+            Optional<string> XRef = default,
             Optional<double> Y = default, 
-            Optional<StyleParam.YAnchorPosition> YAnchor = default
+            Optional<StyleParam.YAnchorPosition> YAnchor = default,
+            Optional<string> YRef = default,
+            Optional<int> Id = default
        )
             =>
-                Plotly.NET.Chart.WithLegendStyle(
+                Plotly.NET.Chart.withLegendStyle(
                     BGColor: BGColor.ToOption(),
                     BorderColor: BorderColor.ToOption(),
                     BorderWidth: BorderWidth.ToOption(),
@@ -456,10 +479,14 @@ namespace Plotly.NET.CSharp
                     TraceOrder: TraceOrder.ToOption(),
                     UIRevision: UIRevision.ToOption(),
                     VerticalAlign: VerticalAlign.ToOption(),
+                    Visible: Visible.ToOption(),
                     X: X.ToOption(),
                     XAnchor: XAnchor.ToOption(),
+                    XRef: XRef.ToOption(),
                     Y: Y.ToOption(),
-                    YAnchor: YAnchor.ToOption()                    
+                    YAnchor: YAnchor.ToOption(),
+                    YRef: YRef.ToOption(),
+                    Id: Id.ToOption()
                 ).Invoke(gChart);
 
     }

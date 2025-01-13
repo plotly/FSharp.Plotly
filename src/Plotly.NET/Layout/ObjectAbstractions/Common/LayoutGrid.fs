@@ -25,18 +25,18 @@ type LayoutGrid() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Rows: int,
-            [<Optional; DefaultParameterValue(null)>] ?Columns: int,
-            [<Optional; DefaultParameterValue(null)>] ?SubPlots: (StyleParam.LinearAxisId * StyleParam.LinearAxisId)[][],
-            [<Optional; DefaultParameterValue(null)>] ?XAxes: StyleParam.LinearAxisId[],
-            [<Optional; DefaultParameterValue(null)>] ?YAxes: StyleParam.LinearAxisId[],
-            [<Optional; DefaultParameterValue(null)>] ?RowOrder: StyleParam.LayoutGridRowOrder,
-            [<Optional; DefaultParameterValue(null)>] ?Pattern: StyleParam.LayoutGridPattern,
-            [<Optional; DefaultParameterValue(null)>] ?XGap: float,
-            [<Optional; DefaultParameterValue(null)>] ?YGap: float,
-            [<Optional; DefaultParameterValue(null)>] ?Domain: Domain,
-            [<Optional; DefaultParameterValue(null)>] ?XSide: StyleParam.LayoutGridXSide,
-            [<Optional; DefaultParameterValue(null)>] ?YSide: StyleParam.LayoutGridYSide
+            ?Rows: int,
+            ?Columns: int,
+            ?SubPlots: (StyleParam.LinearAxisId * StyleParam.LinearAxisId)[][],
+            ?XAxes: StyleParam.LinearAxisId[],
+            ?YAxes: StyleParam.LinearAxisId[],
+            ?RowOrder: StyleParam.LayoutGridRowOrder,
+            ?Pattern: StyleParam.LayoutGridPattern,
+            ?XGap: float,
+            ?YGap: float,
+            ?Domain: Domain,
+            ?XSide: StyleParam.LayoutGridXSide,
+            ?YSide: StyleParam.LayoutGridYSide
         ) =
         LayoutGrid()
         |> LayoutGrid.style (
@@ -71,18 +71,18 @@ type LayoutGrid() =
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Rows: int,
-            [<Optional; DefaultParameterValue(null)>] ?Columns: int,
-            [<Optional; DefaultParameterValue(null)>] ?SubPlots: (StyleParam.LinearAxisId * StyleParam.LinearAxisId)[][],
-            [<Optional; DefaultParameterValue(null)>] ?XAxes: StyleParam.LinearAxisId[],
-            [<Optional; DefaultParameterValue(null)>] ?YAxes: StyleParam.LinearAxisId[],
-            [<Optional; DefaultParameterValue(null)>] ?RowOrder: StyleParam.LayoutGridRowOrder,
-            [<Optional; DefaultParameterValue(null)>] ?Pattern: StyleParam.LayoutGridPattern,
-            [<Optional; DefaultParameterValue(null)>] ?XGap: float,
-            [<Optional; DefaultParameterValue(null)>] ?YGap: float,
-            [<Optional; DefaultParameterValue(null)>] ?Domain: Domain,
-            [<Optional; DefaultParameterValue(null)>] ?XSide: StyleParam.LayoutGridXSide,
-            [<Optional; DefaultParameterValue(null)>] ?YSide: StyleParam.LayoutGridYSide
+            ?Rows: int,
+            ?Columns: int,
+            ?SubPlots: (StyleParam.LinearAxisId * StyleParam.LinearAxisId)[][],
+            ?XAxes: StyleParam.LinearAxisId[],
+            ?YAxes: StyleParam.LinearAxisId[],
+            ?RowOrder: StyleParam.LayoutGridRowOrder,
+            ?Pattern: StyleParam.LayoutGridPattern,
+            ?XGap: float,
+            ?YGap: float,
+            ?Domain: Domain,
+            ?XSide: StyleParam.LayoutGridXSide,
+            ?YSide: StyleParam.LayoutGridYSide
         ) =
         (fun (layoutGrid: LayoutGrid) ->
             layoutGrid

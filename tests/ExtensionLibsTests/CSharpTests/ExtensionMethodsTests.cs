@@ -7,7 +7,7 @@ namespace Plotly.NET.CSharp.Tests
 {
     public class ExtensionMethodsTests
     {
-        internal GenericChart chart = Chart2D.Chart.Point<double, double, string>(x: new double[] { 1, 2 }, y: new double[] { 5, 10 }, UseDefaults: false);
+        internal GenericChart chart = Chart.Point<double, double, string>(x: new double[] { 1, 2 }, y: new double[] { 5, 10 }, UseDefaults: false);
 
         [Fact]
         public void CanUseCSharpExtensionMethod()

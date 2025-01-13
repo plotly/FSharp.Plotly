@@ -27,19 +27,19 @@ type Minor() =
     /// <param name="TickWidth">Sets the tick width (in px).</param>
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?DTick: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?GridColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?GridDash: StyleParam.DrawingStyle,
-            [<Optional; DefaultParameterValue(null)>] ?GridWidth: float,
-            [<Optional; DefaultParameterValue(null)>] ?NTicks: int,
-            [<Optional; DefaultParameterValue(null)>] ?ShowGrid: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Tick0: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?TickColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?TickLen: int,
-            [<Optional; DefaultParameterValue(null)>] ?TickMode: StyleParam.TickMode,
-            [<Optional; DefaultParameterValue(null)>] ?Ticks: StyleParam.TickOptions,
-            [<Optional; DefaultParameterValue(null)>] ?TickVals: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?TickWidth: int
+            ?DTick: #IConvertible,
+            ?GridColor: Color,
+            ?GridDash: StyleParam.DrawingStyle,
+            ?GridWidth: float,
+            ?NTicks: int,
+            ?ShowGrid: bool,
+            ?Tick0: #IConvertible,
+            ?TickColor: Color,
+            ?TickLen: int,
+            ?TickMode: StyleParam.TickMode,
+            ?Ticks: StyleParam.TickOptions,
+            ?TickVals: seq<#IConvertible>,
+            ?TickWidth: int
         ) =
         Minor()
         |> Minor.style (
@@ -76,19 +76,19 @@ type Minor() =
     /// <param name="TickWidth">Sets the tick width (in px).</param>
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?DTick: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?GridColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?GridDash: StyleParam.DrawingStyle,
-            [<Optional; DefaultParameterValue(null)>] ?GridWidth: float,
-            [<Optional; DefaultParameterValue(null)>] ?NTicks: int,
-            [<Optional; DefaultParameterValue(null)>] ?ShowGrid: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Tick0: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?TickColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?TickLen: int,
-            [<Optional; DefaultParameterValue(null)>] ?TickMode: StyleParam.TickMode,
-            [<Optional; DefaultParameterValue(null)>] ?Ticks: StyleParam.TickOptions,
-            [<Optional; DefaultParameterValue(null)>] ?TickVals: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?TickWidth: int
+            ?DTick: #IConvertible,
+            ?GridColor: Color,
+            ?GridDash: StyleParam.DrawingStyle,
+            ?GridWidth: float,
+            ?NTicks: int,
+            ?ShowGrid: bool,
+            ?Tick0: #IConvertible,
+            ?TickColor: Color,
+            ?TickLen: int,
+            ?TickMode: StyleParam.TickMode,
+            ?Ticks: StyleParam.TickOptions,
+            ?TickVals: seq<#IConvertible>,
+            ?TickWidth: int
         ) =
         (fun (minor: Minor) ->
 

@@ -10,15 +10,15 @@ type ActiveSelection() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?FillColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Opacity: float
+            ?FillColor: Color,
+            ?Opacity: float
         ) =
         ActiveSelection() |> ActiveSelection.style (?FillColor = FillColor, ?Opacity = Opacity)
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?FillColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Opacity: float
+            ?FillColor: Color,
+            ?Opacity: float
         ) =
         (fun (activeSelection: ActiveSelection) ->
 

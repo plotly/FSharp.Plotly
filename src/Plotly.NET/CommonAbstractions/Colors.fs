@@ -7,14 +7,12 @@ module internal Hex =
 
     open System
 
-    [<CompiledName("ToHexDigit")>]
     let toHexDigit n =
         if n < 10 then
             char (n + 0x30)
         else
             char (n + 0x37)
 
-    [<CompiledName("FromHexDigit")>]
     let fromHexDigit c =
         if c >= '0' && c <= '9' then
             int c - int '0'
@@ -25,8 +23,6 @@ module internal Hex =
         else
             raise <| ArgumentException()
 
-
-    [<CompiledName("Encode")>]
     let encode (prefix: string) (color: byte array) =
         let hex =
             Array.zeroCreate (color.Length * 2)
@@ -41,8 +37,6 @@ module internal Hex =
 
         String.Concat(prefix, String(hex))
 
-
-    [<CompiledName("Decode")>]
     let decode (s: string) =
         match s with
         | null -> nullArg "s"
@@ -68,8 +62,6 @@ module internal Hex =
                     n <- n + 1
 
                 buf
-
-
 
 /// Represents an ARGB (alpha, red, green, blue) color
 [<JsonConverter(typeof<ARGBConverter>)>]

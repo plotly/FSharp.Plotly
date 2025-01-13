@@ -320,12 +320,12 @@ type TraceStyle() =
     /// <param name="LegendGroupTitle">Sets the title for the chart's trace legend group </param>
     static member TraceInfo
         (
-            [<Optional; DefaultParameterValue(null)>] ?Name: string,
-            [<Optional; DefaultParameterValue(null)>] ?Visible: StyleParam.Visible,
-            [<Optional; DefaultParameterValue(null)>] ?ShowLegend: bool,
-            [<Optional; DefaultParameterValue(null)>] ?LegendRank: int,
-            [<Optional; DefaultParameterValue(null)>] ?LegendGroup: string,
-            [<Optional; DefaultParameterValue(null)>] ?LegendGroupTitle: Title
+            ?Name: string,
+            ?Visible: StyleParam.Visible,
+            ?ShowLegend: bool,
+            ?LegendRank: int,
+            ?LegendGroup: string,
+            ?LegendGroupTitle: Title
         ) =
         fun (trace: #Trace) ->
             trace
@@ -375,40 +375,40 @@ type TraceStyle() =
     /// <param name="OutlierWidth">Sets the width of the outlier sample points.</param>
     static member Marker
         (
-            [<Optional; DefaultParameterValue(null)>] ?Angle: float,
-            [<Optional; DefaultParameterValue(null)>] ?AngleRef: StyleParam.AngleRef,
-            [<Optional; DefaultParameterValue(null)>] ?AutoColorScale: bool,
-            [<Optional; DefaultParameterValue(null)>] ?CAuto: bool,
-            [<Optional; DefaultParameterValue(null)>] ?CMax: float,
-            [<Optional; DefaultParameterValue(null)>] ?CMid: float,
-            [<Optional; DefaultParameterValue(null)>] ?CMin: float,
-            [<Optional; DefaultParameterValue(null)>] ?Color: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Colors: seq<Color>,
-            [<Optional; DefaultParameterValue(null)>] ?ColorAxis: StyleParam.SubPlotId,
-            [<Optional; DefaultParameterValue(null)>] ?ColorBar: ColorBar,
-            [<Optional; DefaultParameterValue(null)>] ?Colorscale: StyleParam.Colorscale,
-            [<Optional; DefaultParameterValue(null)>] ?CornerRadius: int,
-            [<Optional; DefaultParameterValue(null)>] ?Gradient: Gradient,
-            [<Optional; DefaultParameterValue(null)>] ?Outline: Line,
-            [<Optional; DefaultParameterValue(null)>] ?MaxDisplayed: int,
-            [<Optional; DefaultParameterValue(null)>] ?Opacity: float,
-            [<Optional; DefaultParameterValue(null)>] ?MultiOpacity: seq<float>,
-            [<Optional; DefaultParameterValue(null)>] ?Pattern: Pattern,
-            [<Optional; DefaultParameterValue(null)>] ?ReverseScale: bool,
-            [<Optional; DefaultParameterValue(null)>] ?ShowScale: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Size: int,
-            [<Optional; DefaultParameterValue(null)>] ?MultiSize: seq<int>,
-            [<Optional; DefaultParameterValue(null)>] ?SizeMin: int,
-            [<Optional; DefaultParameterValue(null)>] ?SizeMode: StyleParam.MarkerSizeMode,
-            [<Optional; DefaultParameterValue(null)>] ?SizeRef: int,
-            [<Optional; DefaultParameterValue(null)>] ?StandOff: float,
-            [<Optional; DefaultParameterValue(null)>] ?MultiStandOff: seq<float>,
-            [<Optional; DefaultParameterValue(null)>] ?Symbol: StyleParam.MarkerSymbol,
-            [<Optional; DefaultParameterValue(null)>] ?MultiSymbol: seq<StyleParam.MarkerSymbol>,
-            [<Optional; DefaultParameterValue(null)>] ?Symbol3D: StyleParam.MarkerSymbol3D,
-            [<Optional; DefaultParameterValue(null)>] ?MultiSymbol3D: seq<StyleParam.MarkerSymbol3D>,
-            [<Optional; DefaultParameterValue(null)>] ?OutlierColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?OutlierWidth: int
+            ?Angle: float,
+            ?AngleRef: StyleParam.AngleRef,
+            ?AutoColorScale: bool,
+            ?CAuto: bool,
+            ?CMax: float,
+            ?CMid: float,
+            ?CMin: float,
+            ?Color: Color,
+            ?Colors: seq<Color>,
+            ?ColorAxis: StyleParam.SubPlotId,
+            ?ColorBar: ColorBar,
+            ?Colorscale: StyleParam.Colorscale,
+            ?CornerRadius: int,
+            ?Gradient: Gradient,
+            ?Outline: Line,
+            ?MaxDisplayed: int,
+            ?Opacity: float,
+            ?MultiOpacity: seq<float>,
+            ?Pattern: Pattern,
+            ?ReverseScale: bool,
+            ?ShowScale: bool,
+            ?Size: int,
+            ?MultiSize: seq<int>,
+            ?SizeMin: int,
+            ?SizeMode: StyleParam.MarkerSizeMode,
+            ?SizeRef: int,
+            ?StandOff: float,
+            ?MultiStandOff: seq<float>,
+            ?Symbol: StyleParam.MarkerSymbol,
+            ?MultiSymbol: seq<StyleParam.MarkerSymbol>,
+            ?Symbol3D: StyleParam.MarkerSymbol3D,
+            ?MultiSymbol3D: seq<StyleParam.MarkerSymbol3D>,
+            ?OutlierColor: Color,
+            ?OutlierWidth: int
         ) =
         (fun (trace: ('T :> Trace)) ->
             let marker =
@@ -478,26 +478,26 @@ type TraceStyle() =
     /// <param name="OutlierWidth">Sets the width of the outline of outliers</param>
     static member Line
         (
-            [<Optional; DefaultParameterValue(null)>] ?BackOff: StyleParam.BackOff,
-            [<Optional; DefaultParameterValue(null)>] ?AutoColorScale: bool,
-            [<Optional; DefaultParameterValue(null)>] ?CAuto: bool,
-            [<Optional; DefaultParameterValue(null)>] ?CMax: float,
-            [<Optional; DefaultParameterValue(null)>] ?CMid: float,
-            [<Optional; DefaultParameterValue(null)>] ?CMin: float,
-            [<Optional; DefaultParameterValue(null)>] ?Color: Color,
-            [<Optional; DefaultParameterValue(null)>] ?ColorAxis: StyleParam.SubPlotId,
-            [<Optional; DefaultParameterValue(null)>] ?Colorscale: StyleParam.Colorscale,
-            [<Optional; DefaultParameterValue(null)>] ?ReverseScale: bool,
-            [<Optional; DefaultParameterValue(null)>] ?ShowScale: bool,
-            [<Optional; DefaultParameterValue(null)>] ?ColorBar: ColorBar,
-            [<Optional; DefaultParameterValue(null)>] ?Dash: StyleParam.DrawingStyle,
-            [<Optional; DefaultParameterValue(null)>] ?Shape: StyleParam.Shape,
-            [<Optional; DefaultParameterValue(null)>] ?Simplify: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Smoothing: float,
-            [<Optional; DefaultParameterValue(null)>] ?Width: float,
-            [<Optional; DefaultParameterValue(null)>] ?MultiWidth: seq<float>,
-            [<Optional; DefaultParameterValue(null)>] ?OutlierColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?OutlierWidth: float
+            ?BackOff: StyleParam.BackOff,
+            ?AutoColorScale: bool,
+            ?CAuto: bool,
+            ?CMax: float,
+            ?CMid: float,
+            ?CMin: float,
+            ?Color: Color,
+            ?ColorAxis: StyleParam.SubPlotId,
+            ?Colorscale: StyleParam.Colorscale,
+            ?ReverseScale: bool,
+            ?ShowScale: bool,
+            ?ColorBar: ColorBar,
+            ?Dash: StyleParam.DrawingStyle,
+            ?Shape: StyleParam.Shape,
+            ?Simplify: bool,
+            ?Smoothing: float,
+            ?Width: float,
+            ?MultiWidth: seq<float>,
+            ?OutlierColor: Color,
+            ?OutlierWidth: float
         ) =
         (fun (trace: ('T :> Trace)) ->
             let line =
@@ -546,19 +546,19 @@ type TraceStyle() =
     /// <param name ="Width">Sets the width (in px) of the cross-bar at both ends of the error bars.</param>
     static member XError
         (
-            [<Optional; DefaultParameterValue(null)>] ?Visible: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Type: StyleParam.ErrorType,
-            [<Optional; DefaultParameterValue(null)>] ?Symmetric: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Array: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Arrayminus: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Value: float,
-            [<Optional; DefaultParameterValue(null)>] ?Valueminus: float,
-            [<Optional; DefaultParameterValue(null)>] ?Traceref: int,
-            [<Optional; DefaultParameterValue(null)>] ?Tracerefminus: int,
-            [<Optional; DefaultParameterValue(null)>] ?Copy_ystyle: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Color: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Thickness: float,
-            [<Optional; DefaultParameterValue(null)>] ?Width: float
+            ?Visible: bool,
+            ?Type: StyleParam.ErrorType,
+            ?Symmetric: bool,
+            ?Array: seq<#IConvertible>,
+            ?Arrayminus: seq<#IConvertible>,
+            ?Value: float,
+            ?Valueminus: float,
+            ?Traceref: int,
+            ?Tracerefminus: int,
+            ?Copy_ystyle: bool,
+            ?Color: Color,
+            ?Thickness: float,
+            ?Width: float
         ) =
         (fun (trace: ('T :> Trace)) ->
             let xerror =
@@ -600,19 +600,19 @@ type TraceStyle() =
     /// <param name ="Width">Sets the width (in px) of the cross-bar at both ends of the error bars.</param>
     static member YError
         (
-            [<Optional; DefaultParameterValue(null)>] ?Visible: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Type: StyleParam.ErrorType,
-            [<Optional; DefaultParameterValue(null)>] ?Symmetric: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Array: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Arrayminus: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Value: float,
-            [<Optional; DefaultParameterValue(null)>] ?Valueminus: float,
-            [<Optional; DefaultParameterValue(null)>] ?Traceref: int,
-            [<Optional; DefaultParameterValue(null)>] ?Tracerefminus: int,
-            [<Optional; DefaultParameterValue(null)>] ?Copy_ystyle: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Color: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Thickness: float,
-            [<Optional; DefaultParameterValue(null)>] ?Width: float
+            ?Visible: bool,
+            ?Type: StyleParam.ErrorType,
+            ?Symmetric: bool,
+            ?Array: seq<#IConvertible>,
+            ?Arrayminus: seq<#IConvertible>,
+            ?Value: float,
+            ?Valueminus: float,
+            ?Traceref: int,
+            ?Tracerefminus: int,
+            ?Copy_ystyle: bool,
+            ?Color: Color,
+            ?Thickness: float,
+            ?Width: float
         ) =
         (fun (trace: ('T :> Trace)) ->
             let yerror =
@@ -654,19 +654,19 @@ type TraceStyle() =
     /// <param name ="Width">Sets the width (in px) of the cross-bar at both ends of the error bars.</param>
     static member ZError
         (
-            [<Optional; DefaultParameterValue(null)>] ?Visible: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Type: StyleParam.ErrorType,
-            [<Optional; DefaultParameterValue(null)>] ?Symmetric: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Array: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Arrayminus: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Value: float,
-            [<Optional; DefaultParameterValue(null)>] ?Valueminus: float,
-            [<Optional; DefaultParameterValue(null)>] ?Traceref: int,
-            [<Optional; DefaultParameterValue(null)>] ?Tracerefminus: int,
-            [<Optional; DefaultParameterValue(null)>] ?Copy_ystyle: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Color: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Thickness: float,
-            [<Optional; DefaultParameterValue(null)>] ?Width: float
+            ?Visible: bool,
+            ?Type: StyleParam.ErrorType,
+            ?Symmetric: bool,
+            ?Array: seq<#IConvertible>,
+            ?Arrayminus: seq<#IConvertible>,
+            ?Value: float,
+            ?Valueminus: float,
+            ?Traceref: int,
+            ?Tracerefminus: int,
+            ?Copy_ystyle: bool,
+            ?Color: Color,
+            ?Thickness: float,
+            ?Width: float
         ) =
         (fun (trace: ('T :> Trace)) ->
             let zerror =
@@ -698,9 +698,9 @@ type TraceStyle() =
     /// <param name="Unselected">Sets the style of unselected points of this trace.</param>
     static member Selection
         (
-            [<Optional; DefaultParameterValue(null)>] ?SelectedPoints: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Selected: TraceSelection,
-            [<Optional; DefaultParameterValue(null)>] ?Unselected: TraceSelection
+            ?SelectedPoints: seq<#IConvertible>,
+            ?Selected: TraceSelection,
+            ?Unselected: TraceSelection
         ) =
         fun (trace: #Trace) ->
             trace
@@ -725,18 +725,18 @@ type TraceStyle() =
     /// <param name="TextFont">Sets the text font of this trace.</param>
     static member TextLabel
         (
-            [<Optional; DefaultParameterValue(null)>] ?Text: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?MultiText: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?TextPosition: StyleParam.TextPosition,
-            [<Optional; DefaultParameterValue(null)>] ?MultiTextPosition: seq<StyleParam.TextPosition>,
-            [<Optional; DefaultParameterValue(null)>] ?TextTemplate: string,
-            [<Optional; DefaultParameterValue(null)>] ?MultiTextTemplate: seq<string>,
-            [<Optional; DefaultParameterValue(null)>] ?HoverText: string,
-            [<Optional; DefaultParameterValue(null)>] ?MultiHoverText: seq<string>,
-            [<Optional; DefaultParameterValue(null)>] ?HoverInfo: StyleParam.HoverInfo,
-            [<Optional; DefaultParameterValue(null)>] ?HoverTemplate: string,
-            [<Optional; DefaultParameterValue(null)>] ?MultiHoverTemplate: seq<string>,
-            [<Optional; DefaultParameterValue(null)>] ?TextFont: Font
+            ?Text: #IConvertible,
+            ?MultiText: seq<#IConvertible>,
+            ?TextPosition: StyleParam.TextPosition,
+            ?MultiTextPosition: seq<StyleParam.TextPosition>,
+            ?TextTemplate: string,
+            ?MultiTextTemplate: seq<string>,
+            ?HoverText: string,
+            ?MultiHoverText: seq<string>,
+            ?HoverInfo: StyleParam.HoverInfo,
+            ?HoverTemplate: string,
+            ?MultiHoverTemplate: seq<string>,
+            ?TextFont: Font
         ) =
         fun (trace: #Trace) ->
             trace
@@ -754,10 +754,10 @@ type TraceStyle() =
     /// </summary>
     static member Domain
         (
-            [<Optional; DefaultParameterValue(null)>] ?X: StyleParam.Range,
-            [<Optional; DefaultParameterValue(null)>] ?Y: StyleParam.Range,
-            [<Optional; DefaultParameterValue(null)>] ?Row: int,
-            [<Optional; DefaultParameterValue(null)>] ?Column: int
+            ?X: StyleParam.Range,
+            ?Y: StyleParam.Range,
+            ?Row: int,
+            ?Column: int
         ) =
         (fun (trace: ('T :> Trace)) ->
             let domain =

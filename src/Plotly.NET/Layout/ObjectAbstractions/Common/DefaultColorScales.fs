@@ -10,9 +10,9 @@ type DefaultColorScales() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Diverging: StyleParam.Colorscale,
-            [<Optional; DefaultParameterValue(null)>] ?Sequential: StyleParam.Colorscale,
-            [<Optional; DefaultParameterValue(null)>] ?SequentialMinus: StyleParam.Colorscale
+            ?Diverging: StyleParam.Colorscale,
+            ?Sequential: StyleParam.Colorscale,
+            ?SequentialMinus: StyleParam.Colorscale
         ) =
         DefaultColorScales()
         |> DefaultColorScales.style (
@@ -23,9 +23,9 @@ type DefaultColorScales() =
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Diverging: StyleParam.Colorscale,
-            [<Optional; DefaultParameterValue(null)>] ?Sequential: StyleParam.Colorscale,
-            [<Optional; DefaultParameterValue(null)>] ?SequentialMinus: StyleParam.Colorscale
+            ?Diverging: StyleParam.Colorscale,
+            ?Sequential: StyleParam.Colorscale,
+            ?SequentialMinus: StyleParam.Colorscale
         ) =
         (fun (defaultColorScales: DefaultColorScales) ->
 

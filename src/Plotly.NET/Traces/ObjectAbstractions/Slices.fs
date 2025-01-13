@@ -11,17 +11,17 @@ type SlicesFill() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Fill: float,
-            [<Optional; DefaultParameterValue(null)>] ?Locations: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Show: bool
+            ?Fill: float,
+            ?Locations: seq<#IConvertible>,
+            ?Show: bool
         ) =
         SlicesFill() |> SlicesFill.style (?Fill = Fill, ?Locations = Locations, ?Show = Show)
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Fill: float,
-            [<Optional; DefaultParameterValue(null)>] ?Locations: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Show: bool
+            ?Fill: float,
+            ?Locations: seq<#IConvertible>,
+            ?Show: bool
         ) =
 
         fun (slicesFill: SlicesFill) ->
@@ -37,18 +37,18 @@ type Slices() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?X: SlicesFill,
-            [<Optional; DefaultParameterValue(null)>] ?Y: SlicesFill,
-            [<Optional; DefaultParameterValue(null)>] ?Z: SlicesFill
+            ?X: SlicesFill,
+            ?Y: SlicesFill,
+            ?Z: SlicesFill
         ) =
 
         Slices() |> Slices.style (?X = X, ?Y = Y, ?Z = Z)
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?X: SlicesFill,
-            [<Optional; DefaultParameterValue(null)>] ?Y: SlicesFill,
-            [<Optional; DefaultParameterValue(null)>] ?Z: SlicesFill
+            ?X: SlicesFill,
+            ?Y: SlicesFill,
+            ?Z: SlicesFill
         ) =
         fun (slices: Slices) ->
 

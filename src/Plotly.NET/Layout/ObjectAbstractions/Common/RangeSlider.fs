@@ -13,15 +13,15 @@ type RangeSlider() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?BgColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?BorderColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?BorderWidth: float,
-            [<Optional; DefaultParameterValue(null)>] ?AutoRange: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Range: StyleParam.Range,
-            [<Optional; DefaultParameterValue(null)>] ?Thickness: float,
-            [<Optional; DefaultParameterValue(null)>] ?Visible: bool,
-            [<Optional; DefaultParameterValue(null)>] ?YAxisRangeMode: StyleParam.RangesliderRangeMode,
-            [<Optional; DefaultParameterValue(null)>] ?YAxisRange: StyleParam.Range
+            ?BgColor: Color,
+            ?BorderColor: Color,
+            ?BorderWidth: float,
+            ?AutoRange: bool,
+            ?Range: StyleParam.Range,
+            ?Thickness: float,
+            ?Visible: bool,
+            ?YAxisRangeMode: StyleParam.RangesliderRangeMode,
+            ?YAxisRange: StyleParam.Range
         ) =
         RangeSlider()
         |> RangeSlider.style (
@@ -39,15 +39,15 @@ type RangeSlider() =
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?BgColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?BorderColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?BorderWidth: float,
-            [<Optional; DefaultParameterValue(null)>] ?AutoRange: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Range: StyleParam.Range,
-            [<Optional; DefaultParameterValue(null)>] ?Thickness: float,
-            [<Optional; DefaultParameterValue(null)>] ?Visible: bool,
-            [<Optional; DefaultParameterValue(null)>] ?YAxisRangeMode: StyleParam.RangesliderRangeMode,
-            [<Optional; DefaultParameterValue(null)>] ?YAxisRange: StyleParam.Range
+            ?BgColor: Color,
+            ?BorderColor: Color,
+            ?BorderWidth: float,
+            ?AutoRange: bool,
+            ?Range: StyleParam.Range,
+            ?Thickness: float,
+            ?Visible: bool,
+            ?YAxisRangeMode: StyleParam.RangesliderRangeMode,
+            ?YAxisRange: StyleParam.Range
         ) =
         fun (rangeslider: RangeSlider) ->
 

@@ -10,11 +10,11 @@ open System.Runtime.InteropServices
 type SunburstRoot() =
     inherit DynamicObj()
 
-    static member init([<Optional; DefaultParameterValue(null)>] ?Color: Color) =
+    static member init(?Color: Color) =
 
         SunburstRoot() |> SunburstRoot.style (?Color = Color)
 
-    static member style([<Optional; DefaultParameterValue(null)>] ?Color: Color) =
+    static member style(?Color: Color) =
         fun (root: SunburstRoot) ->
             root
             |> DynObj.withOptionalProperty "color" Color
@@ -22,11 +22,11 @@ type SunburstRoot() =
 type SunburstLeaf() =
     inherit DynamicObj()
 
-    static member init([<Optional; DefaultParameterValue(null)>] ?Opacity: float) =
+    static member init(?Opacity: float) =
 
         SunburstLeaf() |> SunburstLeaf.style (?Opacity = Opacity)
 
-    static member style([<Optional; DefaultParameterValue(null)>] ?Opacity: float) =
+    static member style(?Opacity: float) =
         fun (leaf: SunburstLeaf) ->
 
             leaf

@@ -12,10 +12,10 @@ type Domain() =
     /// Initialized Dimensions object
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?X: StyleParam.Range,
-            [<Optional; DefaultParameterValue(null)>] ?Y: StyleParam.Range,
-            [<Optional; DefaultParameterValue(null)>] ?Row: int,
-            [<Optional; DefaultParameterValue(null)>] ?Column: int
+            ?X: StyleParam.Range,
+            ?Y: StyleParam.Range,
+            ?Row: int,
+            ?Column: int
         ) =
         Domain() |> Domain.style (?X = X, ?Y = Y, ?Row = Row, ?Column = Column)
 
@@ -23,10 +23,10 @@ type Domain() =
     // Applies the styles to Dimensions()
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?X: StyleParam.Range,
-            [<Optional; DefaultParameterValue(null)>] ?Y: StyleParam.Range,
-            [<Optional; DefaultParameterValue(null)>] ?Row: int,
-            [<Optional; DefaultParameterValue(null)>] ?Column: int
+            ?X: StyleParam.Range,
+            ?Y: StyleParam.Range,
+            ?Row: int,
+            ?Column: int
         ) =
         (fun (dom: Domain) ->
 

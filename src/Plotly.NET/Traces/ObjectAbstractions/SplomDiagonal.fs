@@ -9,10 +9,10 @@ open System.Runtime.InteropServices
 type SplomDiagonal() =
     inherit DynamicObj()
 
-    static member init([<Optional; DefaultParameterValue(null)>] ?Visible: bool) =
+    static member init(?Visible: bool) =
         SplomDiagonal() |> SplomDiagonal.style (?Visible = Visible)
 
-    static member style([<Optional; DefaultParameterValue(null)>] ?Visible: bool) =
+    static member style(?Visible: bool) =
 
         fun (splomDiagonal: SplomDiagonal) ->
 

@@ -18,9 +18,9 @@ type StreamTubeStarts() =
     /// <param name="Z">Sets the z components of the starting position of the streamtubes</param>
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?X: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Y: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Z: seq<#IConvertible>
+            ?X: seq<#IConvertible>,
+            ?Y: seq<#IConvertible>,
+            ?Z: seq<#IConvertible>
         ) =
 
         StreamTubeStarts() |> StreamTubeStarts.style (?X = X, ?Y = Y, ?Z = Z)
@@ -33,9 +33,9 @@ type StreamTubeStarts() =
     /// <param name="Z">Sets the z components of the starting position of the streamtubes</param>
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?X: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Y: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Z: seq<#IConvertible>
+            ?X: seq<#IConvertible>,
+            ?Y: seq<#IConvertible>,
+            ?Z: seq<#IConvertible>
         ) =
         fun (streamTubeStarts: StreamTubeStarts) ->
 

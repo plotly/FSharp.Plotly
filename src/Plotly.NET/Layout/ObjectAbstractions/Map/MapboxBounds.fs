@@ -19,10 +19,10 @@ type MapboxBounds() =
     /// <param name="West">Sets the minimum latitude of the map (in degrees North) if `east`, `west` and `north` are declared.</param>
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?East: float,
-            [<Optional; DefaultParameterValue(null)>] ?North: float,
-            [<Optional; DefaultParameterValue(null)>] ?South: float,
-            [<Optional; DefaultParameterValue(null)>] ?West: float
+            ?East: float,
+            ?North: float,
+            ?South: float,
+            ?West: float
         ) =
         MapboxBounds() |> MapboxBounds.style (?East = East, ?North = North, ?South = South, ?West = West)
 
@@ -35,10 +35,10 @@ type MapboxBounds() =
     /// <param name="West">Sets the minimum latitude of the map (in degrees North) if `east`, `west` and `north` are declared.</param>
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?East: float,
-            [<Optional; DefaultParameterValue(null)>] ?North: float,
-            [<Optional; DefaultParameterValue(null)>] ?South: float,
-            [<Optional; DefaultParameterValue(null)>] ?West: float
+            ?East: float,
+            ?North: float,
+            ?South: float,
+            ?West: float
         ) =
         fun (mapboxBounds: MapboxBounds) ->
 

@@ -18,11 +18,11 @@ type AutoRangeOptions() =
     /// <param name="MinAllowed">Use this value exactly as autorange minimum.</param>
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?ClipMax: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?ClipMin: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?Include: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?MaxAllowed: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?MinAllowed: #IConvertible
+            ?ClipMax: #IConvertible,
+            ?ClipMin: #IConvertible,
+            ?Include: #IConvertible,
+            ?MaxAllowed: #IConvertible,
+            ?MinAllowed: #IConvertible
         ) =
         AutoRangeOptions()
         |> AutoRangeOptions.style (
@@ -43,11 +43,11 @@ type AutoRangeOptions() =
     /// <param name="MinAllowed">Use this value exactly as autorange minimum.</param>
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?ClipMax: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?ClipMin: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?Include: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?MaxAllowed: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?MinAllowed: #IConvertible
+            ?ClipMax: #IConvertible,
+            ?ClipMin: #IConvertible,
+            ?Include: #IConvertible,
+            ?MaxAllowed: #IConvertible,
+            ?MinAllowed: #IConvertible
 
         ) =
         (fun (autoRangeOptions: AutoRangeOptions) ->

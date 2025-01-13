@@ -25,16 +25,16 @@ type Edits() =
     /// <param name="TitleText">Enables editing the global layout title.</param>
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?AnnotationPosition: bool,
-            [<Optional; DefaultParameterValue(null)>] ?AnnotationTail: bool,
-            [<Optional; DefaultParameterValue(null)>] ?AnnotationText: bool,
-            [<Optional; DefaultParameterValue(null)>] ?AxisTitleText: bool,
-            [<Optional; DefaultParameterValue(null)>] ?ColorbarPosition: bool,
-            [<Optional; DefaultParameterValue(null)>] ?ColorbarTitleText: bool,
-            [<Optional; DefaultParameterValue(null)>] ?LegendPosition: bool,
-            [<Optional; DefaultParameterValue(null)>] ?LegendText: bool,
-            [<Optional; DefaultParameterValue(null)>] ?ShapePosition: bool,
-            [<Optional; DefaultParameterValue(null)>] ?TitleText: bool
+            ?AnnotationPosition: bool,
+            ?AnnotationTail: bool,
+            ?AnnotationText: bool,
+            ?AxisTitleText: bool,
+            ?ColorbarPosition: bool,
+            ?ColorbarTitleText: bool,
+            ?LegendPosition: bool,
+            ?LegendText: bool,
+            ?ShapePosition: bool,
+            ?TitleText: bool
         ) =
         Edits()
         |> Edits.style (
@@ -66,16 +66,16 @@ type Edits() =
     /// <param name="TitleText">Enables editing the global layout title.</param>
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?AnnotationPosition: bool,
-            [<Optional; DefaultParameterValue(null)>] ?AnnotationTail: bool,
-            [<Optional; DefaultParameterValue(null)>] ?AnnotationText: bool,
-            [<Optional; DefaultParameterValue(null)>] ?AxisTitleText: bool,
-            [<Optional; DefaultParameterValue(null)>] ?ColorbarPosition: bool,
-            [<Optional; DefaultParameterValue(null)>] ?ColorbarTitleText: bool,
-            [<Optional; DefaultParameterValue(null)>] ?LegendPosition: bool,
-            [<Optional; DefaultParameterValue(null)>] ?LegendText: bool,
-            [<Optional; DefaultParameterValue(null)>] ?ShapePosition: bool,
-            [<Optional; DefaultParameterValue(null)>] ?TitleText: bool
+            ?AnnotationPosition: bool,
+            ?AnnotationTail: bool,
+            ?AnnotationText: bool,
+            ?AxisTitleText: bool,
+            ?ColorbarPosition: bool,
+            ?ColorbarTitleText: bool,
+            ?LegendPosition: bool,
+            ?LegendText: bool,
+            ?ShapePosition: bool,
+            ?TitleText: bool
         ) =
         fun (edits: Edits) ->
             edits

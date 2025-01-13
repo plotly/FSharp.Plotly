@@ -22,13 +22,13 @@ type Lighting() =
     /// <param name="VertexNormalEpsilon">Epsilon for vertex normals calculation avoids math issues arising from degenerate geometry.</param>
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Ambient: float,
-            [<Optional; DefaultParameterValue(null)>] ?Diffuse: float,
-            [<Optional; DefaultParameterValue(null)>] ?FaceNormalEpsilon: float,
-            [<Optional; DefaultParameterValue(null)>] ?Fresnel: float,
-            [<Optional; DefaultParameterValue(null)>] ?Roughness: float,
-            [<Optional; DefaultParameterValue(null)>] ?Specular: float,
-            [<Optional; DefaultParameterValue(null)>] ?VertexNormalEpsilon: float
+            ?Ambient: float,
+            ?Diffuse: float,
+            ?FaceNormalEpsilon: float,
+            ?Fresnel: float,
+            ?Roughness: float,
+            ?Specular: float,
+            ?VertexNormalEpsilon: float
         ) =
         Lighting()
         |> Lighting.style (
@@ -53,13 +53,13 @@ type Lighting() =
     /// <param name="VertexNormalEpsilon">Epsilon for vertex normals calculation avoids math issues arising from degenerate geometry.</param>
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Ambient: float,
-            [<Optional; DefaultParameterValue(null)>] ?Diffuse: float,
-            [<Optional; DefaultParameterValue(null)>] ?FaceNormalEpsilon: float,
-            [<Optional; DefaultParameterValue(null)>] ?Fresnel: float,
-            [<Optional; DefaultParameterValue(null)>] ?Roughness: float,
-            [<Optional; DefaultParameterValue(null)>] ?Specular: float,
-            [<Optional; DefaultParameterValue(null)>] ?VertexNormalEpsilon: float
+            ?Ambient: float,
+            ?Diffuse: float,
+            ?FaceNormalEpsilon: float,
+            ?Fresnel: float,
+            ?Roughness: float,
+            ?Specular: float,
+            ?VertexNormalEpsilon: float
         ) =
         fun (l: Lighting) ->
 
@@ -83,9 +83,9 @@ type LightPosition() =
     /// <param name="Z"></param>
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?X: float,
-            [<Optional; DefaultParameterValue(null)>] ?Y: float,
-            [<Optional; DefaultParameterValue(null)>] ?Z: float
+            ?X: float,
+            ?Y: float,
+            ?Z: float
         ) =
         LightPosition() |> LightPosition.style (?X = X, ?Y = Y, ?Z = Z)
 
@@ -97,9 +97,9 @@ type LightPosition() =
     /// <param name="Z"></param>
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?X: float,
-            [<Optional; DefaultParameterValue(null)>] ?Y: float,
-            [<Optional; DefaultParameterValue(null)>] ?Z: float
+            ?X: float,
+            ?Y: float,
+            ?Z: float
         ) =
         fun (lp: LightPosition) ->
 

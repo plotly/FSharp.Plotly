@@ -10,15 +10,15 @@ type UniformText() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?MinSize: int,
-            [<Optional; DefaultParameterValue(null)>] ?Mode: StyleParam.UniformTextMode
+            ?MinSize: int,
+            ?Mode: StyleParam.UniformTextMode
         ) =
         UniformText() |> UniformText.style (?MinSize = MinSize, ?Mode = Mode)
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?MinSize: int,
-            [<Optional; DefaultParameterValue(null)>] ?Mode: StyleParam.UniformTextMode
+            ?MinSize: int,
+            ?Mode: StyleParam.UniformTextMode
         ) =
         (fun (uniformText: UniformText) ->
 

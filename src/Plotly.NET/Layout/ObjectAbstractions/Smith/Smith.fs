@@ -18,10 +18,10 @@ type Smith() =
     /// <param name="RealAxis">Sets the real axis of this smith subplot</param>
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?BGColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Domain: Domain,
-            [<Optional; DefaultParameterValue(null)>] ?ImaginaryAxis: ImaginaryAxis,
-            [<Optional; DefaultParameterValue(null)>] ?RealAxis: RealAxis
+            ?BGColor: Color,
+            ?Domain: Domain,
+            ?ImaginaryAxis: ImaginaryAxis,
+            ?RealAxis: RealAxis
         ) =
         Smith()
         |> Smith.style (
@@ -41,10 +41,10 @@ type Smith() =
     /// <param name="RealAxis">Sets the real axis of this smith subplot</param>
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?BGColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Domain: Domain,
-            [<Optional; DefaultParameterValue(null)>] ?ImaginaryAxis: ImaginaryAxis,
-            [<Optional; DefaultParameterValue(null)>] ?RealAxis: RealAxis
+            ?BGColor: Color,
+            ?Domain: Domain,
+            ?ImaginaryAxis: ImaginaryAxis,
+            ?RealAxis: RealAxis
         ) =
         fun (smith: Smith) ->
             smith

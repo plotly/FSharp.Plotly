@@ -10,11 +10,11 @@ type TickFormatStop() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Enabled: bool,
-            [<Optional; DefaultParameterValue(null)>] ?DTickRange: seq<string * string>,
-            [<Optional; DefaultParameterValue(null)>] ?Value: string,
-            [<Optional; DefaultParameterValue(null)>] ?Name: string,
-            [<Optional; DefaultParameterValue(null)>] ?TemplateItemName: string
+            ?Enabled: bool,
+            ?DTickRange: seq<string * string>,
+            ?Value: string,
+            ?Name: string,
+            ?TemplateItemName: string
         ) =
         TickFormatStop()
         |> TickFormatStop.style (
@@ -27,11 +27,11 @@ type TickFormatStop() =
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Enabled: bool,
-            [<Optional; DefaultParameterValue(null)>] ?DTickRange: seq<string * string>,
-            [<Optional; DefaultParameterValue(null)>] ?Value: string,
-            [<Optional; DefaultParameterValue(null)>] ?Name: string,
-            [<Optional; DefaultParameterValue(null)>] ?TemplateItemName: string
+            ?Enabled: bool,
+            ?DTickRange: seq<string * string>,
+            ?Value: string,
+            ?Name: string,
+            ?TemplateItemName: string
         ) =
         (fun (tickFormatStop: TickFormatStop) ->
 

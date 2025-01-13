@@ -20,9 +20,9 @@ type WaterfallConnector() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Line: Line,
-            [<Optional; DefaultParameterValue(null)>] ?Visible: bool,
-            [<Optional; DefaultParameterValue(null)>] ?ConnectorMode: StyleParam.ConnectorMode
+            ?Line: Line,
+            ?Visible: bool,
+            ?ConnectorMode: StyleParam.ConnectorMode
         ) =
 
         WaterfallConnector()
@@ -30,9 +30,9 @@ type WaterfallConnector() =
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Line: Line,
-            [<Optional; DefaultParameterValue(null)>] ?Visible: bool,
-            [<Optional; DefaultParameterValue(null)>] ?ConnectorMode: StyleParam.ConnectorMode
+            ?Line: Line,
+            ?Visible: bool,
+            ?ConnectorMode: StyleParam.ConnectorMode
         ) =
         fun (connector: WaterfallConnector) ->
 

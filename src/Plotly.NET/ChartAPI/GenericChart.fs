@@ -534,7 +534,7 @@ type GenericChart =
     /// If false, empty objects are used.
     /// </summary>
     /// <param name="useDefaults">wether or not to set default objects for Layout, Config and DisplayOptions</param>
-    /// <param name="traces">the input Trace collection</param>
+    /// <param name="trace">the input Trace</param>
     static member ofTraceObject (useDefaults: bool) (trace: Trace) = GenericChart.ofTraceObjects useDefaults (Seq.singleton trace)
 
     /// <summary>

@@ -13,9 +13,9 @@ type MeanLine() =
     /// Initialized Line object
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Visible: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Color: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Width: float
+            ?Visible: bool,
+            ?Color: Color,
+            ?Width: float
         ) =
         MeanLine() |> MeanLine.style (?Visible = Visible, ?Color = Color, ?Width = Width)
 
@@ -23,9 +23,9 @@ type MeanLine() =
     // Applies the styles to Line()
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Visible: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Color: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Width: float
+            ?Visible: bool,
+            ?Color: Color,
+            ?Width: float
         ) =
         fun (line: MeanLine) ->
 

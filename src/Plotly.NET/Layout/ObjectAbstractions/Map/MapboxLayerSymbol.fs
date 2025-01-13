@@ -14,12 +14,12 @@ type MapboxLayerSymbol() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Icon: string,
-            [<Optional; DefaultParameterValue(null)>] ?IconSize: float,
-            [<Optional; DefaultParameterValue(null)>] ?Text: string,
-            [<Optional; DefaultParameterValue(null)>] ?Placement: StyleParam.MapboxLayerSymbolPlacement,
-            [<Optional; DefaultParameterValue(null)>] ?TextFont: Font,
-            [<Optional; DefaultParameterValue(null)>] ?TextPosition: StyleParam.TextPosition
+            ?Icon: string,
+            ?IconSize: float,
+            ?Text: string,
+            ?Placement: StyleParam.MapboxLayerSymbolPlacement,
+            ?TextFont: Font,
+            ?TextPosition: StyleParam.TextPosition
         ) =
         MapboxLayerSymbol()
         |> MapboxLayerSymbol.style (
@@ -35,12 +35,12 @@ type MapboxLayerSymbol() =
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Icon: string,
-            [<Optional; DefaultParameterValue(null)>] ?IconSize: float,
-            [<Optional; DefaultParameterValue(null)>] ?Text: string,
-            [<Optional; DefaultParameterValue(null)>] ?Placement: StyleParam.MapboxLayerSymbolPlacement,
-            [<Optional; DefaultParameterValue(null)>] ?TextFont: Font,
-            [<Optional; DefaultParameterValue(null)>] ?TextPosition: StyleParam.TextPosition
+            ?Icon: string,
+            ?IconSize: float,
+            ?Text: string,
+            ?Placement: StyleParam.MapboxLayerSymbolPlacement,
+            ?TextFont: Font,
+            ?TextPosition: StyleParam.TextPosition
         ) =
         fun (mapBoxLayerSymbol: MapboxLayerSymbol) ->
 

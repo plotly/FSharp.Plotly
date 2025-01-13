@@ -20,12 +20,12 @@ type Hoverlabel() =
     /// <param name="Namelength">Sets the default length (in number of characters) of the trace name in the hover labels for all traces. -1 shows the whole name regardless of length. 0-3 shows the first 0-3 characters, and an integer &gt;3 will show the whole name if it is less than that many characters, but if it is longer, will truncate to `namelength - 3` characters and add an ellipsis.</param>
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Align: StyleParam.Align,
-            [<Optional; DefaultParameterValue(null)>] ?BgColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?BorderColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Font: Font,
-            [<Optional; DefaultParameterValue(null)>] ?GroupTitleFont: Font,
-            [<Optional; DefaultParameterValue(null)>] ?Namelength: int
+            ?Align: StyleParam.Align,
+            ?BgColor: Color,
+            ?BorderColor: Color,
+            ?Font: Font,
+            ?GroupTitleFont: Font,
+            ?Namelength: int
         ) =
         Hoverlabel()
         |> Hoverlabel.style (
@@ -49,12 +49,12 @@ type Hoverlabel() =
     /// <param name="Namelength">Sets the default length (in number of characters) of the trace name in the hover labels for all traces. -1 shows the whole name regardless of length. 0-3 shows the first 0-3 characters, and an integer &gt;3 will show the whole name if it is less than that many characters, but if it is longer, will truncate to `namelength - 3` characters and add an ellipsis.</param>
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?BgColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?BorderColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Font: Font,
-            [<Optional; DefaultParameterValue(null)>] ?GroupTitleFont: Font,
-            [<Optional; DefaultParameterValue(null)>] ?Align: StyleParam.Align,
-            [<Optional; DefaultParameterValue(null)>] ?Namelength: int
+            ?BgColor: Color,
+            ?BorderColor: Color,
+            ?Font: Font,
+            ?GroupTitleFont: Font,
+            ?Align: StyleParam.Align,
+            ?Namelength: int
         ) =
         (fun (label: Hoverlabel) ->
 

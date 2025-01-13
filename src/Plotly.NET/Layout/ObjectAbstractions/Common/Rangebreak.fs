@@ -20,13 +20,13 @@ type Rangebreak() =
     /// <param name="TemplateItemName">Used to refer to a named item in this array in the template. Named items from the template will be created even without a matching item in the input figure, but you can modify one by making an item with `templateitemname` matching its `name`, alongside your modifications (including `visible: false` or `enabled: false` to hide it). If there is no template or no matching item, this item will be hidden unless you explicitly show it with `visible: true`.</param>
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Enabled: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Bounds: #IConvertible * #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?Pattern: StyleParam.RangebreakPattern,
-            [<Optional; DefaultParameterValue(null)>] ?Values: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?DValue: int,
-            [<Optional; DefaultParameterValue(null)>] ?Name: string,
-            [<Optional; DefaultParameterValue(null)>] ?TemplateItemName: string
+            ?Enabled: bool,
+            ?Bounds: #IConvertible * #IConvertible,
+            ?Pattern: StyleParam.RangebreakPattern,
+            ?Values: seq<#IConvertible>,
+            ?DValue: int,
+            ?Name: string,
+            ?TemplateItemName: string
         ) =
         Rangebreak()
         |> Rangebreak.style (
@@ -51,13 +51,13 @@ type Rangebreak() =
     /// <param name="TemplateItemName">Used to refer to a named item in this array in the template. Named items from the template will be created even without a matching item in the input figure, but you can modify one by making an item with `templateitemname` matching its `name`, alongside your modifications (including `visible: false` or `enabled: false` to hide it). If there is no template or no matching item, this item will be hidden unless you explicitly show it with `visible: true`.</param>
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Enabled: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Bounds: #IConvertible * #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?Pattern: StyleParam.RangebreakPattern,
-            [<Optional; DefaultParameterValue(null)>] ?Values: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?DValue: int,
-            [<Optional; DefaultParameterValue(null)>] ?Name: string,
-            [<Optional; DefaultParameterValue(null)>] ?TemplateItemName: string
+            ?Enabled: bool,
+            ?Bounds: #IConvertible * #IConvertible,
+            ?Pattern: StyleParam.RangebreakPattern,
+            ?Values: seq<#IConvertible>,
+            ?DValue: int,
+            ?Name: string,
+            ?TemplateItemName: string
         ) =
         (fun (rangebreak: Rangebreak) ->
 

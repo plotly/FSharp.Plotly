@@ -11,19 +11,19 @@ type SankeyNodes() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Color: Color,
-            [<Optional; DefaultParameterValue(null)>] ?CustomData: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Groups: seq<#seq<int>>,
-            [<Optional; DefaultParameterValue(null)>] ?HoverInfo: StyleParam.HoverInfo,
-            [<Optional; DefaultParameterValue(null)>] ?HoverLabel: Hoverlabel,
-            [<Optional; DefaultParameterValue(null)>] ?HoverTemplate: string,
-            [<Optional; DefaultParameterValue(null)>] ?MultiHoverTemplate: seq<string>,
-            [<Optional; DefaultParameterValue(null)>] ?Label: seq<string>,
-            [<Optional; DefaultParameterValue(null)>] ?Line: Line,
-            [<Optional; DefaultParameterValue(null)>] ?Pad: int,
-            [<Optional; DefaultParameterValue(null)>] ?Thickness: int,
-            [<Optional; DefaultParameterValue(null)>] ?X: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Y: seq<#IConvertible>
+            ?Color: Color,
+            ?CustomData: seq<#IConvertible>,
+            ?Groups: seq<#seq<int>>,
+            ?HoverInfo: StyleParam.HoverInfo,
+            ?HoverLabel: Hoverlabel,
+            ?HoverTemplate: string,
+            ?MultiHoverTemplate: seq<string>,
+            ?Label: seq<string>,
+            ?Line: Line,
+            ?Pad: int,
+            ?Thickness: int,
+            ?X: seq<#IConvertible>,
+            ?Y: seq<#IConvertible>
         ) =
 
         SankeyNodes()
@@ -46,19 +46,19 @@ type SankeyNodes() =
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Color: Color,
-            [<Optional; DefaultParameterValue(null)>] ?CustomData: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Groups: seq<#seq<int>>,
-            [<Optional; DefaultParameterValue(null)>] ?HoverInfo: StyleParam.HoverInfo,
-            [<Optional; DefaultParameterValue(null)>] ?HoverLabel: Hoverlabel,
-            [<Optional; DefaultParameterValue(null)>] ?HoverTemplate: string,
-            [<Optional; DefaultParameterValue(null)>] ?MultiHoverTemplate: seq<string>,
-            [<Optional; DefaultParameterValue(null)>] ?Label: seq<string>,
-            [<Optional; DefaultParameterValue(null)>] ?Line: Line,
-            [<Optional; DefaultParameterValue(null)>] ?Pad: int,
-            [<Optional; DefaultParameterValue(null)>] ?Thickness: int,
-            [<Optional; DefaultParameterValue(null)>] ?X: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Y: seq<#IConvertible>
+            ?Color: Color,
+            ?CustomData: seq<#IConvertible>,
+            ?Groups: seq<#seq<int>>,
+            ?HoverInfo: StyleParam.HoverInfo,
+            ?HoverLabel: Hoverlabel,
+            ?HoverTemplate: string,
+            ?MultiHoverTemplate: seq<string>,
+            ?Label: seq<string>,
+            ?Line: Line,
+            ?Pad: int,
+            ?Thickness: int,
+            ?X: seq<#IConvertible>,
+            ?Y: seq<#IConvertible>
         ) =
         fun (sankeyNodes: SankeyNodes) ->
             sankeyNodes
@@ -80,12 +80,12 @@ type SankeyLinkColorscale() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?CMax: float,
-            [<Optional; DefaultParameterValue(null)>] ?CMin: float,
-            [<Optional; DefaultParameterValue(null)>] ?ColorScale: StyleParam.Colorscale,
-            [<Optional; DefaultParameterValue(null)>] ?Label: string,
-            [<Optional; DefaultParameterValue(null)>] ?Name: string,
-            [<Optional; DefaultParameterValue(null)>] ?TemplateItemName: string
+            ?CMax: float,
+            ?CMin: float,
+            ?ColorScale: StyleParam.Colorscale,
+            ?Label: string,
+            ?Name: string,
+            ?TemplateItemName: string
         ) =
 
         SankeyLinkColorscale()
@@ -101,12 +101,12 @@ type SankeyLinkColorscale() =
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?CMax: float,
-            [<Optional; DefaultParameterValue(null)>] ?CMin: float,
-            [<Optional; DefaultParameterValue(null)>] ?ColorScale: StyleParam.Colorscale,
-            [<Optional; DefaultParameterValue(null)>] ?Label: string,
-            [<Optional; DefaultParameterValue(null)>] ?Name: string,
-            [<Optional; DefaultParameterValue(null)>] ?TemplateItemName: string
+            ?CMax: float,
+            ?CMin: float,
+            ?ColorScale: StyleParam.Colorscale,
+            ?Label: string,
+            ?Name: string,
+            ?TemplateItemName: string
         ) =
         fun (sankeyLinkColorscale: SankeyLinkColorscale) ->
 
@@ -123,19 +123,19 @@ type SankeyLinks() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?ArrowLen: int,
-            [<Optional; DefaultParameterValue(null)>] ?Color: Color,
-            [<Optional; DefaultParameterValue(null)>] ?ColorScales: seq<SankeyLinkColorscale>,
-            [<Optional; DefaultParameterValue(null)>] ?CustomData: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?HoverInfo: StyleParam.HoverInfo,
-            [<Optional; DefaultParameterValue(null)>] ?HoverLabel: Hoverlabel,
-            [<Optional; DefaultParameterValue(null)>] ?HoverTemplate: string,
-            [<Optional; DefaultParameterValue(null)>] ?MultiHoverTemplate: seq<string>,
-            [<Optional; DefaultParameterValue(null)>] ?Label: seq<string>,
-            [<Optional; DefaultParameterValue(null)>] ?Line: Line,
-            [<Optional; DefaultParameterValue(null)>] ?Source: seq<int>,
-            [<Optional; DefaultParameterValue(null)>] ?Target: seq<int>,
-            [<Optional; DefaultParameterValue(null)>] ?Value: seq<#IConvertible>
+            ?ArrowLen: int,
+            ?Color: Color,
+            ?ColorScales: seq<SankeyLinkColorscale>,
+            ?CustomData: seq<#IConvertible>,
+            ?HoverInfo: StyleParam.HoverInfo,
+            ?HoverLabel: Hoverlabel,
+            ?HoverTemplate: string,
+            ?MultiHoverTemplate: seq<string>,
+            ?Label: seq<string>,
+            ?Line: Line,
+            ?Source: seq<int>,
+            ?Target: seq<int>,
+            ?Value: seq<#IConvertible>
         ) =
 
         SankeyLinks()
@@ -158,19 +158,19 @@ type SankeyLinks() =
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?ArrowLen: int,
-            [<Optional; DefaultParameterValue(null)>] ?Color: Color,
-            [<Optional; DefaultParameterValue(null)>] ?ColorScales: seq<SankeyLinkColorscale>,
-            [<Optional; DefaultParameterValue(null)>] ?CustomData: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?HoverInfo: StyleParam.HoverInfo,
-            [<Optional; DefaultParameterValue(null)>] ?HoverLabel: Hoverlabel,
-            [<Optional; DefaultParameterValue(null)>] ?HoverTemplate: string,
-            [<Optional; DefaultParameterValue(null)>] ?MultiHoverTemplate: seq<string>,
-            [<Optional; DefaultParameterValue(null)>] ?Label: seq<string>,
-            [<Optional; DefaultParameterValue(null)>] ?Line: Line,
-            [<Optional; DefaultParameterValue(null)>] ?Source: seq<int>,
-            [<Optional; DefaultParameterValue(null)>] ?Target: seq<int>,
-            [<Optional; DefaultParameterValue(null)>] ?Value: seq<#IConvertible>
+            ?ArrowLen: int,
+            ?Color: Color,
+            ?ColorScales: seq<SankeyLinkColorscale>,
+            ?CustomData: seq<#IConvertible>,
+            ?HoverInfo: StyleParam.HoverInfo,
+            ?HoverLabel: Hoverlabel,
+            ?HoverTemplate: string,
+            ?MultiHoverTemplate: seq<string>,
+            ?Label: seq<string>,
+            ?Line: Line,
+            ?Source: seq<int>,
+            ?Target: seq<int>,
+            ?Value: seq<#IConvertible>
         ) =
         fun (sankeyLinks: SankeyLinks) ->
 

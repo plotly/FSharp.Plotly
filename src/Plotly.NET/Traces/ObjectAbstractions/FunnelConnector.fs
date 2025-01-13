@@ -20,18 +20,18 @@ type FunnelConnector() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?FillColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Line: Line,
-            [<Optional; DefaultParameterValue(null)>] ?Visible: bool
+            ?FillColor: Color,
+            ?Line: Line,
+            ?Visible: bool
         ) =
 
         FunnelConnector() |> FunnelConnector.style (?FillColor = FillColor, ?Line = Line, ?Visible = Visible)
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?FillColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Line: Line,
-            [<Optional; DefaultParameterValue(null)>] ?Visible: bool
+            ?FillColor: Color,
+            ?Line: Line,
+            ?Visible: bool
         ) =
         fun (connector: FunnelConnector) ->
 

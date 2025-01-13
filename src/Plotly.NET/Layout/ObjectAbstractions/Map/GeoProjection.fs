@@ -15,9 +15,9 @@ type GeoProjectionRotation() =
     /// <param name="Roll">Roll the map (in degrees) For example, a roll of "180" makes the map appear upside down.</param>
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Longitude: float,
-            [<Optional; DefaultParameterValue(null)>] ?Latitude: float,
-            [<Optional; DefaultParameterValue(null)>] ?Roll: int
+            ?Longitude: float,
+            ?Latitude: float,
+            ?Roll: int
         ) =
         GeoProjectionRotation()
         |> GeoProjectionRotation.style (?Longitude = Longitude, ?Latitude = Latitude, ?Roll = Roll)
@@ -28,9 +28,9 @@ type GeoProjectionRotation() =
     /// <param name="Roll">Roll the map (in degrees) For example, a roll of "180" makes the map appear upside down.</param>
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Longitude: float,
-            [<Optional; DefaultParameterValue(null)>] ?Latitude: float,
-            [<Optional; DefaultParameterValue(null)>] ?Roll: int
+            ?Longitude: float,
+            ?Latitude: float,
+            ?Roll: int
         ) =
         fun (rotation: GeoProjectionRotation) ->
 
@@ -51,9 +51,9 @@ type GeoProjection() =
     static member init
         (
             projectionType: StyleParam.GeoProjectionType,
-            [<Optional; DefaultParameterValue(null)>] ?Rotation: GeoProjectionRotation,
-            [<Optional; DefaultParameterValue(null)>] ?Parallels: (float * float),
-            [<Optional; DefaultParameterValue(null)>] ?Scale: float
+            ?Rotation: GeoProjectionRotation,
+            ?Parallels: (float * float),
+            ?Scale: float
         ) =
         GeoProjection()
         |> GeoProjection.style (
@@ -71,9 +71,9 @@ type GeoProjection() =
     static member style
         (
             projectionType: StyleParam.GeoProjectionType,
-            [<Optional; DefaultParameterValue(null)>] ?Rotation: GeoProjectionRotation,
-            [<Optional; DefaultParameterValue(null)>] ?Parallels: (float * float),
-            [<Optional; DefaultParameterValue(null)>] ?Scale: float
+            ?Rotation: GeoProjectionRotation,
+            ?Parallels: (float * float),
+            ?Scale: float
         ) =
         fun (projection: GeoProjection) ->
 

@@ -13,9 +13,9 @@ type Bins() =
     // Init Bins()
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Start: float,
-            [<Optional; DefaultParameterValue(null)>] ?End: float,
-            [<Optional; DefaultParameterValue(null)>] ?Size: float
+            ?Start: float,
+            ?End: float,
+            ?Size: float
         ) =
         Bins() |> Bins.style (?Start = Start, ?End = End, ?Size = Size)
 
@@ -23,9 +23,9 @@ type Bins() =
     // Applies the styles to Bins()
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Start: float,
-            [<Optional; DefaultParameterValue(null)>] ?End: float,
-            [<Optional; DefaultParameterValue(null)>] ?Size: float
+            ?Start: float,
+            ?End: float,
+            ?Size: float
         ) =
 
         fun (bins: Bins) ->

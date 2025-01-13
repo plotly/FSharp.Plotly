@@ -13,17 +13,17 @@ type Dimension() =
     /// Initializes dimensions object to be used with parcats and parcoords plots
     static member initParallel
         (
-            [<Optional; DefaultParameterValue(null)>] ?ConstraintRange: StyleParam.Range,
-            [<Optional; DefaultParameterValue(null)>] ?Label: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?MultiSelect: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Name: string,
-            [<Optional; DefaultParameterValue(null)>] ?Range: StyleParam.Range,
-            [<Optional; DefaultParameterValue(null)>] ?TemplateItemName: string,
-            [<Optional; DefaultParameterValue(null)>] ?TickFormat: StyleParam.TickMode,
-            [<Optional; DefaultParameterValue(null)>] ?TickText: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Tickvals: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Values: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Visible: bool
+            ?ConstraintRange: StyleParam.Range,
+            ?Label: #IConvertible,
+            ?MultiSelect: bool,
+            ?Name: string,
+            ?Range: StyleParam.Range,
+            ?TemplateItemName: string,
+            ?TickFormat: StyleParam.TickMode,
+            ?TickText: seq<#IConvertible>,
+            ?Tickvals: seq<#IConvertible>,
+            ?Values: seq<#IConvertible>,
+            ?Visible: bool
         ) =
         Dimension()
         |> Dimension.style (
@@ -45,13 +45,13 @@ type Dimension() =
     /// Initializes dimensions object to be used with SPLOM plots
     static member initSplom
         (
-            [<Optional; DefaultParameterValue(null)>] ?AxisMatches: bool,
-            [<Optional; DefaultParameterValue(null)>] ?AxisType: StyleParam.AxisType,
-            [<Optional; DefaultParameterValue(null)>] ?Label: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?Name: string,
-            [<Optional; DefaultParameterValue(null)>] ?TemplateItemName: string,
-            [<Optional; DefaultParameterValue(null)>] ?Values: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Visible: bool
+            ?AxisMatches: bool,
+            ?AxisType: StyleParam.AxisType,
+            ?Label: #IConvertible,
+            ?Name: string,
+            ?TemplateItemName: string,
+            ?Values: seq<#IConvertible>,
+            ?Visible: bool
         ) =
         Dimension()
         |> Dimension.style (
@@ -69,19 +69,19 @@ type Dimension() =
     // Applies the styles to Dimensions()
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Label: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?Name: string,
-            [<Optional; DefaultParameterValue(null)>] ?TemplateItemName: string,
-            [<Optional; DefaultParameterValue(null)>] ?Values: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Visible: bool,
-            [<Optional; DefaultParameterValue(null)>] ?ConstraintRange: StyleParam.Range,
-            [<Optional; DefaultParameterValue(null)>] ?MultiSelect: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Range: StyleParam.Range,
-            [<Optional; DefaultParameterValue(null)>] ?TickFormat: StyleParam.TickMode,
-            [<Optional; DefaultParameterValue(null)>] ?TickText: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Tickvals: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?AxisMatches: bool,
-            [<Optional; DefaultParameterValue(null)>] ?AxisType: StyleParam.AxisType
+            ?Label: #IConvertible,
+            ?Name: string,
+            ?TemplateItemName: string,
+            ?Values: seq<#IConvertible>,
+            ?Visible: bool,
+            ?ConstraintRange: StyleParam.Range,
+            ?MultiSelect: bool,
+            ?Range: StyleParam.Range,
+            ?TickFormat: StyleParam.TickMode,
+            ?TickText: seq<#IConvertible>,
+            ?Tickvals: seq<#IConvertible>,
+            ?AxisMatches: bool,
+            ?AxisType: StyleParam.AxisType
         ) =
         fun (dims: Dimension) ->
 

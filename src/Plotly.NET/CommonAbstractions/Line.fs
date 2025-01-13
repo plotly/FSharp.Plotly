@@ -33,26 +33,26 @@ type Line() =
     /// <param name="OutlierWidth">Sets the width of the outline of outliers</param>
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?BackOff: StyleParam.BackOff,
-            [<Optional; DefaultParameterValue(null)>] ?AutoColorScale: bool,
-            [<Optional; DefaultParameterValue(null)>] ?CAuto: bool,
-            [<Optional; DefaultParameterValue(null)>] ?CMax: float,
-            [<Optional; DefaultParameterValue(null)>] ?CMid: float,
-            [<Optional; DefaultParameterValue(null)>] ?CMin: float,
-            [<Optional; DefaultParameterValue(null)>] ?Color: Color,
-            [<Optional; DefaultParameterValue(null)>] ?ColorAxis: StyleParam.SubPlotId,
-            [<Optional; DefaultParameterValue(null)>] ?Colorscale: StyleParam.Colorscale,
-            [<Optional; DefaultParameterValue(null)>] ?ReverseScale: bool,
-            [<Optional; DefaultParameterValue(null)>] ?ShowScale: bool,
-            [<Optional; DefaultParameterValue(null)>] ?ColorBar: ColorBar,
-            [<Optional; DefaultParameterValue(null)>] ?Dash: StyleParam.DrawingStyle,
-            [<Optional; DefaultParameterValue(null)>] ?Shape: StyleParam.Shape,
-            [<Optional; DefaultParameterValue(null)>] ?Simplify: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Smoothing: float,
-            [<Optional; DefaultParameterValue(null)>] ?Width: float,
-            [<Optional; DefaultParameterValue(null)>] ?MultiWidth: seq<float>,
-            [<Optional; DefaultParameterValue(null)>] ?OutlierColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?OutlierWidth: float
+            ?BackOff: StyleParam.BackOff,
+            ?AutoColorScale: bool,
+            ?CAuto: bool,
+            ?CMax: float,
+            ?CMid: float,
+            ?CMin: float,
+            ?Color: Color,
+            ?ColorAxis: StyleParam.SubPlotId,
+            ?Colorscale: StyleParam.Colorscale,
+            ?ReverseScale: bool,
+            ?ShowScale: bool,
+            ?ColorBar: ColorBar,
+            ?Dash: StyleParam.DrawingStyle,
+            ?Shape: StyleParam.Shape,
+            ?Simplify: bool,
+            ?Smoothing: float,
+            ?Width: float,
+            ?MultiWidth: seq<float>,
+            ?OutlierColor: Color,
+            ?OutlierWidth: float
         ) =
         Line()
         |> Line.style (
@@ -103,26 +103,26 @@ type Line() =
     /// <param name="OutlierWidth">Sets the width of the outline of outliers</param>
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?BackOff: StyleParam.BackOff,
-            [<Optional; DefaultParameterValue(null)>] ?AutoColorScale: bool,
-            [<Optional; DefaultParameterValue(null)>] ?CAuto: bool,
-            [<Optional; DefaultParameterValue(null)>] ?CMax: float,
-            [<Optional; DefaultParameterValue(null)>] ?CMid: float,
-            [<Optional; DefaultParameterValue(null)>] ?CMin: float,
-            [<Optional; DefaultParameterValue(null)>] ?Color: Color,
-            [<Optional; DefaultParameterValue(null)>] ?ColorAxis: StyleParam.SubPlotId,
-            [<Optional; DefaultParameterValue(null)>] ?Colorscale: StyleParam.Colorscale,
-            [<Optional; DefaultParameterValue(null)>] ?ReverseScale: bool,
-            [<Optional; DefaultParameterValue(null)>] ?ShowScale: bool,
-            [<Optional; DefaultParameterValue(null)>] ?ColorBar: ColorBar,
-            [<Optional; DefaultParameterValue(null)>] ?Dash: StyleParam.DrawingStyle,
-            [<Optional; DefaultParameterValue(null)>] ?Shape: StyleParam.Shape,
-            [<Optional; DefaultParameterValue(null)>] ?Simplify: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Smoothing: float,
-            [<Optional; DefaultParameterValue(null)>] ?Width: float,
-            [<Optional; DefaultParameterValue(null)>] ?MultiWidth: seq<float>,
-            [<Optional; DefaultParameterValue(null)>] ?OutlierColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?OutlierWidth: float
+            ?BackOff: StyleParam.BackOff,
+            ?AutoColorScale: bool,
+            ?CAuto: bool,
+            ?CMax: float,
+            ?CMid: float,
+            ?CMin: float,
+            ?Color: Color,
+            ?ColorAxis: StyleParam.SubPlotId,
+            ?Colorscale: StyleParam.Colorscale,
+            ?ReverseScale: bool,
+            ?ShowScale: bool,
+            ?ColorBar: ColorBar,
+            ?Dash: StyleParam.DrawingStyle,
+            ?Shape: StyleParam.Shape,
+            ?Simplify: bool,
+            ?Smoothing: float,
+            ?Width: float,
+            ?MultiWidth: seq<float>,
+            ?OutlierColor: Color,
+            ?OutlierWidth: float
         ) =
         (fun (line: Line) ->
             line

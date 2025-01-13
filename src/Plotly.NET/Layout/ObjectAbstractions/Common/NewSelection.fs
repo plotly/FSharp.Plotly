@@ -17,10 +17,10 @@ type NewSelection() =
     /// <param name="Mode">Describes how a new selection is created. If `immediate`, a new selection is created after first mouse up. If `gradual`, a new selection is not created after first mouse. By adding to and subtracting from the initial selection, this option allows declaring extra outlines of the selection.</param>
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?LineColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?LineDash: StyleParam.DrawingStyle,
-            [<Optional; DefaultParameterValue(null)>] ?LineWidth: float,
-            [<Optional; DefaultParameterValue(null)>] ?Mode: StyleParam.NewSelectionMode
+            ?LineColor: Color,
+            ?LineDash: StyleParam.DrawingStyle,
+            ?LineWidth: float,
+            ?Mode: StyleParam.NewSelectionMode
         ) =
         NewSelection()
         |> NewSelection.style (?LineColor = LineColor, ?LineDash = LineDash, ?LineWidth = LineWidth, ?Mode = Mode)
@@ -34,10 +34,10 @@ type NewSelection() =
     /// <param name="Mode">Describes how a new selection is created. If `immediate`, a new selection is created after first mouse up. If `gradual`, a new selection is not created after first mouse. By adding to and subtracting from the initial selection, this option allows declaring extra outlines of the selection.</param>
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?LineColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?LineDash: StyleParam.DrawingStyle,
-            [<Optional; DefaultParameterValue(null)>] ?LineWidth: float,
-            [<Optional; DefaultParameterValue(null)>] ?Mode: StyleParam.NewSelectionMode
+            ?LineColor: Color,
+            ?LineDash: StyleParam.DrawingStyle,
+            ?LineWidth: float,
+            ?Mode: StyleParam.NewSelectionMode
         ) =
         (fun (newSelection: NewSelection) ->
 

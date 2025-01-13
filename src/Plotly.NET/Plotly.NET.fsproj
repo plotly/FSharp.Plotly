@@ -36,6 +36,13 @@
   <ItemGroup>
     <EmbeddedResource Remove="Layout\ObjectAbstractions\2D\**" />
     <EmbeddedResource Remove="Layout\ObjectAbstractions\Carpet\**" />
+    <InternalsVisibleTo Include="Plotly.NET.CSharp" />
+    <InternalsVisibleTo Include="FSharpTestBase" />
+    <InternalsVisibleTo Include="CSharpTestBase" />
+    <InternalsVisibleTo Include="CoreTests" />
+    <InternalsVisibleTo Include="StrongNameTests" />
+    <InternalsVisibleTo Include="CSharpTests" />
+    <InternalsVisibleTo Include="ImageExportTests" />
   </ItemGroup>
   <ItemGroup>
     <None Include="RELEASE_NOTES.md" />
@@ -163,7 +170,6 @@
     <Compile Include="ChartAPI\ChartCarpet.fs" />
     <Compile Include="ChartAPI\ChartDomain.fs" />
     <Compile Include="ChartAPI\ChartSmith.fs" />
-    <Compile Include="CSharpLayer\GenericChartExtensions.fs" />
     <None Include="Playground.fsx" />
   </ItemGroup>
   <ItemGroup>

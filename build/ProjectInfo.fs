@@ -73,12 +73,10 @@ let testBaseProjects = [
 
 // test projects (.NET)
 let CoreTestProject = ProjectInfo.create("CoreTests", "tests/CoreTests/CoreTests/CoreTests.fsproj")
-let CSharpInteroperabilityTestProject = ProjectInfo.create("CSharpInteroperabilityTests", "tests/CoreTests/CSharpInteroperabilityTests/CSharpInteroperabilityTests.csproj")
 
 /// contains project info about the core test projects
 let testProjectsCore = [
     CoreTestProject
-    CSharpInteroperabilityTestProject
 ]
 
 let ImageExportTestProject = ProjectInfo.create("ImageExportTests", "tests/ExtensionLibsTests/ImageExportTests/ImageExportTests.fsproj")

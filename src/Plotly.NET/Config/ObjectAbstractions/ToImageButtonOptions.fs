@@ -11,11 +11,11 @@ type ToImageButtonOptions() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Format: StyleParam.ImageFormat,
-            [<Optional; DefaultParameterValue(null)>] ?Filename: string,
-            [<Optional; DefaultParameterValue(null)>] ?Width: float,
-            [<Optional; DefaultParameterValue(null)>] ?Height: float,
-            [<Optional; DefaultParameterValue(null)>] ?Scale: float
+            ?Format: StyleParam.ImageFormat,
+            ?Filename: string,
+            ?Width: float,
+            ?Height: float,
+            ?Scale: float
         ) =
         ToImageButtonOptions()
         |> ToImageButtonOptions.style (
@@ -28,11 +28,11 @@ type ToImageButtonOptions() =
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Format,
-            [<Optional; DefaultParameterValue(null)>] ?Filename,
-            [<Optional; DefaultParameterValue(null)>] ?Width,
-            [<Optional; DefaultParameterValue(null)>] ?Height,
-            [<Optional; DefaultParameterValue(null)>] ?Scale
+            ?Format,
+            ?Filename,
+            ?Width,
+            ?Height,
+            ?Scale
         ) =
         fun (btnConf: ToImageButtonOptions) ->
             btnConf

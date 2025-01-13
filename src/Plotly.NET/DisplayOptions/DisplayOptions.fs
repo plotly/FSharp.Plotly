@@ -22,18 +22,22 @@ type DisplayOptions() =
     /// <summary>
     /// Returns a new DisplayOptions object with the given styles
     /// </summary>
+    /// <param name="DocumentTitle">The title metadata for the document</param>
+    /// <param name="DocumentCharset">The document charset</param>
+    /// <param name="DocumentDescription">The description metadata for the document</param>
+    /// <param name="DocumentFavicon">base64 encoded favicon image</param>
     /// <param name="AdditionalHeadTags">Additional tags that will be included in the document's head </param>
-    /// <param name="Description">HTML tags that appear below the chart in HTML docs</param>
+    /// <param name="ChartDescription">HTML tags that appear below the chart in HTML docs</param>
     /// <param name="PlotlyJSReference">Sets how plotly is referenced in the head of html docs. When CDN, a script tag that references the plotly.js CDN is included in the output. When Full, a script tag containing the plotly.js source code (~3MB) is included in the output. HTML files generated with this option are fully self-contained and can be used offline</param>
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?DocumentTitle: string,
-            [<Optional; DefaultParameterValue(null)>] ?DocumentCharset: string,
-            [<Optional; DefaultParameterValue(null)>] ?DocumentDescription: string,
-            [<Optional; DefaultParameterValue(null)>] ?DocumentFavicon: XmlNode,
-            [<Optional; DefaultParameterValue(null)>] ?AdditionalHeadTags: XmlNode list,
-            [<Optional; DefaultParameterValue(null)>] ?ChartDescription: XmlNode list,
-            [<Optional; DefaultParameterValue(null)>] ?PlotlyJSReference: PlotlyJSReference
+            ?DocumentTitle: string,
+            ?DocumentCharset: string,
+            ?DocumentDescription: string,
+            ?DocumentFavicon: XmlNode,
+            ?AdditionalHeadTags: XmlNode list,
+            ?ChartDescription: XmlNode list,
+            ?PlotlyJSReference: PlotlyJSReference
         ) =
         DisplayOptions()
         |> DisplayOptions.style (
@@ -49,18 +53,22 @@ type DisplayOptions() =
     /// <summary>
     /// Returns a function sthat applies the given styles to a DisplayOptions object
     /// </summary>
+    /// <param name="DocumentTitle">The title metadata for the document</param>
+    /// <param name="DocumentCharset">The document charset</param>
+    /// <param name="DocumentDescription">The description metadata for the document</param>
+    /// <param name="DocumentFavicon">base64 encoded favicon image</param>
     /// <param name="AdditionalHeadTags">Additional tags that will be included in the document's head </param>
-    /// <param name="Description">HTML tags that appear below the chart in HTML docs</param>
+    /// <param name="ChartDescription">HTML tags that appear below the chart in HTML docs</param>
     /// <param name="PlotlyJSReference">Sets how plotly is referenced in the head of html docs. When CDN, a script tag that references the plotly.js CDN is included in the output. When Full, a script tag containing the plotly.js source code (~3MB) is included in the output. HTML files generated with this option are fully self-contained and can be used offline</param>
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?DocumentTitle: string,
-            [<Optional; DefaultParameterValue(null)>] ?DocumentCharset: string,
-            [<Optional; DefaultParameterValue(null)>] ?DocumentDescription: string,
-            [<Optional; DefaultParameterValue(null)>] ?DocumentFavicon: XmlNode,
-            [<Optional; DefaultParameterValue(null)>] ?AdditionalHeadTags: XmlNode list,
-            [<Optional; DefaultParameterValue(null)>] ?ChartDescription: XmlNode list,
-            [<Optional; DefaultParameterValue(null)>] ?PlotlyJSReference: PlotlyJSReference
+            ?DocumentTitle: string,
+            ?DocumentCharset: string,
+            ?DocumentDescription: string,
+            ?DocumentFavicon: XmlNode,
+            ?AdditionalHeadTags: XmlNode list,
+            ?ChartDescription: XmlNode list,
+            ?PlotlyJSReference: PlotlyJSReference
         ) =
         fun (displayOpts: DisplayOptions) ->
             displayOpts

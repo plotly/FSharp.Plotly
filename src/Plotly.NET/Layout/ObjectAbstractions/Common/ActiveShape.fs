@@ -10,15 +10,15 @@ type ActiveShape() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?FillColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Opacity: float
+            ?FillColor: Color,
+            ?Opacity: float
         ) =
         ActiveShape() |> ActiveShape.style (?FillColor = FillColor, ?Opacity = Opacity)
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?FillColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Opacity: float
+            ?FillColor: Color,
+            ?Opacity: float
         ) =
         (fun (activeShape: ActiveShape) ->
 

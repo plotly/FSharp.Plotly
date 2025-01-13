@@ -11,17 +11,17 @@ type Gradient() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Color: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Type: StyleParam.GradientType,
-            [<Optional; DefaultParameterValue(null)>] ?MultiTypes: seq<StyleParam.GradientType>
+            ?Color: Color,
+            ?Type: StyleParam.GradientType,
+            ?MultiTypes: seq<StyleParam.GradientType>
         ) =
         Gradient() |> Gradient.style (?Color = Color, ?Type = Type, ?MultiTypes = MultiTypes)
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Color: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Type: StyleParam.GradientType,
-            [<Optional; DefaultParameterValue(null)>] ?MultiTypes: seq<StyleParam.GradientType>
+            ?Color: Color,
+            ?Type: StyleParam.GradientType,
+            ?MultiTypes: seq<StyleParam.GradientType>
         ) =
 
         fun (gradient: Gradient) ->

@@ -23,9 +23,9 @@ type Cumulative() =
     // Init Cumulative()
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Enabled: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Direction: StyleParam.CumulativeDirection,
-            [<Optional; DefaultParameterValue(null)>] ?Currentbin: StyleParam.Currentbin
+            ?Enabled: bool,
+            ?Direction: StyleParam.CumulativeDirection,
+            ?Currentbin: StyleParam.Currentbin
         ) =
         Cumulative() |> Cumulative.style (?Enabled = Enabled, ?Direction = Direction, ?Currentbin = Currentbin)
 
@@ -33,9 +33,9 @@ type Cumulative() =
     // Applies the styles to Cumulative()
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Enabled: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Direction: StyleParam.CumulativeDirection,
-            [<Optional; DefaultParameterValue(null)>] ?Currentbin: StyleParam.Currentbin
+            ?Enabled: bool,
+            ?Direction: StyleParam.CumulativeDirection,
+            ?Currentbin: StyleParam.Currentbin
         ) =
 
         fun (cumulative: Cumulative) ->

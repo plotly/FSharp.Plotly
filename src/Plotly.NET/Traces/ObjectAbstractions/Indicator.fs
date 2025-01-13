@@ -12,15 +12,15 @@ type IndicatorSymbol() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Color: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Symbol: string
+            ?Color: Color,
+            ?Symbol: string
         ) =
         IndicatorSymbol() |> IndicatorSymbol.style (?Color = Color, ?Symbol = Symbol)
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Color: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Symbol: string
+            ?Color: Color,
+            ?Symbol: string
         ) =
         fun (indicatorDirection: IndicatorSymbol) ->
 
@@ -45,15 +45,15 @@ type IndicatorDelta() =
     /// <param name="ValueFormat">Sets the value formatting rule using d3 formatting mini-languages which are very similar to those in Python. For numbers, see: https://github.com/d3/d3-format/tree/v1.4.5#d3-format.</param>
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Decreasing: IndicatorSymbol,
-            [<Optional; DefaultParameterValue(null)>] ?Font: Font,
-            [<Optional; DefaultParameterValue(null)>] ?Increasing: IndicatorSymbol,
-            [<Optional; DefaultParameterValue(null)>] ?Position: StyleParam.IndicatorDeltaPosition,
-            [<Optional; DefaultParameterValue(null)>] ?Prefix: string,
-            [<Optional; DefaultParameterValue(null)>] ?Reference: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?Relative: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Suffix: string,
-            [<Optional; DefaultParameterValue(null)>] ?ValueFormat: string
+            ?Decreasing: IndicatorSymbol,
+            ?Font: Font,
+            ?Increasing: IndicatorSymbol,
+            ?Position: StyleParam.IndicatorDeltaPosition,
+            ?Prefix: string,
+            ?Reference: #IConvertible,
+            ?Relative: bool,
+            ?Suffix: string,
+            ?ValueFormat: string
         ) =
         IndicatorDelta()
         |> IndicatorDelta.style (
@@ -82,15 +82,15 @@ type IndicatorDelta() =
     /// <param name="ValueFormat">Sets the value formatting rule using d3 formatting mini-languages which are very similar to those in Python. For numbers, see: https://github.com/d3/d3-format/tree/v1.4.5#d3-format.</param>
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Decreasing: IndicatorSymbol,
-            [<Optional; DefaultParameterValue(null)>] ?Font: Font,
-            [<Optional; DefaultParameterValue(null)>] ?Increasing: IndicatorSymbol,
-            [<Optional; DefaultParameterValue(null)>] ?Position: StyleParam.IndicatorDeltaPosition,
-            [<Optional; DefaultParameterValue(null)>] ?Prefix: string,
-            [<Optional; DefaultParameterValue(null)>] ?Reference: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?Relative: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Suffix: string,
-            [<Optional; DefaultParameterValue(null)>] ?ValueFormat: string
+            ?Decreasing: IndicatorSymbol,
+            ?Font: Font,
+            ?Increasing: IndicatorSymbol,
+            ?Position: StyleParam.IndicatorDeltaPosition,
+            ?Prefix: string,
+            ?Reference: #IConvertible,
+            ?Relative: bool,
+            ?Suffix: string,
+            ?ValueFormat: string
         ) =
         fun (indicatorDelta: IndicatorDelta) ->
 
@@ -110,20 +110,20 @@ type IndicatorNumber() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Font: Font,
-            [<Optional; DefaultParameterValue(null)>] ?Prefix: string,
-            [<Optional; DefaultParameterValue(null)>] ?Suffix: string,
-            [<Optional; DefaultParameterValue(null)>] ?ValueFormat: string
+            ?Font: Font,
+            ?Prefix: string,
+            ?Suffix: string,
+            ?ValueFormat: string
         ) =
         IndicatorNumber()
         |> IndicatorNumber.style (?Font = Font, ?Prefix = Prefix, ?Suffix = Suffix, ?ValueFormat = ValueFormat)
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Font: Font,
-            [<Optional; DefaultParameterValue(null)>] ?Prefix: string,
-            [<Optional; DefaultParameterValue(null)>] ?Suffix: string,
-            [<Optional; DefaultParameterValue(null)>] ?ValueFormat: string
+            ?Font: Font,
+            ?Prefix: string,
+            ?Suffix: string,
+            ?ValueFormat: string
         ) =
         fun (indicatorNumber: IndicatorNumber) ->
 
@@ -139,17 +139,17 @@ type IndicatorBar() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Color: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Line: Line,
-            [<Optional; DefaultParameterValue(null)>] ?Thickness: float
+            ?Color: Color,
+            ?Line: Line,
+            ?Thickness: float
         ) =
         IndicatorBar() |> IndicatorBar.style (?Color = Color, ?Line = Line, ?Thickness = Thickness)
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Color: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Line: Line,
-            [<Optional; DefaultParameterValue(null)>] ?Thickness: float
+            ?Color: Color,
+            ?Line: Line,
+            ?Thickness: float
         ) =
         fun (indicatorBar: IndicatorBar) ->
             indicatorBar
@@ -163,12 +163,12 @@ type IndicatorStep() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Color: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Line: Line,
-            [<Optional; DefaultParameterValue(null)>] ?Name: string,
-            [<Optional; DefaultParameterValue(null)>] ?Range: StyleParam.Range,
-            [<Optional; DefaultParameterValue(null)>] ?TemplateItemName: string,
-            [<Optional; DefaultParameterValue(null)>] ?Thickness: float
+            ?Color: Color,
+            ?Line: Line,
+            ?Name: string,
+            ?Range: StyleParam.Range,
+            ?TemplateItemName: string,
+            ?Thickness: float
         ) =
         IndicatorStep()
         |> IndicatorStep.style (
@@ -182,12 +182,12 @@ type IndicatorStep() =
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Color: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Line: Line,
-            [<Optional; DefaultParameterValue(null)>] ?Name: string,
-            [<Optional; DefaultParameterValue(null)>] ?Range: StyleParam.Range,
-            [<Optional; DefaultParameterValue(null)>] ?TemplateItemName: string,
-            [<Optional; DefaultParameterValue(null)>] ?Thickness: float
+            ?Color: Color,
+            ?Line: Line,
+            ?Name: string,
+            ?Range: StyleParam.Range,
+            ?TemplateItemName: string,
+            ?Thickness: float
         ) =
         fun (indicatorSteps: IndicatorStep) ->
 
@@ -205,17 +205,17 @@ type IndicatorThreshold() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Line: Line,
-            [<Optional; DefaultParameterValue(null)>] ?Thickness: float,
-            [<Optional; DefaultParameterValue(null)>] ?Value: #IConvertible
+            ?Line: Line,
+            ?Thickness: float,
+            ?Value: #IConvertible
         ) =
         IndicatorThreshold() |> IndicatorThreshold.style (?Line = Line, ?Thickness = Thickness, ?Value = Value)
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Line: Line,
-            [<Optional; DefaultParameterValue(null)>] ?Thickness: float,
-            [<Optional; DefaultParameterValue(null)>] ?Value: #IConvertible
+            ?Line: Line,
+            ?Thickness: float,
+            ?Value: #IConvertible
         ) =
         fun (indicatorThreshold: IndicatorThreshold) ->
 
@@ -230,14 +230,14 @@ type IndicatorGauge() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Axis: LinearAxis,
-            [<Optional; DefaultParameterValue(null)>] ?Bar: IndicatorBar,
-            [<Optional; DefaultParameterValue(null)>] ?BGColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?BorderColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?BorderWidth: int,
-            [<Optional; DefaultParameterValue(null)>] ?Shape: StyleParam.IndicatorGaugeShape,
-            [<Optional; DefaultParameterValue(null)>] ?Steps: seq<IndicatorStep>,
-            [<Optional; DefaultParameterValue(null)>] ?Threshold: IndicatorThreshold
+            ?Axis: LinearAxis,
+            ?Bar: IndicatorBar,
+            ?BGColor: Color,
+            ?BorderColor: Color,
+            ?BorderWidth: int,
+            ?Shape: StyleParam.IndicatorGaugeShape,
+            ?Steps: seq<IndicatorStep>,
+            ?Threshold: IndicatorThreshold
         ) =
         IndicatorGauge()
         |> IndicatorGauge.style (
@@ -253,14 +253,14 @@ type IndicatorGauge() =
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Axis: LinearAxis,
-            [<Optional; DefaultParameterValue(null)>] ?Bar: IndicatorBar,
-            [<Optional; DefaultParameterValue(null)>] ?BGColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?BorderColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?BorderWidth: int,
-            [<Optional; DefaultParameterValue(null)>] ?Shape: StyleParam.IndicatorGaugeShape,
-            [<Optional; DefaultParameterValue(null)>] ?Steps: seq<IndicatorStep>,
-            [<Optional; DefaultParameterValue(null)>] ?Threshold: IndicatorThreshold
+            ?Axis: LinearAxis,
+            ?Bar: IndicatorBar,
+            ?BGColor: Color,
+            ?BorderColor: Color,
+            ?BorderWidth: int,
+            ?Shape: StyleParam.IndicatorGaugeShape,
+            ?Steps: seq<IndicatorStep>,
+            ?Threshold: IndicatorThreshold
         ) =
         fun (indicatorGauge: IndicatorGauge) ->
 

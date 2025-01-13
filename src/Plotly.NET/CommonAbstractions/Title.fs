@@ -24,20 +24,20 @@ type Title() =
     /// <param name="Side">For colorbar titles: Determines the location of color bar's title with respect to the color bar. Defaults to "top" when `orientation` if "v" and defaults to "right" when `orientation` if "h". Note that the title's location used to be set by the now deprecated `titleside` attribute.</param>
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Text: string,
-            [<Optional; DefaultParameterValue(null)>] ?Font: Font,
-            [<Optional; DefaultParameterValue(null)>] ?AutoMargin: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Pad: Padding,
-            [<Optional; DefaultParameterValue(null)>] ?X: float,
-            [<Optional; DefaultParameterValue(null)>] ?XAnchor: StyleParam.XAnchorPosition,
-            [<Optional; DefaultParameterValue(null)>] ?XRef: string,
-            [<Optional; DefaultParameterValue(null)>] ?Y: float,
-            [<Optional; DefaultParameterValue(null)>] ?YAnchor: StyleParam.YAnchorPosition,
-            [<Optional; DefaultParameterValue(null)>] ?YRef: string,
+            ?Text: string,
+            ?Font: Font,
+            ?AutoMargin: bool,
+            ?Pad: Padding,
+            ?X: float,
+            ?XAnchor: StyleParam.XAnchorPosition,
+            ?XRef: string,
+            ?Y: float,
+            ?YAnchor: StyleParam.YAnchorPosition,
+            ?YRef: string,
             // For axis titles
-            [<Optional; DefaultParameterValue(null)>] ?Standoff: int,
+            ?Standoff: int,
             // For colorbar titles
-            [<Optional; DefaultParameterValue(null)>] ?Side: StyleParam.Side
+            ?Side: StyleParam.Side
         ) =
         Title() 
         |> Title.style (
@@ -72,20 +72,20 @@ type Title() =
     /// <param name="Side">For colorbar titles: Determines the location of color bar's title with respect to the color bar. Defaults to "top" when `orientation` if "v" and defaults to "right" when `orientation` if "h". Note that the title's location used to be set by the now deprecated `titleside` attribute.</param>
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Text: string,
-            [<Optional; DefaultParameterValue(null)>] ?Font: Font,
-            [<Optional; DefaultParameterValue(null)>] ?AutoMargin: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Pad: Padding,
-            [<Optional; DefaultParameterValue(null)>] ?X: float,
-            [<Optional; DefaultParameterValue(null)>] ?XAnchor: StyleParam.XAnchorPosition,
-            [<Optional; DefaultParameterValue(null)>] ?XRef: string,
-            [<Optional; DefaultParameterValue(null)>] ?Y: float,
-            [<Optional; DefaultParameterValue(null)>] ?YAnchor: StyleParam.YAnchorPosition,
-            [<Optional; DefaultParameterValue(null)>] ?YRef: string,
+            ?Text: string,
+            ?Font: Font,
+            ?AutoMargin: bool,
+            ?Pad: Padding,
+            ?X: float,
+            ?XAnchor: StyleParam.XAnchorPosition,
+            ?XRef: string,
+            ?Y: float,
+            ?YAnchor: StyleParam.YAnchorPosition,
+            ?YRef: string,
             // For axis titles
-            [<Optional; DefaultParameterValue(null)>] ?Standoff: int,
+            ?Standoff: int,
             // For colorbar titles
-            [<Optional; DefaultParameterValue(null)>] ?Side: StyleParam.Side
+            ?Side: StyleParam.Side
         ) =
         (fun (title: Title) ->  
             title

@@ -11,9 +11,9 @@ type Font() =
     /// Init Font()
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Family: StyleParam.FontFamily,
-            [<Optional; DefaultParameterValue(null)>] ?Size: float,
-            [<Optional; DefaultParameterValue(null)>] ?Color: Color
+            ?Family: StyleParam.FontFamily,
+            ?Size: float,
+            ?Color: Color
         ) =
         Font() |> Font.style (?Family = Family, ?Size = Size, ?Color = Color)
 
@@ -21,9 +21,9 @@ type Font() =
     // Applies the styles to Font()
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Family: StyleParam.FontFamily,
-            [<Optional; DefaultParameterValue(null)>] ?Size: float,
-            [<Optional; DefaultParameterValue(null)>] ?Color: Color
+            ?Family: StyleParam.FontFamily,
+            ?Size: float,
+            ?Color: Color
         ) =
         (fun (font: Font) ->
             font

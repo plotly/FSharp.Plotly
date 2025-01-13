@@ -12,17 +12,17 @@ type ProjectionDimension() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Opacity: float,
-            [<Optional; DefaultParameterValue(null)>] ?Scale: float,
-            [<Optional; DefaultParameterValue(null)>] ?Show: bool
+            ?Opacity: float,
+            ?Scale: float,
+            ?Show: bool
         ) =
         ProjectionDimension() |> ProjectionDimension.style (?Opacity = Opacity, ?Scale = Scale, ?Show = Show)
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Opacity: float,
-            [<Optional; DefaultParameterValue(null)>] ?Scale: float,
-            [<Optional; DefaultParameterValue(null)>] ?Show: bool
+            ?Opacity: float,
+            ?Scale: float,
+            ?Show: bool
         ) =
 
         fun (projectionDimension: ProjectionDimension) ->
@@ -37,17 +37,17 @@ type Projection() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?X: ProjectionDimension,
-            [<Optional; DefaultParameterValue(null)>] ?Y: ProjectionDimension,
-            [<Optional; DefaultParameterValue(null)>] ?Z: ProjectionDimension
+            ?X: ProjectionDimension,
+            ?Y: ProjectionDimension,
+            ?Z: ProjectionDimension
         ) =
         Projection() |> Projection.style (?X = X, ?Y = Y, ?Z = Z)
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?X: ProjectionDimension,
-            [<Optional; DefaultParameterValue(null)>] ?Y: ProjectionDimension,
-            [<Optional; DefaultParameterValue(null)>] ?Z: ProjectionDimension
+            ?X: ProjectionDimension,
+            ?Y: ProjectionDimension,
+            ?Z: ProjectionDimension
         ) =
 
         fun (projection: Projection) ->

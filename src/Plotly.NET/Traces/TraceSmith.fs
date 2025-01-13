@@ -16,7 +16,7 @@ type TraceSmith(traceTypeName) =
 
 type TraceSmithStyle() =
 
-    static member SetSmith([<Optional; DefaultParameterValue(null)>] ?SmithId: StyleParam.SubPlotId) =
+    static member SetSmith(?SmithId: StyleParam.SubPlotId) =
         fun (trace: TraceSmith) ->
              trace |> DynObj.withOptionalPropertyBy "subplot" SmithId StyleParam.SubPlotId.toString
 
@@ -65,45 +65,45 @@ type TraceSmithStyle() =
     /// <param name="UIRevision">Controls persistence of some user-driven changes to the trace: `constraintrange` in `parcoords` traces, as well as some `editable: true` modifications such as `name` and `colorbar.title`. Defaults to `layout.uirevision`. Note that other user-driven trace attribute changes are controlled by `layout` attributes: `trace.visible` is controlled by `layout.legend.uirevision`, `selectedpoints` is controlled by `layout.selectionrevision`, and `colorbar.(x|y)` (accessible with `config: {editable: true}`) is controlled by `layout.editrevision`. Trace changes are tracked by `uid`, which only falls back on trace index if no `uid` is provided. So if your app can add/remove traces before the end of the `data` array, such that the same trace has a different index, you can still preserve user-driven changes if you give each trace a `uid` that stays with it as it moves.</param>
     static member ScatterSmith
         (
-            [<Optional; DefaultParameterValue(null)>] ?Name: string,
-            [<Optional; DefaultParameterValue(null)>] ?Visible: StyleParam.Visible,
-            [<Optional; DefaultParameterValue(null)>] ?ShowLegend: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Legend: StyleParam.SubPlotId,
-            [<Optional; DefaultParameterValue(null)>] ?LegendRank: int,
-            [<Optional; DefaultParameterValue(null)>] ?LegendGroup: string,
-            [<Optional; DefaultParameterValue(null)>] ?LegendGroupTitle: Title,
-            [<Optional; DefaultParameterValue(null)>] ?Opacity: float,
-            [<Optional; DefaultParameterValue(null)>] ?Mode: StyleParam.Mode,
-            [<Optional; DefaultParameterValue(null)>] ?Ids: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Imag: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Real: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Text: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?MultiText: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?TextPosition: StyleParam.TextPosition,
-            [<Optional; DefaultParameterValue(null)>] ?MultiTextPosition: seq<StyleParam.TextPosition>,
-            [<Optional; DefaultParameterValue(null)>] ?TextTemplate: string,
-            [<Optional; DefaultParameterValue(null)>] ?MultiTextTemplate: seq<string>,
-            [<Optional; DefaultParameterValue(null)>] ?HoverText: string,
-            [<Optional; DefaultParameterValue(null)>] ?MultiHoverText: seq<string>,
-            [<Optional; DefaultParameterValue(null)>] ?HoverInfo: StyleParam.HoverInfo,
-            [<Optional; DefaultParameterValue(null)>] ?HoverTemplate: string,
-            [<Optional; DefaultParameterValue(null)>] ?MultiHoverTemplate: seq<string>,
-            [<Optional; DefaultParameterValue(null)>] ?Meta: string,
-            [<Optional; DefaultParameterValue(null)>] ?CustomData: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Subplot: StyleParam.SubPlotId,
-            [<Optional; DefaultParameterValue(null)>] ?Marker: Marker,
-            [<Optional; DefaultParameterValue(null)>] ?Line: Line,
-            [<Optional; DefaultParameterValue(null)>] ?TextFont: Font,
-            [<Optional; DefaultParameterValue(null)>] ?SelectedPoints: seq<#IConvertible>,
-            [<Optional; DefaultParameterValue(null)>] ?Selected: TraceSelection,
-            [<Optional; DefaultParameterValue(null)>] ?Unselected: TraceSelection,
-            [<Optional; DefaultParameterValue(null)>] ?ClipOnAxis: bool,
-            [<Optional; DefaultParameterValue(null)>] ?ConnectGaps: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Fill: StyleParam.Fill,
-            [<Optional; DefaultParameterValue(null)>] ?FillColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?HoverLabel: Hoverlabel,
-            [<Optional; DefaultParameterValue(null)>] ?HoverOn: StyleParam.HoverOn,
-            [<Optional; DefaultParameterValue(null)>] ?UIRevision: string
+            ?Name: string,
+            ?Visible: StyleParam.Visible,
+            ?ShowLegend: bool,
+            ?Legend: StyleParam.SubPlotId,
+            ?LegendRank: int,
+            ?LegendGroup: string,
+            ?LegendGroupTitle: Title,
+            ?Opacity: float,
+            ?Mode: StyleParam.Mode,
+            ?Ids: seq<#IConvertible>,
+            ?Imag: seq<#IConvertible>,
+            ?Real: seq<#IConvertible>,
+            ?Text: #IConvertible,
+            ?MultiText: seq<#IConvertible>,
+            ?TextPosition: StyleParam.TextPosition,
+            ?MultiTextPosition: seq<StyleParam.TextPosition>,
+            ?TextTemplate: string,
+            ?MultiTextTemplate: seq<string>,
+            ?HoverText: string,
+            ?MultiHoverText: seq<string>,
+            ?HoverInfo: StyleParam.HoverInfo,
+            ?HoverTemplate: string,
+            ?MultiHoverTemplate: seq<string>,
+            ?Meta: string,
+            ?CustomData: seq<#IConvertible>,
+            ?Subplot: StyleParam.SubPlotId,
+            ?Marker: Marker,
+            ?Line: Line,
+            ?TextFont: Font,
+            ?SelectedPoints: seq<#IConvertible>,
+            ?Selected: TraceSelection,
+            ?Unselected: TraceSelection,
+            ?ClipOnAxis: bool,
+            ?ConnectGaps: bool,
+            ?Fill: StyleParam.Fill,
+            ?FillColor: Color,
+            ?HoverLabel: Hoverlabel,
+            ?HoverOn: StyleParam.HoverOn,
+            ?UIRevision: string
         ) =
         fun (trace: ('T :> Trace)) ->
             trace

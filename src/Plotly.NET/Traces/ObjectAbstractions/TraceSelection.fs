@@ -18,9 +18,9 @@ type MarkerSelectionStyle() =
     /// <param name="Size">Sets the size of the selected/unselected markers</param>
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Opacity: float,
-            [<Optional; DefaultParameterValue(null)>] ?Color: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Size: int
+            ?Opacity: float,
+            ?Color: Color,
+            ?Size: int
         ) =
         MarkerSelectionStyle() |> MarkerSelectionStyle.style (?Opacity = Opacity, ?Color = Color, ?Size = Size)
 
@@ -32,9 +32,9 @@ type MarkerSelectionStyle() =
     /// <param name="Size">Sets the size of the selected/unselected markers</param>
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Opacity: float,
-            [<Optional; DefaultParameterValue(null)>] ?Color: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Size: int
+            ?Opacity: float,
+            ?Color: Color,
+            ?Size: int
         ) =
         fun (markerSelectionStyle: MarkerSelectionStyle) ->
 
@@ -54,8 +54,8 @@ type LineSelectionStyle() =
     /// <param name="Color">Sets the color of the selected/unselected lines</param>
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Opacity: float,
-            [<Optional; DefaultParameterValue(null)>] ?Color: Color
+            ?Opacity: float,
+            ?Color: Color
         ) =
         LineSelectionStyle() |> LineSelectionStyle.style (?Opacity = Opacity, ?Color = Color)
 
@@ -66,8 +66,8 @@ type LineSelectionStyle() =
     /// <param name="Color">Sets the color of the selected/unselected lines</param>
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Opacity: float,
-            [<Optional; DefaultParameterValue(null)>] ?Color: Color
+            ?Opacity: float,
+            ?Color: Color
         ) =
         fun (lineSelectionStyle: LineSelectionStyle) ->
 
@@ -83,14 +83,14 @@ type FontSelectionStyle() =
     /// Returns a new FontSelectionStyle object with the given styles
     /// </summary>
     /// <param name="Color">Sets the color of the selected/unselected text</param>
-    static member init([<Optional; DefaultParameterValue(null)>] ?Color: Color) =
+    static member init(?Color: Color) =
         FontSelectionStyle() |> FontSelectionStyle.style (?Color = Color)
 
     /// <summary>
     /// Returns a function that applies the given styles to a FontSelectionStyle object
     /// </summary>
     /// <param name="Color">Sets the color of the selected/unselected text</param>
-    static member style([<Optional; DefaultParameterValue(null)>] ?Color: Color) =
+    static member style(?Color: Color) =
         fun (fontSelectionStyle: FontSelectionStyle) ->
 
             fontSelectionStyle
@@ -110,9 +110,9 @@ type TraceSelection() =
     /// <param name="FontSelectionStyle">Sets the styles of the selected/unselected texts</param>
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?MarkerSelectionStyle: MarkerSelectionStyle,
-            [<Optional; DefaultParameterValue(null)>] ?LineSelectionStyle: LineSelectionStyle,
-            [<Optional; DefaultParameterValue(null)>] ?FontSelectionStyle: FontSelectionStyle
+            ?MarkerSelectionStyle: MarkerSelectionStyle,
+            ?LineSelectionStyle: LineSelectionStyle,
+            ?FontSelectionStyle: FontSelectionStyle
         ) =
         TraceSelection()
         |> TraceSelection.style (
@@ -129,9 +129,9 @@ type TraceSelection() =
     /// <param name="FontSelectionStyle">Sets the styles of the selected/unselected texts</param>
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?MarkerSelectionStyle: MarkerSelectionStyle,
-            [<Optional; DefaultParameterValue(null)>] ?LineSelectionStyle: LineSelectionStyle,
-            [<Optional; DefaultParameterValue(null)>] ?FontSelectionStyle: FontSelectionStyle
+            ?MarkerSelectionStyle: MarkerSelectionStyle,
+            ?LineSelectionStyle: LineSelectionStyle,
+            ?FontSelectionStyle: FontSelectionStyle
         ) =
         fun (traceSelection: TraceSelection) ->
 

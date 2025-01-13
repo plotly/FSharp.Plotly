@@ -25,18 +25,18 @@ type Selection() =
     /// <param name="Yref">Sets the selection's x coordinate axis. If set to a y axis id (e.g. "y" or "y2"), the `y` position refers to a y coordinate. If set to "paper", the `y` position refers to the distance from the bottom of the plotting area in normalized coordinates where "0" ("1") corresponds to the bottom (top). If set to a y axis ID followed by "domain" (separated by a space), the position behaves like for "paper", but refers to the distance in fractions of the domain length from the bottom of the domain of that axis: e.g., "y2 domain" refers to the domain of the second y axis and a y position of 0.5 refers to the point between the bottom and the top of the domain of the second y axis.</param>
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Line: Line,
-            [<Optional; DefaultParameterValue(null)>] ?Name: string,
-            [<Optional; DefaultParameterValue(null)>] ?Opacity: float,
-            [<Optional; DefaultParameterValue(null)>] ?Path: string,
-            [<Optional; DefaultParameterValue(null)>] ?TemplateItemName: string,
-            [<Optional; DefaultParameterValue(null)>] ?SelectionType: StyleParam.SelectionType,
-            [<Optional; DefaultParameterValue(null)>] ?X0: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?X1: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?Xref: string,
-            [<Optional; DefaultParameterValue(null)>] ?Y0: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?Y1: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?Yref: string
+            ?Line: Line,
+            ?Name: string,
+            ?Opacity: float,
+            ?Path: string,
+            ?TemplateItemName: string,
+            ?SelectionType: StyleParam.SelectionType,
+            ?X0: #IConvertible,
+            ?X1: #IConvertible,
+            ?Xref: string,
+            ?Y0: #IConvertible,
+            ?Y1: #IConvertible,
+            ?Yref: string
         ) =
         Selection()
         |> Selection.style (
@@ -71,18 +71,18 @@ type Selection() =
     /// <param name="Yref">Sets the selection's x coordinate axis. If set to a y axis id (e.g. "y" or "y2"), the `y` position refers to a y coordinate. If set to "paper", the `y` position refers to the distance from the bottom of the plotting area in normalized coordinates where "0" ("1") corresponds to the bottom (top). If set to a y axis ID followed by "domain" (separated by a space), the position behaves like for "paper", but refers to the distance in fractions of the domain length from the bottom of the domain of that axis: e.g., "y2 domain" refers to the domain of the second y axis and a y position of 0.5 refers to the point between the bottom and the top of the domain of the second y axis.</param>
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Line: Line,
-            [<Optional; DefaultParameterValue(null)>] ?Name: string,
-            [<Optional; DefaultParameterValue(null)>] ?Opacity: float,
-            [<Optional; DefaultParameterValue(null)>] ?Path: string,
-            [<Optional; DefaultParameterValue(null)>] ?TemplateItemName: string,
-            [<Optional; DefaultParameterValue(null)>] ?SelectionType: StyleParam.SelectionType,
-            [<Optional; DefaultParameterValue(null)>] ?X0: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?X1: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?Xref: string,
-            [<Optional; DefaultParameterValue(null)>] ?Y0: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?Y1: #IConvertible,
-            [<Optional; DefaultParameterValue(null)>] ?Yref: string
+            ?Line: Line,
+            ?Name: string,
+            ?Opacity: float,
+            ?Path: string,
+            ?TemplateItemName: string,
+            ?SelectionType: StyleParam.SelectionType,
+            ?X0: #IConvertible,
+            ?X1: #IConvertible,
+            ?Xref: string,
+            ?Y0: #IConvertible,
+            ?Y1: #IConvertible,
+            ?Yref: string
         ) =
         (fun (selection: Selection) ->
 

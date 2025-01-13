@@ -11,13 +11,13 @@ type Button() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Visible: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Step: StyleParam.TimeStep,
-            [<Optional; DefaultParameterValue(null)>] ?StepMode: StyleParam.TimeStepMode,
-            [<Optional; DefaultParameterValue(null)>] ?Count: int,
-            [<Optional; DefaultParameterValue(null)>] ?Label: string,
-            [<Optional; DefaultParameterValue(null)>] ?Name: string,
-            [<Optional; DefaultParameterValue(null)>] ?TemplateItemName: string
+            ?Visible: bool,
+            ?Step: StyleParam.TimeStep,
+            ?StepMode: StyleParam.TimeStepMode,
+            ?Count: int,
+            ?Label: string,
+            ?Name: string,
+            ?TemplateItemName: string
         ) =
         Button()
         |> Button.style (
@@ -32,13 +32,13 @@ type Button() =
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Visible: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Step: StyleParam.TimeStep,
-            [<Optional; DefaultParameterValue(null)>] ?StepMode: StyleParam.TimeStepMode,
-            [<Optional; DefaultParameterValue(null)>] ?Count: int,
-            [<Optional; DefaultParameterValue(null)>] ?Label: string,
-            [<Optional; DefaultParameterValue(null)>] ?Name: string,
-            [<Optional; DefaultParameterValue(null)>] ?TemplateItemName: string
+            ?Visible: bool,
+            ?Step: StyleParam.TimeStep,
+            ?StepMode: StyleParam.TimeStepMode,
+            ?Count: int,
+            ?Label: string,
+            ?Name: string,
+            ?TemplateItemName: string
         ) =
         (fun (button: Button) ->
 

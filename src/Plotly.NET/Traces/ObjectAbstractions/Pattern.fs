@@ -23,15 +23,15 @@ type Pattern() =
     /// <param name="Solidity">Sets the solidity of the pattern fill. Solidity is roughly the fraction of the area filled by the pattern. Solidity of 0 shows only the background color without pattern and solidty of 1 shows only the foreground color without pattern.</param>
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?BGColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?FGColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?FGOpacity: float,
-            [<Optional; DefaultParameterValue(null)>] ?FillMode: StyleParam.PatternFillMode,
-            [<Optional; DefaultParameterValue(null)>] ?Shape: StyleParam.PatternShape,
-            [<Optional; DefaultParameterValue(null)>] ?MultiShape: seq<StyleParam.PatternShape>,
-            [<Optional; DefaultParameterValue(null)>] ?Size: int,
-            [<Optional; DefaultParameterValue(null)>] ?MultiSize: seq<int>,
-            [<Optional; DefaultParameterValue(null)>] ?Solidity: float
+            ?BGColor: Color,
+            ?FGColor: Color,
+            ?FGOpacity: float,
+            ?FillMode: StyleParam.PatternFillMode,
+            ?Shape: StyleParam.PatternShape,
+            ?MultiShape: seq<StyleParam.PatternShape>,
+            ?Size: int,
+            ?MultiSize: seq<int>,
+            ?Solidity: float
         ) =
         Pattern()
         |> Pattern.style (
@@ -60,15 +60,15 @@ type Pattern() =
     /// <param name="Solidity">Sets the solidity of the pattern fill. Solidity is roughly the fraction of the area filled by the pattern. Solidity of 0 shows only the background color without pattern and solidty of 1 shows only the foreground color without pattern.</param>
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?BGColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?FGColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?FGOpacity: float,
-            [<Optional; DefaultParameterValue(null)>] ?FillMode: StyleParam.PatternFillMode,
-            [<Optional; DefaultParameterValue(null)>] ?Shape: StyleParam.PatternShape,
-            [<Optional; DefaultParameterValue(null)>] ?MultiShape: seq<StyleParam.PatternShape>,
-            [<Optional; DefaultParameterValue(null)>] ?Size: int,
-            [<Optional; DefaultParameterValue(null)>] ?MultiSize: seq<int>,
-            [<Optional; DefaultParameterValue(null)>] ?Solidity: float
+            ?BGColor: Color,
+            ?FGColor: Color,
+            ?FGOpacity: float,
+            ?FillMode: StyleParam.PatternFillMode,
+            ?Shape: StyleParam.PatternShape,
+            ?MultiShape: seq<StyleParam.PatternShape>,
+            ?Size: int,
+            ?MultiSize: seq<int>,
+            ?Solidity: float
         ) =
 
         fun (pattern: Pattern) ->

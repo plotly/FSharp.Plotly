@@ -11,17 +11,17 @@ type AspectRatio() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?X: float,
-            [<Optional; DefaultParameterValue(null)>] ?Y: float,
-            [<Optional; DefaultParameterValue(null)>] ?Z: float
+            ?X: float,
+            ?Y: float,
+            ?Z: float
         ) =
         AspectRatio() |> AspectRatio.style (?X = X, ?Y = Y, ?Z = Z)
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?X: float,
-            [<Optional; DefaultParameterValue(null)>] ?Y: float,
-            [<Optional; DefaultParameterValue(null)>] ?Z: float
+            ?X: float,
+            ?Y: float,
+            ?Z: float
         ) =
 
         fun (aspectRatio: AspectRatio) ->

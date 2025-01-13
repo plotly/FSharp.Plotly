@@ -11,10 +11,10 @@ type FinanceMarker() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?FillColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?LineColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?LineWidth: float,
-            [<Optional; DefaultParameterValue(null)>] ?LineDash: StyleParam.DrawingStyle
+            ?FillColor: Color,
+            ?LineColor: Color,
+            ?LineWidth: float,
+            ?LineDash: StyleParam.DrawingStyle
         ) =
         FinanceMarker()
         |> FinanceMarker.style (
@@ -27,10 +27,10 @@ type FinanceMarker() =
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?FillColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?LineColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?LineWidth: float,
-            [<Optional; DefaultParameterValue(null)>] ?LineDash: StyleParam.DrawingStyle
+            ?FillColor: Color,
+            ?LineColor: Color,
+            ?LineWidth: float,
+            ?LineDash: StyleParam.DrawingStyle
         ) =
         fun (financeMarker: FinanceMarker) ->
 

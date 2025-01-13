@@ -27,18 +27,18 @@ type Scene() =
     /// <param name="ZAxis">Sets this scene's zaxis</param>
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Annotations: seq<Annotation>,
-            [<Optional; DefaultParameterValue(null)>] ?AspectMode: StyleParam.AspectMode,
-            [<Optional; DefaultParameterValue(null)>] ?AspectRatio: AspectRatio,
-            [<Optional; DefaultParameterValue(null)>] ?BGColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Camera: Camera,
-            [<Optional; DefaultParameterValue(null)>] ?Domain: Domain,
-            [<Optional; DefaultParameterValue(null)>] ?DragMode: StyleParam.DragMode,
-            [<Optional; DefaultParameterValue(null)>] ?HoverMode: StyleParam.HoverMode,
-            [<Optional; DefaultParameterValue(null)>] ?UIRevision: string,
-            [<Optional; DefaultParameterValue(null)>] ?XAxis: LinearAxis,
-            [<Optional; DefaultParameterValue(null)>] ?YAxis: LinearAxis,
-            [<Optional; DefaultParameterValue(null)>] ?ZAxis: LinearAxis
+            ?Annotations: seq<Annotation>,
+            ?AspectMode: StyleParam.AspectMode,
+            ?AspectRatio: AspectRatio,
+            ?BGColor: Color,
+            ?Camera: Camera,
+            ?Domain: Domain,
+            ?DragMode: StyleParam.DragMode,
+            ?HoverMode: StyleParam.HoverMode,
+            ?UIRevision: string,
+            ?XAxis: LinearAxis,
+            ?YAxis: LinearAxis,
+            ?ZAxis: LinearAxis
         ) =
         Scene()
         |> Scene.style (
@@ -73,18 +73,18 @@ type Scene() =
     /// <param name="ZAxis">Sets this scene's zaxis</param>
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Annotations: seq<Annotation>,
-            [<Optional; DefaultParameterValue(null)>] ?AspectMode: StyleParam.AspectMode,
-            [<Optional; DefaultParameterValue(null)>] ?AspectRatio: AspectRatio,
-            [<Optional; DefaultParameterValue(null)>] ?BGColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Camera: Camera,
-            [<Optional; DefaultParameterValue(null)>] ?Domain: Domain,
-            [<Optional; DefaultParameterValue(null)>] ?DragMode: StyleParam.DragMode,
-            [<Optional; DefaultParameterValue(null)>] ?HoverMode: StyleParam.HoverMode,
-            [<Optional; DefaultParameterValue(null)>] ?UIRevision: string,
-            [<Optional; DefaultParameterValue(null)>] ?XAxis: LinearAxis,
-            [<Optional; DefaultParameterValue(null)>] ?YAxis: LinearAxis,
-            [<Optional; DefaultParameterValue(null)>] ?ZAxis: LinearAxis
+            ?Annotations: seq<Annotation>,
+            ?AspectMode: StyleParam.AspectMode,
+            ?AspectRatio: AspectRatio,
+            ?BGColor: Color,
+            ?Camera: Camera,
+            ?Domain: Domain,
+            ?DragMode: StyleParam.DragMode,
+            ?HoverMode: StyleParam.HoverMode,
+            ?UIRevision: string,
+            ?XAxis: LinearAxis,
+            ?YAxis: LinearAxis,
+            ?ZAxis: LinearAxis
         ) =
         fun (scene: Scene) ->
 

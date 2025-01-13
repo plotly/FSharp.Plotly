@@ -11,15 +11,15 @@ type Spaceframe() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Fill: float,
-            [<Optional; DefaultParameterValue(null)>] ?Show: bool
+            ?Fill: float,
+            ?Show: bool
         ) =
         Spaceframe() |> Spaceframe.style (?Fill = Fill, ?Show = Show)
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Fill: float,
-            [<Optional; DefaultParameterValue(null)>] ?Show: bool
+            ?Fill: float,
+            ?Show: bool
         ) =
 
         fun (spaceframe: Spaceframe) ->

@@ -7,6 +7,7 @@ using Plotly.NET;
 using Plotly.NET.LayoutObjects;
 using Plotly.NET.TraceObjects;
 using System.Runtime.InteropServices;
+using static Plotly.NET.StyleParam;
 
 namespace Plotly.NET.CSharp
 {
@@ -15,7 +16,7 @@ namespace Plotly.NET.CSharp
         /// <summary>
         /// Creates a Scatter plot.
         ///
-        /// Scatter charts are the basis of Point, Line, and Bubble Charts, and can be customized as such. We also provide abstractions for those Chart.Line, Chart.Point, Chart.Bubble
+        /// Scatter charts are the basis of Point, Line, and Bubble Charts, and can be customized as such. We also provide abstractions for those: Chart.Line, Chart.Point, Chart.Bubble
         /// </summary>
         /// <param name="x">Sets the x coordinates of the plotted data.</param>
         /// <param name="y">Sets the y coordinates of the plotted data.</param>
@@ -39,11 +40,14 @@ namespace Plotly.NET.CSharp
         /// <param name="LineWidth">Sets the width of the line</param>
         /// <param name="LineDash">sets the drawing style of the line</param>
         /// <param name="Line">Sets the line (use this for more finegrained control than the other line-associated arguments)</param>
+        /// <param name="AlignmentGroup">Set several traces linked to the same position axis or matching axes to the same alignmentgroup. This controls whether bars compute their positional range dependently or independently.</param>
+        /// <param name="OffsetGroup">Set several traces linked to the same position axis or matching axes to the same offsetgroup where bars of the same position coordinate will line up.</param>
         /// <param name="StackGroup">Set several traces (on the same subplot) to the same stackgroup in order to add their y values (or their x values if `Orientation` is Horizontal). Stacking also turns `fill` on by default and sets the default `mode` to "lines" irrespective of point count. ou can only stack on a numeric (linear or log) axis. Traces in a `stackgroup` will only fill to (or be filled to) other traces in the same group. With multiple `stackgroup`s or some traces stacked and some not, if fill-linked traces are not already consecutive, the later ones will be pushed down in the drawing order</param>
         /// <param name="Orientation">Sets the stacking direction. Only relevant when `stackgroup` is used, and only the first `orientation` found in the `stackgroup` will be used.</param>
         /// <param name="GroupNorm">Sets the normalization for the sum of this `stackgroup. Only relevant when `stackgroup` is used, and only the first `groupnorm` found in the `stackgroup` will be used</param>
         /// <param name="Fill">Sets the area to fill with a solid color. Defaults to "none" unless this trace is stacked, then it gets "tonexty" ("tonextx") if `orientation` is "v" ("h") Use with `FillColor` if not "none". "tozerox" and "tozeroy" fill to x=0 and y=0 respectively. "tonextx" and "tonexty" fill between the endpoints of this trace and the endpoints of the trace before it, connecting those endpoints with straight lines (to make a stacked area graph); if there is no trace before it, they behave like "tozerox" and "tozeroy". "toself" connects the endpoints of the trace (or each segment of the trace if it has gaps) into a closed shape. "tonext" fills the space between two traces if one completely encloses the other (eg consecutive contour lines), and behaves like "toself" if there is no trace before it. "tonext" should not be used if one trace does not enclose the other. Traces in a `stackgroup` will only fill to (or be filled to) other traces in the same group. With multiple `stackgroup`s or some traces stacked and some not, if fill-linked traces are not already consecutive, the later ones will be pushed down in the drawing order.</param>
-        /// <param name="FillColor">ets the fill color. Defaults to a half-transparent variant of the line color, marker color, or marker line color, whichever is available.</param>
+        /// <param name="FillColor">Sets the fill color. Defaults to a half-transparent variant of the line color, marker color, or marker line color, whichever is available.</param>
+        /// <param name="FillPattern">Sets the pattern within the marker.</param>
         /// <param name="UseWebGL">If true, plotly.js will use the WebGL engine to render this chart. use this when you want to render many objects at once.</param>
         /// <param name="UseDefaults">If set to false, ignore the global default settings set in `Defaults`</param>
         public static GenericChart Scatter<XType,YType,TextType>(
@@ -69,11 +73,14 @@ namespace Plotly.NET.CSharp
             Optional<double> LineWidth = default,
             Optional<StyleParam.DrawingStyle> LineDash = default,
             Optional<Line> Line = default,
+            Optional<string> AlignmentGroup = default,
+            Optional<string> OffsetGroup = default,
             Optional<string> StackGroup = default,
             Optional<StyleParam.Orientation> Orientation = default,
             Optional<StyleParam.GroupNorm> GroupNorm = default,
             Optional<StyleParam.Fill> Fill = default,
             Optional<Color> FillColor = default,
+            Optional<Pattern> FillPattern = default,
             Optional<bool> UseWebGL = default,
             Optional<bool> UseDefaults = default
         )
@@ -104,11 +111,14 @@ namespace Plotly.NET.CSharp
                 LineWidth: LineWidth.ToOption(),
                 LineDash: LineDash.ToOption(),
                 Line: Line.ToOption(),
+                AlignmentGroup: AlignmentGroup.ToOption(),
+                OffsetGroup: OffsetGroup.ToOption(),
                 StackGroup: StackGroup.ToOption(),
                 Orientation: Orientation.ToOption(),
                 GroupNorm: GroupNorm.ToOption(),
                 Fill: Fill.ToOption(),
                 FillColor: FillColor.ToOption(),
+                FillPattern: FillPattern.ToOption(),
                 UseWebGL: UseWebGL.ToOption(),
                 UseDefaults: UseDefaults.ToOption()
             );
@@ -132,6 +142,8 @@ namespace Plotly.NET.CSharp
         /// <param name="MarkerSymbol">Sets the marker symbol for each datum</param>
         /// <param name="MultiMarkerSymbol">Sets the marker symbol for each individual datum</param>
         /// <param name="Marker">Sets the marker (use this for more finegrained control than the other marker-associated arguments)</param>
+        /// <param name="AlignmentGroup">Set several traces linked to the same position axis or matching axes to the same alignmentgroup. This controls whether bars compute their positional range dependently or independently.</param>
+        /// <param name="OffsetGroup">Set several traces linked to the same position axis or matching axes to the same offsetgroup where bars of the same position coordinate will line up.</param>
         /// <param name="StackGroup">Set several traces (on the same subplot) to the same stackgroup in order to add their y values (or their x values if `Orientation` is Horizontal). Stacking also turns `fill` on by default and sets the default `mode` to "lines" irrespective of point count. ou can only stack on a numeric (linear or log) axis. Traces in a `stackgroup` will only fill to (or be filled to) other traces in the same group. With multiple `stackgroup`s or some traces stacked and some not, if fill-linked traces are not already consecutive, the later ones will be pushed down in the drawing order</param>
         /// <param name="Orientation">Sets the stacking direction. Only relevant when `stackgroup` is used, and only the first `orientation` found in the `stackgroup` will be used.</param>
         /// <param name="GroupNorm">Sets the normalization for the sum of this `stackgroup. Only relevant when `stackgroup` is used, and only the first `groupnorm` found in the `stackgroup` will be used</param>
@@ -154,6 +166,8 @@ namespace Plotly.NET.CSharp
             Optional<StyleParam.MarkerSymbol> MarkerSymbol = default,
             Optional<IEnumerable<StyleParam.MarkerSymbol>> MultiMarkerSymbol = default,
             Optional<Marker> Marker = default,
+            Optional<string> AlignmentGroup = default,
+            Optional<string> OffsetGroup = default,
             Optional<string> StackGroup = default,
             Optional<StyleParam.Orientation> Orientation = default,
             Optional<StyleParam.GroupNorm> GroupNorm = default,
@@ -181,6 +195,8 @@ namespace Plotly.NET.CSharp
                 MarkerSymbol: MarkerSymbol.ToOption(),
                 MultiMarkerSymbol: MultiMarkerSymbol.ToOption(),
                 Marker: Marker.ToOption(),
+                AlignmentGroup: AlignmentGroup.ToOption(),
+                OffsetGroup: OffsetGroup.ToOption(),
                 StackGroup: StackGroup.ToOption(),
                 Orientation: Orientation.ToOption(),
                 GroupNorm: GroupNorm.ToOption(),
@@ -211,11 +227,14 @@ namespace Plotly.NET.CSharp
         /// <param name="LineWidth">Sets the width of the line</param>
         /// <param name="LineDash">sets the drawing style of the line</param>
         /// <param name="Line">Sets the line (use this for more finegrained control than the other line-associated arguments)</param>
+        /// <param name="AlignmentGroup">Set several traces linked to the same position axis or matching axes to the same alignmentgroup. This controls whether bars compute their positional range dependently or independently.</param>
+        /// <param name="OffsetGroup">Set several traces linked to the same position axis or matching axes to the same offsetgroup where bars of the same position coordinate will line up.</param>
         /// <param name="StackGroup">Set several traces (on the same subplot) to the same stackgroup in order to add their y values (or their x values if `Orientation` is Horizontal). Stacking also turns `fill` on by default and sets the default `mode` to "lines" irrespective of point count. ou can only stack on a numeric (linear or log) axis. Traces in a `stackgroup` will only fill to (or be filled to) other traces in the same group. With multiple `stackgroup`s or some traces stacked and some not, if fill-linked traces are not already consecutive, the later ones will be pushed down in the drawing order</param>
         /// <param name="Orientation">Sets the stacking direction. Only relevant when `stackgroup` is used, and only the first `orientation` found in the `stackgroup` will be used.</param>
         /// <param name="GroupNorm">Sets the normalization for the sum of this `stackgroup. Only relevant when `stackgroup` is used, and only the first `groupnorm` found in the `stackgroup` will be used</param>
         /// <param name="Fill">Sets the area to fill with a solid color. Defaults to "none" unless this trace is stacked, then it gets "tonexty" ("tonextx") if `orientation` is "v" ("h") Use with `FillColor` if not "none". "tozerox" and "tozeroy" fill to x=0 and y=0 respectively. "tonextx" and "tonexty" fill between the endpoints of this trace and the endpoints of the trace before it, connecting those endpoints with straight lines (to make a stacked area graph); if there is no trace before it, they behave like "tozerox" and "tozeroy". "toself" connects the endpoints of the trace (or each segment of the trace if it has gaps) into a closed shape. "tonext" fills the space between two traces if one completely encloses the other (eg consecutive contour lines), and behaves like "toself" if there is no trace before it. "tonext" should not be used if one trace does not enclose the other. Traces in a `stackgroup` will only fill to (or be filled to) other traces in the same group. With multiple `stackgroup`s or some traces stacked and some not, if fill-linked traces are not already consecutive, the later ones will be pushed down in the drawing order.</param>
-        /// <param name="FillColor">ets the fill color. Defaults to a half-transparent variant of the line color, marker color, or marker line color, whichever is available.</param>
+        /// <param name="FillColor">Sets the fill color. Defaults to a half-transparent variant of the line color, marker color, or marker line color, whichever is available.</param>
+        /// <param name="FillPattern">Sets the pattern within the marker.</param>
         /// <param name="UseWebGL">If true, plotly.js will use the WebGL engine to render this chart. use this when you want to render many objects at once.</param>
         /// <param name="UseDefaults">If set to false, ignore the global default settings set in `Defaults`</param>
         public static GenericChart Line<XType, YType, TextType>(
@@ -241,11 +260,14 @@ namespace Plotly.NET.CSharp
             Optional<double> LineWidth = default,
             Optional<StyleParam.DrawingStyle> LineDash = default,
             Optional<Line> Line = default,
+            Optional<string> AlignmentGroup = default,
+            Optional<string> OffsetGroup = default,
             Optional<string> StackGroup = default,
             Optional<StyleParam.Orientation> Orientation = default,
             Optional<StyleParam.GroupNorm> GroupNorm = default,
             Optional<StyleParam.Fill> Fill = default,
             Optional<Color> FillColor = default,
+            Optional<Pattern> FillPattern = default,
             Optional<bool> UseWebGL = default,
             Optional<bool> UseDefaults = default
         )
@@ -276,11 +298,14 @@ namespace Plotly.NET.CSharp
                 LineWidth: LineWidth.ToOption(),
                 LineDash: LineDash.ToOption(),
                 Line: Line.ToOption(),
+                AlignmentGroup: AlignmentGroup.ToOption(),
+                OffsetGroup: OffsetGroup.ToOption(),
                 StackGroup: StackGroup.ToOption(),
                 Orientation: Orientation.ToOption(),
                 GroupNorm: GroupNorm.ToOption(),
                 Fill: Fill.ToOption(),
                 FillColor: FillColor.ToOption(),
+                FillPattern: FillPattern.ToOption(),
                 UseWebGL: UseWebGL.ToOption(),
                 UseDefaults: UseDefaults.ToOption()
             );
@@ -310,11 +335,14 @@ namespace Plotly.NET.CSharp
         /// <param name="LineWidth">Sets the width of the line</param>
         /// <param name="LineDash">sets the drawing style of the line</param>
         /// <param name="Line">Sets the line (use this for more finegrained control than the other line-associated arguments)</param>
+        /// <param name="AlignmentGroup">Set several traces linked to the same position axis or matching axes to the same alignmentgroup. This controls whether bars compute their positional range dependently or independently.</param>
+        /// <param name="OffsetGroup">Set several traces linked to the same position axis or matching axes to the same offsetgroup where bars of the same position coordinate will line up.</param>
         /// <param name="StackGroup">Set several traces (on the same subplot) to the same stackgroup in order to add their y values (or their x values if `Orientation` is Horizontal). Stacking also turns `fill` on by default and sets the default `mode` to "lines" irrespective of point count. ou can only stack on a numeric (linear or log) axis. Traces in a `stackgroup` will only fill to (or be filled to) other traces in the same group. With multiple `stackgroup`s or some traces stacked and some not, if fill-linked traces are not already consecutive, the later ones will be pushed down in the drawing order</param>
         /// <param name="Orientation">Sets the stacking direction. Only relevant when `stackgroup` is used, and only the first `orientation` found in the `stackgroup` will be used.</param>
         /// <param name="GroupNorm">Sets the normalization for the sum of this `stackgroup. Only relevant when `stackgroup` is used, and only the first `groupnorm` found in the `stackgroup` will be used</param>
         /// <param name="Fill">Sets the area to fill with a solid color. Defaults to "none" unless this trace is stacked, then it gets "tonexty" ("tonextx") if `orientation` is "v" ("h") Use with `FillColor` if not "none". "tozerox" and "tozeroy" fill to x=0 and y=0 respectively. "tonextx" and "tonexty" fill between the endpoints of this trace and the endpoints of the trace before it, connecting those endpoints with straight lines (to make a stacked area graph); if there is no trace before it, they behave like "tozerox" and "tozeroy". "toself" connects the endpoints of the trace (or each segment of the trace if it has gaps) into a closed shape. "tonext" fills the space between two traces if one completely encloses the other (eg consecutive contour lines), and behaves like "toself" if there is no trace before it. "tonext" should not be used if one trace does not enclose the other. Traces in a `stackgroup` will only fill to (or be filled to) other traces in the same group. With multiple `stackgroup`s or some traces stacked and some not, if fill-linked traces are not already consecutive, the later ones will be pushed down in the drawing order.</param>
-        /// <param name="FillColor">ets the fill color. Defaults to a half-transparent variant of the line color, marker color, or marker line color, whichever is available.</param>
+        /// <param name="FillColor">Sets the fill color. Defaults to a half-transparent variant of the line color, marker color, or marker line color, whichever is available.</param>
+        /// <param name="FillPattern">Sets the pattern within the marker.</param>
         /// <param name="UseWebGL">If true, plotly.js will use the WebGL engine to render this chart. use this when you want to render many objects at once.</param>
         /// <param name="UseDefaults">If set to false, ignore the global default settings set in `Defaults`</param>
         public static GenericChart Spline<XType, YType, TextType>(
@@ -341,11 +369,14 @@ namespace Plotly.NET.CSharp
             Optional<double> LineWidth = default,
             Optional<StyleParam.DrawingStyle> LineDash = default,
             Optional<Line> Line = default,
+            Optional<string> AlignmentGroup = default,
+            Optional<string> OffsetGroup = default,
             Optional<string> StackGroup = default,
             Optional<StyleParam.Orientation> Orientation = default,
             Optional<StyleParam.GroupNorm> GroupNorm = default,
             Optional<StyleParam.Fill> Fill = default,
             Optional<Color> FillColor = default,
+            Optional<Pattern> FillPattern = default,
             Optional<bool> UseWebGL = default,
             Optional<bool> UseDefaults = default
         )
@@ -377,11 +408,14 @@ namespace Plotly.NET.CSharp
                 LineWidth: LineWidth.ToOption(),
                 LineDash: LineDash.ToOption(),
                 Line: Line.ToOption(),
+                AlignmentGroup: AlignmentGroup.ToOption(),
+                OffsetGroup: OffsetGroup.ToOption(),
                 StackGroup: StackGroup.ToOption(),
                 Orientation: Orientation.ToOption(),
                 GroupNorm: GroupNorm.ToOption(),
                 Fill: Fill.ToOption(),
                 FillColor: FillColor.ToOption(),
+                FillPattern: FillPattern.ToOption(),
                 UseWebGL: UseWebGL.ToOption(),
                 UseDefaults: UseDefaults.ToOption()
             );
@@ -409,6 +443,8 @@ namespace Plotly.NET.CSharp
         /// <param name="LineWidth">Sets the width of the line</param>
         /// <param name="LineDash">sets the drawing style of the line</param>
         /// <param name="Line">Sets the line (use this for more finegrained control than the other line-associated arguments)</param>
+        /// <param name="AlignmentGroup">Set several traces linked to the same position axis or matching axes to the same alignmentgroup. This controls whether bars compute their positional range dependently or independently.</param>
+        /// <param name="OffsetGroup">Set several traces linked to the same position axis or matching axes to the same offsetgroup where bars of the same position coordinate will line up.</param>
         /// <param name="StackGroup">Set several traces (on the same subplot) to the same stackgroup in order to add their y values (or their x values if `Orientation` is Horizontal). Stacking also turns `fill` on by default and sets the default `mode` to "lines" irrespective of point count. ou can only stack on a numeric (linear or log) axis. Traces in a `stackgroup` will only fill to (or be filled to) other traces in the same group. With multiple `stackgroup`s or some traces stacked and some not, if fill-linked traces are not already consecutive, the later ones will be pushed down in the drawing order</param>
         /// <param name="Orientation">Sets the stacking direction. Only relevant when `stackgroup` is used, and only the first `orientation` found in the `stackgroup` will be used.</param>
         /// <param name="GroupNorm">Sets the normalization for the sum of this `stackgroup. Only relevant when `stackgroup` is used, and only the first `groupnorm` found in the `stackgroup` will be used</param>
@@ -437,6 +473,8 @@ namespace Plotly.NET.CSharp
             Optional<double> LineWidth = default,
             Optional<StyleParam.DrawingStyle> LineDash = default,
             Optional<Line> Line = default,
+            Optional<string> AlignmentGroup = default,
+            Optional<string> OffsetGroup = default,
             Optional<string> StackGroup = default,
             Optional<StyleParam.Orientation> Orientation = default,
             Optional<StyleParam.GroupNorm> GroupNorm = default,
@@ -470,12 +508,15 @@ namespace Plotly.NET.CSharp
                 LineWidth: LineWidth.ToOption(),
                 LineDash: LineDash.ToOption(),
                 Line: Line.ToOption(),
+                AlignmentGroup: AlignmentGroup.ToOption(),
+                OffsetGroup: OffsetGroup.ToOption(),
                 StackGroup: StackGroup.ToOption(),
                 Orientation: Orientation.ToOption(),
                 GroupNorm: GroupNorm.ToOption(),
                 UseWebGL: UseWebGL.ToOption(),
                 UseDefaults: UseDefaults.ToOption()
             );
+
         /// <summary>
         /// Displays a range of data by plotting three Y values per data point (upper, mid, lower).
         ///
@@ -506,6 +547,7 @@ namespace Plotly.NET.CSharp
         /// <param name="LineDash">sets the drawing style of the line for the mid Y values.</param>
         /// <param name="Line">Sets the line (use this for more finegrained control than the other line-associated arguments) for the mid Y values.</param>
         /// <param name="RangeColor">Sets the color of the range between upper and lower Y values.</param>
+        /// <param name="RangePattern">Sets the pattern of the range between upper and lower Y values.</param>
         /// <param name="UpperText">Sets a text associated with each datum for the upper Y values.</param>
         /// <param name="MultiUpperText">Sets individual text for each datum for the upper Y values.</param>
         /// <param name="LowerText">Sets a text associated with each datum for the lower Y values.</param>
@@ -547,7 +589,8 @@ namespace Plotly.NET.CSharp
             Optional<Line> Line = default,
             Optional<Line> UpperLine = default, 
             Optional<Line> LowerLine = default, 
-            Optional<Color> RangeColor = default, 
+            Optional<Color> RangeColor = default,
+            Optional<Pattern> RangePattern = default,
             Optional<TextType> UpperText = default, 
             Optional<IEnumerable<TextType>> MultiUpperText = default, 
             Optional<TextType> LowerText = default, 
@@ -591,6 +634,7 @@ namespace Plotly.NET.CSharp
                     UpperLine: UpperLine.ToOption(),
                     LowerLine: LowerLine.ToOption(),
                     RangeColor: RangeColor.ToOption(),
+                    RangePattern: RangePattern.ToOption(),
                     UpperText: UpperText.ToOption(),
                     MultiUpperText: MultiUpperText.ToOption(),
                     LowerText: LowerText.ToOption(),
@@ -666,10 +710,14 @@ namespace Plotly.NET.CSharp
         /// <param name="LineWidth">Sets the width of the line</param>
         /// <param name="LineDash">sets the drawing style of the line</param>
         /// <param name="Line">Sets the line (use this for more finegrained control than the other line-associated arguments)</param>
+        /// <param name="AlignmentGroup">Set several traces linked to the same position axis or matching axes to the same alignmentgroup. This controls whether bars compute their positional range dependently or independently.</param>
+        /// <param name="OffsetGroup">Set several traces linked to the same position axis or matching axes to the same offsetgroup where bars of the same position coordinate will line up.</param>
         /// <param name="StackGroup">Set several traces (on the same subplot) to the same stackgroup in order to add their y values (or their x values if `Orientation` is Horizontal). Stacking also turns `fill` on by default and sets the default `mode` to "lines" irrespective of point count. ou can only stack on a numeric (linear or log) axis. Traces in a `stackgroup` will only fill to (or be filled to) other traces in the same group. With multiple `stackgroup`s or some traces stacked and some not, if fill-linked traces are not already consecutive, the later ones will be pushed down in the drawing order</param>
         /// <param name="Orientation">Sets the stacking direction. Only relevant when `stackgroup` is used, and only the first `orientation` found in the `stackgroup` will be used.</param>
         /// <param name="GroupNorm">Sets the normalization for the sum of this `stackgroup. Only relevant when `stackgroup` is used, and only the first `groupnorm` found in the `stackgroup` will be used</param>
-        /// <param name="FillColor">ets the fill color. Defaults to a half-transparent variant of the line color, marker color, or marker line color, whichever is available.</param>
+        /// <param name="FillColor">Sets the fill color. Defaults to a half-transparent variant of the line color, marker color, or marker line color, whichever is available.</param>
+        /// <param name="FillPatternShape">Sets a pattern shape for the area fill</param>
+        /// <param name="FillPattern">Sets the pattern within the area. (use this for more finegrained control than the other fillpattern-associated arguments).</param>
         /// <param name="UseWebGL">If true, plotly.js will use the WebGL engine to render this chart. use this when you want to render many objects at once.</param>
         /// <param name="UseDefaults">If set to false, ignore the global default settings set in `Defaults`</param>
         public static GenericChart Area<XType, YType, TextType>(
@@ -694,11 +742,15 @@ namespace Plotly.NET.CSharp
             Optional<StyleParam.Colorscale> LineColorScale = default, 
             Optional<double> LineWidth = default, 
             Optional<StyleParam.DrawingStyle> LineDash = default, 
-            Optional<Line> Line = default, 
+            Optional<Line> Line = default,
+            Optional<string> AlignmentGroup = default,
+            Optional<string> OffsetGroup = default,
             Optional<string> StackGroup = default, 
             Optional<StyleParam.Orientation> Orientation = default,
             Optional<StyleParam.GroupNorm> GroupNorm = default, 
-            Optional<Color> FillColor = default, 
+            Optional<Color> FillColor = default,
+            Optional<StyleParam.PatternShape> FillPatternShape = default,
+            Optional<Pattern> FillPattern = default,
             Optional<bool> UseWebGL = default, 
             Optional<bool> UseDefaults = default
         )
@@ -729,10 +781,14 @@ namespace Plotly.NET.CSharp
                     LineWidth: LineWidth.ToOption(),
                     LineDash: LineDash.ToOption(),
                     Line: Line.ToOption(),
+                    AlignmentGroup: AlignmentGroup.ToOption(),
+                    OffsetGroup: OffsetGroup.ToOption(),
                     StackGroup: StackGroup.ToOption(),
                     Orientation: Orientation.ToOption(),
                     GroupNorm: GroupNorm.ToOption(),
                     FillColor: FillColor.ToOption(),
+                    FillPatternShape: FillPatternShape.ToOption(),
+                    FillPattern: FillPattern.ToOption(),
                     UseWebGL: UseWebGL.ToOption(),
                     UseDefaults: UseDefaults.ToOption()
                 );
@@ -761,10 +817,14 @@ namespace Plotly.NET.CSharp
         /// <param name="LineWidth">Sets the width of the line</param>
         /// <param name="LineDash">sets the drawing style of the line</param>
         /// <param name="Line">Sets the line (use this for more finegrained control than the other line-associated arguments)</param>
+        /// <param name="AlignmentGroup">Set several traces linked to the same position axis or matching axes to the same alignmentgroup. This controls whether bars compute their positional range dependently or independently.</param>
+        /// <param name="OffsetGroup">Set several traces linked to the same position axis or matching axes to the same offsetgroup where bars of the same position coordinate will line up.</param>
         /// <param name="StackGroup">Set several traces (on the same subplot) to the same stackgroup in order to add their y values (or their x values if `Orientation` is Horizontal). Stacking also turns `fill` on by default and sets the default `mode` to "lines" irrespective of point count. ou can only stack on a numeric (linear or log) axis. Traces in a `stackgroup` will only fill to (or be filled to) other traces in the same group. With multiple `stackgroup`s or some traces stacked and some not, if fill-linked traces are not already consecutive, the later ones will be pushed down in the drawing order</param>
         /// <param name="Orientation">Sets the stacking direction. Only relevant when `stackgroup` is used, and only the first `orientation` found in the `stackgroup` will be used.</param>
         /// <param name="GroupNorm">Sets the normalization for the sum of this `stackgroup. Only relevant when `stackgroup` is used, and only the first `groupnorm` found in the `stackgroup` will be used</param>
         /// <param name="FillColor">ets the fill color. Defaults to a half-transparent variant of the line color, marker color, or marker line color, whichever is available.</param>
+        /// <param name="FillPatternShape">Sets a pattern shape for the area fill</param>
+        /// <param name="FillPattern">Sets the pattern within the area. (use this for more finegrained control than the other fillpattern-associated arguments).</param>
         /// <param name="UseWebGL">If true, plotly.js will use the WebGL engine to render this chart. use this when you want to render many objects at once.</param>
         /// <param name="UseDefaults">If set to false, ignore the global default settings set in `Defaults`</param>
         public static GenericChart SplineArea<XType, YType, TextType>(
@@ -791,10 +851,14 @@ namespace Plotly.NET.CSharp
             Optional<double> LineWidth = default,
             Optional<StyleParam.DrawingStyle> LineDash = default,
             Optional<Line> Line = default,
+            Optional<string> AlignmentGroup = default,
+            Optional<string> OffsetGroup = default,
             Optional<string> StackGroup = default,
             Optional<StyleParam.Orientation> Orientation = default,
             Optional<StyleParam.GroupNorm> GroupNorm = default,
             Optional<Color> FillColor = default,
+            Optional<StyleParam.PatternShape> FillPatternShape = default,
+            Optional<Pattern> FillPattern = default,
             Optional<bool> UseWebGL = default,
             Optional<bool> UseDefaults = default
         )
@@ -826,10 +890,14 @@ namespace Plotly.NET.CSharp
                     LineWidth: LineWidth.ToOption(),
                     LineDash: LineDash.ToOption(),
                     Line: Line.ToOption(),
+                    AlignmentGroup: AlignmentGroup.ToOption(),
+                    OffsetGroup: OffsetGroup.ToOption(),
                     StackGroup: StackGroup.ToOption(),
                     Orientation: Orientation.ToOption(),
                     GroupNorm: GroupNorm.ToOption(),
                     FillColor: FillColor.ToOption(),
+                    FillPatternShape: FillPatternShape.ToOption(),
+                    FillPattern: FillPattern.ToOption(),
                     UseWebGL: UseWebGL.ToOption(),
                     UseDefaults: UseDefaults.ToOption()
                 );
@@ -860,6 +928,8 @@ namespace Plotly.NET.CSharp
         /// <param name="Orientation">Sets the stacking direction. Only relevant when `stackgroup` is used, and only the first `orientation` found in the `stackgroup` will be used.</param>
         /// <param name="GroupNorm">Sets the normalization for the sum of this `stackgroup. Only relevant when `stackgroup` is used, and only the first `groupnorm` found in the `stackgroup` will be used</param>
         /// <param name="FillColor">ets the fill color. Defaults to a half-transparent variant of the line color, marker color, or marker line color, whichever is available.</param>
+        /// <param name="FillPatternShape">Sets a pattern shape for the area fill</param>
+        /// <param name="FillPattern">Sets the pattern within the area. (use this for more finegrained control than the other fillpattern-associated arguments).</param>
         /// <param name="UseWebGL">If true, plotly.js will use the WebGL engine to render this chart. use this when you want to render many objects at once.</param>
         /// <param name="UseDefaults">If set to false, ignore the global default settings set in `Defaults`</param>
         public static GenericChart StackedArea<XType, YType, TextType>(
@@ -888,6 +958,8 @@ namespace Plotly.NET.CSharp
             Optional<StyleParam.Orientation> Orientation = default,
             Optional<StyleParam.GroupNorm> GroupNorm = default,
             Optional<Color> FillColor = default,
+            Optional<StyleParam.PatternShape> FillPatternShape = default,
+            Optional<Pattern> FillPattern = default,
             Optional<bool> UseWebGL = default,
             Optional<bool> UseDefaults = default
         )
@@ -921,6 +993,8 @@ namespace Plotly.NET.CSharp
                     Orientation: Orientation.ToOption(),
                     GroupNorm: GroupNorm.ToOption(),
                     FillColor: FillColor.ToOption(),
+                    FillPatternShape: FillPatternShape.ToOption(),
+                    FillPattern: FillPattern.ToOption(),
                     UseWebGL: UseWebGL.ToOption(),
                     UseDefaults: UseDefaults.ToOption()
                 );
@@ -1206,6 +1280,7 @@ namespace Plotly.NET.CSharp
         /// </summary>
         /// <param name="values">Sets the values that are plotted as the size of each bar.</param>
         /// <param name="Keys">Sets the keys associated with each bar.</param>
+        /// <param name="MultiKeys">Sets the keys associated with each bar. Use two inner arrays here to plot multicategorial data</param>
         /// <param name="Name">Sets the trace name. The trace name appear as the legend item and on hover</param>
         /// <param name="ShowLegend">Determines whether or not an item corresponding to this trace is shown in the legend.</param>
         /// <param name="Opacity">Sets the Opacity of the trace.</param>
@@ -1228,6 +1303,7 @@ namespace Plotly.NET.CSharp
         public static GenericChart Bar<ValuesType, KeysType, TextType>(
             IEnumerable<ValuesType> values,
             Optional<IEnumerable<KeysType>> Keys = default, 
+            Optional<IEnumerable<IEnumerable<KeysType>>> MultiKeys = default,
             Optional<string> Name = default, 
             Optional<bool> ShowLegend = default, 
             Optional<double> Opacity = default, 
@@ -1255,6 +1331,7 @@ namespace Plotly.NET.CSharp
                 Plotly.NET.Chart2D.Chart.Bar<ValuesType, KeysType, TextType, ValuesType, ValuesType>(
                     values: values,
                     Keys: Keys.ToOption(),
+                    MultiKeys: MultiKeys.ToOption(),
                     Name: Name.ToOption(),
                     ShowLegend: ShowLegend.ToOption(),
                     Opacity: Opacity.ToOption(),
@@ -1284,6 +1361,7 @@ namespace Plotly.NET.CSharp
         /// </summary>
         /// <param name="values">Sets the values that are plotted as the size of each bar.</param>
         /// <param name="Keys">Sets the keys associated with each bar.</param>
+        /// <param name="MultiKeys">Sets the keys associated with each bar. Use two inner arrays here to plot multicategorial data</param>
         /// <param name="Name">Sets the trace name. The trace name appear as the legend item and on hover</param>
         /// <param name="ShowLegend">Determines whether or not an item corresponding to this trace is shown in the legend.</param>
         /// <param name="Opacity">Sets the Opacity of the trace.</param>
@@ -1306,6 +1384,7 @@ namespace Plotly.NET.CSharp
         public static GenericChart StackedBar<ValuesType, KeysType, TextType>(
             IEnumerable<ValuesType> values,
             Optional<IEnumerable<KeysType>> Keys = default,
+            Optional<IEnumerable<IEnumerable<KeysType>>> MultiKeys = default,
             Optional<string> Name = default,
             Optional<bool> ShowLegend = default,
             Optional<double> Opacity = default,
@@ -1333,6 +1412,7 @@ namespace Plotly.NET.CSharp
                 Plotly.NET.Chart2D.Chart.StackedBar<ValuesType, KeysType, TextType, ValuesType, ValuesType>(
                     values: values,
                     Keys: Keys.ToOption(),
+                    MultiKeys: MultiKeys.ToOption(),
                     Name: Name.ToOption(),
                     ShowLegend: ShowLegend.ToOption(),
                     Opacity: Opacity.ToOption(),
@@ -1361,6 +1441,7 @@ namespace Plotly.NET.CSharp
         /// </summary>
         /// <param name="values">Sets the values that are plotted as the size of each bar.</param>
         /// <param name="Keys">Sets the keys associated with each bar.</param>
+        /// <param name="MultiKeys">Sets the keys associated with each bar. Use two inner arrays here to plot multicategorial data</param>
         /// <param name="Name">Sets the trace name. The trace name appear as the legend item and on hover</param>
         /// <param name="ShowLegend">Determines whether or not an item corresponding to this trace is shown in the legend.</param>
         /// <param name="Opacity">Sets the Opacity of the trace.</param>
@@ -1383,6 +1464,7 @@ namespace Plotly.NET.CSharp
         public static GenericChart Column<ValuesType, KeysType, TextType>(
             IEnumerable<ValuesType> values,
             Optional<IEnumerable<KeysType>> Keys = default,
+            Optional<IEnumerable<IEnumerable<KeysType>>> MultiKeys = default,
             Optional<string> Name = default,
             Optional<bool> ShowLegend = default,
             Optional<double> Opacity = default,
@@ -1410,6 +1492,7 @@ namespace Plotly.NET.CSharp
                 Plotly.NET.Chart2D.Chart.Column<ValuesType, KeysType, TextType, ValuesType, ValuesType>(
                     values: values,
                     Keys: Keys.ToOption(),
+                    MultiKeys: MultiKeys.ToOption(),
                     Name: Name.ToOption(),
                     ShowLegend: ShowLegend.ToOption(),
                     Opacity: Opacity.ToOption(),
@@ -1431,7 +1514,6 @@ namespace Plotly.NET.CSharp
                     UseDefaults: UseDefaults.ToOption()
                 );
 
-
         /// <summary>
         /// Creates a stacked column chart, with bars plotted vertically. Values with the same key are stacked on top of each other in the Y dimension.
         /// To create this type of chart, combine multiple of these charts via `Chart.combine`.
@@ -1440,6 +1522,7 @@ namespace Plotly.NET.CSharp
         /// </summary>
         /// <param name="values">Sets the values that are plotted as the size of each bar.</param>
         /// <param name="Keys">Sets the keys associated with each bar.</param>
+        /// <param name="MultiKeys">Sets the keys associated with each bar. Use two inner arrays here to plot multicategorial data</param>
         /// <param name="Name">Sets the trace name. The trace name appear as the legend item and on hover</param>
         /// <param name="ShowLegend">Determines whether or not an item corresponding to this trace is shown in the legend.</param>
         /// <param name="Opacity">Sets the Opacity of the trace.</param>
@@ -1461,7 +1544,8 @@ namespace Plotly.NET.CSharp
         /// <param name="UseDefaults">If set to false, ignore the global default settings set in `Defaults`</param>
         public static GenericChart StackedColumn<ValuesType, KeysType, TextType>(
             IEnumerable<ValuesType> values,
-            Optional<IEnumerable<KeysType>> Keys = default,
+            Optional<IEnumerable<KeysType>> Keys = default, 
+            Optional<IEnumerable<IEnumerable<KeysType>>> MultiKeys = default,
             Optional<string> Name = default,
             Optional<bool> ShowLegend = default,
             Optional<double> Opacity = default,
@@ -1489,6 +1573,7 @@ namespace Plotly.NET.CSharp
                 Plotly.NET.Chart2D.Chart.StackedColumn<ValuesType, KeysType, TextType, ValuesType, ValuesType>(
                     values: values,
                     Keys: Keys.ToOption(),
+                    MultiKeys: MultiKeys.ToOption(),
                     Name: Name.ToOption(),
                     ShowLegend: ShowLegend.ToOption(),
                     Opacity: Opacity.ToOption(),
@@ -1519,13 +1604,16 @@ namespace Plotly.NET.CSharp
         /// The sample data from which statistics are computed is set in `x` for vertically spanning histograms and in `y` for horizontally spanning histograms. Binning options are set `xbins` and `ybins` respectively if no aggregation data is provided.
         /// </summary>
         /// <param name="X">Sets the sample data to be binned on the x axis.</param>
+        /// <param name="MultiX">Sets the sample data to be binned on the x axis. Use two inner arrays here to plot multicategorial data</param>
         /// <param name="Y">Sets the sample data to be binned on the y axis.</param>
+        /// <param name="MultiY">Sets the sample data to be binned on the y axis. Use two inner arrays here to plot multicategorial data</param>
         /// <param name="Orientation">Sets the orientation of the bars. With "v" ("h"), the value of the each bar spans along the vertical (horizontal).</param>
         /// <param name="Name">Sets the trace name. The trace name appear as the legend item and on hover</param>
         /// <param name="ShowLegend">Determines whether or not an item corresponding to this trace is shown in the legend.</param>
         /// <param name="Opacity">Sets the Opacity of the trace.</param>
         /// <param name="Text">Sets a text associated with each datum</param>
         /// <param name="MultiText">Sets individual text for each datum</param>
+        /// <param name="TextPosition">Sets the position of text associated with each datum</param>
         /// <param name="HistFunc">Specifies the binning function used for this histogram trace. If "count", the histogram values are computed by counting the number of values lying inside each bin. If "sum", "avg", "min", "max", the histogram values are computed using the sum, the average, the minimum or the maximum of the values lying inside each bin respectively.</param>
         /// <param name="HistNorm">Specifies the type of normalization used for this histogram trace. If "", the span of each bar corresponds to the number of occurrences (i.e. the number of data points lying inside the bins). If "percent" / "probability", the span of each bar corresponds to the percentage / fraction of occurrences with respect to the total number of sample points (here, the sum of all bin HEIGHTS equals 100% / 1). If "density", the span of each bar corresponds to the number of occurrences in a bin divided by the size of the bin interval (here, the sum of all bin AREAS equals the total number of sample points). If "probability density", the area of each bar corresponds to the probability that an event will fall into the corresponding bin (here, the sum of all bin AREAS equals 1).</param>
         /// <param name="AlignmentGroup">Set several traces linked to the same position axis or matching axes to the same alignmentgroup. This controls whether bars compute their positional range dependently or independently.</param>
@@ -1535,8 +1623,13 @@ namespace Plotly.NET.CSharp
         /// <param name="BinGroup">Set a group of histogram traces which will have compatible bin settings. Note that traces on the same subplot and with the same "orientation" under `barmode` "stack", "relative" and "group" are forced into the same bingroup, Using `bingroup`, traces under `barmode` "overlay" and on different axes (of the same axis type) can have compatible bin settings. Note that histogram and histogram2d" trace can share the same `bingroup`</param>
         /// <param name="XBins">Sets the binning across the x dimension</param>
         /// <param name="YBins">Sets the binning across the y dimension</param>
-        /// <param name="MarkerColor">Sets the color of the histogram's bars.</param>
-        /// <param name="Marker">Sets the marker for the histogram's bars (use this for more finegrained control than the other marker-associated arguments).</param>
+        /// <param name="MarkerColor">Sets the color of the bars</param>
+        /// <param name="MarkerColorScale">Sets the colorscale for the bars. To have an effect, `MarkerColor` must map to color scale values.</param>
+        /// <param name="MarkerOutline">Sets the color of the bar outlines</param>
+        /// <param name="MarkerPatternShape">Sets a pattern shape for all bars</param>
+        /// <param name="MultiMarkerPatternShape">Sets an individual pattern shape for each bar</param>
+        /// <param name="MarkerPattern">Sets the marker pattern (use this for more finegrained control than the other pattern-associated arguments).</param>
+        /// <param name="Marker">Sets the marker of this trace.</param>
         /// <param name="Line">Sets the outline of the histogram's bars.</param>
         /// <param name="XError">Sets the x error of this trace.</param>
         /// <param name="YError">Sets the y error of this trace.</param>
@@ -1545,13 +1638,16 @@ namespace Plotly.NET.CSharp
         /// <param name="UseDefaults">If set to false, ignore the global default settings set in `Defaults`</param>
         public static GenericChart Histogram<XType, YType, TextType>(
             Optional<IEnumerable<XType>> X = default,
+            Optional<IEnumerable<IEnumerable<XType>>> MultiX = default,
             Optional<IEnumerable<YType>> Y = default,
+            Optional<IEnumerable<IEnumerable<YType>>> MultiY = default,
             Optional<StyleParam.Orientation> Orientation = default,
             Optional<string> Name = default,
             Optional<bool> ShowLegend = default,
             Optional<double> Opacity = default,
             Optional<TextType> Text = default,
             Optional<IEnumerable<TextType>> MultiText = default,
+            Optional<StyleParam.TextPosition> TextPosition = default,
             Optional<StyleParam.HistFunc> HistFunc = default,
             Optional<StyleParam.HistNorm> HistNorm = default,
             Optional<string> AlignmentGroup = default,
@@ -1562,6 +1658,11 @@ namespace Plotly.NET.CSharp
             Optional<Bins> XBins = default,
             Optional<Bins> YBins = default,
             Optional<Color> MarkerColor = default,
+            Optional<StyleParam.Colorscale> MarkerColorScale = default,
+            Optional<Line> MarkerOutline = default,
+            Optional<StyleParam.PatternShape> MarkerPatternShape = default,
+            Optional<IEnumerable<PatternShape>> MultiMarkerPatternShape = default,
+            Optional<Pattern> MarkerPattern = default,
             Optional<Marker> Marker = default,
             Optional<Line> Line = default,
             Optional<Error> XError = default,
@@ -1576,13 +1677,16 @@ namespace Plotly.NET.CSharp
             =>
                 Plotly.NET.Chart2D.Chart.Histogram<XType, YType, TextType>(
                     X: X.ToOption(),
+                    MultiX: MultiX.ToOption(),
                     Y: Y.ToOption(),
+                    MultiY: MultiY.ToOption(),
                     Orientation: Orientation.ToOption(),
                     Name: Name.ToOption(),
                     ShowLegend: ShowLegend.ToOption(),
                     Opacity: Opacity.ToOption(),
                     Text: Text.ToOption(),
                     MultiText: MultiText.ToOption(),
+                    TextPosition: TextPosition.ToOption(),
                     HistFunc: HistFunc.ToOption(),
                     HistNorm: HistNorm.ToOption(),
                     AlignmentGroup: AlignmentGroup.ToOption(),
@@ -1593,6 +1697,11 @@ namespace Plotly.NET.CSharp
                     XBins: XBins.ToOption(),
                     YBins: YBins.ToOption(),
                     MarkerColor: MarkerColor.ToOption(),
+                    MarkerColorScale: MarkerColorScale.ToOption(),
+                    MarkerOutline: MarkerOutline.ToOption(),
+                    MarkerPatternShape: MarkerPatternShape.ToOption(),
+                    MultiMarkerPatternShape: MultiMarkerPatternShape.ToOption(),
+                    MarkerPattern: MarkerPattern.ToOption(),
                     Marker: Marker.ToOption(),
                     Line: Line.ToOption(),
                     XError: XError.ToOption(),
@@ -1685,7 +1794,9 @@ namespace Plotly.NET.CSharp
         /// The sample data from which statistics are computed is set in `x` for vertically spanning boxes and in `y` for horizontally spanning boxes.
         /// </summary>
         /// <param name="X">Sets the x sample data or coordinates</param>
+        /// <param name="MultiX">Sets the x sample data or coordinates. Use two inner arrays here to plot multicategorial data</param>
         /// <param name="Y">Sets the y sample data or coordinates</param>
+        /// <param name="MultiY">Sets the y sample data or coordinates. Use two inner arrays here to plot multicategorial data</param>
         /// <param name="Name">Sets the trace name. The trace name appear as the legend item and on hover.</param>
         /// <param name="ShowLegend">Determines whether or not an item corresponding to this trace is shown in the legend.</param>
         /// <param name="Text">Sets a text associated with each datum</param>
@@ -1707,10 +1818,13 @@ namespace Plotly.NET.CSharp
         /// <param name="Notched">Determines whether or not notches are drawn. Notches displays a confidence interval around the median. We compute the confidence interval as median +/- 1.57 " IQR / sqrt(N), where IQR is the interquartile range and N is the sample size. If two boxes' notches do not overlap there is 95% confidence their medians differ. See https://sites.google.com/site/davidsstatistics/home/notched-box-plots for more info. Defaults to "false" unless `notchwidth` or `notchspan` is set.</param>
         /// <param name="NotchWidth">Sets the width of the notches relative to the box' width. For example, with 0, the notches are as wide as the box(es).</param>
         /// <param name="QuartileMethod">Sets the method used to compute the sample's Q1 and Q3 quartiles. The "linear" method uses the 25th percentile for Q1 and 75th percentile for Q3 as computed using method #10 (listed on http://www.amstat.org/publications/jse/v14n3/langford.html). The "exclusive" method uses the median to divide the ordered dataset into two halves if the sample is odd, it does not include the median in either half - Q1 is then the median of the lower half and Q3 the median of the upper half. The "inclusive" method also uses the median to divide the ordered dataset into two halves but if the sample is odd, it includes the median in both halves - Q1 is then the median of the lower half and Q3 the median of the upper half.</param>
+        /// <param name="SizeMode">Sets the upper and lower bound for the boxes quartiles means box is drawn between Q1 and Q3 SD means the box is drawn between Mean +- Standard Deviation Argument sdmultiple (default 1) to scale the box size So it could be drawn 1-stddev, 3-stddev etc</param>
         /// <param name="UseDefaults">If set to false, ignore the global default settings set in `Defaults`</param>
         public static GenericChart BoxPlot<XType, YType, TextType>(
-            Optional<IEnumerable<XType>> X = default, 
-            Optional<IEnumerable<YType>> Y = default, 
+            Optional<IEnumerable<XType>> X = default,
+            Optional<IEnumerable<IEnumerable<XType>>> MultiX = default,
+            Optional<IEnumerable<YType>> Y = default,
+            Optional<IEnumerable<IEnumerable<YType>>> MultiY = default,
             Optional<string> Name = default, 
             Optional<bool> ShowLegend = default, 
             Optional<TextType> Text = default, 
@@ -1732,7 +1846,8 @@ namespace Plotly.NET.CSharp
             Optional<string> OffsetGroup = default, 
             Optional<bool> Notched = default, 
             Optional<double> NotchWidth = default, 
-            Optional<StyleParam.QuartileMethod> QuartileMethod = default, 
+            Optional<StyleParam.QuartileMethod> QuartileMethod = default,
+            Optional<StyleParam.BoxSizeMode> SizeMode = default,
             Optional<bool> UseDefaults = default
         )
             where XType : IConvertible
@@ -1741,7 +1856,9 @@ namespace Plotly.NET.CSharp
             =>
                 Plotly.NET.Chart2D.Chart.BoxPlot<XType, YType, TextType>(
                     X: X.ToOption(),
+                    MultiX: MultiX.ToOption(),
                     Y: Y.ToOption(),
+                    MultiY: MultiY.ToOption(),
                     Name: Name.ToOption(),
                     ShowLegend: ShowLegend.ToOption(),
                     Text: Text.ToOption(),
@@ -1764,6 +1881,7 @@ namespace Plotly.NET.CSharp
                     Notched: Notched.ToOption(),
                     NotchWidth: NotchWidth.ToOption(),
                     QuartileMethod: QuartileMethod.ToOption(),
+                    SizeMode: SizeMode.ToOption(),
                     UseDefaults: UseDefaults.ToOption()
                 );
 
@@ -1774,8 +1892,10 @@ namespace Plotly.NET.CSharp
         ///
         /// In vertical (horizontal) violin plots, statistics are computed using `y` (`x`) values. By supplying an `x` (`y`) array, one violin per distinct x (y) value is drawn If no `x` (`y`) array is provided, a single violin is drawn. That violin position is then positioned with with `name` or with `x0` (`y0`) if provided.
         /// </summary>
-        /// <param name="X">Sets the x sample data or coordinates.</param>
-        /// <param name="Y">Sets the y sample data or coordinates.</param>
+        /// <param name="X">Sets the x sample data or coordinates</param>
+        /// <param name="MultiX">Sets the x sample data or coordinates. Use two inner arrays here to plot multicategorial data</param>
+        /// <param name="Y">Sets the y sample data or coordinates</param>
+        /// <param name="MultiY">Sets the y sample data or coordinates. Use two inner arrays here to plot multicategorial data</param>
         /// <param name="Name">Sets the trace name. The trace name appear as the legend item and on hover.</param>
         /// <param name="ShowLegend">Determines whether or not an item corresponding to this trace is shown in the legend.</param>
         /// <param name="Text">Sets a text associated with each datum</param>
@@ -1808,7 +1928,9 @@ namespace Plotly.NET.CSharp
         /// <param name="UseDefaults">If set to false, ignore the global default settings set in `Defaults`</param>
         public static GenericChart Violin<XType, YType, TextType>(
             Optional<IEnumerable<XType>> X = default,
+            Optional<IEnumerable<IEnumerable<XType>>> MultiX = default,
             Optional<IEnumerable<YType>> Y = default,
+            Optional<IEnumerable<IEnumerable<YType>>> MultiY = default,
             Optional<string> Name = default,
             Optional<bool> ShowLegend = default,
             Optional<TextType> Text = default,
@@ -1846,7 +1968,9 @@ namespace Plotly.NET.CSharp
             =>
                 Plotly.NET.Chart2D.Chart.Violin<XType, YType, TextType>(
                     X: X.ToOption(),
+                    MultiX: MultiX.ToOption(),
                     Y: Y.ToOption(),
+                    MultiY: MultiY.ToOption(),
                     Name: Name.ToOption(),
                     ShowLegend: ShowLegend.ToOption(),
                     Text: Text.ToOption(),
@@ -1884,8 +2008,10 @@ namespace Plotly.NET.CSharp
         ///
         /// The sample data from which statistics are computed is set in `x` and `y` (where `x` and `y` represent marginal distributions, binning is set in `xbins` and `ybins` in this case) or `z` (where `z` represent the 2D distribution and binning set, binning is set by `x` and `y` in this case). The resulting distribution is visualized as a contour plot.
         /// </summary>
-        /// <param name="x">Sets the sample data to be binned on the x axis.</param>
-        /// <param name="y">Sets the sample data to be binned on the y axis.</param>
+        /// <param name="X">Sets the sample data to be binned on the x axis.</param>
+        /// <param name="MultiX">Sets the sample data to be binned on the x axis. Use two inner arrays here to plot multicategorial data</param>
+        /// <param name="Y">Sets the sample data to be binned on the y axis.</param>
+        /// <param name="MultiY">Sets the sample data to be binned on the y axis. Use two inner arrays here to plot multicategorial data</param>
         /// <param name="Name">Sets the trace name. The trace name appear as the legend item and on hover.</param>
         /// <param name="ShowLegend">Determines whether or not an item corresponding to this trace is shown in the legend.</param>
         /// <param name="Opacity">Sets the Opacity otf the trace.</param>
@@ -1900,20 +2026,31 @@ namespace Plotly.NET.CSharp
         /// <param name="YBinGroup">Set a group of histogram traces which will have compatible y-bin settings. Using `ybingroup`, histogram2d and histogram2dcontour traces (on axes of the same axis type) can have compatible y-bin settings. Note that the same `ybingroup` value can be used to set (1D) histogram `bingroup`</param>
         /// <param name="YBins">Sets the binning across the y dimension</param>
         /// <param name="Marker">Sets the marker of this trace.</param>
-        /// <param name="ContourLineDash">Sets the contour line dash style</param>
-        /// <param name="ContourLineColor">Sets the contour line color</param>
-        /// <param name="ContourLineSmoothing">Sets the amount of smoothing for the contour lines, where "0" corresponds to no smoothing.</param>
-        /// <param name="ContourLine">Sets the contour lines (use this for more finegrained control than the other contourline-associated arguments).</param>
+        /// <param name="ContourLinesDash">Sets the contour line dash style</param>
+        /// <param name="ContourLinesColor">Sets the contour line color</param>
+        /// <param name="ContourLinesSmoothing">Sets the amount of smoothing for the contour lines, where "0" corresponds to no smoothing.</param>
+        /// <param name="ContourLinesWidth">Sets the width of the contour lines</param>
+        /// <param name="ContourLines">Sets the contour lines (use this for more finegrained control than the other contourline-associated arguments).</param>
+        /// <param name="ShowContourLines">Wether or not to show the contour line</param>
+        /// <param name="ContoursColoring">Determines the coloring method showing the contour values. If "fill", coloring is done evenly between each contour level If "heatmap", a heatmap gradient coloring is applied between each contour level. If "lines", coloring is done on the contour lines. If "none", no coloring is applied on this trace.</param>
+        /// <param name="ContoursOperation">Sets the constraint operation. "=" keeps regions equal to `value` "&lt;" and "&lt;=" keep regions less than `value` "&gt;" and "&gt;=" keep regions greater than `value` "[]", "()", "[)", and "(]" keep regions inside `value[0]` to `value[1]` "][", ")(", "](", ")[" keep regions outside `value[0]` to value[1]` Open vs. closed intervals make no difference to constraint display, but all versions are allowed for consistency with filter transforms.</param>
+        /// <param name="ContoursType">If `levels`, the data is represented as a contour plot with multiple levels displayed. If `constraint`, the data is represented as constraints with the invalid region shaded as specified by the `operation` and `value` parameters.</param>
+        /// <param name="ShowContoursLabels">Determines whether to label the contour lines with their values.</param>
+        /// <param name="ContourLabelFont">Sets the font used for labeling the contour levels. The default color comes from the lines, if shown. The default family and size come from `layout.font`.</param>
+        /// <param name="ContoursStart">Sets the starting contour level value. Must be less than `contours.end`</param>
+        /// <param name="ContoursEnd">Sets the end contour level value. Must be more than `contours.start`</param>
+        /// <param name="Contours">Sets the styles of the contours (use this for more finegrained control than the other contour-associated arguments).</param>
         /// <param name="ColorBar">Sets the styles of the colorbar for this trace.</param>
         /// <param name="ColorScale">Sets the colorscale for this trace.</param>
         /// <param name="ShowScale">Whether or not to show the colorscale/colorbar</param>
         /// <param name="ReverseScale">Reverses the color mapping if true. If true, `zmin` will correspond to the last color in the array and `zmax` will correspond to the first color.</param>
-        /// <param name="Contours">Sets the style of the contours</param>
         /// <param name="NContours">Sets the maximum number of contour levels. The actual number of contours will be chosen automatically to be less than or equal to the value of `ncontours`. Has an effect only if `autocontour` is "true" or if `contours.size` is missing.</param>
         /// <param name="UseDefaults">If set to false, ignore the global default settings set in `Defaults`</param>
         public static GenericChart Histogram2DContour<XType, YType, ZType>(
-            IEnumerable<XType> x,
-            IEnumerable<YType> y,
+            Optional<IEnumerable<XType>> X,
+            Optional<IEnumerable<IEnumerable<XType>>> MultiX,
+            Optional<IEnumerable<YType>> Y,
+            Optional<IEnumerable<IEnumerable<YType>>> MultiY,
             Optional<string> Name = default,
             Optional<bool> ShowLegend = default,
             Optional<double> Opacity = default,
@@ -1928,15 +2065,24 @@ namespace Plotly.NET.CSharp
             Optional<string> YBinGroup = default,
             Optional<Bins> YBins = default,
             Optional<Marker> Marker = default,
-            Optional<Color> ContourLineColor = default,
-            Optional<StyleParam.DrawingStyle> ContourLineDash = default,
-            Optional<double> ContourLineSmoothing = default,
-            Optional<Line> ContourLine = default,
+            Optional<StyleParam.DrawingStyle> ContourLinesDash = default,
+            Optional<Color> ContourLinesColor = default,
+            Optional<double> ContourLinesSmoothing = default,
+            Optional<double> ContourLinesWidth = default,
+            Optional<Line> ContourLines = default,
+            Optional<bool> ShowContourLines = default,
+            Optional<StyleParam.ContourColoring> ContoursColoring = default,
+            Optional<StyleParam.ConstraintOperation> ContoursOperation = default,
+            Optional<StyleParam.ContourType> ContoursType = default,
+            Optional<bool> ShowContoursLabels = default,
+            Optional<Font> ContourLabelFont = default,
+            Optional<double> ContoursStart = default,
+            Optional<double> ContoursEnd = default,
+            Optional<Contours> Contours = default,
             Optional<ColorBar> ColorBar = default,
             Optional<StyleParam.Colorscale> ColorScale = default,
             Optional<bool> ShowScale = default,
             Optional<bool> ReverseScale = default,
-            Optional<Contours> Contours = default,
             Optional<int> NContours = default,
             Optional<bool> UseDefaults = default
         )
@@ -1945,8 +2091,10 @@ namespace Plotly.NET.CSharp
             where ZType : IConvertible
             =>
                 Plotly.NET.Chart2D.Chart.Histogram2DContour<XType, YType, IEnumerable<ZType>, ZType>(
-                    x: x,
-                    y: y,
+                    X: X.ToOption(),
+                    MultiX: MultiX.ToOption(),
+                    Y: Y.ToOption(),
+                    MultiY: MultiY.ToOption(),
                     Name: Name.ToOption(),
                     ShowLegend: ShowLegend.ToOption(),
                     Opacity: Opacity.ToOption(),
@@ -1961,15 +2109,24 @@ namespace Plotly.NET.CSharp
                     YBinGroup: YBinGroup.ToOption(),
                     YBins: YBins.ToOption(),
                     Marker: Marker.ToOption(),
-                    ContourLinesColor: ContourLineColor.ToOption(),
-                    ContourLinesDash: ContourLineDash.ToOption(),
-                    ContourLinesSmoothing: ContourLineSmoothing.ToOption(),
-                    ContourLines: ContourLine.ToOption(),
+                    ContourLinesDash: ContourLinesDash.ToOption(),
+                    ContourLinesColor: ContourLinesColor.ToOption(),
+                    ContourLinesSmoothing: ContourLinesSmoothing.ToOption(),
+                    ContourLinesWidth: ContourLinesWidth.ToOption(),
+                    ContourLines: ContourLines.ToOption(),
+                    ShowContourLines: ShowContourLines.ToOption(),
+                    ContoursColoring: ContoursColoring.ToOption(),
+                    ContoursOperation: ContoursOperation.ToOption(),
+                    ContoursType: ContoursType.ToOption(),
+                    ShowContoursLabels: ShowContoursLabels.ToOption(),
+                    ContoursLabelFont: ContourLabelFont.ToOption(),
+                    ContoursStart: ContoursStart.ToOption(),
+                    ContoursEnd: ContoursEnd.ToOption(),
+                    Contours: Contours.ToOption(),
                     ColorBar: ColorBar.ToOption(),
                     ColorScale: ColorScale.ToOption(),
                     ShowScale: ShowScale.ToOption(),
                     ReverseScale: ReverseScale.ToOption(),
-                    Contours: Contours.ToOption(),
                     NContours: NContours.ToOption(),
                     UseDefaults: UseDefaults.ToOption()
                 );
@@ -1980,12 +2137,14 @@ namespace Plotly.NET.CSharp
         /// A heatmap is a data visualization technique that shows magnitude of a phenomenon as color in two dimensions.
         /// </summary>
         /// <param name="zData">Sets the 2-dimensional z data, which will be visualized with the color scale.</param>
+        /// <param name="X">Sets the x coordinates</param>
+        /// <param name="MultiX">Sets the x coordinates. Use two inner arrays here to plot multicategorial data</param>
+        /// <param name="Y">Sets the y coordinates</param>
+        /// <param name="MultiY">Sets the y coordinates. Use two inner arrays here to plot multicategorial data</param>
         /// <param name="Name">Sets the trace name. The trace name appear as the legend item and on hover.</param>
         /// <param name="ShowLegend">Determines whether or not an item corresponding to this trace is shown in the legend.</param>
         /// <param name="Opacity">Sets the Opacity otf the trace.</param>
-        /// <param name="X">Sets the x coordinates.</param>
         /// <param name="XGap">Sets the horizontal gap (in pixels) between bricks.</param>
-        /// <param name="Y">Sets the y coordinates.</param>
         /// <param name="YGap">Sets the vertical gap (in pixels) between bricks.</param>
         /// <param name="Text">Sets a text associated with each datum</param>
         /// <param name="MultiText">Sets individual text for each datum</param>
@@ -2000,12 +2159,14 @@ namespace Plotly.NET.CSharp
         /// <param name="UseDefaults">If set to false, ignore the global default settings set in `Defaults`</param>
         public static GenericChart Heatmap<ZType, XType, YType, TextType>(
             IEnumerable<IEnumerable<ZType>> zData, 
+            Optional<IEnumerable<XType>> X = default,
+            Optional<IEnumerable<IEnumerable<XType>>> MultiX = default,
+            Optional<IEnumerable<YType>> Y = default,
+            Optional<IEnumerable<IEnumerable<YType>>> MultiY = default,
             Optional<string> Name = default, 
             Optional<bool> ShowLegend = default, 
             Optional<double> Opacity = default, 
-            Optional<IEnumerable<XType>> X = default, 
             Optional<int> XGap = default, 
-            Optional<IEnumerable<YType>> Y = default, 
             Optional<int> YGap = default, 
             Optional<TextType> Text = default, 
             Optional<IEnumerable<TextType>> MultiText = default, 
@@ -2026,12 +2187,14 @@ namespace Plotly.NET.CSharp
             =>
                 Plotly.NET.Chart2D.Chart.Heatmap<IEnumerable<ZType>, ZType, XType, YType, TextType>(
                     zData: zData,
+                    X: X.ToOption(),
+                    MultiX: MultiX.ToOption(),
+                    Y: Y.ToOption(),
+                    MultiY: MultiY.ToOption(),
                     Name: Name.ToOption(),
                     ShowLegend: ShowLegend.ToOption(),
                     Opacity: Opacity.ToOption(),
-                    X: X.ToOption(),
                     XGap: XGap.ToOption(),
-                    Y: Y.ToOption(),
                     YGap: YGap.ToOption(),
                     Text: Text.ToOption(),
                     MultiText: MultiText.ToOption(),
@@ -2059,8 +2222,10 @@ namespace Plotly.NET.CSharp
         /// <param name="ShowLegend">Determines whether or not an item corresponding to this trace is shown in the legend.</param>
         /// <param name="Opacity">Sets the Opacity otf the trace.</param>
         /// <param name="X">Sets the x coordinates.</param>
+        /// <param name="MultiX">Sets the x coordinates. Use two inner arrays here to plot multicategorial data</param>
         /// <param name="XGap">Sets the horizontal gap (in pixels) between bricks.</param>
         /// <param name="Y">Sets the y coordinates.</param>
+        /// <param name="MultiY">Sets the y coordinates. Use two inner arrays here to plot multicategorial data</param>
         /// <param name="YGap">Sets the vertical gap (in pixels) between bricks.</param>
         /// <param name="Text">Sets a text associated with each datum</param>
         /// <param name="MultiText">Sets individual text for each datum</param>
@@ -2080,8 +2245,10 @@ namespace Plotly.NET.CSharp
             Optional<bool> ShowLegend = default,
             Optional<double> Opacity = default,
             Optional<IEnumerable<XType>> X = default,
+            Optional<IEnumerable<IEnumerable<XType>>> MultiX = default,
             Optional<int> XGap = default,
             Optional<IEnumerable<YType>> Y = default,
+            Optional<IEnumerable<IEnumerable<YType>>> MultiY = default,
             Optional<int> YGap = default,
             Optional<TextType> Text = default,
             Optional<IEnumerable<TextType>> MultiText = default,
@@ -2107,8 +2274,10 @@ namespace Plotly.NET.CSharp
                     ShowLegend: ShowLegend.ToOption(),
                     Opacity: Opacity.ToOption(),
                     X: X.ToOption(),
+                    MultiX: MultiX.ToOption(),
                     XGap: XGap.ToOption(),
                     Y: Y.ToOption(),
+                    MultiY: MultiY.ToOption(),
                     YGap: YGap.ToOption(),
                     Text: Text.ToOption(),
                     MultiText: MultiText.ToOption(),
@@ -2178,7 +2347,9 @@ namespace Plotly.NET.CSharp
         /// <param name="ShowLegend">Determines whether or not an item corresponding to this trace is shown in the legend.</param>
         /// <param name="Opacity">Sets the Opacity otf the trace.</param>
         /// <param name="X">Sets the x coordinates.</param>
+        /// <param name="MultiX">Sets the x coordinates. Use two inner arrays here to plot multicategorial data</param>
         /// <param name="Y">Sets the y coordinates.</param>
+        /// <param name="MultiY">Sets the y coordinates. Use two inner arrays here to plot multicategorial data</param>
         /// <param name="Text">Sets a text associated with each datum</param>
         /// <param name="MultiText">Sets individual text for each datum</param>
         /// <param name="ColorBar">Sets the styles of the colorbar for this trace.</param>
@@ -2186,15 +2357,19 @@ namespace Plotly.NET.CSharp
         /// <param name="ShowScale">Whether or not to show the colorscale/colorbar</param>
         /// <param name="ReverseScale">Reverses the color mapping if true. If true, `zmin` will correspond to the last color in the array and `zmax` will correspond to the first color.</param>
         /// <param name="Transpose">Transposes the z data.</param>
-        /// <param name="ContourLineDash">Sets the contour line dash style</param>
-        /// <param name="ContourLineColor">Sets the contour line color</param>
-        /// <param name="ContourLineSmoothing">Sets the amount of smoothing for the contour lines, where "0" corresponds to no smoothing.</param>
-        /// <param name="ContourLine">Sets the contour lines (use this for more finegrained control than the other contourline-associated arguments).</param>
+        /// <param name="ContourLinesDash">Sets the contour line dash style</param>
+        /// <param name="ContourLinesColor">Sets the contour line color</param>
+        /// <param name="ContourLinesSmoothing">Sets the amount of smoothing for the contour lines, where "0" corresponds to no smoothing.</param>
+        /// <param name="ContourLinesWidth">Sets the width of the contour lines</param>
+        /// <param name="ContourLines">Sets the contour lines (use this for more finegrained control than the other contourline-associated arguments).</param>
+        /// <param name="ShowContourLines">Wether or not to show the contour line</param>
         /// <param name="ContoursColoring">Determines the coloring method showing the contour values. If "fill", coloring is done evenly between each contour level If "heatmap", a heatmap gradient coloring is applied between each contour level. If "lines", coloring is done on the contour lines. If "none", no coloring is applied on this trace.</param>
         /// <param name="ContoursOperation">Sets the constraint operation. "=" keeps regions equal to `value` "&lt;" and "&lt;=" keep regions less than `value` "&gt;" and "&gt;=" keep regions greater than `value` "[]", "()", "[)", and "(]" keep regions inside `value[0]` to `value[1]` "][", ")(", "](", ")[" keep regions outside `value[0]` to value[1]` Open vs. closed intervals make no difference to constraint display, but all versions are allowed for consistency with filter transforms.</param>
         /// <param name="ContoursType">If `levels`, the data is represented as a contour plot with multiple levels displayed. If `constraint`, the data is represented as constraints with the invalid region shaded as specified by the `operation` and `value` parameters.</param>
-        /// <param name="ShowContourLabels">Determines whether to label the contour lines with their values.</param>
+        /// <param name="ShowContoursLabels">Determines whether to label the contour lines with their values.</param>
         /// <param name="ContourLabelFont">Sets the font used for labeling the contour levels. The default color comes from the lines, if shown. The default family and size come from `layout.font`.</param>
+        /// <param name="ContoursStart">Sets the starting contour level value. Must be less than `contours.end`</param>
+        /// <param name="ContoursEnd">Sets the end contour level value. Must be more than `contours.start`</param>
         /// <param name="Contours">Sets the styles of the contours (use this for more finegrained control than the other contour-associated arguments).</param>
         /// <param name="FillColor">Sets the fill color if `contours.type` is "constraint". Defaults to a half-transparent variant of the line color, marker color, or marker line color, whichever is available.</param>
         /// <param name="NContours">Sets the maximum number of contour levels. The actual number of contours will be chosen automatically to be less than or equal to the value of `ncontours`. Has an effect only if `autocontour` is "true" or if `contours.size` is missing.</param>
@@ -2204,25 +2379,31 @@ namespace Plotly.NET.CSharp
             Optional<string> Name = default, 
             Optional<bool> ShowLegend = default, 
             Optional<double> Opacity = default, 
-            Optional<IEnumerable<XType>> X = default, 
-            Optional<IEnumerable<YType>> Y = default, 
+            Optional<IEnumerable<XType>> X = default,
+            Optional<IEnumerable<IEnumerable<XType>>> MultiX = default,
+            Optional<IEnumerable<YType>> Y = default,
+            Optional<IEnumerable<IEnumerable<YType>>> MultiY = default,
             Optional<TextType> Text = default, 
             Optional<IEnumerable<TextType>> MultiText = default, 
             Optional<ColorBar> ColorBar = default, 
             Optional<StyleParam.Colorscale> ColorScale = default, 
             Optional<bool> ShowScale = default, 
             Optional<bool> ReverseScale = default, 
-            Optional<bool> Transpose = default, 
-            Optional<Color> ContourLineColor = default, 
-            Optional<StyleParam.DrawingStyle> ContourLineDash = default, 
-            Optional<double> ContourLineSmoothing = default, 
-            Optional<Line> ContourLine = default, 
-            Optional<StyleParam.ContourColoring> ContoursColoring = default, 
-            Optional<StyleParam.ConstraintOperation> ContoursOperation = default, 
-            Optional<StyleParam.ContourType> ContoursType = default, 
-            Optional<bool> ShowContourLabels = default, 
-            Optional<Font> ContourLabelFont = default, 
-            Optional<Contours> Contours = default, 
+            Optional<bool> Transpose = default,
+            Optional<StyleParam.DrawingStyle> ContourLinesDash = default,
+            Optional<Color> ContourLinesColor = default,
+            Optional<double> ContourLinesSmoothing = default,
+            Optional<double> ContourLinesWidth = default,
+            Optional<Line> ContourLines = default,
+            Optional<bool> ShowContourLines = default,
+            Optional<StyleParam.ContourColoring> ContoursColoring = default,
+            Optional<StyleParam.ConstraintOperation> ContoursOperation = default,
+            Optional<StyleParam.ContourType> ContoursType = default,
+            Optional<bool> ShowContoursLabels = default,
+            Optional<Font> ContourLabelFont = default,
+            Optional<double> ContoursStart = default,
+            Optional<double> ContoursEnd = default,
+            Optional<Contours> Contours = default,
             Optional<Color> FillColor = default, 
             Optional<int> NContours = default, 
             Optional<bool> UseDefaults = default
@@ -2238,7 +2419,9 @@ namespace Plotly.NET.CSharp
                     ShowLegend: ShowLegend.ToOption(),
                     Opacity: Opacity.ToOption(),
                     X: X.ToOption(),
+                    MultiX: MultiX.ToOption(),
                     Y: Y.ToOption(),
+                    MultiY: MultiY.ToOption(),
                     Text: Text.ToOption(),
                     MultiText: MultiText.ToOption(),
                     ColorBar: ColorBar.ToOption(),
@@ -2246,15 +2429,19 @@ namespace Plotly.NET.CSharp
                     ShowScale: ShowScale.ToOption(),
                     ReverseScale: ReverseScale.ToOption(),
                     Transpose: Transpose.ToOption(),
-                    ContourLinesColor: ContourLineColor.ToOption(),
-                    ContourLinesDash: ContourLineDash.ToOption(),
-                    ContourLinesSmoothing: ContourLineSmoothing.ToOption(),
-                    ContourLines: ContourLine.ToOption(),
+                    ContourLinesDash: ContourLinesDash.ToOption(),
+                    ContourLinesColor: ContourLinesColor.ToOption(),
+                    ContourLinesSmoothing: ContourLinesSmoothing.ToOption(),
+                    ContourLinesWidth: ContourLinesWidth.ToOption(),
+                    ContourLines: ContourLines.ToOption(),
+                    ShowContourLines: ShowContourLines.ToOption(),
                     ContoursColoring: ContoursColoring.ToOption(),
                     ContoursOperation: ContoursOperation.ToOption(),
                     ContoursType: ContoursType.ToOption(),
-                    ShowContoursLabels: ShowContourLabels.ToOption(),
+                    ShowContoursLabels: ShowContoursLabels.ToOption(),
                     ContoursLabelFont: ContourLabelFont.ToOption(),
+                    ContoursStart: ContoursStart.ToOption(),
+                    ContoursEnd: ContoursEnd.ToOption(),
                     Contours: Contours.ToOption(),
                     FillColor: FillColor.ToOption(),
                     NContours: NContours.ToOption(),
@@ -2271,7 +2458,8 @@ namespace Plotly.NET.CSharp
         /// <param name="high">Sets the high values.</param>
         /// <param name="low">Sets the low values.</param>
         /// <param name="close">Sets the close values.</param>
-        /// <param name="x">Sets the x coordinates. If absent, linear coordinate will be generated.</param>
+        /// <param name="X">Sets the x coordinates. If absent, linear coordinate will be generated.</param>
+        /// <param name="MultiX">Sets the x coordinates. If absent, linear coordinate will be generated. Use two inner arrays here to plot multicategorial data</param>
         /// <param name="Name">Sets the trace name. The trace name appear as the legend item and on hover.</param>
         /// <param name="ShowLegend">Determines whether or not an item corresponding to this trace is shown in the legend.</param>
         /// <param name="Opacity">Sets the Opacity otf the trace.</param>
@@ -2283,13 +2471,15 @@ namespace Plotly.NET.CSharp
         /// <param name="DecreasingColor">Sets the color of decreasing values</param>
         /// <param name="Decreasing">Sets the style options of decreasing values (use this for more finegrained control than the other increasing-associated arguments).</param>
         /// <param name="TickWidth">Sets the width of the open/close tick marks relative to the "x" minimal interval.</param>
+        /// <param name="ShowXAxisRangeSlider">Whether or not to show a rangeslider for the xaxis</param>
         /// <param name="UseDefaults">If set to false, ignore the global default settings set in `Defaults`</param>
         public static GenericChart OHLC<OHLCType, XType, TextType>(
             IEnumerable<OHLCType> open,
             IEnumerable<OHLCType> high,
             IEnumerable<OHLCType> low,
             IEnumerable<OHLCType> close,
-            IEnumerable<XType> x,
+            Optional<IEnumerable<XType>> X,
+            Optional<IEnumerable<IEnumerable<XType>>> MultiX,
             Optional<string> Name = default,
             Optional<bool> ShowLegend = default,
             Optional<double> Opacity = default,
@@ -2301,6 +2491,7 @@ namespace Plotly.NET.CSharp
             Optional<Color> DecreasingColor = default,
             Optional<FinanceMarker> Decreasing = default,
             Optional<double> TickWidth = default,
+            Optional<bool> ShowXAxisRangeSlider = default,
             Optional<bool> UseDefaults = default
         )
             where OHLCType : IConvertible
@@ -2312,7 +2503,8 @@ namespace Plotly.NET.CSharp
                     high: high,
                     low: low,
                     close: close,
-                    x: x,
+                    X: X.ToOption(),
+                    MultiX: MultiX.ToOption(),
                     Name: Name.ToOption(),
                     ShowLegend: ShowLegend.ToOption(),
                     Opacity: Opacity.ToOption(),
@@ -2324,6 +2516,7 @@ namespace Plotly.NET.CSharp
                     DecreasingColor: DecreasingColor.ToOption(),
                     Decreasing: Decreasing.ToOption(),
                     TickWidth: TickWidth.ToOption(),
+                    ShowXAxisRangeSlider: ShowXAxisRangeSlider.ToOption(),
                     UseDefaults: UseDefaults.ToOption()
                 );
 
@@ -2336,7 +2529,8 @@ namespace Plotly.NET.CSharp
         /// <param name="high">Sets the high values.</param>
         /// <param name="low">Sets the low values.</param>
         /// <param name="close">Sets the close values.</param>
-        /// <param name="x">Sets the x coordinates. If absent, linear coordinate will be generated.</param>
+        /// <param name="X">Sets the x coordinates. If absent, linear coordinate will be generated.</param>
+        /// <param name="MultiX">Sets the x coordinates. If absent, linear coordinate will be generated. Use two inner arrays here to plot multicategorial data</param>
         /// <param name="Name">Sets the trace name. The trace name appear as the legend item and on hover.</param>
         /// <param name="ShowLegend">Determines whether or not an item corresponding to this trace is shown in the legend.</param>
         /// <param name="Opacity">Sets the Opacity otf the trace.</param>
@@ -2348,13 +2542,15 @@ namespace Plotly.NET.CSharp
         /// <param name="DecreasingColor">Sets the color of decreasing values</param>
         /// <param name="Decreasing">Sets the style options of decreasing values (use this for more finegrained control than the other increasing-associated arguments).</param>
         /// <param name="WhiskerWidth">Sets the width of the whiskers relative to the box' width. For example, with 1, the whiskers are as wide as the box(es).</param>
+        /// <param name="ShowXAxisRangeSlider">Whether or not to show a rangeslider for the xaxis</param>
         /// <param name="UseDefaults">If set to false, ignore the global default settings set in `Defaults`</param>
         public static GenericChart Candlestick<OHLCType, XType, TextType>(
             IEnumerable<OHLCType> open,
             IEnumerable<OHLCType> high,
             IEnumerable<OHLCType> low,
             IEnumerable<OHLCType> close,
-            IEnumerable<XType> x,
+            Optional<IEnumerable<XType>> X,
+            Optional<IEnumerable<IEnumerable<XType>>> MultiX,
             Optional<string> Name = default,
             Optional<bool> ShowLegend = default,
             Optional<double> Opacity = default,
@@ -2366,6 +2562,7 @@ namespace Plotly.NET.CSharp
             Optional<Color> DecreasingColor = default,
             Optional<FinanceMarker> Decreasing = default,
             Optional<double> WhiskerWidth = default,
+            Optional<bool> ShowXAxisRangeSlider = default,
             Optional<bool> UseDefaults = default
         )
             where OHLCType : IConvertible
@@ -2377,7 +2574,8 @@ namespace Plotly.NET.CSharp
                     high: high,
                     low: low,
                     close: close,
-                    x: x,
+                    X: X.ToOption(),
+                    MultiX: MultiX.ToOption(),
                     Name: Name.ToOption(),
                     ShowLegend: ShowLegend.ToOption(),
                     Opacity: Opacity.ToOption(),
@@ -2389,6 +2587,7 @@ namespace Plotly.NET.CSharp
                     DecreasingColor: DecreasingColor.ToOption(),
                     Decreasing: Decreasing.ToOption(),
                     WhiskerWidth: WhiskerWidth.ToOption(),
+                    ShowXAxisRangeSlider: ShowXAxisRangeSlider.ToOption(),
                     UseDefaults: UseDefaults.ToOption()
                 );
 
@@ -2468,12 +2667,20 @@ namespace Plotly.NET.CSharp
         /// <param name="PointMarkerColor">Sets the marker color of the point trace.</param>
         /// <param name="PointMarkerSymbol">Sets the marker symbol of the point trace.</param>
         /// <param name="PointMarkerSize">Sets the marker size of the point trace.</param>
-        /// <param name="ContourLineColor">Sets the color of the contour lines of the histogram2dcontour trace.</param>
-        /// <param name="ContourLineSmoothing">Sets the smoothing of the contour lines of the histogram2dcontour trace.</param>
-        /// <param name="ContourLineWidth">Sets the width of the contour lines of the histogram2dcontour trace.</param>
-        /// <param name="ShowContourLines">Whether or not to show contour lines</param>
-        /// <param name="ShowContourLabels">Whether or not to show contour labels</param>
-        /// <param name="ContourColoring">Determines the coloring method showing the contour values. If "fill", coloring is done evenly between each contour level If "heatmap", a heatmap gradient coloring is applied between each contour level. If "lines", coloring is done on the contour lines. If "none", no coloring is applied on this trace.</param>
+        /// <param name="ContourLinesDash">Sets the contour line dash style</param>
+        /// <param name="ContourLinesColor">Sets the contour line color</param>
+        /// <param name="ContourLinesSmoothing">Sets the amount of smoothing for the contour lines, where "0" corresponds to no smoothing.</param>
+        /// <param name="ContourLinesWidth">Sets the width of the contour lines</param>
+        /// <param name="ContourLines">Sets the contour lines (use this for more finegrained control than the other contourline-associated arguments).</param>
+        /// <param name="ShowContourLines">Wether or not to show the contour line</param>
+        /// <param name="ContoursColoring">Determines the coloring method showing the contour values. If "fill", coloring is done evenly between each contour level If "heatmap", a heatmap gradient coloring is applied between each contour level. If "lines", coloring is done on the contour lines. If "none", no coloring is applied on this trace.</param>
+        /// <param name="ContoursOperation">Sets the constraint operation. "=" keeps regions equal to `value` "&lt;" and "&lt;=" keep regions less than `value` "&gt;" and "&gt;=" keep regions greater than `value` "[]", "()", "[)", and "(]" keep regions inside `value[0]` to `value[1]` "][", ")(", "](", ")[" keep regions outside `value[0]` to value[1]` Open vs. closed intervals make no difference to constraint display, but all versions are allowed for consistency with filter transforms.</param>
+        /// <param name="ContoursType">If `levels`, the data is represented as a contour plot with multiple levels displayed. If `constraint`, the data is represented as constraints with the invalid region shaded as specified by the `operation` and `value` parameters.</param>
+        /// <param name="ShowContoursLabels">Determines whether to label the contour lines with their values.</param>
+        /// <param name="ContourLabelFont">Sets the font used for labeling the contour levels. The default color comes from the lines, if shown. The default family and size come from `layout.font`.</param>
+        /// <param name="ContoursStart">Sets the starting contour level value. Must be less than `contours.end`</param>
+        /// <param name="ContoursEnd">Sets the end contour level value. Must be more than `contours.start`</param>
+        /// <param name="Contours">Sets the styles of the contours (use this for more finegrained control than the other contour-associated arguments).</param>
         /// <param name="NContours">Sets the maximum number of contour levels. The actual number of contours will be chosen automatically to be less than or equal to the value of `ncontours`. Has an effect only if `autocontour` is "true" or if `contours.size` is missing.</param>
         /// <param name="HistNorm">Specifies the type of normalization used for this histogram trace. If "", the span of each bar corresponds to the number of occurrences (i.e. the number of data points lying inside the bins). If "percent" / "probability", the span of each bar corresponds to the percentage / fraction of occurrences with respect to the total number of sample points (here, the sum of all bin HEIGHTS equals 100% / 1). If "density", the span of each bar corresponds to the number of occurrences in a bin divided by the size of the bin interval (here, the sum of all bin AREAS equals the total number of sample points). If "probability density", the area of each bar corresponds to the probability that an event will fall into the corresponding bin (here, the sum of all bin AREAS equals 1).</param>
         /// <param name="ContourOpacity">Sets the opacity of the histogram2dcontour trace.</param>
@@ -2487,16 +2694,24 @@ namespace Plotly.NET.CSharp
             Optional<double> PointOpacity = default, 
             Optional<Color> PointMarkerColor = default, 
             Optional<StyleParam.MarkerSymbol> PointMarkerSymbol = default, 
-            Optional<int> PointMarkerSize = default, 
-            Optional<Color> ContourLineColor = default, 
-            Optional<double> ContourLineSmoothing = default, 
-            Optional<double> ContourLineWidth = default, 
-            Optional<bool> ShowContourLines = default, 
-            Optional<bool> ShowContourLabels = default, 
-            Optional<StyleParam.ContourColoring> ContourColoring = default, 
-            Optional<int> NContours = default, 
-            Optional<StyleParam.HistNorm> HistNorm = default, 
-            Optional<double> ContourOpacity = default, 
+            Optional<int> PointMarkerSize = default,
+            Optional<StyleParam.DrawingStyle> ContourLinesDash = default,
+            Optional<Color> ContourLinesColor = default,
+            Optional<double> ContourLinesSmoothing = default,
+            Optional<double> ContourLinesWidth = default,
+            Optional<Line> ContourLines = default,
+            Optional<bool> ShowContourLines = default,
+            Optional<StyleParam.ContourColoring> ContoursColoring = default,
+            Optional<StyleParam.ConstraintOperation> ContoursOperation = default,
+            Optional<StyleParam.ContourType> ContoursType = default,
+            Optional<bool> ShowContoursLabels = default,
+            Optional<Font> ContourLabelFont = default,
+            Optional<double> ContoursStart = default,
+            Optional<double> ContoursEnd = default,
+            Optional<Contours> Contours = default,
+            Optional<int> NContours = default,
+            Optional<StyleParam.HistNorm> HistNorm = default,
+            Optional<double> ContourOpacity = default,
             Optional<ColorBar> ColorBar = default, 
             Optional<StyleParam.Colorscale> ColorScale = default, 
             Optional<bool> ShowScale = default, 
@@ -2512,12 +2727,20 @@ namespace Plotly.NET.CSharp
                     PointMarkerColor: PointMarkerColor.ToOption(),
                     PointMarkerSymbol: PointMarkerSymbol.ToOption(),
                     PointMarkerSize: PointMarkerSize.ToOption(),
-                    ContourLinesColor: ContourLineColor.ToOption(),
-                    ContourLinesSmoothing: ContourLineSmoothing.ToOption(),
-                    ContourLinesWidth: ContourLineWidth.ToOption(),
+                    ContourLinesDash: ContourLinesDash.ToOption(),
+                    ContourLinesColor: ContourLinesColor.ToOption(),
+                    ContourLinesSmoothing: ContourLinesSmoothing.ToOption(),
+                    ContourLinesWidth: ContourLinesWidth.ToOption(),
+                    ContourLines: ContourLines.ToOption(),
                     ShowContourLines: ShowContourLines.ToOption(),
-                    ShowContoursLabels: ShowContourLabels.ToOption(),
-                    ContoursColoring: ContourColoring.ToOption(),
+                    ContoursColoring: ContoursColoring.ToOption(),
+                    ContoursOperation: ContoursOperation.ToOption(),
+                    ContoursType: ContoursType.ToOption(),
+                    ShowContoursLabels: ShowContoursLabels.ToOption(),
+                    ContoursLabelFont: ContourLabelFont.ToOption(),
+                    ContoursStart: ContoursStart.ToOption(),
+                    ContoursEnd: ContoursEnd.ToOption(),
+                    Contours: Contours.ToOption(),
                     NContours: NContours.ToOption(),
                     HistNorm: HistNorm.ToOption(),
                     ContourOpacity: ContourOpacity.ToOption(),

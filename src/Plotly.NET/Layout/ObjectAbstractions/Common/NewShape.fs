@@ -59,20 +59,20 @@ type NewShape() =
     /// <param name="Visible">Determines whether or not new shape is visible. If "legendonly", the shape is not drawn, but can appear as a legend item (provided that the legend itself is visible).</param>
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?DrawDirection: StyleParam.DrawDirection,
-            [<Optional; DefaultParameterValue(null)>] ?FillColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?FillRule: StyleParam.FillRule,
-            [<Optional; DefaultParameterValue(null)>] ?Layer: StyleParam.Layer,
-            [<Optional; DefaultParameterValue(null)>] ?ShowLegend: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Legend: StyleParam.SubPlotId,
-            [<Optional; DefaultParameterValue(null)>] ?LegendRank: int,
-            [<Optional; DefaultParameterValue(null)>] ?LegendGroup: string,
-            [<Optional; DefaultParameterValue(null)>] ?LegendGroupTitle: Title,
-            [<Optional; DefaultParameterValue(null)>] ?LegendWidth: float,
-            [<Optional; DefaultParameterValue(null)>] ?Line: Line,
-            [<Optional; DefaultParameterValue(null)>] ?Name: string,
-            [<Optional; DefaultParameterValue(null)>] ?Opacity: float,
-            [<Optional; DefaultParameterValue(null)>] ?Visible: StyleParam.Visible
+            ?DrawDirection: StyleParam.DrawDirection,
+            ?FillColor: Color,
+            ?FillRule: StyleParam.FillRule,
+            ?Layer: StyleParam.Layer,
+            ?ShowLegend: bool,
+            ?Legend: StyleParam.SubPlotId,
+            ?LegendRank: int,
+            ?LegendGroup: string,
+            ?LegendGroupTitle: Title,
+            ?LegendWidth: float,
+            ?Line: Line,
+            ?Name: string,
+            ?Opacity: float,
+            ?Visible: StyleParam.Visible
         ) =
         NewShape()
         |> NewShape.style (
@@ -111,20 +111,20 @@ type NewShape() =
     /// <param name="Visible">Determines whether or not new shape is visible. If "legendonly", the shape is not drawn, but can appear as a legend item (provided that the legend itself is visible).</param>
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?DrawDirection: StyleParam.DrawDirection,
-            [<Optional; DefaultParameterValue(null)>] ?FillColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?FillRule: StyleParam.FillRule,
-            [<Optional; DefaultParameterValue(null)>] ?Layer: StyleParam.Layer,
-            [<Optional; DefaultParameterValue(null)>] ?ShowLegend: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Legend: StyleParam.SubPlotId,
-            [<Optional; DefaultParameterValue(null)>] ?LegendRank: int,
-            [<Optional; DefaultParameterValue(null)>] ?LegendGroup: string,
-            [<Optional; DefaultParameterValue(null)>] ?LegendGroupTitle: Title,
-            [<Optional; DefaultParameterValue(null)>] ?LegendWidth: float,
-            [<Optional; DefaultParameterValue(null)>] ?Line: Line,
-            [<Optional; DefaultParameterValue(null)>] ?Name: string,
-            [<Optional; DefaultParameterValue(null)>] ?Opacity: float,
-            [<Optional; DefaultParameterValue(null)>] ?Visible: StyleParam.Visible
+            ?DrawDirection: StyleParam.DrawDirection,
+            ?FillColor: Color,
+            ?FillRule: StyleParam.FillRule,
+            ?Layer: StyleParam.Layer,
+            ?ShowLegend: bool,
+            ?Legend: StyleParam.SubPlotId,
+            ?LegendRank: int,
+            ?LegendGroup: string,
+            ?LegendGroupTitle: Title,
+            ?LegendWidth: float,
+            ?Line: Line,
+            ?Name: string,
+            ?Opacity: float,
+            ?Visible: StyleParam.Visible
         ) =
         (fun (newShape: NewShape) ->
 

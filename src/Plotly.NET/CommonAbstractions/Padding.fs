@@ -15,10 +15,10 @@ type Padding() =
     /// <param name="T">The amount of padding (in px) along the top of the component</param>
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?B: int,
-            [<Optional; DefaultParameterValue(null)>] ?L: int,
-            [<Optional; DefaultParameterValue(null)>] ?R: int,
-            [<Optional; DefaultParameterValue(null)>] ?T: int
+            ?B: int,
+            ?L: int,
+            ?R: int,
+            ?T: int
         ) =
         Padding() |> Padding.style (?B = B, ?L = L, ?R = R, ?T = T)
 
@@ -31,10 +31,10 @@ type Padding() =
     /// <param name="T">The amount of padding (in px) along the top of the component</param>
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?B: int,
-            [<Optional; DefaultParameterValue(null)>] ?L: int,
-            [<Optional; DefaultParameterValue(null)>] ?R: int,
-            [<Optional; DefaultParameterValue(null)>] ?T: int
+            ?B: int,
+            ?L: int,
+            ?R: int,
+            ?T: int
         ) =
         (fun (padding: Padding) ->
             padding

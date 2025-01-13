@@ -24,11 +24,11 @@ type Pathbar() =
     ///Textfont : Sets the font used inside `pathbar`.
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Visible: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Side: StyleParam.Side,
-            [<Optional; DefaultParameterValue(null)>] ?EdgeShape: StyleParam.PathbarEdgeShape,
-            [<Optional; DefaultParameterValue(null)>] ?Thickness: float,
-            [<Optional; DefaultParameterValue(null)>] ?Textfont: Font
+            ?Visible: bool,
+            ?Side: StyleParam.Side,
+            ?EdgeShape: StyleParam.PathbarEdgeShape,
+            ?Thickness: float,
+            ?Textfont: Font
         ) =
 
         Pathbar()
@@ -55,11 +55,11 @@ type Pathbar() =
     ///Textfont : Sets the font used inside `pathbar`.
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Visible: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Side: StyleParam.Side,
-            [<Optional; DefaultParameterValue(null)>] ?EdgeShape: StyleParam.PathbarEdgeShape,
-            [<Optional; DefaultParameterValue(null)>] ?Thickness: float,
-            [<Optional; DefaultParameterValue(null)>] ?Textfont: Font
+            ?Visible: bool,
+            ?Side: StyleParam.Side,
+            ?EdgeShape: StyleParam.PathbarEdgeShape,
+            ?Thickness: float,
+            ?Textfont: Font
         ) =
         fun (pathbar: Pathbar) ->
 

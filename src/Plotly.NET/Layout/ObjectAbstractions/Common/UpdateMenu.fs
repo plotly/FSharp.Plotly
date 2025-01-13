@@ -10,14 +10,14 @@ type UpdateMenuButton() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Args: seq<DynamicObj>,
-            [<Optional; DefaultParameterValue(null)>] ?Args2: seq<DynamicObj>,
-            [<Optional; DefaultParameterValue(null)>] ?Execute: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Label: string,
-            [<Optional; DefaultParameterValue(null)>] ?Method: StyleParam.UpdateMethod,
-            [<Optional; DefaultParameterValue(null)>] ?Name: string,
-            [<Optional; DefaultParameterValue(null)>] ?TemplateItemName: string,
-            [<Optional; DefaultParameterValue(null)>] ?Visible: bool
+            ?Args: seq<DynamicObj>,
+            ?Args2: seq<DynamicObj>,
+            ?Execute: bool,
+            ?Label: string,
+            ?Method: StyleParam.UpdateMethod,
+            ?Name: string,
+            ?TemplateItemName: string,
+            ?Visible: bool
         ) =
         UpdateMenuButton()
         |> UpdateMenuButton.style (
@@ -34,14 +34,14 @@ type UpdateMenuButton() =
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Args: seq<DynamicObj>,
-            [<Optional; DefaultParameterValue(null)>] ?Args2: seq<DynamicObj>,
-            [<Optional; DefaultParameterValue(null)>] ?Execute: bool,
-            [<Optional; DefaultParameterValue(null)>] ?Label: string,
-            [<Optional; DefaultParameterValue(null)>] ?Method: StyleParam.UpdateMethod,
-            [<Optional; DefaultParameterValue(null)>] ?Name: string,
-            [<Optional; DefaultParameterValue(null)>] ?TemplateItemName: string,
-            [<Optional; DefaultParameterValue(null)>] ?Visible: bool
+            ?Args: seq<DynamicObj>,
+            ?Args2: seq<DynamicObj>,
+            ?Execute: bool,
+            ?Label: string,
+            ?Method: StyleParam.UpdateMethod,
+            ?Name: string,
+            ?TemplateItemName: string,
+            ?Visible: bool
         ) =
         (fun (updateMenuButton: UpdateMenuButton) ->
 
@@ -61,22 +61,22 @@ type UpdateMenu() =
 
     static member init
         (
-            [<Optional; DefaultParameterValue(null)>] ?Active: int,
-            [<Optional; DefaultParameterValue(null)>] ?BGColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?BorderColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Buttons: seq<UpdateMenuButton>,
-            [<Optional; DefaultParameterValue(null)>] ?Direction: StyleParam.UpdateMenuDirection,
-            [<Optional; DefaultParameterValue(null)>] ?Font: Font,
-            [<Optional; DefaultParameterValue(null)>] ?Name: string,
-            [<Optional; DefaultParameterValue(null)>] ?Pad: Padding,
-            [<Optional; DefaultParameterValue(null)>] ?ShowActive: bool,
-            [<Optional; DefaultParameterValue(null)>] ?TemplateItemName: string,
-            [<Optional; DefaultParameterValue(null)>] ?Type: StyleParam.UpdateMenuType,
-            [<Optional; DefaultParameterValue(null)>] ?Visible: bool,
-            [<Optional; DefaultParameterValue(null)>] ?X: float,
-            [<Optional; DefaultParameterValue(null)>] ?XAnchor: StyleParam.XAnchorPosition,
-            [<Optional; DefaultParameterValue(null)>] ?Y: float,
-            [<Optional; DefaultParameterValue(null)>] ?YAnchor: StyleParam.YAnchorPosition
+            ?Active: int,
+            ?BGColor: Color,
+            ?BorderColor: Color,
+            ?Buttons: seq<UpdateMenuButton>,
+            ?Direction: StyleParam.UpdateMenuDirection,
+            ?Font: Font,
+            ?Name: string,
+            ?Pad: Padding,
+            ?ShowActive: bool,
+            ?TemplateItemName: string,
+            ?Type: StyleParam.UpdateMenuType,
+            ?Visible: bool,
+            ?X: float,
+            ?XAnchor: StyleParam.XAnchorPosition,
+            ?Y: float,
+            ?YAnchor: StyleParam.YAnchorPosition
         ) =
         UpdateMenu()
         |> UpdateMenu.style (
@@ -101,22 +101,22 @@ type UpdateMenu() =
 
     static member style
         (
-            [<Optional; DefaultParameterValue(null)>] ?Active: int,
-            [<Optional; DefaultParameterValue(null)>] ?BGColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?BorderColor: Color,
-            [<Optional; DefaultParameterValue(null)>] ?Buttons: seq<UpdateMenuButton>,
-            [<Optional; DefaultParameterValue(null)>] ?Direction: StyleParam.UpdateMenuDirection,
-            [<Optional; DefaultParameterValue(null)>] ?Font: Font,
-            [<Optional; DefaultParameterValue(null)>] ?Name: string,
-            [<Optional; DefaultParameterValue(null)>] ?Pad: Padding,
-            [<Optional; DefaultParameterValue(null)>] ?ShowActive: bool,
-            [<Optional; DefaultParameterValue(null)>] ?TemplateItemName: string,
-            [<Optional; DefaultParameterValue(null)>] ?Type: StyleParam.UpdateMenuType,
-            [<Optional; DefaultParameterValue(null)>] ?Visible: bool,
-            [<Optional; DefaultParameterValue(null)>] ?X: float,
-            [<Optional; DefaultParameterValue(null)>] ?XAnchor: StyleParam.XAnchorPosition,
-            [<Optional; DefaultParameterValue(null)>] ?Y: float,
-            [<Optional; DefaultParameterValue(null)>] ?YAnchor: StyleParam.YAnchorPosition
+            ?Active: int,
+            ?BGColor: Color,
+            ?BorderColor: Color,
+            ?Buttons: seq<UpdateMenuButton>,
+            ?Direction: StyleParam.UpdateMenuDirection,
+            ?Font: Font,
+            ?Name: string,
+            ?Pad: Padding,
+            ?ShowActive: bool,
+            ?TemplateItemName: string,
+            ?Type: StyleParam.UpdateMenuType,
+            ?Visible: bool,
+            ?X: float,
+            ?XAnchor: StyleParam.XAnchorPosition,
+            ?Y: float,
+            ?YAnchor: StyleParam.YAnchorPosition
         ) =
         (fun (updateMenu: UpdateMenu) ->
 
