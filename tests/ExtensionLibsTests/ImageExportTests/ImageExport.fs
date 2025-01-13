@@ -16,6 +16,10 @@ let readTestFilePlatformSpecific filePostfix =
         File.ReadAllText (__SOURCE_DIRECTORY__ + $"/data/win{filePostfix}")
     else
         raise (Exception "Running tests on the current OS is not supported :(")
+         
+// https://github.com/hardkoded/puppeteer-sharp/issues/2792 maybe
+// generation fails on linux CI, workaround like this?
+PuppeteerSharpRendererOptions.launchOptions.Args <- Array.concat [PuppeteerSharpRendererOptions.launchOptions.Args; [| "--no-sandbox" |]]
 
 [<Tests>]
 let ``Image export base64 strings tests`` =
