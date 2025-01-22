@@ -231,6 +231,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{0D955C86-2
 		docs\data\volcano.csv = docs\data\volcano.csv
 	EndProjectSection
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "InteractiveTests", "tests\ExtensionLibsTests\InteractiveTests\InteractiveTests.fsproj", "{04BC8CE5-B096-46AD-AB1D-674305BAF59A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -316,6 +318,12 @@ Global
 		{18F778B2-3409-4309-8C9B-596109072481}.Dotnet|Any CPU.Build.0 = Debug|Any CPU
 		{18F778B2-3409-4309-8C9B-596109072481}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18F778B2-3409-4309-8C9B-596109072481}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04BC8CE5-B096-46AD-AB1D-674305BAF59A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04BC8CE5-B096-46AD-AB1D-674305BAF59A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04BC8CE5-B096-46AD-AB1D-674305BAF59A}.Dotnet|Any CPU.ActiveCfg = Debug|Any CPU
+		{04BC8CE5-B096-46AD-AB1D-674305BAF59A}.Dotnet|Any CPU.Build.0 = Debug|Any CPU
+		{04BC8CE5-B096-46AD-AB1D-674305BAF59A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04BC8CE5-B096-46AD-AB1D-674305BAF59A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -357,6 +365,7 @@ Global
 		{7432D5ED-0D0D-4F15-A3AC-CC2BFA4F211F} = {A9025690-FABC-4BD3-AC94-F31B60A948B4}
 		{2DF92AB2-7B8C-48D5-B779-26BA1F31BCA1} = {A9025690-FABC-4BD3-AC94-F31B60A948B4}
 		{0D955C86-2E86-4D50-828A-6CF5AD99A119} = {7B09CC0A-F1E1-4094-9DE4-B047581E01F0}
+		{04BC8CE5-B096-46AD-AB1D-674305BAF59A} = {02886FBB-DB32-4BBB-A93C-E13EBF453ACC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7177F1E1-341C-48AB-9864-6B525FFF7633}
